@@ -3,14 +3,12 @@ import "./style.css";
 
 import { navigation } from "./navigation";
 import { createHomePage } from "./routes/home";
-window.addEventListener('DOMContentLoaded',()=>{
-    console.log("DOMContentLoaded");
-    
-})
-window.addEventListener("load",()=>{
-    console.log("load");
-    
-})
+window.addEventListener("DOMContentLoaded", () => {
+  console.log("DOMContentLoaded");
+});
+window.addEventListener("load", () => {
+  console.log("load");
+});
 
-createHomePage()
-navigation()
+createHomePage();
+navigation();

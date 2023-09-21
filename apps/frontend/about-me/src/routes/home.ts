@@ -18,10 +18,12 @@ import {
 } from "../nodes";
 import { createProjects } from "../components/ListOfProjects";
 import { createContactForm } from "../components/ContactForm";
+import { createCarousel } from "../components/Carousel";
 const projectsEl = await createProjects();
 const technologiesEl = createTechnologies();
 const formContainer = createContactForm();
 const formContainer2 = createContactForm("rgb(0,0,0,0.8)");
+const carousel = createCarousel(projectsEl)
 
 function animations() {
   inView(
@@ -132,7 +134,7 @@ export const createHomePage = () => {
     })
   );
   contactButtonBottom?.append(formContainer2);
-  projectList?.append(projectsEl);
+  projectList?.append(carousel);
   stackList?.append(technologiesEl);
 
   animations();
