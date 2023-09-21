@@ -38,7 +38,7 @@ function animations() {
     { margin: "-150px" }
   );
   inView(
-    ".skills",
+    ".skills__stack-list",
     ({ target }) => {
       animate(
         target.querySelectorAll(".level"),
@@ -46,7 +46,7 @@ function animations() {
         { delay: 0.5, duration: 0.9, easing: [0.17, 0.55, 0.55, 1] }
       );
     },
-    { margin: "-250px" }
+    { margin:"-200px" }
   );
 
   scroll(animate(".layer-1", { opacity: 0 }), {
