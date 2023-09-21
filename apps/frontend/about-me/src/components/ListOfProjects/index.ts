@@ -1,5 +1,5 @@
 
-import { ButtonSizes, ButtonStyles, CardSizes, TypographyColor, TypographySize, TypographyWeight, createButton, createCard, createContainer, createTypography } from "../../../../../../packages/ui-html";
+import { ButtonSizes, ButtonStyles, TypographyColor, TypographySize, TypographyWeight, createButton, createContainer, createTypography } from "../../../../../../packages/ui-html";
 import { projectService } from "../../services/project.service";
 import "./style.css"
 
