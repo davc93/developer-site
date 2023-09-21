@@ -5,3 +5,4 @@ export const projectList = document.querySelector("#projects-list")
 export const contactButtonBottom = document.querySelector("#contact-form-bottom");
 export const stackList = document.querySelector("#skills__stack-list");
 export const pagesContainer = document.querySelector("#pages-container")
+export const projectListPortfolio = document.querySelector("#project-list--portfolio")

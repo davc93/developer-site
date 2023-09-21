@@ -1,3 +1,4 @@
+import "./style.css"
 import {
   createModal,
   createContainer,
@@ -5,9 +6,9 @@ import {
   TypographySize,
   TypographyColor,
   TypographyWeight,
-} from "../../../../../packages/ui-html";
-import { technologies } from "../data/technologies";
-import { JobsList } from "../data/home";
+} from "../../../../../../packages/ui-html";
+import { technologies } from "../../data/technologies";
+import { JobsList } from "../../data/home";
 import { animate, inView, scroll } from "motion";
 import {
   contactButtonBottom,
@@ -15,10 +16,10 @@ import {
   jobsList,
   projectList,
   stackList,
-} from "../nodes";
-import { createProjects } from "../components/ListOfProjects";
-import { createContactForm } from "../components/ContactForm";
-import { createCarousel } from "../components/Carousel";
+} from "../../nodes";
+import { createProjects } from "../../components/ListOfProjects";
+import { createContactForm } from "../../components/ContactForm";
+import { createCarousel } from "../../components/Carousel";
 const projectsEl = await createProjects();
 const technologiesEl = createTechnologies();
 const formContainer = createContactForm();
@@ -35,7 +36,7 @@ function animations() {
         { delay: 0.3, duration: 0.9, easing: [0.17, 0.55, 0.55, 1] }
       );
     },
-    { margin: "-150px" }
+    { margin: "-100px" }
   );
   inView(
     ".skills__stack-list",
@@ -46,7 +47,7 @@ function animations() {
         { delay: 0.5, duration: 0.9, easing: [0.17, 0.55, 0.55, 1] }
       );
     },
-    { margin:"-200px" }
+    { margin:"-50px" }
   );
 
   scroll(animate(".layer-1", { opacity: 0 }), {
