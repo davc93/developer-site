@@ -46,7 +46,7 @@ function animations() {
         { delay: 0.5, duration: 0.9, easing: [0.17, 0.55, 0.55, 1] }
       );
     },
-    { margin: "-150px" }
+    { margin: "-250px" }
   );
 
   scroll(animate(".layer-1", { opacity: 0 }), {
