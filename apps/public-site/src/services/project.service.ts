@@ -3,11 +3,13 @@ import { Project } from "../models/project.model";
 
 class ProjectService{
 
-    async getProjects():Promise<Project[]>{
-        const response = await fetch(`${config.apiUrl}/projects`)
+    async getProjects(queryParamsObj?:Record<string, string>):Promise<Project[]>{
+        const queryParams = queryParamsObj ? `?${(new URLSearchParams(queryParamsObj)).toString()}` : ""
+        const url = `${config.apiUrl}/projects${queryParams}`
+        const response = await fetch(url)
         const data = await response.json()
-        if(data.error){
-            throw new Error(data.message)
+        if(!response.ok){
+            throw new Error(data.message ?? "Something went wrong")
         }
         return data
     }

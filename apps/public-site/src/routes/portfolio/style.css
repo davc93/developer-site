@@ -7,12 +7,26 @@
 
 .portfolio-page .projects-filter{
 display: none;
+
+}
+.projects-filter-container {
+    width: 90%;
+
 position: relative;
 }
 .portfolio-page .projects-list-container{
     overflow-y: scroll;
     background-color: var(--neutral_950);
     padding: 1rem;
+}
+
+.projects-list-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px,350px));
+    justify-content: center;
+    column-gap: var(--space_4);
+
+    row-gap: var(--space_4);
 }
 @media (min-width:768px){
     .portfolio-page{
@@ -29,5 +43,5 @@ position: relative;
 .projects-filter-form{
     width: 100%;
     position: absolute;
-    top: 50%;
+    top: 300px;
 }

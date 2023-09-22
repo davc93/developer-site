@@ -16,7 +16,11 @@ import { createCarousel } from "../../components/Carousel";
 import { createContainer } from "../../components/Container";
 import { TypographyColor, TypographySize, TypographyWeight, createTypography } from "../../components/Typography";
 import { createModal } from "../../components/Modal";
-const projectsEl = await createProjects();
+import { projectService } from "../../services/project.service";
+import { ProjectCardType } from "../../components/ProjectCard";
+
+const projects = await projectService.getProjects()
+const projectsEl = createProjects(projects,ProjectCardType.LARGE);
 const technologiesEl = createTechnologies();
 const formContainer = createContactForm();
 const formContainer2 = createContactForm("rgb(0,0,0,0.8)");
