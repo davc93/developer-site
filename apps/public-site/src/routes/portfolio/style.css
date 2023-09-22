@@ -7,6 +7,7 @@
 
 .portfolio-page .projects-filter{
 display: none;
+position: relative;
 }
 .portfolio-page .projects-list-container{
     overflow-y: scroll;
@@ -24,4 +25,9 @@ display: none;
     
     }
     
+}
+.projects-filter-form{
+    width: 100%;
+    position: absolute;
+    top: 50%;
 }

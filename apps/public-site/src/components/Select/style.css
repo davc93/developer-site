@@ -1,0 +1,18 @@
+
+  .box select {
+    background-color: var(--dark);
+    color: white;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    font-size: 20px;
+    outline: none;
+    border: 1px solid var(--white);
+
+  }
+  
+  
+  
+  .box select option {
+    padding: 30px;
+  }

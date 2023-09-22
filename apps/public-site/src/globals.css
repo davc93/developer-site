@@ -11,6 +11,7 @@
 @import url("./components/TextArea/text-area.css");
 @import url("./components/TextField/text-field.css");
 @import url("./components/Typography/typography.css");
+@import url("./components/Select/style.css");
 .page-inactive{
   display: none !important;
 }

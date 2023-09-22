@@ -17,7 +17,7 @@ class ProjectService {
     const newItem = await models.LabelProject.create(data);
     return newItem;
   }
-  async findAll(limit, offset, slug, label) {
+  async findAll(limit, offset, slug, labelId) {
     if (slug) {
       const projects = await models.Project.findAll({
         include: [{ all: true }],
@@ -28,7 +28,7 @@ class ProjectService {
       });
       return projects;
     }
-    if (label) {
+    if (labelId) {
       const projects = await models.Project.findAll({
         include: [
           {
@@ -44,9 +44,10 @@ class ProjectService {
           },
         ],
       });
+
       const projectsFiltered = projects.filter((project) =>
         project.labels.some((labelObj) => {
-          return labelObj.title.toLowerCase() === label;
+          return labelObj.id == labelId;
         })
       );
       return projectsFiltered;
