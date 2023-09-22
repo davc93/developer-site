@@ -1,0 +1,103 @@
+ 
+.button {
+  font-family: 'Ubuntu', sans-serif;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  line-height: 1;
+  align-items: center;
+}
+.button__content{
+  width: 100%;
+  text-align: center;
+}
+
+.button--filled {
+  color: var(--white);
+  background-color: var(--primary_600);
+  border: 1px solid var(--primary_600);
+
+}
+.button--outlined {
+  color: var(--white);
+  background-color: var(--dark);
+  border: 1px solid var(--white);
+}
+.button--medium {
+
+  font-size: var(--font_size_body_medium);
+  padding: 8px 16px;
+}
+.button--large {
+  font-size: var(--font_size_title_small);
+  padding: 12px 24px;
+}
+
+/* loader size */
+.button--large > .button__loader {
+  width:var(--font_size_title_small);
+  height:var(--font_size_title_small);
+  
+}
+.button--medium > .button__loader {
+  width:var(--font_size_body_medium);
+  height:var(--font_size_body_medium);
+  
+}
+
+/* loader */
+
+
+.button__loader {
+  display: none;
+}
+.button__content {
+  display: block;
+}
+
+.button--loading > .button__loader {
+  display: block;
+}
+.button--loading > .button__content {
+  display: none;
+}
+
+.button--filled > .button__loader {
+  border-radius:50%;
+  background:conic-gradient(#0000 10%,var(--white));
+  -webkit-mask:radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);
+  animation:s2 1s infinite linear;
+}
+@keyframes s2 {to{transform: rotate(1turn)}}
+
+.button--outlined > .button__loader {
+  border-radius:50%;
+  background:conic-gradient(#0000 10%,var(--white));
+  -webkit-mask:radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);
+  animation:s3 1s infinite linear;
+}
+
+@keyframes s3 {to{transform: rotate(1turn)}}
+/* end loader */
+
+
+
+.button--disabled.button--outlined {
+  cursor: not-allowed;
+  color: var(--neutral_600);
+  border: 1px solid var(--neutral_600);
+  
+  
+}
+
+.button--disabled.button--filled {
+  cursor: not-allowed;
+  color: var(--neutral_100);
+  border: 1px solid var(--neutral_100);
+  background-color: var(--primary_100);
+  
+}
+.hidden{
+  display: none;
+}
