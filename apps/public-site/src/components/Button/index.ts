@@ -52,8 +52,7 @@ export const createButton = ({
   backgroundColor,
   label = "Button",
   type = "button",
-  href,
-  onClick,
+  href
 }: ButtonProps) => {
   const btn = document.createElement(href ? "a": "button") as HTMLAnchorElement;
   if(href){
