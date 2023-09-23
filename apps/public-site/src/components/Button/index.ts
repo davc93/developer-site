@@ -1,3 +1,4 @@
+import { goTo } from "../../navigation";
 
 export enum ButtonSizes {
   Medium = "medium",
@@ -26,6 +27,7 @@ export interface ButtonProps {
    * Button contents
    */
   label: string;
+  href?:string
   /**
    * Optional click handler
    */
@@ -50,9 +52,17 @@ export const createButton = ({
   backgroundColor,
   label = "Button",
   type = "button",
+  href,
   onClick,
 }: ButtonProps) => {
-  const btn = document.createElement("button");
+  const btn = document.createElement(href ? "a": "button") as HTMLAnchorElement;
+  if(href){
+    btn.href = href
+    btn.addEventListener('click',(event)=>{
+      event.preventDefault()
+      goTo(href)
+    })
+  }
   btn.type = type;
   const content = document.createElement("span")
   content.className = "button__content"
@@ -61,10 +71,7 @@ export const createButton = ({
   loader.className = "button__loader";
   btn.append(content,loader);
 
-  if (onClick) {
-    btn.addEventListener("click", onClick);
-  }
-
+  
   btn.className = [
     "button",
     `button--${size}`,

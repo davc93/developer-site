@@ -59,6 +59,7 @@ export const createProjectCard = ({ type, project }: ProjectCardProps) => {
     style: ButtonStyles.outlined,
     size: ButtonSizes.Large,
     label: "More details",
+    href:`/portfolio/${project.slug}`
   });
   const textContainer = createContainer({ border: false });
   textContainer.classList.add(`${type}__text`);
