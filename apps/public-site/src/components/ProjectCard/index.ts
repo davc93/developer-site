@@ -1,4 +1,5 @@
 import { Project } from "../../models/project.model";
+import { createAccordionItem } from "../AccordionItem";
 import { ButtonSizes, ButtonStyles, createButton } from "../Button";
 import { createContainer } from "../Container";
 import {
@@ -64,6 +65,6 @@ export const createProjectCard = ({ type, project }: ProjectCardProps) => {
   const textContainer = createContainer({ border: false });
   textContainer.classList.add(`${type}__text`);
   textContainer.append(projectTitle, projectDescription, cta);
-  projectCard.append(projectImage, textContainer, techsContainer);
+  projectCard.append(projectImage, textContainer, techsContainer,createAccordionItem({header:"More details",content:createTypography({label:"tech",size:TypographySize.bodySmall})}));
   return projectCard;
 };
