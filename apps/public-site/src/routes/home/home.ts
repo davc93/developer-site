@@ -18,8 +18,14 @@ import { TypographyColor, TypographySize, TypographyWeight, createTypography } f
 import { createModal } from "../../components/Modal";
 import { projectService } from "../../services/project.service";
 import { ProjectCardType } from "../../components/ProjectCard";
-
-const projects = await projectService.getProjects()
+function shuffleArray(array:any[]) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1)); // Generate a random index between 0 and i
+    [array[i], array[j]] = [array[j], array[i]]; // Swap elements at i and j
+  }
+}
+const projects =await projectService.getProjects() 
+shuffleArray(projects)
 const projectsEl = createProjects(projects,ProjectCardType.LARGE);
 const technologiesEl = createTechnologies();
 const formContainer = createContactForm();

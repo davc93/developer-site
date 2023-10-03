@@ -274,10 +274,12 @@
     row-gap: var(--space_11);
     padding-bottom: var(--space_11);
     width: 100%;
+    /* height: 100vh; */
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: var(--dark);
+    z-index: 4;
   }
   .portfolio__text {
     justify-self: center;

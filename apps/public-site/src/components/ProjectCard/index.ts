@@ -1,5 +1,5 @@
 import { Project } from "../../models/project.model";
-import { createAccordionItem } from "../AccordionItem";
+import { AccordionItemWidth, createAccordionItem } from "../AccordionItem";
 import { ButtonSizes, ButtonStyles, createButton } from "../Button";
 import { createContainer } from "../Container";
 import {
@@ -19,7 +19,7 @@ export interface ProjectCardProps {
 }
 
 export const createProjectCard = ({ type, project }: ProjectCardProps) => {
-  const projectCard = createContainer({ border: false });
+  const projectCard = document.createElement("div")
   projectCard.classList.add(type);
   const projectImage = document.createElement("img");
   projectImage.src = project.images[0].url;
@@ -35,7 +35,7 @@ export const createProjectCard = ({ type, project }: ProjectCardProps) => {
     color: TypographyColor.White,
     size: TypographySize.bodyLarge,
   });
-  const techsContainer = createContainer({ border: false });
+  const techsContainer = document.createElement("div");
   techsContainer.classList.add(`${type}__tech-list`);
   const techs = project.labels
     .filter((label) => label.type == undefined)
@@ -55,16 +55,26 @@ export const createProjectCard = ({ type, project }: ProjectCardProps) => {
       return techContainer;
     });
   techsContainer.append(...techs);
+  const  mobileTechsContainer = techsContainer.cloneNode(true) as any
+  mobileTechsContainer.classList.replace(`${type}__tech-list`,`${type}__tech-list--mobile`)
+  const techAccordion = createAccordionItem({content:mobileTechsContainer,width:AccordionItemWidth.AUTO} )
+  techAccordion.classList.add("project-card--large__accordion")
+  
+
+  const cardButtons = document.createElement("div")
+  cardButtons.className = `${type}__buttons`
 
   const cta = createButton({
     style: ButtonStyles.outlined,
-    size: ButtonSizes.Large,
+    size: ButtonSizes.LARGE,
     label: "More details",
     href:`/portfolio/${project.slug}`
   });
+  cardButtons.append(cta,techAccordion)
+
   const textContainer = createContainer({ border: false });
   textContainer.classList.add(`${type}__text`);
-  textContainer.append(projectTitle, projectDescription, cta);
-  projectCard.append(projectImage, textContainer, techsContainer,createAccordionItem({header:"More details",content:createTypography({label:"tech",size:TypographySize.bodySmall})}));
+  textContainer.append(projectTitle, projectDescription, cardButtons);
+  projectCard.append(projectImage, textContainer, techsContainer);
   return projectCard;
 };

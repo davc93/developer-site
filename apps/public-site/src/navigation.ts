@@ -1,4 +1,5 @@
-import { pagesContainer, portfolioDetails } from "./nodes";
+import { navbarInput, navbarMobileInput, pagesContainer, portfolioDetails } from "./nodes";
+import { createPortfolioDetailPage } from "./routes/portfolio/[slug]";
 
 export const goTo = (path: string) => {
   window.history.pushState({}, "", path);
@@ -24,7 +25,9 @@ export const navigation = () => {
         page[1].classList.remove("page-inactive");
       }
     });
+    
     scrollTo(0, 0);
+    createPortfolioDetailPage()
   } else if (currentPage?.classList.contains("building")) {
     goTo("/building");
   } else if (!currentPage) {
@@ -40,6 +43,8 @@ export const navigation = () => {
     });
     scrollTo(0, 0);
   }
+  navbarInput.checked = false
+  navbarMobileInput.checked = false
 };
 
 document
@@ -50,3 +55,4 @@ document
       goTo(anchor.href);
     });
   });
+window.addEventListener("popstate",navigation)

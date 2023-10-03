@@ -8,6 +8,7 @@
   line-height: 1;
   align-items: center;
   text-decoration: none;
+  
 }
 .button__content{
   width: 100%;
@@ -25,14 +26,16 @@
   background-color: var(--dark);
   border: 1px solid var(--white);
 }
-.button--medium {
-
-  font-size: var(--font_size_body_medium);
-  padding: 8px 16px;
-}
 .button--large {
   font-size: var(--font_size_title_small);
   padding: 12px 24px;
+  width: max-content;
+}
+.button--wide{
+
+  font-size: var(--font_size_title_small);
+  padding: 12px 24px;
+  width: 100%;
 }
 
 /* loader size */

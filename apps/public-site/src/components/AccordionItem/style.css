@@ -1,27 +1,27 @@
-.accordion-item{
-    width: 100%;
+.accordion-item {
 }
-.accordion-item__header{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    background: var(--dark);
-    border: 1px solid var(--white);
-    align-items: center;
-    cursor: pointer;
-    padding-inline: var(--space_2);
-    
+.accordion-item__header {
+  display: flex;
+  justify-content: space-between;
+  background: var(--dark);
+  border: 1px solid var(--white);
+  align-items: center;
+  cursor: pointer;
+  padding-inline: var(--space_2);
 }
-.accordion-item__content{
-    height: 0;
-    
-        overflow: hidden;
-        border: none;
+.accordion-item__content {
+margin-top: var(--space_2);
+  right: 0;
+  height: 0;
+  overflow: hidden;
+  border: none;
+  transition: height 0.3s;
+  background: var(--dark);
 }
-.accordion-item__content.active{
-    border-bottom: 1px solid var(--white);
+.accordion-item__content.active {
+    margin-top: var(--space_2);
 
- border-left: 1px solid var(--white);
+    height: 250px;
 
- border-right: 1px solid var(--white);
+  transition: height 0.3s;
 }

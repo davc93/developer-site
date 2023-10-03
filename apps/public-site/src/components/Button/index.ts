@@ -1,8 +1,8 @@
 import { goTo } from "../../navigation";
 
 export enum ButtonSizes {
-  Medium = "medium",
-  Large = "large",
+  LARGE = "large",
+  WIDE = "wide"
 }
 
 export enum ButtonStyles {
@@ -45,7 +45,7 @@ export interface ButtonProps {
  */
 export const createButton = ({
   style = ButtonStyles.filled,
-  size = ButtonSizes.Large,
+  size = ButtonSizes.LARGE,
   loading = false,
   disable = false,
   hidden = false,

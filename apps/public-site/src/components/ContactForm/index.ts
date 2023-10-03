@@ -1,6 +1,6 @@
 import { messageService } from "../../services/message.service";
 import { showNotification } from "../../utils/notifications";
-import { ButtonStyles, createButton } from "../Button";
+import { ButtonSizes, ButtonStyles, createButton } from "../Button";
 import { createContainer } from "../Container";
 import { NotificationType } from "../Notification";
 import { createTextArea } from "../TextArea";
@@ -30,6 +30,7 @@ export function createContactForm(background?:string) {
       label: "Send",
       style: ButtonStyles.outlined,
       type: "submit",
+      size:ButtonSizes.WIDE
       
     });
     
