@@ -11,3 +11,4 @@ export const projectsFilterForm = document.querySelector("#projects-filter-form"
 export const projectDescription = document.querySelector("#project-description") as Element
 export const navbarInput = document.querySelector(".navbar-desktop input") as HTMLInputElement
 export const navbarMobileInput = document.querySelector(".navbar-mobile input") as HTMLInputElement
+export const pageLoader = document.querySelector("#page-loader") as HTMLDivElement
