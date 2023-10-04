@@ -1,3 +1,4 @@
+import { config } from "../../../config"
 import { goTo } from "../../../navigation"
 import { projectDescription } from "../../../nodes"
 import { projectService } from "../../../services/project.service"
@@ -10,8 +11,8 @@ export const createPortfolioDetailPage = async () => {
     const html = marked.parse(project[0].description)
     projectDescription.innerHTML = html
     projectDescription.querySelectorAll("a").forEach((link)=>{
-        if(!link.href.includes("http")){
-
+        if(link.href.includes(config.domain)){
+            alert(link.href)
             link.addEventListener("click",(event)=>{
                 event.preventDefault()
                 goTo(link.href)
