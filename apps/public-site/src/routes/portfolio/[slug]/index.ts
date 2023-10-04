@@ -1,4 +1,4 @@
-import { config } from "../../../config"
+
 import { goTo } from "../../../navigation"
 import { projectDescription } from "../../../nodes"
 import { projectService } from "../../../services/project.service"
