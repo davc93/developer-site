@@ -1,0 +1,8 @@
+.icon-button {
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid var(--white);
+    display: flex;
+    width: max-content;
+    height: max-content;
+}

@@ -1,32 +1,61 @@
 .portfolio-detail-page {
-  width: 100%;
-  min-height: 100vh;
   background: var(--dark);
+  justify-items: center;
 }
 
 .project-description {
-}
-.project-description {
+  display: flex;
+  flex-direction: column;
+  max-width: 1024px;
   color: var(--white);
-  h1 {
+  grid-column: 1/-1;
+  font-family: "Ubuntu", sans-serif;
 
-  font-size: var(--font_size_title_large);
+  h1 {
+    align-self: center;
+    font-size: var(--font_size_title_large);
+    margin-block: var(--space_7);
+
+  }
+  img{
+    max-height: 380px;
+    object-fit: cover;
+    object-position: top;
   }
 
   h2 {
     font-size: var(--font_size_title_medium);
+    margin-block: var(--space_4);
+  }
+  h3 {
+    font-size: var(--font_size_title_small);
+    margin-block: var(--space_3);
 
   }
-  h3{
+  h4 {
     font-size: var(--font_size_title_small);
+    margin-block: var(--space_2);
 
   }
-  h4{
-    font-size: var(--font_size_title_small);
-
+  ul {
+    list-style: inside;
+  }
+  li{
+    margin-block: var(--space_3);
+    /* margin-left: var(--space_4); */
   }
   p {
     font-size: var(--font-size-body-medium);
-    line-height: var(--space-5);
+    margin-block: var(--space_3);
   }
+
+a{
+  text-decoration: underline;
+  color: var(--primary_300);
+}
+a:hover{
+  cursor: pointer;
+  color: var(--primary_100);
+  
+}
 }

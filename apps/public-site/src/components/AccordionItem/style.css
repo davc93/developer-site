@@ -1,6 +1,7 @@
 .accordion-item {
 }
 .accordion-item__header {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   background: var(--dark);
@@ -10,6 +11,8 @@
   padding-inline: var(--space_2);
 }
 .accordion-item__content {
+  width: 100%;
+
 margin-top: var(--space_2);
   right: 0;
   height: 0;

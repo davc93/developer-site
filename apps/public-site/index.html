@@ -23,7 +23,6 @@
     }
 
     .page-loader {
-
       position: fixed;
       z-index: 15;
       width: 100vw;
@@ -36,7 +35,6 @@
       align-items: center;
       flex-direction: column;
       gap: 16px;
-
     }
 
     .page-loader.inactive {
@@ -50,14 +48,14 @@
       height: 72px;
       border-radius: 50%;
       display: inline-block;
-      border-top: 4px solid #FFF;
+      border-top: 4px solid #fff;
       border-right: 4px solid transparent;
       box-sizing: border-box;
       animation: rotation 1s linear infinite;
     }
 
     .loader::after {
-      content: '';
+      content: "";
       box-sizing: border-box;
       position: absolute;
       left: 0;
@@ -69,10 +67,12 @@
       border-bottom: 4px solid transparent;
       animation: rotation 0.5s linear infinite reverse;
     }
-.loader-text{
-  opacity: 0;
-  animation: show-text 1s 3s forwards;
-}
+
+    .loader-text {
+      opacity: 0;
+      animation: show-text 1s 3s forwards;
+    }
+
     @keyframes rotation {
       0% {
         transform: rotate(0deg);
@@ -82,9 +82,10 @@
         transform: rotate(360deg);
       }
     }
+
     @keyframes show-text {
-      100%{
-        opacity: 1; 
+      100% {
+        opacity: 1;
       }
     }
   </style>
@@ -93,10 +94,8 @@
 <body>
   <div id="app">
     <div id="page-loader" class="page-loader">
-      <span class="loader" style="
-        
-        "></span>
-        <span class="loader-text" style=" color: white;">Wait a second...</span>
+      <span class="loader" style=""></span>
+      <span class="loader-text" style="color: white">Wait a second...</span>
     </div>
 
     <div class="layout" id="layout">
@@ -412,25 +411,14 @@
       </div>
       <div id="/portfolio" class="portfolio-page">
         <aside class="projects-filter">
-          <div class="projects-filter-container">
-            <div>
-              <h3 class="typography typography--body-large typography--white">
-                Search by Technology
-              </h3>
-              <form id="projects-filter-form" class="projects-filter-form"></form>
-            </div>
-            <div>
-              <h3 class="typography typography--body-large typography--white">
-                Search by Area
-              </h3>
-            </div>
-          </div>
+          <form id="projects-filter-form" class="projects-filter-form"></form>
+          
         </aside>
         <main class="projects-list-container" id="project-list--portfolio"></main>
       </div>
 
-      <div id="/portfolio/:slug" class="portfolio-detail-page building">
-        <div id="project-description" class="project-description"></div>
+      <div id="/portfolio/:slug" class="section portfolio-detail-page building">
+        <div id="project-description" class=" project-description"></div>
       </div>
       <div id="/appointments" class="appointments-page building"></div>
       <div id="/building" class="building-page">

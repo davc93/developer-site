@@ -1,21 +1,15 @@
-import { ArrowIcon } from "../Icons/ArrowIcon"
 import { TypographySize, TypographyTag, createTypography } from "../Typography"
 
-export enum AccordionItemWidth {
-    WIDE = "100%",
-    AUTO = "auto"
-}
 
 export interface AccordionItemProps {
     header?:string
     content:HTMLElement
-    width?: AccordionItemWidth
 }
 
 
 
 
-export const createAccordionItem = ({header,content,width = AccordionItemWidth.WIDE}:AccordionItemProps) => {
+export const createAccordionItem = ({header,content}:AccordionItemProps) => {
 
     const accordionItemEl = document.createElement("div")
     accordionItemEl.className = "accordion-item"
@@ -25,10 +19,9 @@ export const createAccordionItem = ({header,content,width = AccordionItemWidth.W
     contentEl.append(content)
 
     const headerEl = document.createElement("button")
-    headerEl.style.width = width
     headerEl.className = "accordion-item__header"
     const headerText = header ? createTypography({label:header,size:TypographySize.bodyLarge,tag:TypographyTag.span}) : ""
-    headerEl.append(headerText,ArrowIcon())
+    headerEl.append(headerText)
     headerEl.addEventListener("click",(event)=>{
         event.preventDefault()
         contentEl.classList.toggle("active")
