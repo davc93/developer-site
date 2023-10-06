@@ -41,7 +41,8 @@
   gap: var(--space_2);
   width: 100%;
   padding: var(--space_3);
-  max-width: 180px;
+  max-width: 160px;
+  overflow: hidden;
 }
 .project-card--large__tech-list--mobile {
   background: var(--dark);
@@ -50,7 +51,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space_4);
-  justify-content: center;
+  justify-content: space-between;
   transition: all 0.5s;
 }
 .project-card--large__tech-list--mobile.active {
@@ -92,6 +93,10 @@
 
   .project-card--large__tech-button {
     display: none !important;
+  }
+  
+  .project-card--large__tech {
+    max-width: 180px;
   }
 }
 

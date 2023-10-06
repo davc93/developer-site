@@ -1,20 +1,10 @@
-@import url('./components/Button/button.css');
 @import url("./components/Carousel/style.css");
-@import url("./components/ContactForm/style.css");
 @import url("./components/Container/container.css");
-@import url("./components/Link/link.css");
-@import url("./components/ListOfProjects/style.css");
 @import url("./components/Modal/modal.css");
 @import url("./components/NavbarDesktop/navbar-desktop.css");
 @import url("./components/NavbarMobile/navbar-mobile.css");
-@import url("./components/Notification/notification.css");
-@import url("./components/TextArea/text-area.css");
-@import url("./components/TextField/text-field.css");
-@import url("./components/Typography/typography.css");
-@import url("./components/Select/style.css");
 @import url("./components/ProjectCard/style.css");
 @import url("./components/AccordionItem/style.css");
-@import url("./components/IconButton/style.css");
 
 
 

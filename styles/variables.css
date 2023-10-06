@@ -1,3 +1,10 @@
+@import url("./button.css");
+@import url("./icon-button.css");
+@import url("./text-area.css");
+@import url("./text-field.css");
+@import url("./select.css");
+@import url("./notification.css");
+@import url("./typography.css");
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
 :root {
   /* Colors */
