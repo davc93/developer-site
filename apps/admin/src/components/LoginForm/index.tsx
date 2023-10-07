@@ -6,7 +6,8 @@ import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { ButtonLoader } from "../ButtonLoader";
 import { ErrorMessage } from "../ErrorMessage";
-
+import { TextField, TextFieldInputType } from "../TextField";
+import { Button, ButtonSizes } from "../Button";
 export const LoginForm = () => {
   //inputs handler
   const email = useInputValue("");
@@ -34,48 +35,41 @@ export const LoginForm = () => {
   };
 
   return (
-    <div className="login-grid w-full h-screen px-4 flex justify-center items-center">
-      <div
-        style={{
-          border: "1px solid var(--primary)",
-          maxWidth: 500,
-          gridColumn: 2,
-        }}
-        className="form-container flex flex-col items-center w-full login-form py-8 px-8"
+    <div
+      style={{
+        border: "1px solid var(--primary)",
+        maxWidth: 500,
+        gridColumn: 2,
+      }}
+      className="form-container bg-dark flex flex-col items-center w-full login-form py-8 px-8"
+    >
+      <h4 className="uppercase" style={{ color: "var(--light)" }}>
+        Login
+      </h4>
+      <form
+        className="flex flex-col items-center gap-6"
+        onSubmit={handleSubmit}
       >
-        <h4 className="uppercase" style={{color:"var(--light)"}}>Login</h4>
-        <form
-          className="flex flex-col items-center gap-6"
-          onSubmit={handleSubmit}
-        >
-          <div className="input-group">
-            <label className="text-white" htmlFor="email">Email</label>
-            <input
-              style={{ border: "1px solid var(--primary-dark)" }}
-              className="body-large "
-              id="email"
-              type="email"
-              name="email"
-              {...email}
-            />
-          </div>
-          <div className="input-group">
-            <label htmlFor="password" className="text-white">Password</label>
-            <input
-              style={{ border: "1px solid var(--primary-dark)" }}
-              className="body-large"
-              id="password"
-              type="password"
-              name="password"
-              {...password}
-            />
-          </div>
-          <button className="btn--primary w-56 h-14" type="submit">
-            {loading ? <ButtonLoader /> : "Login"}
-          </button>
-          <ErrorMessage>{error}</ErrorMessage>
-        </form>
-      </div>
+        <TextField
+          label="Email"
+          id="email"
+          name="email"
+          required={true}
+          {...email}
+          inputType={TextFieldInputType.TEXT}
+        />
+
+        <TextField
+          label="Password"
+          id="password"
+          name="password"
+          required={true}
+          {...password}
+          inputType={TextFieldInputType.PASSWORD}
+        />
+        <Button label="Login" size={ButtonSizes.WIDE} type="submit" loading={loading} />
+        <ErrorMessage>{error}</ErrorMessage>
+      </form>
     </div>
   );
 };

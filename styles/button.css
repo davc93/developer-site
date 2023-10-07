@@ -44,11 +44,12 @@
   height:var(--font_size_title_small);
   
 }
-.button--medium > .button__loader {
-  width:var(--font_size_body_medium);
-  height:var(--font_size_body_medium);
+.button--wide > .button__loader {
+  height:var(--font_size_title_small);
+  width:var(--font_size_title_small);
   
 }
+
 
 /* loader */
 

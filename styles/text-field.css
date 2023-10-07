@@ -8,6 +8,7 @@ input {
 
 /* Styling for the input container */
 .input {
+    width: 100%;
     display: flex;
     flex-direction: column-reverse;
     position: relative;
