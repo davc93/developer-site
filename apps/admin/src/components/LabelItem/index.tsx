@@ -4,15 +4,15 @@ import { labelService } from '../../services/label.service'
 import { AuthContext } from '../../context/AuthContext'
 import { useGetLabels } from '../ListOfLabels'
 import { Link } from 'react-router-dom'
-import { ButtonLoader } from '../ButtonLoader'
 import './style.css'
+import { Button, ButtonSizes } from '../Button'
+import { Typography, TypographySize } from '../Typography'
 type LabelProps = {
     data:Label,
     getLabels:any
     setFilteredLabels:any,
     filteredLabels:Label[]
 }
-
 export const LabelItem = ({data: label,setFilteredLabels,filteredLabels}:LabelProps) => {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState<string | null>(null)
@@ -33,15 +33,15 @@ export const LabelItem = ({data: label,setFilteredLabels,filteredLabels}:LabelPr
       };
       return (
         <div className="labels-list__item" key={label.id}>
-          <h6>{label.id}</h6>
-          <h6>{label.title}</h6>
-          <h6>{label.type}</h6>
-          <div>
-            <img style={{width:40}} src={label.image} alt={label.title} />
+          <Typography size={TypographySize.bodyLarge}>{label.id}</Typography>
+          <Typography size={TypographySize.bodyLarge}>{label.title}</Typography>
+          <Typography size={TypographySize.bodyLarge}>{label.type}</Typography>
+          <div className='w-10'>
+            <img src={label.image} alt={label.title} />
           </div>
-          <h6>{`${label.createdAt}`}</h6>
-          <div className="buttons">
-            <button onClick={handleDelete}>{ loading ? <ButtonLoader /> : 'Delete' }</button>
+          <Typography size={TypographySize.bodyLarge}>{`${label.createdAt}`}</Typography>
+          <div className="flex overflow-x-scroll">
+            <Button type='button' onClick={handleDelete} label='Delete' size={ButtonSizes.SMALL} loading={loading}/>
             <Link to={`/labels/edit/${label.id}`}>Edit</Link>
           </div>
         </div>

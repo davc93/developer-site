@@ -1,11 +1,11 @@
 .label-list__headers{
 
     display: grid;
-    grid-template-columns: repeat(6,1fr);
-    gap: 10px;
-    place-content: center;
-    place-items: center;
-    text-align: center;
-    width: 90%;
-    margin-bottom: 30px;
+    grid-template-columns: repeat(6,minmax(0px,120px));
+    gap: var(--space_2);
+
+}
+.label-list__headers > *{
+    overflow: hidden;
+    white-space: nowrap;
 }

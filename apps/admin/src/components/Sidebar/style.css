@@ -20,7 +20,7 @@
   height: 100vh;
   width: 85%;
   
-  background: var(--light);
+  background: var(--neutral_900);
   transform: translate(-100vw, 0);
 }
 
@@ -43,15 +43,16 @@
   display: flex;
   flex-direction: column;
   gap: 7px;
-  background-color: var(--light) !important;
+  background-color: var(--dark) !important;
   justify-content: center;
   padding: 10px;
   border-radius: 8px;
+  border: 1px solid var(--white);
 }
 .navbar--mobile__button .line {
   width: 42px;
   height: 3px;
-  background-color: var(--dark);
+  background-color: var(--white);
 }
 
 @media (min-width: 640px) {

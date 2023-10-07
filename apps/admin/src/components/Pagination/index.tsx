@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useInputValue } from "../../hooks/useInputValue";
-
+import { Button, ButtonSizes } from "../Button";
+import { Typography, TypographySize } from "../Typography";
 type PaginationProps = {
   children: React.ReactNode[];
 };
@@ -56,25 +57,25 @@ export const Pagination: React.FC<PaginationProps> = ({ children }) => {
   };
 
   return (
-    <div style={{ position: "relative" }}>
+    <div className="relative">
       <ul style={{ overflowY: "scroll", height: "50vh" }}>
         {filteredItems.map((ChildComponent: React.ReactNode, index) => {
           return <React.Fragment key={index}>{ChildComponent}</React.Fragment>;
         })}
       </ul>
       <div
-        className="option"
-        style={{ left: "40%", bottom: -80, position: "absolute" }}
+        className="option flex justify-between w-full"
       >
-        <button onClick={handlePrevPage}>Previous</button>
+        <Button size={ButtonSizes.SMALL} label="Previous" type="button" onClick={handlePrevPage}/>
         <select name="" id="" {...paginationInput}>
           <option value="5">5</option>
           <option value="10">10</option>
           <option value="15">15</option>
           <option value="20">20</option>
         </select>
-        <button onClick={handleNextPage}>Next</button>
-        <h6>Current Page: {currentPage}</h6>
+        <Button size={ButtonSizes.SMALL} label="Next" type="button" onClick={handleNextPage}/>
+
+        <Typography size={TypographySize.bodyLarge}>Current Page: {currentPage}</Typography>
       </div>
     </div>
   );

@@ -11,7 +11,8 @@ import "./style.css";
 import { LabelItem } from "../LabelItem";
 import { useInputValue } from "../../hooks/useInputValue";
 import { Pagination } from "../Pagination";
-
+import { TextField, TextFieldInputType } from "../TextField";
+import { Typography, TypographySize } from "../Typography";
 export const useGetLabels = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -59,25 +60,27 @@ export const ListOfLabels = () => {
   }, [searchInput.value]);
 
   return (
-    <section className="label-list lg:px-20">
+    <section className="label-list">
       <div className="label-list__options my-4">
         <form className="label-list__searchbar">
-          <input
-            type="text"
-            placeholder="write a label name"
+          <TextField
+          required
+            inputType={TextFieldInputType.TEXT}
+            label="write a label name"
             {...searchInput}
           />
         </form>
       </div>
       <div className="label-list__headers">
         <div>
-          <h5>Id</h5>
+          <Typography size={TypographySize.bodyLarge}>Id</Typography>
         </div>
         <div>
-          <h5>Title</h5>
+        <Typography size={TypographySize.bodyLarge}>Title</Typography>
+
         </div>
         <div className="flex relative gap-2">
-          <h5>Type</h5>
+          <Typography size={TypographySize.bodyLarge}>Type</Typography>
           <div className="absolute" style={{ right: -35 }}>
             <button onClick={handleShowFilter}>
               <svg
@@ -110,13 +113,13 @@ export const ListOfLabels = () => {
           </div>
         </div>
         <div>
-          <h5>Image</h5>
+          <Typography size={TypographySize.bodyLarge}>Image</Typography>
         </div>
         <div>
-          <h5>Created At</h5>
+          <Typography size={TypographySize.bodyLarge}>Created At</Typography>
         </div>
         <div>
-          <h5>Options</h5>
+          <Typography size={TypographySize.bodyLarge}>Options</Typography>
         </div>
       </div>
       <div className="label-list__items">

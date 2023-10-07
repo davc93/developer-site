@@ -4,10 +4,10 @@ import { authService } from "../../services/auth.service";
 import { useInputValue } from "../../hooks/useInputValue";
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { ButtonLoader } from "../ButtonLoader";
 import { ErrorMessage } from "../ErrorMessage";
 import { TextField, TextFieldInputType } from "../TextField";
 import { Button, ButtonSizes } from "../Button";
+import { Typography, TypographySize } from "../Typography";
 export const LoginForm = () => {
   //inputs handler
   const email = useInputValue("");
@@ -36,18 +36,12 @@ export const LoginForm = () => {
 
   return (
     <div
-      style={{
-        border: "1px solid var(--primary)",
-        maxWidth: 500,
-        gridColumn: 2,
-      }}
-      className="form-container bg-dark flex flex-col items-center w-full login-form py-8 px-8"
+    style={{background:"rgba(0,0,0,0.7)"}}
+      className="form-container h-full lg:h-auto  flex flex-col items-center max-w-md w-full login-form py-8 px-8"
     >
-      <h4 className="uppercase" style={{ color: "var(--light)" }}>
-        Login
-      </h4>
+      <Typography className="mb-8" size={TypographySize.titleSmall}>Login Form</Typography>
       <form
-        className="flex flex-col items-center gap-6"
+        className="flex flex-col gap-4 items-center"
         onSubmit={handleSubmit}
       >
         <TextField
@@ -67,7 +61,7 @@ export const LoginForm = () => {
           {...password}
           inputType={TextFieldInputType.PASSWORD}
         />
-        <Button label="Login" size={ButtonSizes.WIDE} type="submit" loading={loading} />
+        <Button className="mt-8" label="Login" size={ButtonSizes.WIDE} type="submit" loading={loading} />
         <ErrorMessage>{error}</ErrorMessage>
       </form>
     </div>

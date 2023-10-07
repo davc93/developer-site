@@ -9,9 +9,9 @@ type LayoutProps = {
 export const Layout = ({ children }: LayoutProps) => {
   const { token } = useContext(AuthContext);
   return (
-    <div className="layout">
+    <div className="layout ">
       {token && <Sidebar />}
-      <main className="page-content">{children}</main>
+      <main className={`page-content h-screen bg-dark ${token ? "pt-16" : ""}`}>{children}</main>
     </div>
   );
 };

@@ -26,6 +26,12 @@
   background-color: var(--dark);
   border: 1px solid var(--white);
 }
+
+.button--small {
+  font-size: var(--font_size_body_large);
+  padding: 6px 12px;
+  width: max-content;
+}
 .button--large {
   font-size: var(--font_size_title_small);
   padding: 12px 24px;

@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import "./style.css";
 import { AuthContext } from "../../context/AuthContext";
 import { UserContext, userReducerActions } from "../../context/UserContext";
+import { Typography, TypographySize } from "../Typography";
 const routes = [
   {
     path: "/profile",
@@ -80,21 +81,9 @@ export const Sidebar = () => {
     });
     if (mobileButton.current?.classList.contains("isOpen")) {
       setSidebarOpen(true);
-      const line1 = mobileButton.current?.querySelector(".line-1");
-      const line2 = mobileButton.current?.querySelector(".line-2");
-      const line3 = mobileButton.current?.querySelector(".line-3");
-      gsap.to(line1, { rotate: 45, y: 10 });
-      gsap.to(line2, { rotate: -45 });
-      gsap.to(line3, { rotate: 45, y: -10 });
       menuAnimation.open();
     } else {
       setSidebarOpen(false);
-      const line1 = mobileButton.current?.querySelector(".line-1");
-      const line2 = mobileButton.current?.querySelector(".line-2");
-      const line3 = mobileButton.current?.querySelector(".line-3");
-      gsap.to(line1 as HTMLElement, { rotate: 0, y: -1 });
-      gsap.to(line2 as HTMLElement, { rotate: 0 });
-      gsap.to(line3 as HTMLElement, { rotate: 0, y: 1 });
       menuAnimation.close();
     }
   };
@@ -124,15 +113,16 @@ export const Sidebar = () => {
                 <button
                   id={`dropdown-btn-${index}`}
                   onClick={handleDropdown}
-                  className="dropdown-btn w-full text-start hover:bg-slate-200 py-2 pl-6 pr-2 flex justify-between"
+                  className="dropdown-btn w-full text-start py-2 pl-6 pr-2 flex justify-between"
                 >
-                  <h6>{route.name}</h6>
+                  <Typography size={TypographySize.bodyLarge}>{route.name}</Typography>
 
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     height="24"
                     viewBox="0 96 960 960"
                     width="24"
+                    fill="var(--white)"
                   >
                     <path d="m375 816-43-43 198-198-198-198 43-43 241 241-241 241Z" />
                   </svg>
@@ -140,13 +130,11 @@ export const Sidebar = () => {
                 {
                   <div
                     id={`dropdown-content-${index}`}
-                    className="dropdown-content hidden absolute w-40 m-4 space-y-2 px-2 py-2"
+                    className="dropdown-content hidden absolute bg-neutral-900 w-40 m-4 space-y-2 px-2 py-2"
                     style={{
                       zIndex: 3,
-                      background: "white",
                       right: -175,
-                      top: -16,
-                      boxShadow: "0px 0px 4px 1px #00000050",
+                      top: -16
                     }}
                   >
                     {route.routes?.map((route) => {
@@ -154,10 +142,10 @@ export const Sidebar = () => {
                         <Link
                           key={route.path}
                           onClick={handleMenuClick}
-                          className="nav-link flex flex-col hover:bg-slate-200 px-1"
+                          className="nav-link flex flex-col  px-1"
                           to={route.path}
                         >
-                          <h6>{route.name}</h6>
+                          <Typography size={TypographySize.bodyLarge}>{route.name}</Typography>
                         </Link>
                       );
                     })}
@@ -169,11 +157,11 @@ export const Sidebar = () => {
             return (
               <li className="dropdown w-full cursor-pointer  relative inline-block" key={index}>
                 <Link
-                  className="dropdown-btn w-full text-start hover:bg-slate-200 py-2 pl-6 pr-2 flex justify-between"
+                  className="dropdown-btn w-full text-start  py-2 pl-6 pr-2 flex justify-between"
                   to={route.path}
                   onClick={handleMenuClick}
                 >
-                  {route.name}
+                  <Typography size={TypographySize.bodyLarge}>{route.name}</Typography>
                 </Link>
               </li>
             );
@@ -183,8 +171,8 @@ export const Sidebar = () => {
           <button onClick={handleLogoutClick} className="">
             <div className="flex items-center gap-3">
 
-            <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 96 960 960" width="36px"><path d="M180 936q-24 0-42-18t-18-42V276q0-24 18-42t42-18h291v60H180v600h291v60H180Zm486-185-43-43 102-102H375v-60h348L621 444l43-43 176 176-174 174Z"/></svg>
-            <h6>Log out</h6>
+            <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 96 960 960" width="36px" fill="var(--white)"><path d="M180 936q-24 0-42-18t-18-42V276q0-24 18-42t42-18h291v60H180v600h291v60H180Zm486-185-43-43 102-102H375v-60h348L621 444l43-43 176 176-174 174Z"/></svg>
+            <Typography size={TypographySize.bodyLarge}>Log out</Typography>
             </div>
           </button>
         </li>

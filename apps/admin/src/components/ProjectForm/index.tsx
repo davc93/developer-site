@@ -17,7 +17,7 @@ import { useMultiFile } from "../../hooks/useMultiFile";
 import { useGetLabels } from "../ListOfLabels";
 import { initialState, reducer } from "./reducer";
 import { Link, useNavigate } from "react-router-dom";
-
+import { Button, ButtonSizes } from "../Button";
 type ProjectFormProps = {
   project: Project | null;
 };
@@ -182,8 +182,8 @@ export const ProjectForm = ({ project }: ProjectFormProps) => {
   };
 
   return (
-    <div className="relative h-full w-full flex flex-col items-center justify-center">
-      <div className="forms-container flex justify-center">
+    <section className="flex h-full flex-col">
+      <div className="flex h-4/5 overflow-y-scroll">
         {state.step == 1 && (
           <form>
             <div className="input-group">
@@ -223,7 +223,7 @@ export const ProjectForm = ({ project }: ProjectFormProps) => {
           </form>
         )}
         {state.step == 2 && (
-          <form style={{ height: "60vh", overflowY: "scroll" }}>
+          <form >
             <div>
               <button type="button" onClick={handleAddLabel}>
                 Agregar
@@ -280,8 +280,21 @@ export const ProjectForm = ({ project }: ProjectFormProps) => {
           </form>
         )}
         {state.step == 3 && (
-          <form>
+          <form className="w-full">
             <div className="input-group">
+              
+              {loadingFiles && <p>Loading Images</p>}
+              {errorFiles && <p>{errorFiles}</p>}
+              <div className="flex gap-2 flex-wrap">
+                {files?.map((file: any) => {
+
+                  return (
+                    <div className="max-w-xs" key={file.url}>
+                      <img key={file.public_id} src={file.url} alt="" />
+                    </div>
+                  )   
+                })}
+              </div>
               <input
                 type="file"
                 name="files"
@@ -289,18 +302,6 @@ export const ProjectForm = ({ project }: ProjectFormProps) => {
                 multiple
                 onInput={handleFiles}
               />
-              {loadingFiles && <p>Loading Images</p>}
-              {errorFiles && <p>{errorFiles}</p>}
-              <div className="images">
-                {files?.map((file: any) => {
-
-                  return (
-                    <div key={file.url}>
-                      <img key={file.public_id} src={file.url} alt="" />
-                    </div>
-                  )   
-                })}
-              </div>
             </div>
             {state.uploadingForm && <p>Loading</p>}
             {state.error && <p>{state.error}</p>}
@@ -309,44 +310,43 @@ export const ProjectForm = ({ project }: ProjectFormProps) => {
       </div>
 
       <div
-        className="buttons absolute bottom-4 flex gap-5 justify-center w-full"
-        style={{}}
+        className="h-1/5 flex gap-5 items-center justify-between w-full"
+        
       >
         {state.step == 1 ? (
-          <Link className="btn--secondary " to="/projects">
-            Back to projects
+          <Link to="/projects">
+            <Button type="button" label="Back to projects" size={ButtonSizes.SMALL} />
           </Link>
         ) : (
-          <button
-            className="btn--secondary"
+          <Button
             type="button"
+            label="Previous"
+            size={ButtonSizes.SMALL}
             onClick={(event) => {
               dispatch({ type: "CHANGE_STEP", payload: state.step - 1 });
             }}
-          >
-            Previous
-          </button>
+          />
         )}
         {state.step == 3 ? (
-          <button
-            className="btn--primary"
+          <Button
+          label="Submit"
+          size={ButtonSizes.SMALL}
             onClick={handleSubmit}
             type="submit"
-          >
-            Submit
-          </button>
+          />
         ) : (
-          <button
-            className="btn--primary"
-            type="button"
+          <Button
+          label="Next"
+          size={ButtonSizes.SMALL}  
+          type="button"
             onClick={(event) => {
+              
               dispatch({ type: "CHANGE_STEP", payload: state.step + 1 });
             }}
-          >
-            Next
-          </button>
+          />
+            
         )}
       </div>
-    </div>
+    </section>
   );
 };

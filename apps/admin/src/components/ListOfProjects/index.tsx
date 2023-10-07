@@ -4,6 +4,8 @@ import { projectService } from "../../services/project.service";
 import "./style.css";
 import { ProjectItem } from "../ProjectItem";
 import { useInputValue } from "../../hooks/useInputValue";
+import { Typography, TypographySize } from "../Typography";
+import { TextField, TextFieldInputType } from "../TextField";
 
 export const useGetProjects = () => {
   const [projects, setProjects] = React.useState<Project[]>([]);
@@ -46,27 +48,29 @@ export const ListOfProjects = () => {
     setFilteredProjects(projects)
   },[projects])
   return (
-    <section className="lg:px-20">
+    <section className="">
 
       <div className="project-list__options my-4">
         <form className="project-list__searchbar">
-          <input
-            type="text"
-            placeholder="write a label name"
+          <TextField
             {...searchInput}
+            inputType={TextFieldInputType.TEXT}
+            name="Project name"
+            label="Project name"
+            required
           />
         </form>
       </div>
       <div className="project-list__headers">
-        <h5>Id</h5>
-        <h5>Title</h5>
-        <h5>Slug</h5>
-        <h5>Short Description</h5>
-        <h5>Published</h5>
-        <h5>Repository</h5>
-        <h5>App Link</h5>
-        <h5>Created At</h5>
-        <h5>Options</h5>
+        <Typography size={TypographySize.bodyLarge}>Id</Typography>
+        <Typography size={TypographySize.bodyLarge}>Title</Typography>
+        <Typography size={TypographySize.bodyLarge}>Slug</Typography>
+        <Typography size={TypographySize.bodyLarge}>Short Description</Typography>
+        <Typography size={TypographySize.bodyLarge}>Published</Typography>
+        <Typography size={TypographySize.bodyLarge}>Repository</Typography>
+        <Typography size={TypographySize.bodyLarge}>App Link</Typography>
+        <Typography size={TypographySize.bodyLarge}>Created At</Typography>
+        <Typography size={TypographySize.bodyLarge}>Options</Typography>
       </div>
       <div className="project-list__items grid gap-2 mt-3">
         {filteredProjects.map((project) => (

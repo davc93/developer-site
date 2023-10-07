@@ -3,6 +3,7 @@ import { HTMLAttributes } from "react";
 export enum ButtonSizes {
   LARGE = "large",
   WIDE = "wide",
+  SMALL = "small"
 }
 
 export enum ButtonStyles {
@@ -35,6 +36,7 @@ export const Button = ({
   return (
     <button
       type={type}
+      {...props}
       className={["button", style,loading ? "button--loading" : "", `button--${size}`, props.className].join(" ")}
     >
       <span className="button__content">{label}</span>
