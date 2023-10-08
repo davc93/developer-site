@@ -3,6 +3,7 @@ import { ButtonSizes, ButtonStyles, createButton } from "../Button";
 import { createContainer } from "../Container";
 import { createIconButton } from "../IconButton";
 import { ArrowIcon } from "../Icons/ArrowIcon";
+import { ImageFormat, createImage } from "../Image";
 import {
   TypographyColor,
   TypographySize,
@@ -19,12 +20,16 @@ export interface ProjectCardProps {
   type: ProjectCardType;
 }
 
+
 export const createProjectCard = ({ type, project }: ProjectCardProps) => {
   if (type == ProjectCardType.MEDIUM) {
     const projectCard = document.createElement("div");
     projectCard.classList.add(type);
-    const projectImage = document.createElement("img");
-    projectImage.src = project.images[0].url;
+    const imageContainer = document.createElement("div")
+    imageContainer.className = "project-card--medium__image-container"
+    const image = createImage({url:project.images[0].url,width:1280,height:720,format:ImageFormat.JPG})
+    imageContainer.append(image)
+
     const projectTitle = createTypography({
       label: project.title,
       weight: TypographyWeight.MEDIUM,
@@ -78,7 +83,7 @@ export const createProjectCard = ({ type, project }: ProjectCardProps) => {
     textContainer.classList.add(`${type}__text`);
     textContainer.append(projectTitle, projectDescription, cardButtons);
     projectCard.append(
-      projectImage,
+      imageContainer,
       textContainer,
       techsContainer
     );
@@ -87,8 +92,11 @@ export const createProjectCard = ({ type, project }: ProjectCardProps) => {
   } else {
     const projectCard = document.createElement("div");
     projectCard.classList.add(type);
-    const projectImage = document.createElement("img");
-    projectImage.src = project.images[0].url;
+    const imageContainer = document.createElement("div")
+
+    imageContainer.className = "project-card--large__image-container"
+    const image = createImage({url:project.images[0].url,width:1280,height:720,format:ImageFormat.JPG})
+    imageContainer.append(image)
     const projectTitle = createTypography({
       label: project.title,
       weight: TypographyWeight.MEDIUM,
@@ -147,7 +155,7 @@ export const createProjectCard = ({ type, project }: ProjectCardProps) => {
     textContainer.classList.add(`${type}__text`);
     textContainer.append(projectTitle, projectDescription, cardButtons);
     projectCard.append(
-      projectImage,
+      imageContainer,
       textContainer,
       techsContainer,
       mobileTechsContainer
@@ -155,4 +163,5 @@ export const createProjectCard = ({ type, project }: ProjectCardProps) => {
 
     return projectCard;
   }
+
 };
