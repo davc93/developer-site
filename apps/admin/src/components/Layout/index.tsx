@@ -11,7 +11,7 @@ export const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="layout ">
       {token && <Sidebar />}
-      <main className={`page-content h-screen bg-dark ${token ? "pt-16" : ""}`}>{children}</main>
+      <main className={`page-content h-screen overflow-y-scroll  bg-dark ${token ? "pt-16 px-5" : ""}`}>{children}</main>
     </div>
   );
 };

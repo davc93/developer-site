@@ -44,13 +44,13 @@ textarea {
 }
 
 /* Styling for focused and valid input fields */
-.text-area-field:focus {
+.text-area-field:focus, .text-area-field:valid {
     outline: 0;
     border-bottom-color: var(--white);
 }
 
 /* Styling for focused and valid input labels */
-.text-area-field:focus + .text-area-label {
+.text-area-field:focus + .text-area-label,.text-area-field:valid + .text-area-label {
     color: var(--neutral_600);
     transform: translateY(-1.5rem);
 }

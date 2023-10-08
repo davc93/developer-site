@@ -6,7 +6,6 @@ import {
   useReducer,
 } from "react";
 import { Project } from "../../models/project.model";
-import "./style.css";
 import { projectService } from "../../services/project.service";
 import { labelProjectService } from "../../services/label-project.service";
 import { useInputValue } from "../../hooks/useInputValue";
@@ -18,6 +17,8 @@ import { useGetLabels } from "../ListOfLabels";
 import { initialState, reducer } from "./reducer";
 import { Link, useNavigate } from "react-router-dom";
 import { Button, ButtonSizes } from "../Button";
+import { TextField, TextFieldInputType } from "../TextField";
+import { TextArea } from "../TextArea";
 type ProjectFormProps = {
   project: Project | null;
 };
@@ -90,8 +91,8 @@ export const useLabelsInputs = (project?: Project | null) => {
 export const ProjectForm = ({ project }: ProjectFormProps) => {
   const { token } = useContext(AuthContext);
   const [state, dispatch] = useReducer(reducer, initialState);
-  const {labels,loading,error} = useGetLabels();
-  const navigate = useNavigate()
+  const { labels, loading, error } = useGetLabels();
+  const navigate = useNavigate();
   //input handler
 
   const title = useInputValue(project?.title ?? "");
@@ -175,7 +176,7 @@ export const ProjectForm = ({ project }: ProjectFormProps) => {
 
         dispatch({ type: "EDIT_PROJECT_FINISHED", payload: null });
       }
-      navigate('/projects')
+      navigate("/projects");
     } catch (error) {
       dispatch({ type: "ERROR", payload: `${error}` });
     }
@@ -185,114 +186,130 @@ export const ProjectForm = ({ project }: ProjectFormProps) => {
     <section className="flex h-full flex-col">
       <div className="flex h-4/5 overflow-y-scroll">
         {state.step == 1 && (
-          <form>
-            <div className="input-group">
-              <label>Title:</label>
-              <input type="text" name="title" {...title} />
-            </div>
-            <div className="input-group">
-              <label>Description:</label>
-              <textarea name="description" {...description} />
-            </div>
-            <div className="input-group">
-              <label>Short Description:</label>
-              <input
-                type="text"
+          <form className="flex gap-16 mt-4   w-full justify-between">
+            <div className="w-1/3">
+              <TextField
+                inputType={TextFieldInputType.TEXT}
+                name="title"
+                label="Title"
+                {...title}
+              />
+              <TextField
+                inputType={TextFieldInputType.TEXT}
                 name="shortDescription"
+                label="ShortDescription"
                 {...shortDescription}
               />
+              <TextField
+                inputType={TextFieldInputType.TEXT}
+                name="link"
+                label="Link"
+                {...link}
+              />
+              <TextField
+                inputType={TextFieldInputType.TEXT}
+                name="repository"
+                label="Repository"
+                {...repository}
+              />
+              <div className="input-group">
+                <label>Published:</label>
+                <input type="checkbox" name="published" {...publishedInput} />
+              </div>
+              <TextField
+                inputType={TextFieldInputType.TEXT}
+                name="slug"
+                label="Slug"
+                {...slug}
+              />
             </div>
-            <div className="input-group">
-              <label>Link:</label>
-              <input type="text" name="link" {...link} />
-            </div>
-
-            <div className="input-group">
-              <label>Repository:</label>
-              <input type="text" name="repository" {...repository} />
-            </div>
-            <div className="input-group">
-              <label>Published:</label>
-              <input type="checkbox" name="published" {...publishedInput} />
-            </div>
-
-            <div className="input-group">
-              <label>Slug:</label>
-              <input type="text" name="slug" {...slug} />
+            <div className="w-2/3 overflow-y-scroll">
+              <TextArea
+                style={{ height: "70vh" }}
+                name="description"
+                label="description"
+                {...description}
+              />
             </div>
           </form>
         )}
         {state.step == 2 && (
-          <form >
-            <div>
-              <button type="button" onClick={handleAddLabel}>
-                Agregar
-              </button>
+          <form className="w-full flex flex-col">
+            <div className="self-end">
+              <Button
+                type="button"
+                label="Agregar"
+                size={ButtonSizes.SMALL}
+                onClick={handleAddLabel}
+              />
             </div>
-            {labelsInputs.map((labelInput) => {
-              return (
-                <div key={labelInput.inputId}>
-                  <div className="input-group">
-                    <label htmlFor="">Label</label>
-                    <select
-                      value={labelInput.labelId ?? ""}
-                      name=""
-                      id={`labelId-${labelInput.inputId}`}
-                      onInput={handleInputChange}
-                    >
-                      {labels.length == 0  && (<option disabled>Loading...</option>)}
-                      {labels.map((label) => {
-                        return (
-                          <option key={label.id} value={label.id}>
-                            {label.title}{" "}
-                          </option>
-                        );
-                      })}
-                    </select>
+            <div className="flex flex-col gap-8">
+              {labelsInputs.map((labelInput) => {
+                return (
+                  <div className="flex gap-4 items-center" key={labelInput.inputId}>
+                    <div className="input-group">
+                      <label htmlFor="">Label</label>
+                      <select
+                        value={labelInput.labelId ?? ""}
+                        name=""
+                        id={`labelId-${labelInput.inputId}`}
+                        onInput={handleInputChange}
+                      >
+                        {labels.length == 0 && (
+                          <option disabled>Loading...</option>
+                        )}
+                        {!labelInput.labelId && <option value="">Seleccione una opcion</option> }
+                        {labels.map((label) => {
+                          return (
+                            <option key={label.id} value={label.id}>
+                              {label.title}{" "}
+                            </option>
+                          );
+                        })}
+                      </select>
+                    </div>
+                    <div className="input-group">
+                      <label htmlFor="">Order</label>
+                      <select
+                        value={labelInput.order ?? ""}
+                        name=""
+                        id={`order-${labelInput.inputId}`}
+                        onInput={handleInputChange}
+                      >
+                        {!labelInput.order && <option>Choose the order</option>}
+                        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((number) => {
+                          return (
+                            <option key={number} value={number}>
+                              {number}
+                            </option>
+                          );
+                        })}
+                      </select>
+                    </div>
+                    <Button
+                      label="Remove"
+                      size={ButtonSizes.SMALL}
+                      type="button"
+                      onClick={(event) => handleRemoveLabel(labelInput.inputId)}
+                    />
                   </div>
-                  <div className="input-group">
-                    <label htmlFor="">Order</label>
-                    <select
-                      value={labelInput.order ?? ""}
-                      name=""
-                      id={`order-${labelInput.inputId}`}
-                      onInput={handleInputChange}
-                    >
-                      {!labelInput.order && <option>Choose the order</option>}
-                      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((number) => {
-                        return (
-                          <option key={number} value={number}>
-                            {number}
-                          </option>
-                        );
-                      })}
-                    </select>
-                  </div>
-                  <button
-                    type="button"
-                    onClick={(event) => handleRemoveLabel(labelInput.inputId)}
-                  >
-                    Remove
-                  </button>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </form>
         )}
         {state.step == 3 && (
           <form className="w-full">
             <div className="input-group">
-              
               {loadingFiles && <p>Loading Images</p>}
               {errorFiles && <p>{errorFiles}</p>}
               <div className="flex gap-2 flex-wrap">
                 {files?.map((file: any) => {
-
                   return (
-                    <div className="max-w-xs" key={file.url}>
-                      <img key={file.public_id} src={file.url} alt="" />
+                    <div className="h-48 w-64 overflow-hidden" key={file.url}>
+                      <img className="" key={file.public_id} src={file.url} alt="" />
                     </div>
-                  )   
+                  );
                 })}
               </div>
               <input
@@ -309,13 +326,14 @@ export const ProjectForm = ({ project }: ProjectFormProps) => {
         )}
       </div>
 
-      <div
-        className="h-1/5 flex gap-5 items-center justify-between w-full"
-        
-      >
+      <div className="h-1/5 flex gap-5 items-center justify-between w-full">
         {state.step == 1 ? (
           <Link to="/projects">
-            <Button type="button" label="Back to projects" size={ButtonSizes.SMALL} />
+            <Button
+              type="button"
+              label="Back to projects"
+              size={ButtonSizes.SMALL}
+            />
           </Link>
         ) : (
           <Button
@@ -329,22 +347,20 @@ export const ProjectForm = ({ project }: ProjectFormProps) => {
         )}
         {state.step == 3 ? (
           <Button
-          label="Submit"
-          size={ButtonSizes.SMALL}
+            label="Submit"
+            size={ButtonSizes.SMALL}
             onClick={handleSubmit}
             type="submit"
           />
         ) : (
           <Button
-          label="Next"
-          size={ButtonSizes.SMALL}  
-          type="button"
+            label="Next"
+            size={ButtonSizes.SMALL}
+            type="button"
             onClick={(event) => {
-              
               dispatch({ type: "CHANGE_STEP", payload: state.step + 1 });
             }}
           />
-            
         )}
       </div>
     </section>

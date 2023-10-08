@@ -1,7 +1,7 @@
 .project-list__headers{
 
     display: grid;
-    grid-template-columns: repeat(9,minmax(0px,120px));
+    grid-template-columns: repeat(9,minmax(0px,180px));
     gap: var(--space_2);
 
 }

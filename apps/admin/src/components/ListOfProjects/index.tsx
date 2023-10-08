@@ -50,7 +50,7 @@ export const ListOfProjects = () => {
   return (
     <section className="">
 
-      <div className="project-list__options my-4">
+      <div className="project-list__options mb-12 w-72">
         <form className="project-list__searchbar">
           <TextField
             {...searchInput}
@@ -72,7 +72,7 @@ export const ListOfProjects = () => {
         <Typography size={TypographySize.bodyLarge}>Created At</Typography>
         <Typography size={TypographySize.bodyLarge}>Options</Typography>
       </div>
-      <div className="project-list__items grid gap-2 mt-3">
+      <div className="project-list__items grid overflow-y-scroll gap-2 mt-3">
         {filteredProjects.map((project) => (
           <ProjectItem key={project.id} data={project} setFilteredProjects={setFilteredProjects} />
         ))}

@@ -27,7 +27,7 @@ export const LoginForm = () => {
 
       setError(null);
       setToken(token.token);
-      navigate("/profile");
+      navigate("/projects");
     } catch (error) {
       setError(`${error}`);
     }
