@@ -1,5 +1,5 @@
-import React from "react";
-import { LabelForm } from "../../components/LabelForm";
+
+import { LabelForm } from "../../containers/LabelForm";
 
 export const CreateLabelPage = () => {
   return (

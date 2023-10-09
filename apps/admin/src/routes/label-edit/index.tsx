@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { LabelForm } from "../../components/LabelForm";
+import { LabelForm } from "../../containers/LabelForm";
 import { useParams } from "react-router-dom";
 import { Label } from "../../models/label.model";
 import { labelService } from "../../services/label.service";

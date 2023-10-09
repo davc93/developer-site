@@ -8,7 +8,6 @@ import { gsap } from "gsap";
 import { Link } from "react-router-dom";
 import "./style.css";
 import { AuthContext } from "../../context/AuthContext";
-import { UserContext, userReducerActions } from "../../context/UserContext";
 import { Typography, TypographySize } from "../Typography";
 const routes = [
   {
@@ -54,7 +53,6 @@ const routes = [
   },
 ];
 export const Sidebar = () => {
-  const { dispatch } = useContext(UserContext);
   const { setToken } = useContext(AuthContext);
   const menu = useRef<HTMLElement>(null);
   const mobileButton = useRef<HTMLElement>(null);
@@ -67,7 +65,6 @@ export const Sidebar = () => {
   }
 
   const handleLogoutClick = () => {
-    dispatch({ type: userReducerActions.LOGOUT });
     setToken(null);
   };
 

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { ProjectForm } from "../../components/ProjectForm";
+import { ProjectForm } from "../../containers/ProjectForm";
 import { Project } from "../../models/project.model";
 import { projectService } from "../../services/project.service";
+import {  ProjectFormProvider } from "../../containers/ProjectForm/Context";
 export const EditProjectPage = () => {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
@@ -27,6 +28,10 @@ export const EditProjectPage = () => {
   } else if (error) {
     return <p>{error}</p>;
   } else {
-    return <ProjectForm project={project} />;
+    return (
+      <ProjectFormProvider>
+        <ProjectForm project={project} />
+      </ProjectFormProvider>
+    );
   }
 };

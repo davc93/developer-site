@@ -1,6 +1,6 @@
 import React, { useContext, ReactNode } from "react";
-import { Sidebar } from "../Sidebar";
-import { AuthContext } from "../../context/AuthContext";
+import { Sidebar } from "./components/Sidebar";
+import { AuthContext } from "./context/AuthContext";
 import "./style.css";
 type LayoutProps = {
   children: ReactNode;

@@ -1,7 +1,6 @@
 import { Route, Routes, Navigate, BrowserRouter } from "react-router-dom";
-import { Layout } from "./components/Layout";
+import { Layout } from "./Layout";
 import { AuthContext } from "./context/AuthContext";
-import { UserContext, initialState, userReducer } from "./context/UserContext";
 import { useLocalStorage } from "./hooks/useLocalStorage";
 import React, { useReducer, useState } from "react";
 import { LoginPage } from "./routes/login";
@@ -18,21 +17,13 @@ import { PublicRoute } from "./components/PublicRoute";
 
 function App() {
   const [token, setToken] = useLocalStorage("token");
-  const [state, dispatch] = useReducer(userReducer, initialState);
-  const [darkMode, setDarkMode] = useLocalStorage("darkmode", false);
   const [notifications, setNotifications] = useState<string[]>([]);
 
   const addNotification = (message: string) => {
     setNotifications([...notifications, message]);
   };
-  React.useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-    }
-  }, []);
   return (
     <AuthContext.Provider value={{ token, setToken }}>
-      <UserContext.Provider value={{ state, dispatch }}>
         <NotificationContext.Provider value={{notifications,addNotification}}  >
           
           <BrowserRouter >
@@ -106,7 +97,6 @@ function App() {
             </Layout>
           </BrowserRouter>
         </NotificationContext.Provider>
-      </UserContext.Provider>
     </AuthContext.Provider>
   );
 }

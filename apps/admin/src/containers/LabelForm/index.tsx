@@ -1,6 +1,5 @@
 import React, { useState, FormEventHandler, useContext } from "react";
 import { labelService } from "../../services/label.service";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
 import { Label } from "../../models/label.model";
 import { AuthContext } from "../../context/AuthContext";
 import { useInputValue } from "../../hooks/useInputValue";
