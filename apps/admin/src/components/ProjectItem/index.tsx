@@ -3,7 +3,6 @@ import { projectService } from "../../services/project.service";
 import { AuthContext } from "../../context/AuthContext";
 import { Project } from "../../models/project.model";
 import { Link } from "react-router-dom";
-import { ButtonLoader } from "../ButtonLoader";
 import "./style.css";
 import { Typography, TypographySize } from "../Typography";
 import { Button, ButtonSizes } from "../Button";

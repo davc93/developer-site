@@ -1,23 +1,33 @@
 import React, { useContext, useEffect, useReducer } from "react";
-import { initialState, reducer } from "./reducer";
+import { ActionTypes, initialState, reducer } from "./reducer";
 import { useMultiFile } from "../../hooks/useMultiFile";
 import { Project } from "../../models/project.model";
+import { ProjectFormContext } from "./Context";
 type ImageProps = {
   project: Partial<Project> | null;
 };
 
 export const Images = (props: ImageProps) => {
-
+  const {state,dispatch} = useContext(ProjectFormContext)
   const { loadingFiles, errorFiles, files, handleFiles } = useMultiFile(
     "image",
     props.project?.images
   );
+  useEffect(() => {
+    dispatch({type:ActionTypes.SET_PROJECT,payload:{
+      ...state.projectDTO,
+      images:files?.map((file:any)=>file.url)
+    }})
+    
+  
+  }, [files])
+  
   return (
     
     <div className="flex h-4/5 overflow-y-scroll">
       <form className="w-full">
         <div className="input-group">
-          {loadingFiles && <p>Loading Images</p>}
+          {loadingFiles && <p className="text-white">Loading Images</p>}
           {errorFiles && <p>{errorFiles}</p>}
           <div className="flex gap-2 flex-wrap">
             {files?.map((file: any) => {
@@ -41,8 +51,6 @@ export const Images = (props: ImageProps) => {
             onInput={handleFiles}
           />
         </div>
-        {state.uploadingForm && <p>Loading</p>}
-        {state.error && <p>{state.error}</p>}
       </form>
     </div>
   );

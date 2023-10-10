@@ -5,13 +5,15 @@ import { useCheckbox } from "../../hooks/useCheckbox";
 import { useInputValue } from "../../hooks/useInputValue";
 import { Project } from "../../models/project.model";
 import { Button, ButtonSizes } from "../../components/Button";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
+import { ProjectFormContext } from "./Context";
+import { ActionTypes, Step } from "./reducer";
 type GeneralProps = {
   project: Partial<Project> | null;
 };
 
 export const General = (props: GeneralProps) => {
-
+  const {state,dispatch} = useContext(ProjectFormContext)
   const title = useInputValue(props.project?.title ?? "");
   const description = useInputValue(props.project?.description ?? "");
   const link = useInputValue(props.project?.link ?? "");
@@ -19,6 +21,7 @@ export const General = (props: GeneralProps) => {
   const slug = useInputValue(props.project?.slug ?? "");
   const shortDescription = useInputValue(props.project?.shortDescription ?? "");
   const publishedInput = useCheckbox(props.project?.published ?? true);
+ 
   return (
     <>
       <div className="flex h-4/5 overflow-y-scroll">
@@ -84,7 +87,19 @@ export const General = (props: GeneralProps) => {
             size={ButtonSizes.SMALL}
             type="button"
             onClick={(event) => {
-
+              
+    
+                dispatch({type:ActionTypes.SET_PROJECT,payload:{
+                  title:title.value,
+                  description:description.value,
+                  link:link.value,
+                  repository:repository.value,
+                  slug:slug.value,
+                  shortDescription:shortDescription.value,
+                  published:publishedInput.checked
+            
+                }})
+              dispatch({type:ActionTypes.CHANGE_STEP,payload:Step.TECHNOLOGIES})
             }}
           />
       </div>

@@ -1,9 +1,11 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Button, ButtonSizes, ButtonStyles } from "../../components/Button";
 import { Project } from "../../models/project.model";
 import { FormEventHandler } from "react";
 import { useGetLabels } from "../../components/ListOfLabels";
 import { Link } from "react-router-dom";
+import { ProjectFormContext } from "./Context";
+import { ActionTypes, Step } from "./reducer";
 type TechnologiesProps = {
   project: Partial<Project> | null;
 };
@@ -73,8 +75,11 @@ export const useLabelsInputs = (project: any) => {
 };
 
 export const Technologies = (props: TechnologiesProps) => {
+  const {state,dispatch} = useContext(ProjectFormContext)
+
   const { labels, loading, error } = useGetLabels();
   const { handleAddLabel, handleInputChange, handleRemoveLabel, labelsInputs } = useLabelsInputs(props.project);
+  
   return (
     <>
       <div className="flex h-4/5 overflow-y-scroll">
@@ -153,6 +158,8 @@ export const Technologies = (props: TechnologiesProps) => {
           label="Previous"
           size={ButtonSizes.SMALL}
           onClick={(event) => {
+            dispatch({type:ActionTypes.CHANGE_STEP,payload:Step.GENERAL})
+
           }}
         />
 
@@ -161,6 +168,14 @@ export const Technologies = (props: TechnologiesProps) => {
           size={ButtonSizes.SMALL}
           type="button"
           onClick={(event) => {
+            dispatch({type:ActionTypes.SET_PROJECT,payload:{
+              ...state.projectDTO,
+              labels:labelsInputs.map((label)=>({...label,id:label.labelId as number}))
+              
+              
+            }})
+            dispatch({type:ActionTypes.CHANGE_STEP,payload:Step.IMAGES})
+
           }}
         />
       </div>

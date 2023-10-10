@@ -164,7 +164,7 @@ export const Sidebar = () => {
             );
           }
         })}
-        <li className="absolute bottom-5 left-6">
+        <li className="absolute bottom-14 left-6">
           <button onClick={handleLogoutClick} className="">
             <div className="flex items-center gap-3">
 
