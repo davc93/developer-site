@@ -8,11 +8,13 @@ import { Button, ButtonSizes } from "../../components/Button";
 import { useContext, useEffect } from "react";
 import { ProjectFormContext } from "./Context";
 import { ActionTypes, Step } from "./reducer";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
 type GeneralProps = {
   project: Partial<Project> | null;
 };
 
 export const General = (props: GeneralProps) => {
+  const [storedValue,setStoredValue] = useLocalStorage("projectForm",{})
   const {state,dispatch} = useContext(ProjectFormContext)
   const title = useInputValue(props.project?.title ?? "");
   const description = useInputValue(props.project?.description ?? "");
@@ -88,7 +90,17 @@ export const General = (props: GeneralProps) => {
             type="button"
             onClick={(event) => {
               
-    
+              setStoredValue({
+                ...storedValue,
+                title:title.value,
+                description:description.value,
+                link:link.value,
+                repository:repository.value,
+                slug:slug.value,
+                shortDescription:shortDescription.value,
+                published:publishedInput.checked
+          
+              })
                 dispatch({type:ActionTypes.SET_PROJECT,payload:{
                   title:title.value,
                   description:description.value,

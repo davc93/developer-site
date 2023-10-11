@@ -6,6 +6,7 @@ import { useGetLabels } from "../../components/ListOfLabels";
 import { Link } from "react-router-dom";
 import { ProjectFormContext } from "./Context";
 import { ActionTypes, Step } from "./reducer";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
 type TechnologiesProps = {
   project: Partial<Project> | null;
 };
@@ -76,7 +77,7 @@ export const useLabelsInputs = (project: any) => {
 
 export const Technologies = (props: TechnologiesProps) => {
   const {state,dispatch} = useContext(ProjectFormContext)
-
+  const [storedValue,setStoredValue] = useLocalStorage("projectForm",{})
   const { labels, loading, error } = useGetLabels();
   const { handleAddLabel, handleInputChange, handleRemoveLabel, labelsInputs } = useLabelsInputs(props.project);
   
@@ -168,6 +169,11 @@ export const Technologies = (props: TechnologiesProps) => {
           size={ButtonSizes.SMALL}
           type="button"
           onClick={(event) => {
+            setStoredValue({
+              ...storedValue,
+              labels:labelsInputs.map((label)=>({...label,id:label.labelId as number}))
+              
+            })
             dispatch({type:ActionTypes.SET_PROJECT,payload:{
               ...state.projectDTO,
               labels:labelsInputs.map((label)=>({...label,id:label.labelId as number}))

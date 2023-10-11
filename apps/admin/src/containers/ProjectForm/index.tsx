@@ -12,11 +12,14 @@ import { Technologies } from "./Technologies";
 import { Images } from "./Images";
 import { ProjectFormContext } from "./Context";
 import { ErrorMessage } from "../../components/ErrorMessage";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
 type ProjectFormProps = {
   project: Project | null;
 };
 
 export const ProjectForm = (props: ProjectFormProps) => {
+  // if not local storage then fill with project if not edit then let empty
+  const [storedValue,setStoredValue] = useLocalStorage("projectForm",{})
   const { token } = useContext(AuthContext);
   const { state, dispatch } = useContext(ProjectFormContext);
   const [submitError, setSubmitError] = useState<string | null>(null)
@@ -24,12 +27,8 @@ export const ProjectForm = (props: ProjectFormProps) => {
   const isEdit = props.project;
   const handleSubmit: FormEventHandler = async (event) => {
     event.preventDefault();
-    console.log(state.projectDTO);
     
     const { images, labels, ...general } = state.projectDTO;
-    console.log(images);
-    console.log(labels);
-    console.log(general);
     
     
     
@@ -92,11 +91,6 @@ export const ProjectForm = (props: ProjectFormProps) => {
       setSubmitError(`${error}`)
     }
   };
-  useEffect(() => {
-    console.log(state.projectDTO);
-    
-  
-  }, [state.projectDTO])
   
   return (
     <section className="flex h-full flex-col">

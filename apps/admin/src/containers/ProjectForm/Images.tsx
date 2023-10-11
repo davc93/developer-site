@@ -3,17 +3,24 @@ import { ActionTypes, initialState, reducer } from "./reducer";
 import { useMultiFile } from "../../hooks/useMultiFile";
 import { Project } from "../../models/project.model";
 import { ProjectFormContext } from "./Context";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
 type ImageProps = {
   project: Partial<Project> | null;
 };
-
 export const Images = (props: ImageProps) => {
   const {state,dispatch} = useContext(ProjectFormContext)
+
+  const [storedValue,setStoredValue] = useLocalStorage("projectForm",{})
   const { loadingFiles, errorFiles, files, handleFiles } = useMultiFile(
     "image",
     props.project?.images
   );
   useEffect(() => {
+    setStoredValue({
+      ...storedValue,
+      images:files?.map((file:any)=>file.url)
+
+    })
     dispatch({type:ActionTypes.SET_PROJECT,payload:{
       ...state.projectDTO,
       images:files?.map((file:any)=>file.url)
