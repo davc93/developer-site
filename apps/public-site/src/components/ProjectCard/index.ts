@@ -3,6 +3,7 @@ import { ButtonSizes, ButtonStyles, createButton } from "../Button";
 import { createIconButton } from "../IconButton";
 import { ArrowIcon } from "../Icons/ArrowIcon";
 import { ImageFormat, createImage } from "../Image";
+import { createLink } from "../Link";
 import {
   TypographyColor,
   TypographySize,
@@ -66,14 +67,17 @@ export const createProjectCard = ({ type, project }: ProjectCardProps) => {
       style: ButtonStyles.outlined,
       size: ButtonSizes.LARGE,
       label: "More details",
-      href: `/portfolio/${project.slug}`,
+      tag:"span"
     });
+    const link = createLink({href:`/portfolio/${project.slug}`,children:cta})
+     
+    //  href: `/portfolio/${project.slug}`,
     const techButton = createIconButton({ icon: ArrowIcon() });
     techButton.classList.add(`${type}__tech-button`);
     techButton.addEventListener("click", () => {
       techsContainer.classList.toggle("active");
     });
-    cardButtons.append(cta, techButton);
+    cardButtons.append(link, techButton);
     const textContainer = document.createElement("div")
     textContainer.classList.add(`${type}__text`);
     textContainer.append(projectTitle, projectDescription, cardButtons);
@@ -134,15 +138,16 @@ export const createProjectCard = ({ type, project }: ProjectCardProps) => {
     const cta = createButton({
       style: ButtonStyles.outlined,
       size: ButtonSizes.LARGE,
-      label: "More details",
-      href: `/portfolio/${project.slug}`,
+      label: "More details"
     });
+
+    const link = createLink({href:`/portfolio/${project.slug}`,children:cta})
     const techButton = createIconButton({ icon: ArrowIcon() });
     techButton.classList.add(`${type}__tech-button`);
     techButton.addEventListener("click", () => {
       mobileTechsContainer.classList.toggle("active");
     });
-    cardButtons.append(cta, techButton);
+    cardButtons.append(link, techButton);
     const textContainer = document.createElement("div");
     textContainer.classList.add(`${type}__text`);
     textContainer.append(projectTitle, projectDescription, cardButtons);

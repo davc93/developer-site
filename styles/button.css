@@ -8,11 +8,10 @@
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 700;
-  font-size: var(--body-medium);
   padding: 16px 48px;
   border-width: 2px;
   border-style: solid;
-  
+  height: fit-content; 
 }
 .button__content{
   width: 100%;
@@ -46,10 +45,19 @@
 
 
 .button--large {
+
+  font-size: var(--body-medium);
   width: max-content;
 }
 .button--wide{
+
+  font-size: var(--body-medium);
   width: 100%;
+}
+.button--small{
+  font-size: var(--body-small);
+  padding: 6px 12px;
+
 }
 
 

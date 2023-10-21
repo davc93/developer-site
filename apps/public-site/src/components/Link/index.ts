@@ -1,16 +1,22 @@
-import { TypographyColor, TypographySize, createTypography } from "../Typography"
+import { goTo } from "../../navigation"
 
 export interface LinkProps {
     href:string,
-    label:string,
-    size?:TypographySize
+    children:HTMLElement
 
 }
 
-export const createLink = ({href,label,size = TypographySize.bodyMedium}:LinkProps) => {
+export const createLink = ({href,children}:LinkProps) => {
     const anchor = document.createElement("a")
+    anchor.className = "link"
     anchor.href = href
-    const text = createTypography({label,size,color:TypographyColor.Primary})
-    anchor.append(text)
+    if(href.includes(window.location.host)){
+        anchor.addEventListener('click',(event)=>{
+            
+            event.preventDefault()
+            goTo(href)
+        })
+    }
+    anchor.append(children)
     return anchor
 }
