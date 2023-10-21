@@ -32,6 +32,9 @@ export const createButton = ({
   tag = "button"
 }: ButtonProps) => {
   const btn = document.createElement(tag) as any ;
+  if(tag == "button"){
+    btn.type = type
+  }
   const content = document.createElement("span")
   content.className = "button__content"
   content.textContent = label

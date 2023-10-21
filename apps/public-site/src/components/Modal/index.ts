@@ -1,11 +1,11 @@
-import { createButton, ButtonStyles, } from "../Button";
+import { createButton, ButtonStyles, ButtonSizes, } from "../Button";
 import type { ButtonProps } from "../Button";
-export interface ModalProps extends ButtonProps {
+export interface ModalProps extends Partial<ButtonProps> {
   hidden?: boolean;
-
   width?:string;
   height?:string;
   element?:HTMLElement;
+  
 }
 
 const closeIcon = () => {
@@ -61,10 +61,11 @@ const createElement = () => {
 };
 
 
-export const createModal = ({element = createElement(),width = "375px",height: height = "auto",label = "button",style = ButtonStyles.outlined}: ModalProps) => {
+export const createModal = ({element = createElement(),width = "375px",height: height = "auto",label = "button",style = ButtonStyles.outlined,size = ButtonSizes.LARGE}: ModalProps) => {
   const button = createButton({
     label,
-    style
+    style,
+    size
   });
   button.classList.add("modal-btn");
   button.addEventListener("click", () => {
