@@ -20,7 +20,7 @@ export const createAccordionItem = ({header,content}:AccordionItemProps) => {
 
     const headerEl = document.createElement("button")
     headerEl.className = "accordion-item__header"
-    const headerText = header ? createTypography({label:header,size:TypographySize.bodyLarge,tag:TypographyTag.span}) : ""
+    const headerText = header ? createTypography({label:header,size:TypographySize.bodyMedium,tag:TypographyTag.span}) : ""
     headerEl.append(headerText)
     headerEl.addEventListener("click",(event)=>{
         event.preventDefault()

@@ -7,7 +7,7 @@ export interface LinkProps {
 
 }
 
-export const createLink = ({href,label,size = TypographySize.bodyLarge}:LinkProps) => {
+export const createLink = ({href,label,size = TypographySize.bodyMedium}:LinkProps) => {
     const anchor = document.createElement("a")
     anchor.href = href
     const text = createTypography({label,size,color:TypographyColor.Primary})
