@@ -9,64 +9,45 @@ h1,h2,h3,h4,h5,h6,p,span,ul {
 }
 
 .typography--primary{
-  color: var(--primary_300);
+  color: var(--primary--600);
 }
 
 .typography--white{
   color: var(--white);
 }
-.typography--light{
- font-weight: 300;
-}
-
-.typography--regular{
-  font-weight: 400;
-}
-
-.typography--medium{
-  font-weight: 500;
-}
-
-.typography--bold{
-  font-weight: 700;
-}
-
-.typography--dark{
-  color: var(--dark);
-}
 .typography--link{
   text-decoration: underline;
-  color: var(--primary_300);
+  color: var(--primary--600);
 }
 .typography--link:hover{
   cursor: pointer;
-  color: var(--primary_100);
+  color: var(--primary--100);
   
 }
 .typography--title-large {
-  font-size: var(--font_size_title_large);
+  font-size: var(--title-large);
 }
 
 .typography--title-medium {
-  font-size: var(--font_size_title_medium);
+  font-size: var(--title-medium);
 }
 
 .typography--title-small {
-  font-size: var(--font_size_title_small);
+  font-size: var(--title-small);
 }
 
 
 .typography--body-large {
-  font-size: var(--font_size_body_medium);
-  line-height: var(--space_6);
+  font-size: var(--body-medium);
+  line-height: var(--space-6);
 }
 
 .typography--body-medium {
-  font-size: var(--font-size-body-medium);
+  font-size: var(--body-medium);
   line-height: var(--space-5);
 
 }
 
 .typography--body-small {
-  font-size: var(--font_size_body_small);
+  font-size: var(--body-small);
 }

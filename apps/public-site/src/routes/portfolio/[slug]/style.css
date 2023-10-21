@@ -21,17 +21,17 @@
 
 .project-description h2 {
   font-size: var(--font_size_title_medium);
-  margin-block: var(--space_4);
+  margin-block: var(--space-4);
 }
 
 .project-description h3 {
   font-size: var(--font_size_title_small);
-  margin-block: var(--space_3);
+  margin-block: var(--space-3);
 }
 
 .project-description h4 {
   font-size: var(--font_size_title_small);
-  margin-block: var(--space_2);
+  margin-block: var(--space-2);
 }
 
 .project-description ul {
@@ -39,13 +39,13 @@
 }
 
 .project-description li {
-  margin-block: var(--space_3);
-  /* margin-left: var(--space_4); */
+  margin-block: var(--space-3);
+  /* margin-left: var(--space-4); */
 }
 
 .project-description p {
   font-size: var(--font-size-body-medium);
-  margin-block: var(--space_3);
+  margin-block: var(--space-3);
 }
 
 .project-description a {
@@ -61,5 +61,5 @@
 .project-description h1 {
   align-self: center;
   font-size: var(--font_size_title_large);
-  margin-block: var(--space_7);
+  margin-block: var(--space-7);
 }

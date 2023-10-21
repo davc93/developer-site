@@ -81,7 +81,7 @@ function createTechnologies() {
       const level = document.createElement("div");
       level.className = "level";
       level.style.width = `${((100 - width) / 5) * tech.knowledgeLevel}%`;
-      level.style.background = "var(--primary_300)";
+      level.style.background = "var(--primary--500)";
       const name = createTypography({
         label: tech.name,
         size: TypographySize.bodyLarge,

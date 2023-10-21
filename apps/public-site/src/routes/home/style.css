@@ -1,8 +1,8 @@
 .jobs-list{
-    background: var(--dark);
+    background: var(--neutral--950);
     grid-template-columns: 1fr;
       display: grid;
-      gap: var(--space_4);
+      gap: var(--space-4);
   }
   @media(min-width:768px){
     .jobs-list{
@@ -32,7 +32,7 @@
     width: 100%;
     flex-direction: column;
     padding-block: 0;
-    padding-inline: var(--space_2);
+    padding-inline: var(--space-2);
   }
   .progress-bar {
     position: fixed;
@@ -75,7 +75,7 @@
     align-self: center;
     display: flex;
     flex-direction: column;
-    gap: var(--space_3);
+    gap: var(--space-3);
   }
   .hero__social-media-container {
     display: flex;
@@ -83,13 +83,13 @@
     flex-wrap: wrap-reverse;
     align-items: center;
     justify-content: end;
-    gap: var(--space_5);
-    margin-block: var(--space_8);
+    gap: var(--space-5);
+    margin-block: var(--space-8);
   }
   .hero__social-media-container .social-media{
     display: flex;
     align-items: center;
-    gap: var(--space_3);
+    gap: var(--space-3);
   }
   
   @media (min-width: 768px) {
@@ -102,11 +102,11 @@
     }
   }
   .experience{
-    background: var(--dark);
+    background: var(--neutral--950);
     display: flex;
     flex-direction: column;
     /* align-items: center; */
-    gap: var(--space_10);
+    gap: var(--space-10);
   }
   .experience > h2 {
     text-align: center;
@@ -114,9 +114,9 @@
   
   
   .skills {
-    row-gap: var(--space_11);
-    padding-bottom: var(--space_11);
-    background: var(--dark);
+    row-gap: var(--space-11);
+    padding-bottom: var(--space-11);
+    background: var(--neutral--950);
   }
   .skills > h2 {
     justify-self: center;
@@ -132,7 +132,7 @@
   }
   
   .skills__techs-stack > h3 {
-    margin-bottom: var(--space_3);
+    margin-bottom: var(--space-3);
   }
   
   .skills__stack-list {
@@ -141,13 +141,13 @@
   
   .skills__stack-list {
   
-    padding: var(--space_5);
-    border: 1px solid var(--primary_300);
+    padding: var(--space-5);
+    border: 1px solid var(--primary--300);
   }
   .skills__stack-list > .tech-container {
     display: flex;
     flex-direction: column;
-    gap: var(--space_2);
+    gap: var(--space-2);
   }
   .skills__soft-skills {
     display: flex;
@@ -155,7 +155,7 @@
   }
   
   .skills__soft-skills > h3 {
-    margin-bottom: var(--space_3);
+    margin-bottom: var(--space-3);
   }
   @media (min-width: 768px) {
     .skills__techs-stack {
@@ -189,10 +189,10 @@
   }
   
   .about-me {
-    padding-top: var(--space_11);
+    padding-top: var(--space-11);
     grid-template-rows: auto 50vh auto;
-    row-gap: var(--space_11);
-    padding-bottom: var(--space_11);
+    row-gap: var(--space-11);
+    padding-bottom: var(--space-11);
   }
   .about-me > h2 {
     justify-self: center;
@@ -203,10 +203,10 @@
     grid-row: 2/3;
   }
   .about-me__experience > *:nth-child(1) {
-    margin-bottom: var(--space_3);
+    margin-bottom: var(--space-3);
   }
   .about-me__experience > *:nth-child(2) {
-    margin-bottom: var(--space_2);
+    margin-bottom: var(--space-2);
   }
   .about-me__expectations {
     display: flex;
@@ -214,11 +214,11 @@
     grid-row: 3/4;
   }
   .about-me__expectations > *:nth-child(1) {
-    margin-bottom: var(--space_3);
+    margin-bottom: var(--space-3);
   }
   
   .about-me__expectations > *:nth-child(2) {
-    margin-bottom: var(--space_2);
+    margin-bottom: var(--space-2);
   }
   .about-me__hobbies {
     display: flex;
@@ -227,11 +227,11 @@
     grid-row: 4/5;
   }
   .about-me__hobbies > *:nth-child(1) {
-    margin-bottom: var(--space_3);
+    margin-bottom: var(--space-3);
   }
   
   .about-me__hobbies > *:nth-child(2) {
-    margin-bottom: var(--space_2);
+    margin-bottom: var(--space-2);
   }
   @media (min-width: 768px) {
     .about-me > h2 {
@@ -270,15 +270,15 @@
   
   
   .portfolio {
-    padding-top: var(--space_11);
-    row-gap: var(--space_11);
-    padding-bottom: var(--space_11);
+    padding-top: var(--space-11);
+    row-gap: var(--space-11);
+    padding-bottom: var(--space-11);
     width: 100%;
     /* height: 100vh; */
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--dark);
+    background-color: var(--neutral--950);
     z-index: 4;
   }
   .portfolio__text {
@@ -286,7 +286,7 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: var(--space_6);
+    gap: var(--space-6);
   }
   
   @media (min-width: 768px) {
@@ -326,12 +326,12 @@
   .contact__form-container {
     display: flex;
     flex-direction: column;
-    gap: var(--space_8);
+    gap: var(--space-8);
   }
   .contact__form-container__text {
     display: flex;
     flex-direction: column;
-    gap: var(--space_2);
+    gap: var(--space-2);
     width: 100%;
   }
   .contact__form-container__text:nth-child(1) p {
@@ -341,7 +341,7 @@
   .contact-form {
     display: flex;
     flex-direction: column;
-    gap: var(--space_4);
+    gap: var(--space-4);
   }
   .contact-form textarea {
     margin-bottom: 2rem;
@@ -350,9 +350,9 @@
   
   .navbar-container {
     position: fixed;
-    top: var(--space_6);
+    top: var(--space-6);
   
-    left: var(--space_2);
+    left: var(--space-2);
   }
   
   .nav input:checked ~ .menu {
@@ -382,19 +382,19 @@
     justify-content: space-around;
     min-height: 100vh;
     /* align-items: center; */
-    gap: var(--space_8);
+    gap: var(--space-8);
   }
   .cta-contact .social-media{
     display: flex;
     flex-direction: column;
-    gap: var(--space_4);
+    gap: var(--space-4);
     background: rgb(0,0,0,0.8);
     height: fit-content;
     /* width: 100%; */
   }
   .cta-contact .social-media > div{
     display: flex;
-    gap: var(--space_4);
+    gap: var(--space-4);
   }
   
   .linkedin-icon{
@@ -405,12 +405,12 @@
   
   }
   .linkedin-icon:hover{
-    fill: var(--primary_300);
+    fill: var(--primary--300);
     transition: all 0.2s;
   }
   
   .github-icon g{
-    fill: var(--neutral_100);
+    fill: var(--neutral--100);
     transition: all 0.2s;
   
   }

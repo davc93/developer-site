@@ -17,8 +17,8 @@
 
 .button--filled {
   color: var(--white);
-  background-color: var(--primary_600);
-  border: 1px solid var(--primary_600);
+  background-color: var(--primary-600);
+  border: 1px solid var(--primary-600);
 
 }
 .button--outlined {
@@ -28,31 +28,31 @@
 }
 
 .button--small {
-  font-size: var(--font_size_body_large);
+  font-size: var(--font-size-body-medium);
   padding: 6px 12px;
   width: max-content;
 }
 .button--large {
-  font-size: var(--font_size_title_small);
+  font-size: var(--font-size-title-medium);
   padding: 12px 24px;
   width: max-content;
 }
 .button--wide{
 
-  font-size: var(--font_size_title_small);
+  font-size: var(--font-size-title-medium);
   padding: 12px 24px;
   width: 100%;
 }
 
 /* loader size */
 .button--large > .button__loader {
-  width:var(--font_size_title_small);
-  height:var(--font_size_title_small);
+  width:var(--font-size-title-medium);
+  height:var(--font-size-title-medium);
   
 }
 .button--wide > .button__loader {
-  height:var(--font_size_title_small);
-  width:var(--font_size_title_small);
+  height:var(--font-size-title-medium);
+  width:var(--font-size-title-medium);
   
 }
 
@@ -96,17 +96,17 @@
 
 .button--disabled.button--outlined {
   cursor: not-allowed;
-  color: var(--neutral_600);
-  border: 1px solid var(--neutral_600);
+  color: var(--neutral-600);
+  border: 1px solid var(--neutral-600);
   
   
 }
 
 .button--disabled.button--filled {
   cursor: not-allowed;
-  color: var(--neutral_100);
-  border: 1px solid var(--neutral_100);
-  background-color: var(--primary_100);
+  color: var(--neutral-100);
+  border: 1px solid var(--neutral-100);
+  background-color: var(--primary-100);
   
 }
 .hidden{

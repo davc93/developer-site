@@ -3,8 +3,8 @@
   display: flex;
   position: fixed;
   justify-content: end;
-  top: var(--space_6);
-  right: var(--space_4);
+  top: var(--space-6);
+  right: var(--space-4);
   width: 90%;
 
 }
@@ -21,9 +21,9 @@
     display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 350px));
   justify-content: center;
-  column-gap: var(--space_4);
+  column-gap: var(--space-4);
 
-  row-gap: var(--space_4);
+  row-gap: var(--space-4);
 }
 .projects-filter-form {
   top: 300px;
