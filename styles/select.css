@@ -1,6 +1,6 @@
 
   .box select {
-    background-color: var(--dark);
+    background-color: var(--neutral--950);
     color: white;
     padding: 12px;
     width: 100%;

@@ -1,13 +1,12 @@
 import { messageService } from "../../services/message.service";
 import { showNotification } from "../../utils/notifications";
 import { ButtonSizes, ButtonStyles, createButton } from "../Button";
-import { createContainer } from "../Container";
 import { NotificationType } from "../Notification";
 import { createTextArea } from "../TextArea";
 import { createTextField } from "../TextField";
 
-export function createContactForm(background?:string) {
-    const container = createContainer({ border: false,background });
+export function createContactForm() {
+    const container = document.createElement("div")
   
     const form = document.createElement("form");
     form.className = "contact-form";

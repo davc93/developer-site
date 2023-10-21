@@ -1,12 +1,16 @@
 @import url("./components/Carousel/style.css");
-@import url("./components/Container/container.css");
 @import url("./components/Modal/modal.css");
 @import url("./components/NavbarDesktop/navbar-desktop.css");
 @import url("./components/NavbarMobile/navbar-mobile.css");
 @import url("./components/ProjectCard/style.css");
 @import url("./components/AccordionItem/style.css");
+@import url("./components/ContactForm/style.css");
+@import url("./components/JobCard/style.css");
 
 
+html{
+  font-size: 16px;
+}
 
 * {
   box-sizing: border-box;

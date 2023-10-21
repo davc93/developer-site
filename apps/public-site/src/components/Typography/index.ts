@@ -2,7 +2,8 @@
 export enum TypographySize {
   titleLarge = "typography--title-large",
   titleMedium = "typography--title-medium",
-  bodyLarge = "typography--body-large",
+  titleSmall = "typography--title-small",
+  bodyMedium = "typography--body-medium",
   bodySmall = "typography--body-small",
 }
 export enum TypographyTag {

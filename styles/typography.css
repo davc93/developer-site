@@ -36,18 +36,10 @@ h1,h2,h3,h4,h5,h6,p,span,ul {
   font-size: var(--title-small);
 }
 
-
-.typography--body-large {
+.typography--body-medium {
   font-size: var(--body-medium);
   line-height: var(--space-6);
 }
-
-.typography--body-medium {
-  font-size: var(--body-medium);
-  line-height: var(--space-5);
-
-}
-
 .typography--body-small {
   font-size: var(--body-small);
 }

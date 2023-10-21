@@ -1,4 +1,4 @@
-import { createContainer } from "../Container";
+
 import { createTypography, TypographySize } from "../Typography";
 const warningIcon = () => {
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -204,14 +204,14 @@ export const createNotification = ({
   const icon = notificationIcon[type];
   const textContainer = document.createElement("div");
   textContainer.className = "notification__text-content";
-  const titleEl = createTypography({ label: title, size: TypographySize.bodyLarge });
+  const titleEl = createTypography({ label: title, size: TypographySize.titleSmall });
   const descriptionEl = createTypography({
     label: description,
-    size: TypographySize.bodyLarge,
+    size: TypographySize.bodyMedium,
   });
   textContainer.append(titleEl, descriptionEl);
   notification.append(icon, textContainer);
-  const container = createContainer({ });
+  const container = document.createElement("div")
   container.append(notification);
   return container;
 };

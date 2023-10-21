@@ -43,11 +43,11 @@
   --error--600: rgba(166, 20, 20, 1);
   --white: white;
 
-  --title-large: 4.25rem;
-  --title-medium: 2.62rem;
-  --body-large: 1.62rem;
+  --title-large:4.268rem;
+  --title-medium: 2.618rem;
+  --title-small: 1.618rem;
   --body-medium: 1rem;
-  --body-small: 0.875rem;
+  --body-small: 0.618rem;
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;

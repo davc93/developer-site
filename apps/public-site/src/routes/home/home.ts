@@ -13,11 +13,11 @@ import {
 import { createProjects } from "../../components/ListOfProjects";
 import { createContactForm } from "../../components/ContactForm";
 import { createCarousel } from "../../components/Carousel";
-import { createContainer } from "../../components/Container";
 import { TypographyColor, TypographySize, createTypography } from "../../components/Typography";
 import { createModal } from "../../components/Modal";
 import { projectService } from "../../services/project.service";
 import { ProjectCardType } from "../../components/ProjectCard";
+import { createJobCard } from "../../components/JobCard";
 function shuffleArray(array:any[]) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1)); // Generate a random index between 0 and i
@@ -28,8 +28,8 @@ const projects =await projectService.getProjects()
 shuffleArray(projects)
 const projectsEl = createProjects(projects,ProjectCardType.LARGE);
 const technologiesEl = createTechnologies();
-const formContainer = createContactForm("var(--neutral--950)");
-const formContainer2 = createContactForm("var(--neutral--950)");
+const formContainer = createContactForm();
+const formContainer2 = createContactForm();
 const carousel = createCarousel(projectsEl)
 
 function animations() {
@@ -75,7 +75,7 @@ function createTechnologies() {
     .map((tech) => {
       const width = 30;
 
-      const container = createContainer({ border: false });
+      const container = document.createElement("div");
       container.style.display = "flex";
       container.style.padding = "0";
       const level = document.createElement("div");
@@ -84,7 +84,7 @@ function createTechnologies() {
       level.style.background = "var(--primary--500)";
       const name = createTypography({
         label: tech.name,
-        size: TypographySize.bodyLarge,
+        size: TypographySize.bodyMedium,
         color: TypographyColor.White,
       });
       name.style.width = `${width}%`;
@@ -99,33 +99,7 @@ function createJobs() {
   const jobsContainer = document.createElement("div");
   jobsContainer.className = "jobs-list";
   const jobsList = JobsList.map((job) => {
-    const container = createContainer({});
-    container.classList.add("job-card");
-    const textContainer = createContainer({ border: false });
-    const jobTitle = createTypography({
-      label: job.jobTitle,
-      size: TypographySize.bodyLarge,
-      color: TypographyColor.Primary,
-    });
-    const organization = createTypography({
-      label: job.organization,
-      size: TypographySize.bodyLarge,
-      color: TypographyColor.White,
-    });
-    const fromUntil = createTypography({
-      label: job.fromUntil,
-      size: TypographySize.bodyLarge,
-      color: TypographyColor.White,
-    });
-    textContainer.append(jobTitle, organization, fromUntil);
-    const image = document.createElement("img");
-    image.src = job.logoUrl;
-    image.addEventListener("click", () => {
-      window.open(job.link);
-    });
-
-    container.append(image, textContainer);
-    return container;
+    return createJobCard({title:job.jobTitle,organization:job.organization,fromUntil:job.fromUntil,image:job.logoUrl,jobUrl:job.link})
   });
   jobsContainer.append(...jobsList);
   return jobsContainer;

@@ -1,6 +1,5 @@
 import { Project } from "../../models/project.model";
 import { ButtonSizes, ButtonStyles, createButton } from "../Button";
-import { createContainer } from "../Container";
 import { createIconButton } from "../IconButton";
 import { ArrowIcon } from "../Icons/ArrowIcon";
 import { ImageFormat, createImage } from "../Image";
@@ -26,18 +25,18 @@ export const createProjectCard = ({ type, project }: ProjectCardProps) => {
     projectCard.classList.add(type);
     const imageContainer = document.createElement("div")
     imageContainer.className = "project-card--medium__image-container"
-    const image = createImage({url:project.images[0].url,width:1280,height:720,format:ImageFormat.JPG})
+    const image = createImage({url:project.images[0].url,width:1280,height:720,format:ImageFormat.JPG,isCloudinary:true})
     imageContainer.append(image)
 
     const projectTitle = createTypography({
       label: project.title,
       color: TypographyColor.White,
-      size: TypographySize.bodyLarge,
+      size: TypographySize.titleSmall,
     });
     const projectDescription = createTypography({
       label: project.shortDescription,
       color: TypographyColor.White,
-      size: TypographySize.bodySmall,
+      size: TypographySize.bodyMedium,
     });
     const techsContainer = document.createElement("div");
     techsContainer.classList.add(`${type}__tech-list--mobile`);
@@ -45,13 +44,13 @@ export const createProjectCard = ({ type, project }: ProjectCardProps) => {
       .filter((label) => label.type == undefined)
       .slice(0, 4)
       .map((label) => {
-        const techContainer = createContainer({ border: true });
+        const techContainer = document.createElement("div")
         techContainer.classList.add(`${type}__tech`);
         const techImage = document.createElement("img");
         techImage.src = label.image;
         const techName = createTypography({
           label: label.title,
-          size: TypographySize.bodyLarge,
+          size: TypographySize.bodyMedium,
           color: TypographyColor.White,
         });
         techContainer.append(techImage, techName);
@@ -75,7 +74,7 @@ export const createProjectCard = ({ type, project }: ProjectCardProps) => {
       techsContainer.classList.toggle("active");
     });
     cardButtons.append(cta, techButton);
-    const textContainer = createContainer({ border: false });
+    const textContainer = document.createElement("div")
     textContainer.classList.add(`${type}__text`);
     textContainer.append(projectTitle, projectDescription, cardButtons);
     projectCard.append(
@@ -91,17 +90,17 @@ export const createProjectCard = ({ type, project }: ProjectCardProps) => {
     const imageContainer = document.createElement("div")
 
     imageContainer.className = "project-card--large__image-container"
-    const image = createImage({url:project.images[0].url,width:1280,height:720,format:ImageFormat.JPG})
+    const image = createImage({url:project.images[0].url,width:1280,height:720,format:ImageFormat.JPG,isCloudinary:true})
     imageContainer.append(image)
     const projectTitle = createTypography({
       label: project.title,
       color: TypographyColor.White,
-      size: TypographySize.bodyLarge,
+      size: TypographySize.titleSmall,
     });
     const projectDescription = createTypography({
       label: project.shortDescription,
       color: TypographyColor.White,
-      size: TypographySize.bodySmall,
+      size: TypographySize.bodyMedium,
     });
     const techsContainer = document.createElement("div");
     techsContainer.classList.add(`${type}__tech-list`);
@@ -109,13 +108,13 @@ export const createProjectCard = ({ type, project }: ProjectCardProps) => {
       .filter((label) => label.type == undefined)
       .slice(0, 4)
       .map((label) => {
-        const techContainer = createContainer({ border: true });
+        const techContainer = document.createElement("div")
         techContainer.classList.add(`${type}__tech`);
         const techImage = document.createElement("img");
         techImage.src = label.image;
         const techName = createTypography({
           label: label.title,
-          size: TypographySize.bodyLarge,
+          size: TypographySize.bodyMedium,
           color: TypographyColor.White,
         });
         techContainer.append(techImage, techName);
@@ -144,7 +143,7 @@ export const createProjectCard = ({ type, project }: ProjectCardProps) => {
       mobileTechsContainer.classList.toggle("active");
     });
     cardButtons.append(cta, techButton);
-    const textContainer = createContainer({ border: false });
+    const textContainer = document.createElement("div");
     textContainer.classList.add(`${type}__text`);
     textContainer.append(projectTitle, projectDescription, cardButtons);
     projectCard.append(

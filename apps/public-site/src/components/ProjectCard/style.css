@@ -36,6 +36,7 @@
   gap: var(--space-2);
   width: 100%;
   padding: var(--space-3);
+  border: 1px solid var(--white);
   max-width: 160px;
   overflow: hidden;
 }
@@ -137,6 +138,7 @@
   padding: var(--space-2);
   max-width: 155px;
   overflow: hidden;
+  border: 1px solid var(--white);
 }
 .project-card--medium__tech-list {
   display: flex;
