@@ -10,7 +10,7 @@ export const createLink = ({href,children}:LinkProps) => {
     const anchor = document.createElement("a")
     anchor.className = "link"
     anchor.href = href
-    if(href.includes(window.location.host)){
+    if(anchor.href.includes(window.location.host)){
         anchor.addEventListener('click',(event)=>{
             
             event.preventDefault()
