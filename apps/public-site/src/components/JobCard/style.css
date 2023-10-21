@@ -1,6 +1,6 @@
 .job-card {
   display: flex;
-
+  align-items: center;
   cursor: pointer;
   padding: var(--space-6);
   border: 2px solid var(--white);  

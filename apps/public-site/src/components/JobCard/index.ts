@@ -17,7 +17,7 @@ export const createJobCard = ({title,organization,fromUntil,image,jobUrl}:JobCar
     const textContainer = document.createElement("div");
     const jobTitleEl = createTypography({
       label: title,
-      size: TypographySize.titleSmall,
+      size: TypographySize.bodyMedium,
       color: TypographyColor.Primary,
     });
     const organizationEl = createTypography({

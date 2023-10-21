@@ -1,18 +1,15 @@
+.home-page-background{
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7),rgba(0,0,0,1) ,rgba(0,0,0,0.2));
+  z-index: 3;
+  position: absolute;
+  width: 100%;
+  height: 550%;
+}
 .jobs-list {
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fill,minmax(280px,340px));
   display: grid;
   gap: var(--space-4);
-}
-@media (min-width: 768px) {
-  .jobs-list {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (min-width: 1024px) {
-  .jobs-list {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
+  justify-content: space-evenly;
 }
 
 .progress-bar {
@@ -47,11 +44,7 @@
   min-height: 105vh;
   grid-template-rows: repeat(5, 1fr);
   overflow: hidden;
-  background: linear-gradient(
-    300deg,
-    var(--neutral--950) 30%,
-    rgba(0, 0, 0, 0.4) 100%
-  );
+ 
 }
 .hero__text {
   grid-row: 2/-1;
@@ -63,7 +56,7 @@
 .hero__social-media-container {
   display: flex;
   height: 52px;
-  flex-wrap: wrap-reverse;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: end;
   gap: var(--space-5);
@@ -80,12 +73,8 @@
     grid-column: 1/6;
     grid-row: 2/5;
   }
-  .hero__social-media-container {
-    flex-wrap: nowrap;
-  }
 }
 .experience {
-  background: var(--neutral--950);
   display: flex;
   flex-direction: column;
   /* align-items: center; */
@@ -98,7 +87,6 @@
 .skills {
   row-gap: var(--space-11);
   padding-bottom: var(--space-11);
-  background: var(--neutral--950);
 }
 .skills > h2 {
   justify-self: center;
@@ -257,7 +245,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: var(--neutral--950);
 
   z-index: 4;
 }

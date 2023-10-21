@@ -5,4 +5,17 @@
     display: flex;
     width: max-content;
     height: max-content;
+    transition: all 0.5s;
+
+}
+.icon-button:hover{
+    color: black;
+    border-color: var(--primary--600);
+    background-color: var(--primary--600);
+    transition: all 0.5s;
+    box-shadow: 0 0 5px var(--primary--600),
+    0 0 25px var(--primary--600),
+    0 0 50px var(--primary--600),
+    0 0 200px var(--primary--600);
+  
 }
