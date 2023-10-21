@@ -28,7 +28,7 @@
   --neutral--700: rgba(68, 79, 90, 1);
   --neutral--800: rgba(61, 68, 77, 1);
   --neutral--900: rgba(54, 59, 67, 1);
-  --neutral--950: rgba(33, 37, 43, 1);
+  --neutral--950: rgb(10, 13, 15,1);
   --warning--100: rgba(255, 219, 153, 1);
   --warning--300: rgba(255, 165, 0, 1);
   --warning--600: rgba(161, 104, 0, 1);
@@ -43,11 +43,11 @@
   --error--600: rgba(166, 20, 20, 1);
   --white: white;
 
-  --title-big: 4.25rem;
+  --title-large: 4.25rem;
   --title-medium: 2.62rem;
-  --body-big: 1.62rem;
+  --body-large: 1.62rem;
   --body-medium: 1rem;
-  --body-small: 0.62rem;
+  --body-small: 0.875rem;
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;

@@ -67,8 +67,7 @@
     min-height: 105vh;
     grid-template-rows: repeat(5, 1fr);
     overflow: hidden;
-    background: rgb(0,0,0);
-    background: linear-gradient(0deg, rgba(0,0,0,1) 1%, rgba(0,0,0,0) 100%); 
+    background: linear-gradient(300deg, var(--neutral--950) 30%,  rgba(0,0,0,0.4) 100%); 
   }
   .hero__text {
     grid-row: 2/-1;
@@ -278,7 +277,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--neutral--950);
+    background: var(--neutral--950); 
+  
     z-index: 4;
   }
   .portfolio__text {
@@ -388,7 +388,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
-    background: rgb(0,0,0,0.8);
+    background: var(--neutral--950);
     height: fit-content;
     /* width: 100%; */
   }
@@ -397,29 +397,6 @@
     gap: var(--space-4);
   }
   
-  .linkedin-icon{
-    fill: var(--neutral_100);
-  
-    stroke: var(--neutral_100);
-    transition: all 0.2s;
-  
-  }
-  .linkedin-icon:hover{
-    fill: var(--primary--300);
-    transition: all 0.2s;
-  }
-  
-  .github-icon g{
-    fill: var(--neutral--100);
-    transition: all 0.2s;
-  
-  }
-  
-  .github-icon g:hover{
-    fill: var(--primary_300);
-    transition: all 0.2s;
-  
-  }
   
   /* animations */
   .home-page .typography--title-medium{

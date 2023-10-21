@@ -14,7 +14,7 @@ import { createProjects } from "../../components/ListOfProjects";
 import { createContactForm } from "../../components/ContactForm";
 import { createCarousel } from "../../components/Carousel";
 import { createContainer } from "../../components/Container";
-import { TypographyColor, TypographySize, TypographyWeight, createTypography } from "../../components/Typography";
+import { TypographyColor, TypographySize, createTypography } from "../../components/Typography";
 import { createModal } from "../../components/Modal";
 import { projectService } from "../../services/project.service";
 import { ProjectCardType } from "../../components/ProjectCard";
@@ -28,8 +28,8 @@ const projects =await projectService.getProjects()
 shuffleArray(projects)
 const projectsEl = createProjects(projects,ProjectCardType.LARGE);
 const technologiesEl = createTechnologies();
-const formContainer = createContactForm();
-const formContainer2 = createContactForm("rgb(0,0,0,0.8)");
+const formContainer = createContactForm("var(--neutral--950)");
+const formContainer2 = createContactForm("var(--neutral--950)");
 const carousel = createCarousel(projectsEl)
 
 function animations() {
@@ -104,7 +104,6 @@ function createJobs() {
     const textContainer = createContainer({ border: false });
     const jobTitle = createTypography({
       label: job.jobTitle,
-      weight: TypographyWeight.BOLD,
       size: TypographySize.bodyLarge,
       color: TypographyColor.Primary,
     });

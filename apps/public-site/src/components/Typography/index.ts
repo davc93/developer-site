@@ -2,15 +2,8 @@
 export enum TypographySize {
   titleLarge = "typography--title-large",
   titleMedium = "typography--title-medium",
-  titleSmall = "typography--title-small",
   bodyLarge = "typography--body-large",
   bodySmall = "typography--body-small",
-}
-export enum TypographyWeight {
-  LIGHT="typography--light",
-  REGULAR="typography--regular",
-  MEDIUM="typography--medium",
-  BOLD="typography--bold"
 }
 export enum TypographyTag {
   H1 = "h1",
@@ -34,7 +27,6 @@ export enum TypographyColor {
 export interface TypographyProps {
   label: string;
   size: TypographySize;
-  weight?:TypographyWeight;
   tag?: TypographyTag;
   color?: TypographyColor;
 }
@@ -43,13 +35,12 @@ export interface TypographyProps {
 export const createTypography = ({
   label,
   size,
-  weight = TypographyWeight.REGULAR ,
   color = TypographyColor.White,
   tag = TypographyTag.span,
 }: TypographyProps) => {
   
   const element = document.createElement(tag);
-  element.className = ["typography", size,color,weight].join(" ");
+  element.className = ["typography", size,color].join(" ");
   element.textContent = label;
   return element;
 };

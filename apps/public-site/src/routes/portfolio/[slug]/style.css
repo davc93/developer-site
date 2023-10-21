@@ -1,5 +1,5 @@
 .portfolio-detail-page {
-  background: var(--dark);
+  background: var(--neutral--950);
   justify-items: center;
 }
 
@@ -20,17 +20,17 @@
 }
 
 .project-description h2 {
-  font-size: var(--font_size_title_medium);
+  font-size: var(--title-medium);
   margin-block: var(--space-4);
 }
 
 .project-description h3 {
-  font-size: var(--font_size_title_small);
+  font-size: var(--title-small);
   margin-block: var(--space-3);
 }
 
 .project-description h4 {
-  font-size: var(--font_size_title_small);
+  font-size: var(--title-small);
   margin-block: var(--space-2);
 }
 
@@ -44,22 +44,22 @@
 }
 
 .project-description p {
-  font-size: var(--font-size-body-medium);
+  font-size: var(--body-medium);
   margin-block: var(--space-3);
 }
 
 .project-description a {
   text-decoration: underline;
-  color: var(--primary_300);
+  color: var(--primary--600);
 }
 
 .project-description a:hover {
   cursor: pointer;
-  color: var(--primary_100);
+  color: var(--primary--100);
 }
 
 .project-description h1 {
   align-self: center;
-  font-size: var(--font_size_title_large);
+  font-size: var(--title-large);
   margin-block: var(--space-7);
 }

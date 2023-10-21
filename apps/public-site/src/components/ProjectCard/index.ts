@@ -7,7 +7,6 @@ import { ImageFormat, createImage } from "../Image";
 import {
   TypographyColor,
   TypographySize,
-  TypographyWeight,
   createTypography,
 } from "../Typography";
 export enum ProjectCardType {
@@ -32,15 +31,13 @@ export const createProjectCard = ({ type, project }: ProjectCardProps) => {
 
     const projectTitle = createTypography({
       label: project.title,
-      weight: TypographyWeight.MEDIUM,
       color: TypographyColor.White,
-      size: TypographySize.titleSmall,
+      size: TypographySize.bodyLarge,
     });
     const projectDescription = createTypography({
       label: project.shortDescription,
-      weight: TypographyWeight.REGULAR,
       color: TypographyColor.White,
-      size: TypographySize.bodyLarge,
+      size: TypographySize.bodySmall,
     });
     const techsContainer = document.createElement("div");
     techsContainer.classList.add(`${type}__tech-list--mobile`);
@@ -55,7 +52,6 @@ export const createProjectCard = ({ type, project }: ProjectCardProps) => {
         const techName = createTypography({
           label: label.title,
           size: TypographySize.bodyLarge,
-          weight: TypographyWeight.MEDIUM,
           color: TypographyColor.White,
         });
         techContainer.append(techImage, techName);
@@ -99,15 +95,13 @@ export const createProjectCard = ({ type, project }: ProjectCardProps) => {
     imageContainer.append(image)
     const projectTitle = createTypography({
       label: project.title,
-      weight: TypographyWeight.MEDIUM,
       color: TypographyColor.White,
-      size: TypographySize.titleSmall,
+      size: TypographySize.bodyLarge,
     });
     const projectDescription = createTypography({
       label: project.shortDescription,
-      weight: TypographyWeight.REGULAR,
       color: TypographyColor.White,
-      size: TypographySize.bodyLarge,
+      size: TypographySize.bodySmall,
     });
     const techsContainer = document.createElement("div");
     techsContainer.classList.add(`${type}__tech-list`);
@@ -122,7 +116,6 @@ export const createProjectCard = ({ type, project }: ProjectCardProps) => {
         const techName = createTypography({
           label: label.title,
           size: TypographySize.bodyLarge,
-          weight: TypographyWeight.MEDIUM,
           color: TypographyColor.White,
         });
         techContainer.append(techImage, techName);

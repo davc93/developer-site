@@ -65,3 +65,35 @@
 .not-found-page {
   background: var(--neutral--600);
 }
+
+/* social media */
+
+
+.icon{
+  transition: all 0.4s;
+
+}
+.icon:hover{
+
+  transition: all 0.4s;
+
+}
+.linkedin-icon{
+  fill: var(--white);
+  stroke: var(--white);
+
+}
+.linkedin-icon:hover{
+  fill: var(--primary--600);
+
+}
+
+.github-icon{
+  fill: var(--white);
+
+}
+
+.github-icon:hover{
+  fill: var(--primary--600);
+
+}
