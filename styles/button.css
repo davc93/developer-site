@@ -30,7 +30,7 @@
   transition: all 0.5s;
 
 }
-.button--outlined:hover {
+.button--outlined:hover,.button--outlined:focus {
   color: black;
   border-color: var(--primary--600);
   background-color: var(--primary--600);

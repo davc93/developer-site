@@ -17,8 +17,15 @@
 }
 
 .modal__close-icon:hover {
-  background-color: var(--white) !important;
-  color: var(--dark) !important;
+  color: black !important;
+  border-color: var(--primary--600) !important;
+  background-color: var(--primary--600) !important;
+  transition: all 0.5s;
+  box-shadow: 0 0 5px var(--primary--600),
+  0 0 25px var(--primary--600),
+  0 0 50px var(--primary--600),
+  0 0 200px var(--primary--600);
+
 }
 .modal.active .modal__close-icon {
   transition: opacity 300ms 300ms ease, transform 300ms 300ms ease,

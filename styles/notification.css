@@ -1,6 +1,9 @@
 .notification {
     display: flex;
     gap: var(--space-3);
+    background-color: var(--neutral--950);
+    padding: var(--space-4);
+    border: 1px solid var(--white);
 }
 .notification__text-content{
     display: flex;

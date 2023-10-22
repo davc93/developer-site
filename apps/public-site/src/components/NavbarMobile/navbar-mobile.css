@@ -94,7 +94,7 @@
 .item-list a {
   padding: 10px 30px;
   cursor: pointer;
-  font-size: var(--body-small);
+  font-size: var(--body-medium);
   font-weight: 700;
   text-transform: uppercase;
   text-decoration: none;
