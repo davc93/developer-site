@@ -1,6 +1,7 @@
 .portfolio-detail-page {
   background: var(--neutral--950);
   justify-items: center;
+  min-height: 100vh;
 }
 
 .project-description {

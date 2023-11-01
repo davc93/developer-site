@@ -4,6 +4,7 @@
   right: var(--space-4);
 }
 .projects-list-container {
+  min-height: 100vh;
   overflow-y: scroll;
   background-color: var(--neutral--950);
   display: grid;

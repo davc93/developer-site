@@ -53,7 +53,7 @@
   flex-wrap: wrap;
 }
 .project-card--large__tech-list--mobile {
-  background: var(--dark);
+  background: black;
   height: 0;
   overflow: hidden;
   display: flex;

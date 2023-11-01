@@ -1,3 +1,5 @@
+import { createIconButton } from "../IconButton";
+import { ArrowIcon } from "../Icons/ArrowIcon";
 
 export const createCarousel = (elements: HTMLElement[]) => {
   const slide = (event: MouseEvent) => {
@@ -22,17 +24,16 @@ export const createCarousel = (elements: HTMLElement[]) => {
 
   // Create the "prev" button element with the "carousel-button" class,
   // "prev" data-carousel-button attribute, and the left arrow symbol
-  const prevButton = document.createElement("button");
+  const prevButton = createIconButton({icon:ArrowIcon({width:"3rem"})})
   prevButton.classList.add("carousel-button", "prev");
   prevButton.setAttribute("data-carousel-button", "prev");
-  prevButton.textContent = "◄"; // Left arrow symbol
   prevButton.addEventListener("click", slide);
   // Create the "next" button element with the "carousel-button" class,
   // "next" data-carousel-button attribute, and the right arrow symbol
-  const nextButton = document.createElement("button");
+  const nextButton = createIconButton({icon:ArrowIcon({width:"3rem"})})
   nextButton.classList.add("carousel-button", "next");
   nextButton.setAttribute("data-carousel-button", "next");
-  nextButton.textContent = "►"; // Right arrow symbol
+ // Right arrow symbol
   nextButton.addEventListener("click", slide);
   // Create the unordered list (ul) element with the "slides" attribute
   const ulElement = document.createElement("ul");

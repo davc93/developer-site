@@ -72,7 +72,7 @@ export const createProjectCard = ({ type, project }: ProjectCardProps) => {
     const link = createLink({href:`/portfolio/${project.slug}`,children:cta})
      
     //  href: `/portfolio/${project.slug}`,
-    const techButton = createIconButton({ icon: ArrowIcon() });
+    const techButton = createIconButton({ icon: ArrowIcon({}) });
     techButton.classList.add(`${type}__tech-button`);
     techButton.addEventListener("click", () => {
       techsContainer.classList.toggle("active");
@@ -142,7 +142,7 @@ export const createProjectCard = ({ type, project }: ProjectCardProps) => {
     });
 
     const link = createLink({href:`/portfolio/${project.slug}`,children:cta})
-    const techButton = createIconButton({ icon: ArrowIcon() });
+    const techButton = createIconButton({ icon: ArrowIcon({}) });
     techButton.classList.add(`${type}__tech-button`);
     techButton.addEventListener("click", () => {
       mobileTechsContainer.classList.toggle("active");
