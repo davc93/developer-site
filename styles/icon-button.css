@@ -6,7 +6,7 @@
     width: max-content;
     height: max-content;
     transition: all 0.5s;
-    background: black !important;
+    background: var(--neutral--950) !important;
 
 }
 .icon-button:hover{
