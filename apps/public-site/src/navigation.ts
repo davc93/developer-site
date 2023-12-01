@@ -35,8 +35,6 @@ export const navigation = async () => {
     });
 
     await createPortfolioDetailPage();
-  } else if (currentPage?.classList.contains("building")) {
-    goTo("/building");
   } else if (!currentPage) {
     goTo("/not-found");
   } else {

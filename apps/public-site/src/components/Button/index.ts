@@ -30,7 +30,7 @@ export const createButton = ({
   label = "Button",
   type = "button",
   tag = "button"
-}: ButtonProps) => {
+}: ButtonProps) :HTMLButtonElement => {
   const btn = document.createElement(tag) as any ;
   if(tag == "button"){
     btn.type = type

@@ -12,3 +12,6 @@ export const projectDescription = document.querySelector("#project-description")
 export const navbarInput = document.querySelector(".navbar-desktop input") as HTMLInputElement
 export const navbarMobileInput = document.querySelector(".navbar-mobile input") as HTMLInputElement
 export const pageLoader = document.querySelector("#page-loader") as HTMLDivElement
+export const loginButton = document.querySelector("#login-button") as HTMLDivElement
+
+

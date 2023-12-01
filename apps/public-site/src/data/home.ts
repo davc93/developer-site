@@ -29,7 +29,7 @@ export const JobsList = [
     {
         jobTitle:"Fullstack Developer",
         organization:"Insect Revolution",
-        logoUrl:"https://media.licdn.com/dms/image/C4E03AQF9XvHrRaSyiw/profile-displayphoto-shrink_200_200/0/1614796314959?e=1699488000&v=beta&t=sz5hqdA_ofihY5i18m_CPT0UHAT1j2HvJYX6_HOA9iI",
+        logoUrl:"https://media.licdn.com/dms/image/C4E03AQF9XvHrRaSyiw/profile-displayphoto-shrink_800_800/0/1614796315521?e=2147483647&v=beta&t=oVNUT6QUcwk35Rkku7Iysk0pyBtCPpUc4dtjti3cCHs",
         fromUntil:"july. 2021 - december 2021",
         link:"https://www.linkedin.com/in/insect-revolution-847197208/?originalSubdomain=cl"
 

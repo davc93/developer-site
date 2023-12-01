@@ -2,10 +2,9 @@ import { createProjects } from "../../components/ListOfProjects";
 import { ProjectCardType } from "../../components/ProjectCard";
 import { createSelect } from "../../components/Select";
 import { projectListPortfolio, projectsFilterForm } from "../../nodes";
-import { labelService } from "../../services/label.service";
 import { projectService } from "../../services/project.service";
 import "./style.css";
-const techs = await labelService.getLabels();
+const techs = await projectService.getLabels();
 const options = [{label:"All",value:""},...techs.map((tech) => {
   return {
     label: tech.title,
