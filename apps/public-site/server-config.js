@@ -3,5 +3,6 @@ export const config = {
     smtpEmail:process.env.SMTP_EMAIL,
     smtpPassword:process.env.SMTP_PASSWORD,
     clientId:process.env.GOOGLE_CLIENT_ID,
-    clientSecret:process.env.GOOGLE_CLIENT_SECRET
+    clientSecret:process.env.GOOGLE_CLIENT_SECRET,
+    baseUrlPath: process.env.BASE_URL_PATH
 }

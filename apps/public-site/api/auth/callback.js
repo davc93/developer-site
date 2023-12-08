@@ -14,7 +14,7 @@ export default async function handler(req, res) {
             code: req.query.code,
             client_id:config.clientId,
             client_secret:config.clientSecret,
-            redirect_uri: "http://localhost:3000/api/auth/callback",
+            redirect_uri: `${config.baseUrlPath}/api/auth/callback`,
             grant_type: "authorization_code",
           })
     }
