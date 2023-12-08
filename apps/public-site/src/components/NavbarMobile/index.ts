@@ -1,3 +1,9 @@
+import { navbarMobile, updateAppSession } from "../../main";
+import { goTo } from "../../navigation";
+import { deleteCookie } from "../../utils/notifications";
+import { GithubIcon, LinkedinIcon } from "../Icons/SocialIcons";
+import { createLink } from "../Link";
+import { TypographySize, createTypography } from "../Typography";
 
 // reference https://codepen.io/nikkk-me/pen/LYYWexL
 export interface NavbarMobileProps {
@@ -7,7 +13,7 @@ export interface NavbarMobileProps {
 export const createNavbarMobile = ({ }: NavbarMobileProps) => {
   // Create the main div with class "main"
   const divMain = document.createElement("div");
-  divMain.classList.add("main");
+  divMain.classList.add("main","navbar-mobile");
 
   // Create the label element with class "menu-button-wrapper"
   const labelMenuButtonWrapper = document.createElement("label");
@@ -55,18 +61,52 @@ export const createNavbarMobile = ({ }: NavbarMobileProps) => {
   divItemList.classList.add("item-list");
 
   // Create and append individual divs with text content to the "item-list" div
-  const menuItems = [
-    "About",
-    "Portfolio",
-    "Appointments"
-  ];
+  const aboutA = createLink({href:"/about",children:createTypography({label:"About",size:TypographySize.bodyMedium})})
+  const portfolioA = createLink({href:"/portfolio",children:createTypography({label:"Portfolio",size:TypographySize.bodyMedium})})
+  const appointmentsA = createLink({href:"/appointments",children:createTypography({label:"Appointments",size:TypographySize.bodyMedium})})
 
-  menuItems.forEach((itemText) => {
-    const divMenuItem = document.createElement("a");
-    divMenuItem.href = "#"
-    divMenuItem.textContent = itemText;
-    divItemList.appendChild(divMenuItem);
-  });
+  const profile = createLink({
+    href: "/profile",
+    children: createTypography({
+      label: "Profile",
+      size: TypographySize.bodyMedium,
+    }),
+  })
+  const loginEl = createLink({
+    href: "/api/auth/login",
+    children: createTypography({
+      label: "Login",
+      size: TypographySize.bodyMedium,
+    }),
+  })
+  const logOutButton = createTypography({
+    label: "LogOut",
+    size: TypographySize.bodyMedium,
+  })
+  logOutButton.style.cursor = "pointer"
+  logOutButton.addEventListener("click",(ev)=>{
+    try {
+      deleteCookie("access_token")
+      goTo("/")
+      updateAppSession()
+      
+    } catch (error) {
+        console.log(error);
+        
+    }
+  })
+  const separator = document.createElement("div")
+  separator.className = "navbar-mobile__separator"
+
+  const github = createLink({href:"https://github.com/davc93",children:GithubIcon({width:"36px"})})
+  const linkedin = createLink({href:"https://www.linkedin.com/in/diego-vergara-casanova/",children:LinkedinIcon({width:'36px'})})
+  const socialContainer = document.createElement("div")
+  socialContainer.className = "navbar-mobile__social-container"
+  socialContainer.append(github,linkedin)
+ 
+
+  divItemList.append(aboutA,portfolioA,appointmentsA,profile,loginEl,logOutButton,separator,socialContainer)
+
 
   // Append input, icon-wrapper, and item-list to the label "menu-button-wrapper"
   labelMenuButtonWrapper.appendChild(inputMenuButton);
@@ -77,7 +117,33 @@ export const createNavbarMobile = ({ }: NavbarMobileProps) => {
   divMain.appendChild(labelMenuButtonWrapper);
 
   // Append the main div "main" to the container
-  return divMain;
+  const sessionActive = () => {
+    
+    loginEl.style.display = "none"
+    profile.style.display = "block"
+    logOutButton.style.display = "block"
+ }
+ const sessionInactive = () => {
+   loginEl.style.display = "block"
+   profile.style.display = "none"
+   logOutButton.style.display = "none"
+   
+ }
+  window.addEventListener("popstate",(ev)=>{
+    inputMenuButton.checked = false
+  })
+  window.addEventListener("click",(e:any)=>{
+    if (!divMain.contains(e.target) && inputMenuButton.checked) {
+      inputMenuButton.checked = false
+
+    }
+    
+  })
+  return {
+    element:divMain,
+    sessionActive,
+    sessionInactive
+  };
 };
 
 // Helper function to create the option div

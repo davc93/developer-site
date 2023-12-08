@@ -314,34 +314,6 @@
   margin-bottom: 2rem;
 }
 
-.navbar-container {
-  position: fixed;
-  top: var(--space-6);
-
-  left: var(--space-2);
-}
-
-.nav input:checked ~ .menu {
-  width: 480px !important;
-}
-
-.navbar-desktop {
-  display: none;
-}
-.navbar-mobile {
-  position: fixed;
-  z-index: 10;
-  top: 20px;
-  left: 20px;
-}
-@media (min-width: 768px) {
-  .navbar-desktop {
-    display: block;
-  }
-  .navbar-mobile {
-    display: none;
-  }
-}
 .cta-contact {
   display: flex;
   flex-wrap: wrap;

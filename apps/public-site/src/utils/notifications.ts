@@ -35,3 +35,6 @@ export function shuffleArray(array:any[]) {
     [array[i], array[j]] = [array[j], array[i]]; // Swap elements at i and j
   }
 }
+export function deleteCookie(cookieName:string) {
+  document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; Path=/;`
+}

@@ -9,9 +9,9 @@ export const portfolioDetails = document.getElementById('/portfolio/:slug')
 export const projectListPortfolio = document.querySelector("#project-list--portfolio")
 export const projectsFilterForm = document.querySelector("#projects-filter-form")
 export const projectDescription = document.querySelector("#project-description") as Element
-export const navbarInput = document.querySelector(".navbar-desktop input") as HTMLInputElement
-export const navbarMobileInput = document.querySelector(".navbar-mobile input") as HTMLInputElement
 export const pageLoader = document.querySelector("#page-loader") as HTMLDivElement
 export const loginButton = document.querySelector("#login-button") as HTMLDivElement
-
+export const profileButton = document.querySelector("#profile-button") as HTMLDivElement
+export const profileInfo = document.querySelector("#profile-info") as HTMLDivElement
+export const layout = document.querySelector("#layout") as HTMLDivElement
 

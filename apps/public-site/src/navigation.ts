@@ -1,6 +1,4 @@
 import {
-  navbarInput,
-  navbarMobileInput,
   pageLoader,
   pagesContainer,
   portfolioDetails,
@@ -9,6 +7,7 @@ import { createPortfolioDetailPage } from "./routes/portfolio/[slug]";
 
 export const goTo = (path: string) => {
   window.history.pushState({}, "", path);
+  window.dispatchEvent(new Event('popstate'));
   navigation();
 };
 
@@ -50,8 +49,8 @@ export const navigation = async () => {
 
   scrollTo(0, 0);
 
-  navbarInput.checked = false;
-  navbarMobileInput.checked = false;
+  // navbarInput.checked = false;
+  // navbarMobileInput.checked = false;
   pageLoader.classList.add("inactive");
 };
 
