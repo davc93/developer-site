@@ -3,11 +3,7 @@ import {
   ButtonStyles,
   createButton,
 } from "../../components/Button";
-import { NotificationType } from "../../components/Notification";
-import { goTo } from "../../navigation";
 import { loginButton } from "../../nodes";
-import { authService } from "../../services/auth.service";
-import { showNotification } from "../../utils/notifications";
 import "./style.css";
 export function createAppointmentsPage() {
   const button = createButton({
@@ -17,7 +13,7 @@ export function createAppointmentsPage() {
     size: ButtonSizes.LARGE,
   });
   
-  button.addEventListener("click",async function(e){
+  button.addEventListener("click",async function(){
     this.classList.add("button--loading")
     window.open("http://localhost:3000/api/auth/login")
     this.classList.remove("button--loading")

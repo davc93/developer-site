@@ -14,11 +14,11 @@ export const navbar =createNavbarDesktop({})
 export const navbarMobile = createNavbarMobile({})
 layout.append(navbar.element,navbarMobile.element);
 export const updateAppSession = () =>{
-    authService.getUserInfo().then((data)=>{
+    authService.getUserInfo().then(()=>{
         navbar.sessionActive()
         navbarMobile.sessionActive()
         
-    }).catch((error)=>{
+    }).catch(()=>{
     
         navbar.sessionInactive()
         navbarMobile.sessionInactive()

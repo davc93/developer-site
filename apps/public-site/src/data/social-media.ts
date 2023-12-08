@@ -5,12 +5,12 @@ export const socialMedia:SocialMedia[] = [
     {
         name:"Linkedin",
         url:"https://www.linkedin.com/in/diego-vergara-casanova/",
-        icon:LinkedinIcon()
+        icon:LinkedinIcon({width:"36px"})
     },
     {
         name:"Github",
         url:"https://github.com/davc93",
-        icon:GithubIcon()
+        icon:GithubIcon({width:"36px"})
     },
     {
         name:"Instagram",

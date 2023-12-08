@@ -4,7 +4,6 @@ import {
   createButton,
 } from "../../components/Button";
 import { NotificationType } from "../../components/Notification";
-import { TypographyColor } from "../../components/Typography";
 import { profileButton, profileInfo } from "../../nodes";
 import { authService } from "../../services/auth.service";
 import { showNotification } from "../../utils/notifications";
@@ -15,7 +14,7 @@ export const createProfilePage = () => {
     size: ButtonSizes.LARGE,
     style: ButtonStyles.outlined,
   });
-  getInfo.addEventListener("click", async (event) => {
+  getInfo.addEventListener("click", async () => {
       getInfo.classList.add("button--loading")
     try {
       const userInfo = await authService.getUserInfo();

@@ -84,7 +84,7 @@ export const createNavbarDesktop = ({}: NavbarDesktopProps) => {
       size: TypographySize.bodyMedium,
     })
     logOutButton.style.cursor = "pointer"
-    logOutButton.addEventListener("click",(ev)=>{
+    logOutButton.addEventListener("click",()=>{
       try {
         deleteCookie("access_token")
         goTo("/")
@@ -126,7 +126,7 @@ export const createNavbarDesktop = ({}: NavbarDesktopProps) => {
   divNav.append(inputCheckbox, span1, span2, divMenu);
 
   navbarContainer.append(divNav);
-  window.addEventListener("popstate",(ev)=>{
+  window.addEventListener("popstate",()=>{
     inputCheckbox.checked = false
   })
   window.addEventListener("click",(e:any)=>{

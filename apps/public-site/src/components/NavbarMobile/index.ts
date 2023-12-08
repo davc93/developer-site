@@ -1,4 +1,4 @@
-import { navbarMobile, updateAppSession } from "../../main";
+import {  updateAppSession } from "../../main";
 import { goTo } from "../../navigation";
 import { deleteCookie } from "../../utils/notifications";
 import { GithubIcon, LinkedinIcon } from "../Icons/SocialIcons";
@@ -84,7 +84,7 @@ export const createNavbarMobile = ({ }: NavbarMobileProps) => {
     size: TypographySize.bodyMedium,
   })
   logOutButton.style.cursor = "pointer"
-  logOutButton.addEventListener("click",(ev)=>{
+  logOutButton.addEventListener("click",()=>{
     try {
       deleteCookie("access_token")
       goTo("/")
@@ -129,7 +129,7 @@ export const createNavbarMobile = ({ }: NavbarMobileProps) => {
    logOutButton.style.display = "none"
    
  }
-  window.addEventListener("popstate",(ev)=>{
+  window.addEventListener("popstate",()=>{
     inputMenuButton.checked = false
   })
   window.addEventListener("click",(e:any)=>{
