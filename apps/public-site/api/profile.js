@@ -2,7 +2,7 @@ export default async function profile(req,res) {
     try {
         const cookie = req.headers.cookie
         const access_token = cookie.replace("access_token=","")
-        console.log(access_token);
+        
         
         const response =  await fetch("https://www.googleapis.com/oauth2/v3/userinfo",{
             headers:{
