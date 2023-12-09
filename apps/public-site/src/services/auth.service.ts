@@ -1,7 +1,6 @@
-import { config } from "../config"
 class AuthService {
     async loginWithGoogle() {
-        const response =  await fetch(`${config.serverLessUrl}/auth/login`,{
+        const response =  await fetch("/api/auth/login",{
           redirect:"follow",
         })
         console.log(response);
@@ -16,7 +15,7 @@ class AuthService {
         
     }
     async  getUserInfo() {
-      const response = await fetch(`${config.serverLessUrl}/profile`)
+      const response = await fetch("/api/profile")
       const data = await response.json()
       
       if(!response.ok){
