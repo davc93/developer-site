@@ -1,5 +1,5 @@
 import { messageService } from "../../services/message.service";
-import { showNotification } from "../../utils/notifications";
+import { showNotification } from "../../utils";
 import { ButtonSizes, ButtonStyles, createButton } from "../Button";
 import { NotificationType } from "../Notification";
 import { createTextArea } from "../TextArea";

@@ -1,6 +1,6 @@
 import { updateAppSession } from "../../main";
 import { goTo } from "../../navigation";
-import { deleteCookie } from "../../utils/notifications";
+import { deleteCookie } from "../../utils";
 import { GithubIcon, LinkedinIcon } from "../Icons/SocialIcons";
 import { createLink } from "../Link";
 import { TypographySize, createTypography } from "../Typography";

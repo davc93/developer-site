@@ -1,7 +1,7 @@
 import { connectToDatabase, Message } from "./lib/mongodb.js";
 import { sendMail } from "./lib/nodemailer.js";
 import { config } from "../server-config.js";
-import { messageSchema } from "./dto.js";
+import { messageSchema } from "./lib/dto.js";
 
 export default async function handler(request, response) {
   try {

@@ -1,7 +1,7 @@
 const env = process.env.NODE_ENV ?? "development";
 const envs = {
   development: ".env",
-  stage: ".env.stage",
+  stage: ".env.dev",
   production: ".env.production",
 };
 

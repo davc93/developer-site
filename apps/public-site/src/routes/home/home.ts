@@ -18,7 +18,7 @@ import { createModal } from "../../components/Modal";
 import { projectService } from "../../services/project.service";
 import { ProjectCardType } from "../../components/ProjectCard";
 import { createJobCard } from "../../components/JobCard";
-import { shuffleArray } from "../../utils/notifications";
+import { shuffleArray } from "../../utils";
 const projects =await projectService.getProjects() 
 shuffleArray(projects)
 const projectsEl = createProjects(projects,ProjectCardType.LARGE);

@@ -6,7 +6,7 @@ import {
 import { NotificationType } from "../../components/Notification";
 import { profileButton, profileInfo } from "../../nodes";
 import { authService } from "../../services/auth.service";
-import { showNotification } from "../../utils/notifications";
+import { showNotification } from "../../utils";
 import "./style.css";
 export const createProfilePage = () => {
   const getInfo = createButton({
