@@ -61,7 +61,7 @@ export const createNavbarMobile = ({ }: NavbarMobileProps) => {
   divItemList.classList.add("item-list");
 
   // Create and append individual divs with text content to the "item-list" div
-  const aboutA = createLink({href:"/about",children:createTypography({label:"About",size:TypographySize.bodyMedium})})
+  const aboutA = createLink({href:"/",children:createTypography({label:"About",size:TypographySize.bodyMedium})})
   const portfolioA = createLink({href:"/portfolio",children:createTypography({label:"Portfolio",size:TypographySize.bodyMedium})})
   const appointmentsA = createLink({href:"/appointments",children:createTypography({label:"Appointments",size:TypographySize.bodyMedium})})
 
