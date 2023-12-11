@@ -1,19 +1,6 @@
-const env = process.env.NODE_ENV ?? "development";
-const envs = {
-  development: ".env",
-  stage: ".env.dev",
-  production: ".env.production",
-};
-
-const options = {};
-if (envs[env]) {
-  options.path = envs[env];
-}
-
-require("dotenv").config(options);
 
 const config = {
-  env,
+  env:process.env.NODE_ENV,
   dbUrl: process.env.DATABASE_URL,
   port: process.env.PORT ?? 3000,
   jwtSecret: process.env.JWT_SECRET,
