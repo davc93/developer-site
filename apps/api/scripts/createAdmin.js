@@ -21,6 +21,7 @@ async function createUser(email, password, role) {
     values: [email, hashedPassword, role],
   };
   try {
+    console.log(hashedPassword);
     await client.connect();
     const result = await client.query(query);
     console.log('New user created:');
