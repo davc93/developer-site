@@ -1,7 +1,7 @@
-const env = process.env.NODE_ENV ?? "development";
+const env = process.env.RAILWAY_ENVIRONMENT_NAME ?? "local";
 const envs = {
-  development: ".env",
-  stage: ".env.stage",
+  local: ".env",
+  dev: ".env.dev",
   production: ".env.production",
 };
 

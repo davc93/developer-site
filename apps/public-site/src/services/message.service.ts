@@ -1,9 +1,9 @@
-import { config } from "../config";
+
 import { Message } from "../models/message.model";
 
 class MessageService {
   async sendMessage(message: Message) {
-    const response = await fetch(`${config.serverLessUrl}/message`, {
+    const response = await fetch("/api/message", {
       method: "POST",
       body: JSON.stringify(message),
     });
