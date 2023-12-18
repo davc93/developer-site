@@ -1,6 +1,6 @@
 import { Sequelize, DataTypes } from "sequelize";
-
 import { config } from "../../../server-config.js";
+
 export const sequelize = new Sequelize(config.postgresDB);
 
 export const User = sequelize.define("user", {
