@@ -3,7 +3,6 @@ import querystring from "node:querystring";
 import jwt from "jsonwebtoken";
 import { config } from "../../server-config.js";
 import { sequelize, User } from "../lib/sequelize/sequelize.js";
-
 export default async function handler(req, res) {
   try {
     const options = {
@@ -27,24 +26,25 @@ export default async function handler(req, res) {
     const data = await response.json();
     const decoded = jwt.decode(data.id_token);
     await sequelize.authenticate();
-
-    await User.sync();
-
-    const newUser = User.build({
-      name: decoded.name,
-      email: decoded.email,
-      sub: decoded.sub,
-    });
-    await newUser.save();
+    await User.findOrCreate({
+      where: { email: decoded.email },
+      defaults:{
+        name: decoded.name,
+        email: decoded.email,
+        sub: decoded.sub,
+        role:"customer",
+        provider:"google"
+  
+      }
+    })
     await sequelize.close();
 
     res.setHeader("Set-Cookie", `access_token=${data.access_token}; Path=/;`);
     res.writeHead(302, { location: "/profile" });
     res.end();
   } catch (error) {
-    console.log(error);
-    return res.status(400).json({
-      message: "something went wrong",
-    });
+    console.error(error);
+    res.writeHead(302, { location: `/error?message${error}` });
+    res.end();
   }
 }
