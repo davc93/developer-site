@@ -45,8 +45,8 @@ export default async function handler(req, res) {
     res.writeHead(302, { location: "/profile" });
     res.end();
   } catch (error) {
-    console.log(error);
-    res.writeHead(302, { location: "/error" });
+    console.error(error);
+    res.writeHead(302, { location: `/error?message${error}` });
     res.end();
   }
 }
