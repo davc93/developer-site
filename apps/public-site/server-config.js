@@ -1,6 +1,6 @@
 import dotenv from "dotenv"
-
 dotenv.config()
+
 export const config = {
     mongoDB:process.env.MONGO_DB,
     postgresDB:process.env.POSTGRES_DB,
