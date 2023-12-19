@@ -3,7 +3,7 @@ import querystring from "node:querystring";
 import jwt from "jsonwebtoken";
 import { config } from "../../server-config.js";
 import { sequelize, User } from "../lib/sequelize/sequelize.js";
-//cambio
+
 export default async function handler(req, res) {
   try {
     const options = {
