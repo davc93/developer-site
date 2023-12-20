@@ -1,4 +1,4 @@
-import { GithubIcon, InstagramIcon, LinkedinIcon } from "../components/Icons/SocialIcons";
+import { GithubIcon, InstagramIcon, LinkedinIcon } from "../components/icons/SocialIcons";
 import { SocialMedia } from "../models/social-media.model";
 
 export const socialMedia:SocialMedia[] = [

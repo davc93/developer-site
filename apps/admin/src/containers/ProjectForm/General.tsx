@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import { TextArea } from "../../components/TextArea";
-import { TextField, TextFieldInputType } from "../../components/TextField";
+import { TextArea } from "../../components/atoms/TextArea";
+import { TextField, TextFieldInputType } from "../../components/atoms/TextField";
 import { useCheckbox } from "../../hooks/useCheckbox";
 import { useInputValue } from "../../hooks/useInputValue";
 import { Project } from "../../models/project.model";
-import { Button, ButtonSizes } from "../../components/Button";
+import { Button, ButtonSizes } from "../../components/atoms/Button";
 import { useContext, useEffect } from "react";
 import { ProjectFormContext } from "./Context";
 import { ActionTypes, Step } from "./reducer";

@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
-import { Button, ButtonSizes, ButtonStyles } from "../../components/Button";
+import { Button, ButtonSizes, ButtonStyles } from "../../components/atoms/Button";
 import { Project } from "../../models/project.model";
 import { FormEventHandler } from "react";
-import { useGetLabels } from "../../components/ListOfLabels";
+import { useGetLabels } from "../../components/organisms/ListOfLabels";
 import { Link } from "react-router-dom";
 import { ProjectFormContext } from "./Context";
 import { ActionTypes, Step } from "./reducer";

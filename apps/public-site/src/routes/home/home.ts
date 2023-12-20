@@ -10,15 +10,16 @@ import {
   projectList,
   stackList,
 } from "../../nodes";
-import { createProjects } from "../../components/ListOfProjects";
-import { createContactForm } from "../../components/ContactForm";
-import { createCarousel } from "../../components/Carousel";
-import { TypographyColor, TypographySize, createTypography } from "../../components/Typography";
-import { createModal } from "../../components/Modal";
+import { createProjects } from "../../components/organisms/ListOfProjects";
+import { createContactForm } from "../../components/molecules/ContactForm";
+import { createCarousel } from "../../components/molecules/Carousel";
+import { TypographyColor, TypographySize, createTypography } from "../../components/atoms/Typography";
+import { createModal } from "../../components/molecules/Modal";
 import { projectService } from "../../services/project.service";
-import { ProjectCardType } from "../../components/ProjectCard";
-import { createJobCard } from "../../components/JobCard";
+import { ProjectCardType } from "../../components/molecules/ProjectCard";
+import { createJobCard } from "../../components/molecules/JobCard";
 import { shuffleArray } from "../../utils";
+import { ArrowIcon } from "../../components/icons/ArrowIcon";
 const projects =await projectService.getProjects() 
 shuffleArray(projects)
 const projectsEl = createProjects(projects,ProjectCardType.LARGE);
@@ -107,6 +108,8 @@ export const createHomePage = () => {
       label: "Send me a message",
       element: formContainer,
       width: "90vmin",
+      disable:true,
+      icon: ArrowIcon({})
     })
   );
   contactButtonBottom?.append(formContainer2);

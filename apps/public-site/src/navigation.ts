@@ -27,22 +27,22 @@ export const navigation = async () => {
     //render page
     Object.entries(pagesContainer?.children as any).forEach((page: any) => {
       if (page[1] !== currentPage) {
-        page[1].classList.add("page-inactive");
+        page[1].classList.add("hidden");
       } else {
-        page[1].classList.remove("page-inactive");
+        page[1].classList.remove("hidden");
       }
     });
 
     await createPortfolioDetailPage();
   } else if (!currentPage) {
-    goTo("/not-found");
+    goTo("/error?message=page-not-found");
   } else {
     //render page
     Object.entries(pagesContainer?.children as any).forEach((page: any) => {
       if (page[1] !== currentPage) {
-        page[1].classList.add("page-inactive");
+        page[1].classList.add("hidden");
       } else {
-        page[1].classList.remove("page-inactive");
+        page[1].classList.remove("hidden");
       }
     });
   }

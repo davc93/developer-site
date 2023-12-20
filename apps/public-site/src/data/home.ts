@@ -11,7 +11,7 @@ export const JobsList = [
     {
         jobTitle:"Fullstack Developer",
         organization:"Flow S.A",
-        logoUrl:"https://media.licdn.com/dms/image/D4E0BAQF2YbdTN8BfTw/company-logo_200_200/0/1694028613429?e=1702512000&v=beta&t=dhX9m04vVWo-xQxo5Omb1rvC3k-ikVl1XecMIJSk4ac",
+        logoUrl:"https://media.licdn.com/dms/image/D4E0BAQHiDHErI4lHcA/company-logo_200_200/0/1702578671532/flow_sa_logo?e=1710979200&v=beta&t=hsvYGoDRoZwqMtRNweWZLeaq6Q7UyGI32AEq9rgw1q4",
         fromUntil:"march. 2023 - present",
         link:"https://www.linkedin.com/company/flow-sa/"
 

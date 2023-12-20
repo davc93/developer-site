@@ -1,5 +1,5 @@
 import React from 'react'
-import { ListOfLabels } from '../../components/ListOfLabels'
+import { ListOfLabels } from '../../components/organisms/ListOfLabels'
 import { Link } from 'react-router-dom'
 
 export const LabelsPage = () => {

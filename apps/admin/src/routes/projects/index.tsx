@@ -1,6 +1,6 @@
-import { ListOfProjects } from '../../components/ListOfProjects'
+import { ListOfProjects } from '../../components/organisms/ListOfProjects'
 import { Link } from 'react-router-dom'
-import { Typography, TypographySize } from '../../components/Typography'
+import { Typography, TypographySize } from '../../components/atoms/Typography'
 
 export const ProjectsPage = () => {
   return (

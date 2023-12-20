@@ -2,8 +2,8 @@ import React, { useContext, useState } from "react";
 import { User } from "../../models/user.model";
 import { authService } from "../../services/auth.service";
 import { AuthContext } from "../../context/AuthContext";
-import { Typography, TypographySize } from "../../components/Typography";
-import { ErrorMessage } from "../../components/ErrorMessage";
+import { Typography, TypographySize } from "../../components/atoms/Typography";
+import { ErrorMessage } from "../../components/atoms/ErrorMessage";
 
 export const ProfilePage = () => {
   const [loading, setLoading] = useState(true);

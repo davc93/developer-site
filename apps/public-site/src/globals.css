@@ -1,12 +1,12 @@
-@import url("./components/Carousel/style.css");
-@import url("./components/Modal/modal.css");
-@import url("./components/NavbarDesktop/navbar-desktop.css");
-@import url("./components/NavbarMobile/navbar-mobile.css");
-@import url("./components/ProjectCard/style.css");
-@import url("./components/AccordionItem/style.css");
-@import url("./components/ContactForm/style.css");
-@import url("./components/JobCard/style.css");
-@import url("./components/Link/style.css");
+@import url("./components/molecules/Carousel/style.css");
+@import url("./components/molecules/Modal/modal.css");
+@import url("./components/molecules/NavbarDesktop/navbar-desktop.css");
+@import url("./components/molecules/NavbarMobile/navbar-mobile.css");
+@import url("./components/molecules/ProjectCard/style.css");
+@import url("./components/atoms/AccordionItem/style.css");
+@import url("./components/molecules/ContactForm/style.css");
+@import url("./components/molecules/JobCard/style.css");
+@import url("./components/atoms/Link/style.css");
 
 
 html{
@@ -14,7 +14,7 @@ html{
 }
 
 body{
-  background: var(--neutral--950);
+  background: var(--surface--950);
 }
 
 * {
@@ -22,58 +22,11 @@ body{
   margin: 0;
   padding: 0;
 }
-.page-inactive{
+
+.hidden{
   display: none !important;
 }
 
-.section {
-  padding-inline: var(--space-3);
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  column-gap: var(--space-3);
-  padding-block: var(--space-4);
-  z-index: 3;
-  position: relative;
-  width: 100%;
-}
-
-@media (min-width: 768px) {
-  .section {
-    padding-inline: var(--space-5);
-    grid-template-columns: repeat(4, 1fr);
-    column-gap: var(--space-5);
-
-  padding-block: var(--space-8);
-  }
-}
-
-@media (min-width: 1024px) {
-  .section {
-    padding-inline: var(--space-7);
-    grid-template-columns: repeat(6, 1fr);
-    column-gap: var(--space-7);
-
-  padding-block: var(--space-16);
-  }
-}
-
-.building-page header{
-  width: 100%;
-  min-height: 130vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background-image: url(https://res.cloudinary.com/dxryc5jgr/image/upload/c_scale,e_gamma:-50,q_65,w_1600/v1692046972/developer-site/developer-3.webp);
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: rgb(0,0,0,0.8);
-}
-
-.not-found-page {
-  background: var(--neutral--600);
-}
 
 /* social media */
 

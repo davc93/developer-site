@@ -11,9 +11,9 @@ import { EditProjectPage } from "./routes/project-edit";
 import { LabelsPage } from "./routes/labels";
 import { CreateLabelPage } from "./routes/label-create";
 import { EditLabelPage } from "./routes/label-edit";
-import { AuthRoute } from "./components/AuthRoute";
+import { AuthRoute } from "./components/atoms/AuthRoute";
 import { NotificationContext } from "./context/NotificationContext";
-import { PublicRoute } from "./components/PublicRoute";
+import { PublicRoute } from "./components/atoms/PublicRoute";
 
 function App() {
   const [token, setToken] = useLocalStorage("token");

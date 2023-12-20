@@ -5,8 +5,10 @@
 @import url("./select.css");
 @import url("./notification.css");
 @import url("./typography.css");
+@import url("./section-container.css");
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
 :root {
+   /* Color primario */
   --primary--100: rgba(255, 225, 227, 1);
   --primary--200: rgba(255, 200, 204, 1);
   --primary--300: rgba(255, 161, 167, 1);
@@ -18,6 +20,14 @@
   --primary--900: rgba(131, 25, 32, 1);
   --primary--950: rgba(71, 8, 12, 1);
   --primary--50: rgba(255, 241, 242, 1);
+
+  /*
+
+  Colores para dar matices , se usara en:
+  - subtitulos
+  - 
+  
+  */
   --neutral--50: rgba(244, 246, 247, 1);
   --neutral--100: rgba(227, 232, 234, 1);
   --neutral--200: rgba(201, 210, 216, 1);
@@ -29,26 +39,51 @@
   --neutral--800: rgba(61, 68, 77, 1);
   --neutral--900: rgba(54, 59, 67, 1);
   --neutral--950: rgb(10, 13, 15,1);
+
+  /* 
+  
+  Colores para superficies donde va contenido como textos , imagenes etc...
+  - se puede usar para fondos de cards
+  - fondo general de la app  
+  */
+  --surface--50: var(--neutral--50);
+  --surface--100: var(--neutral--100);
+  --surface--200: var(--neutral--200);
+  --surface--300: var(--neutral--300);
+  --surface--400: var(--neutral--400);
+  --surface--500: var(--neutral--500);
+  --surface--600: var(--neutral--600);
+  --surface--700: var(--neutral--700);
+  --surface--800: var(--neutral--800);
+  --surface--900: var(--neutral--900);
+  --surface--950: var(--neutral--950);
+  
   --warning--100: rgba(255, 219, 153, 1);
   --warning--300: rgba(255, 165, 0, 1);
   --warning--600: rgba(161, 104, 0, 1);
+  
   --success--100: rgba(153, 219, 200, 1);
   --success--300: rgba(0, 166, 118, 1);
   --success--600: rgba(0, 125, 90, 1);
+  
   --info--100: rgba(166, 213, 250, 1);
   --info--300: rgba(33, 150, 243, 1);
   --info--600: rgba(25, 113, 182, 1);
+  
   --error--100: rgba(246, 198, 198, 1);
   --error--300: rgba(255, 0, 0, 1);
   --error--600: rgba(166, 20, 20, 1);
+  
   --white: white;
 
+  /* dimensiones de las letras */
   --title-large:4.268rem;
   --title-medium: 2.618rem;
   --title-small: 1.618rem;
   --body-medium: 1rem;
   --body-small: 0.618rem;
 
+  /* TOdos los espacios estan determinados por esta escala */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;

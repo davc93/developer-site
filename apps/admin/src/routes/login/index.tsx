@@ -4,10 +4,10 @@ import { authService } from "../../services/auth.service";
 import { useInputValue } from "../../hooks/useInputValue";
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { ErrorMessage } from "../../components/ErrorMessage";
-import { TextField, TextFieldInputType } from "../../components/TextField";
-import { Button, ButtonSizes } from "../../components/Button";
-import { Typography, TypographySize } from "../../components/Typography";
+import { ErrorMessage } from "../../components/atoms/ErrorMessage";
+import { TextField, TextFieldInputType } from "../../components/atoms/TextField";
+import { Button, ButtonSizes } from "../../components/atoms/Button";
+import { Typography, TypographySize } from "../../components/atoms/Typography";
 export const LoginPage = () => {
   const email = useInputValue("");
   const password = useInputValue("");

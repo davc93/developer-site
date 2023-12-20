@@ -2,8 +2,8 @@ import {
   ButtonSizes,
   ButtonStyles,
   createButton,
-} from "../../components/Button";
-import { NotificationType } from "../../components/Notification";
+} from "../../components/atoms/Button";
+import { NotificationType } from "../../components/molecules/Notification";
 import { profileButton, profileInfo } from "../../nodes";
 import { authService } from "../../services/auth.service";
 import { showNotification } from "../../utils";
