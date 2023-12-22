@@ -56,7 +56,8 @@ export const createButton = ({
     `button--${size}`,
     style,
     loading ? "button--loading" : "",
-    disable ? "button--disabled" : ""
+    disable ? "button--disabled" : "",
+    !loading && !disable ? "button--normal" :""
   ].join(" ");
 
 

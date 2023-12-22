@@ -7,6 +7,7 @@
 @import url("./components/molecules/JobCard/style.css");
 @import url("./components/atoms/AccordionItem/style.css");
 @import url("./components/atoms/Link/style.css");
+@import url("../../../styles/globals.css");
 
 * {
   box-sizing: border-box;
@@ -17,6 +18,9 @@
 .hidden {
   display: none !important;
 }
+
+
+
 
 /* social media */
 .linkedin-icon {
@@ -33,4 +37,22 @@
 
 .github-icon:hover {
   fill: var(--primary--600);
+}
+
+
+
+.l-horizontal{
+  display: flex;
+  flex-direction: row;
+}
+.l-gap-1{
+  gap: var(--space-1);
+}
+
+.l-gap-2{
+  gap: var(--space-2);
+}
+
+.l-gap-3{
+  gap: var(--space-3);
 }

@@ -34,7 +34,7 @@
   --neutral--950: rgb(10, 13, 15, 1);
 
   /* colores para textos y contenido en general */
-  --foreground-50: white;
+  --foreground--50: white;
   --foreground--100: var(--neutral--100);
   --foreground--200: var(--neutral--200);
   --foreground--300: var(--neutral--300);
