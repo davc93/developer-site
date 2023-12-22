@@ -5,8 +5,8 @@ export enum ButtonSizes {
 }
 
 export enum ButtonStyles {
-  filled = "button--filled",
-  outlined = "button--outlined",
+  PRIMARY = "button--primary",
+  SECONDARY = "button--secondary",
 }
 
 export interface ButtonProps {
@@ -24,7 +24,7 @@ export interface ButtonProps {
  * Primary UI component for user interaction
  */
 export const createButton = ({
-  style = ButtonStyles.filled,
+  style = ButtonStyles.PRIMARY,
   size = ButtonSizes.LARGE,
   loading = false,
   disable = false,

@@ -20,13 +20,16 @@ import { ProjectCardType } from "../../components/molecules/ProjectCard";
 import { createJobCard } from "../../components/molecules/JobCard";
 import { shuffleArray } from "../../utils";
 import { ArrowIcon } from "../../components/icons/ArrowIcon";
-const projects =await projectService.getProjects() 
-shuffleArray(projects)
-const projectsEl = createProjects(projects,ProjectCardType.LARGE);
+import { ButtonSizes, ButtonStyles, createButton } from "../../components/atoms/Button";
+
+
+// const projects =await projectService.getProjects() 
+// shuffleArray(projects)
+// const projectsEl = createProjects(projects,ProjectCardType.LARGE);
+// const carousel = createCarousel(projectsEl)
 const technologiesEl = createTechnologies();
 const formContainer = createContactForm();
 const formContainer2 = createContactForm();
-const carousel = createCarousel(projectsEl)
 
 function animations() {
   inView(
@@ -104,16 +107,46 @@ function createJobs() {
 export const createHomePage = () => {
   jobsList?.append(createJobs());
   contactButtonHero?.append(
-    createModal({
-      label: "Send me a message",
-      element: formContainer,
-      width: "90vmin",
-      disable:true,
-      icon: ArrowIcon({})
+    // createModal({
+    //   label: "Send me a message",
+    //   element: formContainer,
+    //   width: "90vmin",
+    //   icon: ArrowIcon({})
+    // }),
+    createButton({
+      label:"primary",
+      size:ButtonSizes.LARGE,
+      style:ButtonStyles.PRIMARY
+    }),
+    createButton({
+      label:"secondary",
+      size:ButtonSizes.LARGE,
+      style:ButtonStyles.SECONDARY
+    }),
+    createButton({
+      label:"Loading",
+      size:ButtonSizes.LARGE,
+      loading:true,
+      style:ButtonStyles.PRIMARY
+    }),
+    createButton({
+      label:"disable",
+      size:ButtonSizes.LARGE,
+      style:ButtonStyles.PRIMARY,
+      disable:true
+    }),
+
+    createButton({
+      label:"disable",
+      size:ButtonSizes.LARGE,
+      style:ButtonStyles.SECONDARY,
+      disable:true
     })
+    
   );
+  contactButtonHero.style.display = "flex"
   contactButtonBottom?.append(formContainer2);
-  projectList?.append(carousel);
+  // projectList?.append(carousel);
   stackList?.append(technologiesEl);
 
   animations();

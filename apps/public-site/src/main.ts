@@ -15,22 +15,23 @@ import { authService } from "./services/auth.service";
 export const navbar =createNavbarDesktop({})
 export const navbarMobile = createNavbarMobile({})
 layout.append(navbar.element,navbarMobile.element);
-export const updateAppSession = () =>{
-    authService.getUserInfo().then(()=>{
+export const updateAppSession = async () =>{
+    try {
+        await authService.getUserInfo()
         navbar.sessionActive()
-        navbarMobile.sessionActive()
+        navbarMobile.sessionActive()    
+    } catch (error) {
+        console.error(error);
         
-    }).catch(()=>{
-    
         navbar.sessionInactive()
-        navbarMobile.sessionInactive()
-    })
+        navbarMobile.sessionInactive()   
+    }
 }
 
 createHomePage();
-createPortfolioPage();
+// createPortfolioPage();
 createAppointmentsPage();
-createProfilePage();
+// createProfilePage();
 createErrorPage()
 createBuildPage()
 navigation();

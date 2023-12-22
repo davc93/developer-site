@@ -6,3 +6,7 @@ This is the repo of my web applications, is a monorepo with different kind of ap
 - [Landing page](./apps/frontend/about-me/README.md)
 - [Portfolio](./apps/frontend/projects/README.md)
 - [API](./apps/core/api/README.md)
+
+
+## Design
+

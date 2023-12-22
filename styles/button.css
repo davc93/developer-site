@@ -52,37 +52,37 @@ elementos: texto,icono (izquierda)
   fill: var(--neutral--600);
 }
 
-.button--disabled.button--outlined {
+.button--disabled.button--secondary {
   color: var(--neutral--600);
   border-color: var(--neutral--600);
   
   
 }
-.button--disabled.button--filled {
+.button--disabled.button--primary {
   color: var(--neutral--100);
   border-color: var(--neutral--100);
   background-color: var(--primary--100);
 }
 
-.button--outlined {
+.button--secondary {
   border-color: var(--white);
   background-color: transparent;
 }
 
-.button--filled {
+.button--primary {
   border-color: var(--neutral--950);
   background-color: var(--primary--600);
 }
 
-.button--filled .button__text{
+.button--primary .button__text{
   color: var(--neutral--950);
 }
 
-.button--outlined .button__text {
+.button--secondary .button__text {
   color: var(--neutral--50);
 }
 
-.button--outlined:hover,.button--outlined:focus {
+.button--secondary:hover,.button--secondary:focus {
   color: var(--neutral--950);
   border-color: var(--primary--600);
   background-color: var(--primary--600);
@@ -97,7 +97,7 @@ elementos: texto,icono (izquierda)
   display: block;
 }
 
-.button--filled > .button__loader {
+.button--primary > .button__loader {
   border-radius:50%;
   background:conic-gradient(#0000 10%,var(--white));
   -webkit-mask:radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);
@@ -105,7 +105,7 @@ elementos: texto,icono (izquierda)
 }
 @keyframes s2 {to{transform: rotate(1turn)}}
 
-.button--outlined > .button__loader {
+.button--secondary > .button__loader {
   border-radius:50%;
   background:conic-gradient(#0000 10%,var(--white));
   -webkit-mask:radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);

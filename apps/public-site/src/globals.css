@@ -3,19 +3,10 @@
 @import url("./components/molecules/NavbarDesktop/navbar-desktop.css");
 @import url("./components/molecules/NavbarMobile/navbar-mobile.css");
 @import url("./components/molecules/ProjectCard/style.css");
-@import url("./components/atoms/AccordionItem/style.css");
 @import url("./components/molecules/ContactForm/style.css");
 @import url("./components/molecules/JobCard/style.css");
+@import url("./components/atoms/AccordionItem/style.css");
 @import url("./components/atoms/Link/style.css");
-
-
-html{
-  font-size: 16px;
-}
-
-body{
-  background: var(--surface--950);
-}
 
 * {
   box-sizing: border-box;
@@ -23,39 +14,23 @@ body{
   padding: 0;
 }
 
-.hidden{
+.hidden {
   display: none !important;
 }
 
-
 /* social media */
-
-
-.icon{
-  transition: all 0.4s;
-
-}
-.icon:hover{
-
-  transition: all 0.4s;
-
-}
-.linkedin-icon{
+.linkedin-icon {
   fill: var(--white);
   stroke: var(--white);
-
 }
-.linkedin-icon:hover{
+.linkedin-icon:hover {
   fill: var(--primary--600);
-
 }
 
-.github-icon{
+.github-icon {
   fill: var(--white);
-
 }
 
-.github-icon:hover{
+.github-icon:hover {
   fill: var(--primary--600);
-
 }
