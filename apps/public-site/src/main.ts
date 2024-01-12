@@ -29,9 +29,9 @@ export const updateAppSession = async () =>{
 }
 
 createHomePage();
-// createPortfolioPage();
+createPortfolioPage();
 createAppointmentsPage();
-// createProfilePage();
+createProfilePage();
 createErrorPage()
 createBuildPage()
 navigation();

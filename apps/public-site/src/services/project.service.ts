@@ -17,29 +17,20 @@ type ServiceResponse = {
 class ProjectService{
 
 
-    async getProjects(queryParamsObj?:Record<string, string>):Promise<ServiceResponse>{
+    async getProjects(queryParamsObj?:Record<string, string>):Promise<Project[]>{
         
-        let status = ServiceStatus.LOADING
-        let message = null
-
-        const controller = new AbortController()
-    
         const queryParams = queryParamsObj ? `?${(new URLSearchParams(queryParamsObj)).toString()}` : ""
         const url = `${config.apiUrl}/projects${queryParams}`
         
-        const response = await fetch(url,{signal:controller.signal})
-        const data = response.json()
+        const response = await fetch(url)
+        const data = await  response.json()
         
         if(!response.ok){
-            status = ServiceStatus.ERROR
-            message = "Bad request"
+            throw new Error(data.message ?? "Something when wrong")
+
         }
 
-        return {
-            data,
-            status,
-            message
-        }
+        return data
     }
     async getProject(id:number):Promise<Project>{
         const response = await fetch(`${config.apiUrl}/projects/${id}`)

@@ -23,10 +23,10 @@ import { ArrowIcon } from "../../components/icons/ArrowIcon";
 import { ButtonSizes, ButtonStyles, createButton } from "../../components/atoms/Button";
 
 
-// const projects =await projectService.getProjects() 
-// shuffleArray(projects)
-// const projectsEl = createProjects(projects,ProjectCardType.LARGE);
-// const carousel = createCarousel(projectsEl)
+const projects =await projectService.getProjects() 
+shuffleArray(projects)
+const projectsEl = createProjects(projects,ProjectCardType.LARGE);
+const carousel = createCarousel(projectsEl)
 const technologiesEl = createTechnologies();
 const formContainer = createContactForm();
 const formContainer2 = createContactForm();
@@ -117,7 +117,7 @@ export const createHomePage = () => {
   );
   contactButtonHero.classList.add("l-horizontal","l-gap-3")
   contactButtonBottom?.append(formContainer2);
-  // projectList?.append(carousel);
+  projectList?.append(carousel);
   stackList?.append(technologiesEl);
 
   animations();

@@ -22,7 +22,7 @@ export default async function handler(request, response) {
       html: `<h2>${body.email}</h2><h2>${body.organization}</h2><p>${body.message}</p>`,
     };
 
-    await Promise.all([sendMail(userMail), sendMail({myMail})]);
+    await Promise.all([sendMail(userMail), sendMail(myMail)]);
 
     return response.status(200).json(body);
   } catch (error) {
