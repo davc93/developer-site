@@ -8,14 +8,26 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "lint:api": "eslint --config .eslintrc.json api",
-    "lint:web": "eslint --config .eslintrc.cjs src"
+    "lint:web": "eslint --config .eslintrc.cjs src",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.6.10",
+    "@storybook/addon-interactions": "^7.6.10",
+    "@storybook/addon-links": "^7.6.10",
+    "@storybook/blocks": "^7.6.10",
+    "@storybook/html": "^7.6.10",
+    "@storybook/html-vite": "^7.6.10",
+    "@storybook/test": "^7.6.10",
     "@typescript-eslint/eslint-plugin": "^6.13.1",
     "@typescript-eslint/parser": "^6.13.1",
     "@vercel/node": "^3.0.11",
     "eslint": "^8.54.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "sequelize-cli": "^6.6.2",
+    "storybook": "^7.6.10",
     "typescript": "^5.2.2",
     "vite": "^5.0.0"
   },

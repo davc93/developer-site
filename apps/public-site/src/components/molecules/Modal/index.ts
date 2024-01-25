@@ -61,7 +61,7 @@ const createElement = () => {
 };
 
 
-export const createModal = ({element = createElement(),icon,disable,width = "375px",height: height = "auto",label = "button",style = ButtonStyles.outlined,size = ButtonSizes.LARGE}: ModalProps) => {
+export const createModal = ({element = createElement(),icon,disable,width = "375px",height: height = "auto",label = "button",style = ButtonStyles.PRIMARY,size = ButtonSizes.LARGE}: ModalProps) => {
   const button = createButton({
     label,
     style,

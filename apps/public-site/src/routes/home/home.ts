@@ -19,8 +19,8 @@ import { projectService } from "../../services/project.service";
 import { ProjectCardType } from "../../components/molecules/ProjectCard";
 import { createJobCard } from "../../components/molecules/JobCard";
 import { shuffleArray } from "../../utils";
-import { ArrowIcon } from "../../components/icons/ArrowIcon";
-import { ButtonSizes, ButtonStyles, createButton } from "../../components/atoms/Button";
+// import { ArrowIcon } from "../../components/icons/ArrowIcon";
+// import { ButtonSizes, ButtonStyles, createButton } from "../../components/atoms/Button";
 
 
 const projects =await projectService.getProjects() 

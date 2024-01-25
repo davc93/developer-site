@@ -2,18 +2,7 @@ import { config } from "../config";
 import type { Project } from "../models/project.model";
 import type { Label } from "../models/label.model";
 
-enum ServiceStatus {
-    LOADING= "loading",
-    ERROR = "error",
-    DELAYED = "delayed"
 
-}
-
-type ServiceResponse = {
-    data:Promise<any>,
-    status:ServiceStatus
-    message:string | null
-}
 class ProjectService{
 
 

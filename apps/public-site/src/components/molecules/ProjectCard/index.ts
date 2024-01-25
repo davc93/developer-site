@@ -64,7 +64,7 @@ export const createProjectCard = ({ type, project }: ProjectCardProps) => {
     cardButtons.className = `${type}__buttons`;
 
     const cta = createButton({
-      style: ButtonStyles.outlined,
+      style: ButtonStyles.PRIMARY,
       size: ButtonSizes.LARGE,
       label: "More details",
       tag:"span"
@@ -136,7 +136,7 @@ export const createProjectCard = ({ type, project }: ProjectCardProps) => {
     cardButtons.className = `${type}__buttons`;
 
     const cta = createButton({
-      style: ButtonStyles.outlined,
+      style: ButtonStyles.PRIMARY,
       size: ButtonSizes.LARGE,
       label: "More details"
     });

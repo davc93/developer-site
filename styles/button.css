@@ -2,7 +2,8 @@
 
 bloques:
 
-  button
+  button;
+  
 modificadores: 
 
   estado: loading,hover,focus,disable,normal 

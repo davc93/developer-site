@@ -27,7 +27,7 @@ export function createContactForm() {
     });
     const submitButton = createButton({
       label: "Send",
-      style: ButtonStyles.outlined,
+      style: ButtonStyles.PRIMARY,
       type: "submit",
       size:ButtonSizes.WIDE
       

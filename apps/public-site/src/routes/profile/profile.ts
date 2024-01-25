@@ -12,7 +12,7 @@ export const createProfilePage = () => {
   const getInfo = createButton({
     label: "Get info",
     size: ButtonSizes.LARGE,
-    style: ButtonStyles.outlined,
+    style: ButtonStyles.PRIMARY,
   });
   getInfo.addEventListener("click", async () => {
       getInfo.classList.add("button--loading")
