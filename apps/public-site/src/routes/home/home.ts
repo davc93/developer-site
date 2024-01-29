@@ -98,7 +98,7 @@ function createJobs() {
   const jobsContainer = document.createElement("div");
   jobsContainer.className = "jobs-list";
   const jobsList = JobsList.map((job) => {
-    return createJobCard({title:job.jobTitle,organization:job.organization,fromUntil:job.fromUntil,image:job.logoUrl,jobUrl:job.link})
+    return createJobCard({jobTitle:job.jobTitle,organization:job.organization,from:job.fromUntil,jobLogo:job.logoUrl,jobUrl:job.link})
   });
   jobsContainer.append(...jobsList);
   return jobsContainer;

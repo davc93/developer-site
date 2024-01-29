@@ -2,13 +2,15 @@ import { ImageFormat, createImage } from "../../atoms/Image";
 import { createTypography,TypographySize,TypographyColor } from "../../atoms/Typography";
 
 export interface JobCardProps{
-    title:string;
+    jobLogo:string;
+    jobTitle:string;
     organization:string;
-    fromUntil:string;
-    image:string;
-    jobUrl:string;
+    from:string;
+    to:string;
+    description:string;
+    jobUrl?:string;
 }
-export const createJobCard = ({title,organization,fromUntil,image,jobUrl}:JobCardProps) => {
+export const createJobCard = ({jobTitle,organization,description,from,jobLogo,jobUrl}:JobCardProps) => {
     const container = document.createElement("div")
     container.addEventListener('click',()=>{
         open(jobUrl)
@@ -16,7 +18,7 @@ export const createJobCard = ({title,organization,fromUntil,image,jobUrl}:JobCar
     container.classList.add("job-card");
     const textContainer = document.createElement("div");
     const jobTitleEl = createTypography({
-      label: title,
+      label: jobTitle,
       size: TypographySize.bodyMedium,
       color: TypographyColor.Primary,
     });
@@ -26,12 +28,12 @@ export const createJobCard = ({title,organization,fromUntil,image,jobUrl}:JobCar
       color: TypographyColor.White,
     });
     const fromUntilEl = createTypography({
-      label: fromUntil,
+      label: from,
       size: TypographySize.bodyMedium,
       color: TypographyColor.White,
     });
     textContainer.append(jobTitleEl, organizationEl, fromUntilEl);
-    const imageEl = createImage({url:image,width:100,height:100,format:ImageFormat.PNG,isCloudinary:false});
+    const imageEl = createImage({url:jobLogo,width:100,height:100,format:ImageFormat.PNG,isCloudinary:false});
 
     container.append(imageEl, textContainer);
     return container;

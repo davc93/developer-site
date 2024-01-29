@@ -3,6 +3,10 @@ import "../src/globals.css"
 import "../../../styles/variables.css"
 const preview: Preview = {
   parameters: {
+    backgrounds:{
+      default: 'dark',
+      
+    },
     actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
       matchers: {

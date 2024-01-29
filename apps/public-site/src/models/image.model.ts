@@ -1,8 +1,8 @@
 
 export interface Image {
     id:        number;
-    projectId: number;
-    createdAt: Date;
+    projectId?: number;
+    createdAt?: Date;
     url:      string;
 }
 

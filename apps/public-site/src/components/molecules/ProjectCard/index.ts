@@ -9,45 +9,45 @@ import {
   TypographySize,
   createTypography,
 } from "../../atoms/Typography";
+import { LinkIcon } from "../../icons/ExternalLink";
 export enum ProjectCardType {
   LARGE = "project-card--large",
   MEDIUM = "project-card--medium",
 }
 
-export interface ProjectCardProps {
-  project: Project;
-  type: ProjectCardType;
+export interface ProjectCardProps extends Project {
 }
 
 
-export const createProjectCard = ({ type, project }: ProjectCardProps) => {
-  if (type == ProjectCardType.MEDIUM) {
+export const createProjectCard = ({ title,shortDescription,images,labels ,slug }: ProjectCardProps) => {
     const projectCard = document.createElement("div");
-    projectCard.classList.add(type);
+    projectCard.className = "project-card"
     const imageContainer = document.createElement("div")
-    imageContainer.className = "project-card--medium__image-container"
-    const image = createImage({url:project.images[0].url,width:1280,height:720,format:ImageFormat.JPG,isCloudinary:true})
+    imageContainer.className = "project-card__image-container"
+    
+    const image = createImage({url:images[0].url,width:600,height:600,format:ImageFormat.JPG,isCloudinary:true})
     imageContainer.append(image)
-
+    image.className = "project-card__image"
     const projectTitle = createTypography({
-      label: project.title,
+      label: title,
       color: TypographyColor.White,
       size: TypographySize.titleSmall,
     });
     const projectDescription = createTypography({
-      label: project.shortDescription,
+      label: shortDescription,
       color: TypographyColor.White,
       size: TypographySize.bodyMedium,
     });
     const techsContainer = document.createElement("div");
-    techsContainer.classList.add(`${type}__tech-list--mobile`);
-    const techs = project.labels
+    techsContainer.className = "project-card__tech-list"
+    const techs = labels
       .filter((label) => label.type == undefined)
       .slice(0, 4)
       .map((label) => {
         const techContainer = document.createElement("div")
-        techContainer.classList.add(`${type}__tech`);
+        techContainer.className = "project-card__tech-container"
         const techImage = document.createElement("img");
+        techImage.className = "project-card__tech-image"
         techImage.src = label.image;
         const techName = createTypography({
           label: label.title,
@@ -61,104 +61,31 @@ export const createProjectCard = ({ type, project }: ProjectCardProps) => {
     techsContainer.append(...techs);
 
     const cardButtons = document.createElement("div");
-    cardButtons.className = `${type}__buttons`;
-
+      cardButtons.className = "project-card__actions"
     const cta = createButton({
       style: ButtonStyles.PRIMARY,
-      size: ButtonSizes.LARGE,
+      size: ButtonSizes.SMALL,
       label: "More details",
-      tag:"span"
+      tag:"span",
+      icon:LinkIcon()
     });
-    const link = createLink({href:`/portfolio/${project.slug}`,children:cta})
+    const link = createLink({href:`/portfolio/${slug}`,children:cta})
      
     //  href: `/portfolio/${project.slug}`,
     const techButton = createIconButton({ icon: ArrowIcon({}) });
-    techButton.classList.add(`${type}__tech-button`);
     techButton.addEventListener("click", () => {
       techsContainer.classList.toggle("active");
     });
     cardButtons.append(link, techButton);
-    const textContainer = document.createElement("div")
-    textContainer.classList.add(`${type}__text`);
-    textContainer.append(projectTitle, projectDescription, cardButtons);
+    const content = document.createElement("div")
+    content.className = "project-card__content"
+    content.append(projectTitle, projectDescription,techsContainer);
     projectCard.append(
       imageContainer,
-      textContainer,
-      techsContainer
+      content,
+      cardButtons
     );
 
     return projectCard;
-  } else {
-    const projectCard = document.createElement("div");
-    projectCard.classList.add(type);
-    const imageContainer = document.createElement("div")
-
-    imageContainer.className = "project-card--large__image-container"
-    const image = createImage({url:project.images[0].url,width:1280,height:720,format:ImageFormat.JPG,isCloudinary:true})
-    imageContainer.append(image)
-    const projectTitle = createTypography({
-      label: project.title,
-      color: TypographyColor.White,
-      size: TypographySize.titleSmall,
-    });
-    const projectDescription = createTypography({
-      label: project.shortDescription,
-      color: TypographyColor.White,
-      size: TypographySize.bodyMedium,
-    });
-    const techsContainer = document.createElement("div");
-    techsContainer.classList.add(`${type}__tech-list`);
-    const techs = project.labels
-      .filter((label) => label.type == undefined)
-      .slice(0, 4)
-      .map((label) => {
-        const techContainer = document.createElement("div")
-        techContainer.classList.add(`${type}__tech`);
-        const techImage = document.createElement("img");
-        techImage.src = label.image;
-        const techName = createTypography({
-          label: label.title,
-          size: TypographySize.bodyMedium,
-          color: TypographyColor.White,
-        });
-        techContainer.append(techImage, techName);
-        return techContainer;
-      });
-
-    techsContainer.append(...techs);
-    const mobileTechsContainer = techsContainer.cloneNode(true) as any;
-    mobileTechsContainer.classList.replace(
-      `${type}__tech-list`,
-      `${type}__tech-list--mobile`
-    );
-
-    const cardButtons = document.createElement("div");
-    cardButtons.className = `${type}__buttons`;
-
-    const cta = createButton({
-      style: ButtonStyles.PRIMARY,
-      size: ButtonSizes.LARGE,
-      label: "More details"
-    });
-
-    const link = createLink({href:`/portfolio/${project.slug}`,children:cta})
-    const techButton = createIconButton({ icon: ArrowIcon({}) });
-    techButton.classList.add(`${type}__tech-button`);
-    techButton.addEventListener("click", () => {
-      mobileTechsContainer.classList.toggle("active");
-    });
-    cardButtons.append(link, techButton);
-    const textContainer = document.createElement("div");
-    textContainer.classList.add(`${type}__text`);
-    textContainer.append(projectTitle, projectDescription, cardButtons);
-    projectCard.append(
-      imageContainer,
-      textContainer,
-      techsContainer,
-      mobileTechsContainer
-    );
-
-    return projectCard;
-  }
-
+   
 };

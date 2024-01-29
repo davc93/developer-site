@@ -1,10 +1,10 @@
 import { LabelProject } from "./label-project.model";
 export interface Label {
-    id:           number;
+    id?:           number;
     title:        string;
-    type:         string;
+    type?:         string;
     image:          string;
-    createdAt:    Date;
+    createdAt?:    Date | string;
     labelProject: LabelProject;
 }
 

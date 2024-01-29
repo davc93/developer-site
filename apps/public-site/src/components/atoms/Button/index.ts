@@ -1,7 +1,8 @@
 
 export enum ButtonSizes {
   LARGE = "large",
-  WIDE = "wide"
+  WIDE = "wide",
+  SMALL = "small"
 }
 
 export enum ButtonStyles {
@@ -39,7 +40,10 @@ export const createButton = ({
   }
   if (icon) {
     icon.classList.add("button__icon")
-    btn.append(icon)
+    const iconContainer = document.createElement("div")
+    iconContainer.className = "button__icon-container"
+    iconContainer.append(icon)
+    btn.append(iconContainer)
     
   }
   

@@ -4,7 +4,7 @@ import { createButton } from '../components/atoms/Button';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: 'Example/Button',
+  title: 'Button',
   tags: ['autodocs'],
   render: (args) => {
     // You can either use a function to create DOM elements or use a plain html string!
@@ -15,7 +15,7 @@ const meta = {
     label: { control: 'text' },
     size: {
       control: { type: 'select' },
-      options: [ButtonSizes.LARGE, ButtonSizes.WIDE],
+      options: [ButtonSizes.LARGE, ButtonSizes.WIDE,ButtonSizes.SMALL],
     },
     loading:{
       control:"boolean",
@@ -37,6 +37,9 @@ export const Large: Story = {
   args: {
     size: ButtonSizes.LARGE,
     label: 'Button',
+    loading:false,
+
+    disable:false
   },
 };
 
@@ -44,17 +47,36 @@ export const Wide: Story = {
   args: {
     size: ButtonSizes.WIDE,
     label: 'Button',
+    loading:false,
+
+    disable:false
+
+  },
+};
+
+export const Small: Story = {
+  args: {
+    size: ButtonSizes.SMALL,
+    label: 'Button',
+    loading:false,
+
+    disable:false
+
   },
 };
 export const Loading: Story = {
   args: {
     label: 'Button',
-    loading:true
+    loading:true,
+    disable:false
+
   },
 };
 export const Disable: Story = {
   args: {
     label: 'Button',
+    loading:false,
+
     disable:true
   },
 };
