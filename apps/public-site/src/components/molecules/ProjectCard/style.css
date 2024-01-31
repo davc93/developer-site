@@ -5,11 +5,13 @@ project-card
 
 element
 content
-button
+title
+description
 image
+tech-list
 tech-container
 tech-image
-
+tech-text
 modificadores
 
 hover
@@ -22,6 +24,7 @@ focus
 .project-card{
   width: 100%;
   position: relative;
+
   max-width: 400px;
 }
 
@@ -35,11 +38,36 @@ focus
 
 .project-card__content{
   display: flex;
+  opacity: 0;
   flex-direction: column;
   gap: var(--space-6);
   position: absolute;
   bottom: 0;
   padding: var(--space-3);
+  transition: all 0.3s;
+  background: rgb(0,0,0);
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7956582462086397) 15%); 
+
+}
+.project-card__title{
+  color: var(--primary--500) !important;
+}
+
+.project-card__description{
+  color: var(--foreground--200) !important;
+}
+.project-card__tech-text{
+  color: var(--foreground--200) !important;
+
+}
+
+.project-card:hover .project-card__content{
+  opacity: 1;
+}
+
+.project-card:hover .project-card__actions{
+  opacity: 1;
+
 }
 
 .project-card__tech-list{
@@ -53,7 +81,9 @@ focus
   gap: var(--space-2);
 }
 .project-card__actions{
+  transition: all 0.3s;
   display: flex;
+  opacity: 0;
   top: 10px;
   right: 10px;
   position: absolute;

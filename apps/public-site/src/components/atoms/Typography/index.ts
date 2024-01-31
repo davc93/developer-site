@@ -29,6 +29,7 @@ export interface TypographyProps {
   label: string;
   size: TypographySize;
   tag?: TypographyTag;
+  style?:string;
   color?: TypographyColor;
 }
 
@@ -36,11 +37,14 @@ export interface TypographyProps {
 export const createTypography = ({
   label,
   size,
+  style,
   color = TypographyColor.White,
   tag = TypographyTag.span,
 }: TypographyProps) => {
   
-  const element = document.createElement(tag);
+  const element:any = document.createElement(tag);
+  
+  element.style  = style as any
   element.className = ["typography", size,color].join(" ");
   element.textContent = label;
   return element;

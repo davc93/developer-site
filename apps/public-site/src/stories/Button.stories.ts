@@ -1,6 +1,7 @@
 import type { StoryObj, Meta } from '@storybook/html';
 import { ButtonProps,ButtonSizes } from '../components/atoms/Button';
 import { createButton } from '../components/atoms/Button';
+import { LinkIcon } from '../components/icons/ExternalLink';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -36,10 +37,10 @@ type Story = StoryObj<ButtonProps>;
 export const Large: Story = {
   args: {
     size: ButtonSizes.LARGE,
-    label: 'Button',
+    label: 'More details',
     loading:false,
-
-    disable:false
+    disable:false,
+    icon:LinkIcon()
   },
 };
 
@@ -48,7 +49,7 @@ export const Wide: Story = {
     size: ButtonSizes.WIDE,
     label: 'Button',
     loading:false,
-
+    icon:LinkIcon(),
     disable:false
 
   },
@@ -59,6 +60,7 @@ export const Small: Story = {
     size: ButtonSizes.SMALL,
     label: 'Button',
     loading:false,
+    icon:LinkIcon(),
 
     disable:false
 
@@ -68,7 +70,8 @@ export const Loading: Story = {
   args: {
     label: 'Button',
     loading:true,
-    disable:false
+    disable:false,
+    icon:LinkIcon()
 
   },
 };
@@ -76,6 +79,7 @@ export const Disable: Story = {
   args: {
     label: 'Button',
     loading:false,
+    icon:LinkIcon(),
 
     disable:true
   },

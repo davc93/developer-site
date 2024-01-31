@@ -10,31 +10,44 @@ export interface JobCardProps{
     description:string;
     jobUrl?:string;
 }
-export const createJobCard = ({jobTitle,organization,description,from,jobLogo,jobUrl}:JobCardProps) => {
+export const createJobCard = ({jobTitle,organization,description,from,jobLogo,jobUrl,to}:JobCardProps) => {
     const container = document.createElement("div")
-    container.addEventListener('click',()=>{
-        open(jobUrl)
-    })
-    container.classList.add("job-card");
-    const textContainer = document.createElement("div");
+    container.className = "job-card"
+    const generalInfo = document.createElement("div");
+    generalInfo.className = "job-card__general-info"
     const jobTitleEl = createTypography({
       label: jobTitle,
       size: TypographySize.bodyMedium,
-      color: TypographyColor.Primary,
+      style:"color: var(--foreground--100);"
     });
     const organizationEl = createTypography({
       label: organization,
       size: TypographySize.bodyMedium,
       color: TypographyColor.White,
+      style:"color: var(--foreground--300); "
+
     });
-    const fromUntilEl = createTypography({
-      label: from,
+    const fromToEl = createTypography({
+      label: `${from} - ${to}`,
       size: TypographySize.bodyMedium,
       color: TypographyColor.White,
-    });
-    textContainer.append(jobTitleEl, organizationEl, fromUntilEl);
-    const imageEl = createImage({url:jobLogo,width:100,height:100,format:ImageFormat.PNG,isCloudinary:false});
+      style:"color: var(--foreground--300); "
 
-    container.append(imageEl, textContainer);
+    });
+
+    const imageEl = createImage({url:jobLogo,width:100,height:100,format:ImageFormat.PNG,isCloudinary:false});
+    imageEl.classList.add("job-card__logo")
+    generalInfo.append(imageEl,jobTitleEl, organizationEl, fromToEl);
+    const generalInfoContainer = document.createElement("div")
+    generalInfoContainer.className = "job-card__general-info-container"
+    const descriptionEl = createTypography({
+      label: description,
+      size: TypographySize.bodyMedium,
+      color: TypographyColor.White,
+      style:"color: var(--foreground--300); "
+    });
+    generalInfoContainer.append(imageEl,generalInfo)
+    descriptionEl.classList.add("job-card__description")
+    container.append(generalInfoContainer,descriptionEl);
     return container;
 }

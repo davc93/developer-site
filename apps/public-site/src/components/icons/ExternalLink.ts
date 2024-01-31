@@ -19,7 +19,7 @@ export const LinkIcon = () => {
 
   // Create path element
   const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-  path.setAttribute("stroke", "#000000");
+  path.setAttribute("stroke", "");
   path.setAttribute("stroke-linecap", "round");
   path.setAttribute("stroke-linejoin", "round");
   path.setAttribute("stroke-width", "2");

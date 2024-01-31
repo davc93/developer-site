@@ -10,13 +10,12 @@ import {
   projectList,
   stackList,
 } from "../../nodes";
-import { createProjects } from "../../components/organisms/ListOfProjects";
+import { createListOfProjects } from "../../components/organisms/ListOfProjects";
 import { createContactForm } from "../../components/molecules/ContactForm";
 import { createCarousel } from "../../components/molecules/Carousel";
 import { TypographyColor, TypographySize, createTypography } from "../../components/atoms/Typography";
 import { createModal } from "../../components/molecules/Modal";
 import { projectService } from "../../services/project.service";
-import { ProjectCardType } from "../../components/molecules/ProjectCard";
 import { createJobCard } from "../../components/molecules/JobCard";
 import { shuffleArray } from "../../utils";
 // import { ArrowIcon } from "../../components/icons/ArrowIcon";
@@ -25,8 +24,8 @@ import { shuffleArray } from "../../utils";
 
 const projects =await projectService.getProjects() 
 shuffleArray(projects)
-const projectsEl = createProjects(projects,ProjectCardType.LARGE);
-const carousel = createCarousel(projectsEl)
+const projectListEl = createListOfProjects(projects)
+
 const technologiesEl = createTechnologies();
 const formContainer = createContactForm();
 const formContainer2 = createContactForm();
@@ -96,9 +95,9 @@ function createTechnologies() {
 
 function createJobs() {
   const jobsContainer = document.createElement("div");
-  jobsContainer.className = "jobs-list";
+  jobsContainer.className = "jobs-list l-flex l-flex-col l-gap-20";
   const jobsList = JobsList.map((job) => {
-    return createJobCard({jobTitle:job.jobTitle,organization:job.organization,from:job.fromUntil,jobLogo:job.logoUrl,jobUrl:job.link})
+    return createJobCard({jobTitle:job.jobTitle,organization:job.organization,from:job.from,to:job.to,jobLogo:job.logoUrl,jobUrl:job.link,description:job.description})
   });
   jobsContainer.append(...jobsList);
   return jobsContainer;
@@ -117,7 +116,7 @@ export const createHomePage = () => {
   );
   contactButtonHero.classList.add("l-horizontal","l-gap-3")
   contactButtonBottom?.append(formContainer2);
-  projectList?.append(carousel);
+  projectList?.append(projectListEl);
   stackList?.append(technologiesEl);
 
   animations();

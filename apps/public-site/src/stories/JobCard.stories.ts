@@ -23,9 +23,10 @@ type Story = StoryObj<JobCardProps>;
 
 export const Large: Story = {
   args: {
-    jobLogo:"https://linkedin.com",
+    jobLogo:"https://media.licdn.com/dms/image/D4E0BAQFU3jYG-KbbPA/company-logo_200_200/0/1704822082038/flow_sa_logo?e=1714608000&v=beta&t=JoX-2604hLn2vtGAEyONlWBRmvKRlhqJeEG3CYx2fa8",
     jobTitle:"Fullstack developer",
-    description:"Desarrollador",
+    organization:"Flow S.A",
+    description:"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh viverra non semper suscipit posuere a pede." ,
     from:'08-03-2023',
     to:"present",
     jobUrl:"https://linkedin.com"

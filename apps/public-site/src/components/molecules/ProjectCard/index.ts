@@ -33,11 +33,14 @@ export const createProjectCard = ({ title,shortDescription,images,labels ,slug }
       color: TypographyColor.White,
       size: TypographySize.titleSmall,
     });
+    projectTitle.classList.add("project-card__title")
     const projectDescription = createTypography({
       label: shortDescription,
       color: TypographyColor.White,
       size: TypographySize.bodyMedium,
     });
+    projectDescription.classList.add("project-card__description")
+
     const techsContainer = document.createElement("div");
     techsContainer.className = "project-card__tech-list"
     const techs = labels
@@ -54,6 +57,7 @@ export const createProjectCard = ({ title,shortDescription,images,labels ,slug }
           size: TypographySize.bodyMedium,
           color: TypographyColor.White,
         });
+        techName.classList.add("project-card__tech-text")
         techContainer.append(techImage, techName);
         return techContainer;
       });

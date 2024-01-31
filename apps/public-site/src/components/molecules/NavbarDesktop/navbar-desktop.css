@@ -34,10 +34,10 @@
   transition: 0.5s;
   overflow: hidden;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-  border: 1px solid var(--white);
+  border: 1px solid white;
 }
 .nav__separator {
-  border: 1px solid var(--white);
+  border: 1px solid white;
   height: 50px;
 }
 
@@ -60,7 +60,7 @@
 
 .menu li span {
   text-decoration: none;
-  color: var(--white);
+  color: white;
   text-transform: uppercase;
   font-weight: 600;
   transition: 0.5s;
@@ -82,13 +82,13 @@
   left: 30px;
   width: 30px;
   height: 4px;
-  background-color: var(--white);
+  background-color: white;
   pointer-events: none;
   transition: 0.5s;
 }
 
 .nav input:checked ~ span {
-  background-color: var(--white);
+  background-color: white;
 }
 
 .nav span:nth-child(2) {
