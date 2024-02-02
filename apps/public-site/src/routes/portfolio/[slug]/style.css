@@ -1,14 +1,15 @@
 .portfolio-detail-page {
+  display: flex;
   background: var(--neutral--950);
-  justify-items: center;
-  min-height: 100vh;
+  justify-content: center;
+  min-height: 100svh;
 }
 
 .project-description {
   display: flex;
   flex-direction: column;
   max-width: 1024px;
-  color: var(--white);
+  color: var(--foreground--50);
   grid-column: 1/-1;
   font-family: "Ubuntu", sans-serif;
 }

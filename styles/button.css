@@ -27,10 +27,17 @@ elementos:
   height: fit-content;
 }
 
+
 .button__icon {
-  width: 36px;
-  fill: white;
+  height: 100%;
+  stroke: var(--primary--500);
+  transition: all 0.3s;
 }
+.button:hover .button__icon {
+  stroke: var(--foreground--950);
+}
+
+
 .button__text {
   font-family: var(--typography-primary);
   text-transform: uppercase;
@@ -54,6 +61,7 @@ elementos:
 .button--small {
   font-size: var(--body-small);
   padding: 6px 12px;
+  width: max-content;
 }
 .button--loading {
   cursor: default;
@@ -62,6 +70,24 @@ elementos:
   box-shadow: none !important;
 
 }
+
+
+
+.button--small .button__icon-container {
+  height: var(--space-5);
+  margin-right: var(--space-1);
+}
+
+.button--large .button__icon-container {
+  height: var(--space-8);
+  margin-right: var(--space-1);
+}
+
+.button--wide .button__icon-container {
+  height: var(--space-8);
+  margin-right: var(--space-1);
+}
+
 .button--loading .button__text{
   color: var(--primary--500) !important;
   
@@ -70,21 +96,30 @@ elementos:
 .button--loading .button__loader {
   display: block;
 }
+.button--loading:hover .button__icon{
+  stroke: var(--primary--500);
+}
 
 .button--disabled {
   cursor: default;
 }
 
 .button--disabled .button__icon {
-  fill: var(--neutral--600);
+
+  stroke: var(--primary--900);
+}
+
+.button--disabled:hover .button__icon {
+
+  stroke: var(--primary--900);
 }
 
 .button--disabled.button--primary .button__text {
-  color: var(--primary--950);
+  color: var(--primary--900);
 }
 
 .button--disabled.button--primary {
-  border-color: var(--primary--950);
+  border-color: var(--primary--900);
 }
 
 /* primary */

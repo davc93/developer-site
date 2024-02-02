@@ -13,7 +13,11 @@ h1,h2,h3,h4,h5,h6,p,span,ul {
 }
 
 .typography--white{
-  color: var(--white);
+  color: var(--foreground--50);
+}
+
+.typography--dark{
+  color: var(--foreground--950);
 }
 .link.typography--link {
   text-decoration: underline;

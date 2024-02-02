@@ -4,7 +4,8 @@
   z-index: 3;
   position: relative;
   width: 100%;
-  max-width: 1280px;
+  max-width: 1512px;
+  margin-inline: auto;
 }
 
 @media (min-width: 768px) {
@@ -17,7 +18,7 @@
 
 @media (min-width: 1024px) {
   .section-container {
-    padding-inline: var(--space-7);
+    padding-inline: var(--space-20);
 
     padding-block: var(--space-16);
   }
