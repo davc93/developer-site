@@ -1,5 +1,6 @@
 @import url("./components/molecules/Carousel/style.css");
 @import url("./components/molecules/Modal/modal.css");
+@import url("./components/molecules/TechStack/style.css");
 @import url("./components/molecules/NavbarDesktop/navbar-desktop.css");
 @import url("./components/molecules/NavbarMobile/navbar-mobile.css");
 @import url("./components/molecules/ProjectCard/style.css");

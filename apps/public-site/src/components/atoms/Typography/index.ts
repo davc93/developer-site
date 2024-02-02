@@ -40,11 +40,11 @@ export const createTypography = ({
   style,
   color = TypographyColor.White,
   tag = TypographyTag.span,
-}: TypographyProps) => {
+}: TypographyProps):HTMLElement => {
   
-  const element:any = document.createElement(tag);
+  const element: any = document.createElement(tag);
   
-  element.style  = style as any
+  element.style  = style
   element.className = ["typography", size,color].join(" ");
   element.textContent = label;
   return element;

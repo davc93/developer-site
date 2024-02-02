@@ -1,0 +1,27 @@
+/* 
+bloque
+tech-stack
+
+element
+
+label
+level
+
+*/
+
+.tech-stack{
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    background: var(--surface--950);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-md);
+}
+.tech-stack__level{
+    display: inline;
+    margin-left: var(--space-2);
+    background: var(--primary--600);
+}
+.tech-stack__container{
+    display: flex;
+}

@@ -1,6 +1,5 @@
 import "./style.css"
 
-import { technologies } from "../../data/technologies";
 import { JobsList } from "../../data/home";
 import { animate, inView, scroll } from "motion";
 import {
@@ -12,12 +11,12 @@ import {
 } from "../../nodes";
 import { createListOfProjects } from "../../components/organisms/ListOfProjects";
 import { createContactForm } from "../../components/molecules/ContactForm";
-import { createCarousel } from "../../components/molecules/Carousel";
-import { TypographyColor, TypographySize, createTypography } from "../../components/atoms/Typography";
 import { createModal } from "../../components/molecules/Modal";
 import { projectService } from "../../services/project.service";
 import { createJobCard } from "../../components/molecules/JobCard";
 import { shuffleArray } from "../../utils";
+import { createTechStack } from "../../components/molecules/TechStack";
+
 // import { ArrowIcon } from "../../components/icons/ArrowIcon";
 // import { ButtonSizes, ButtonStyles, createButton } from "../../components/atoms/Button";
 
@@ -66,31 +65,7 @@ function animations() {
 }
 
 function createTechnologies() {
-  const techsContainer = document.createElement("div");
-  techsContainer.className = "tech-container";
-  const techsEls = technologies
-    .sort((a, b) => b.knowledgeLevel - a.knowledgeLevel)
-    .map((tech) => {
-      const width = 30;
-
-      const container = document.createElement("div");
-      container.style.display = "flex";
-      container.style.padding = "0";
-      const level = document.createElement("div");
-      level.className = "level";
-      level.style.width = `${((100 - width) / 5) * tech.knowledgeLevel}%`;
-      level.style.background = "var(--primary--500)";
-      const name = createTypography({
-        label: tech.name,
-        size: TypographySize.bodyMedium,
-        color: TypographyColor.White,
-      });
-      name.style.width = `${width}%`;
-      container.append(name, level);
-      return container;
-    });
-  techsContainer.append(...techsEls);
-  return techsContainer;
+  
 }
 
 function createJobs() {
@@ -117,7 +92,7 @@ export const createHomePage = () => {
   contactButtonHero.classList.add("l-horizontal","l-gap-3")
   contactButtonBottom?.append(formContainer2);
   projectList?.append(projectListEl);
-  stackList?.append(technologiesEl);
+  stackList?.append(createTechStack());
 
   animations();
 };

@@ -61,7 +61,7 @@
   --surface--700: var(--neutral--700);
   --surface--800: var(--neutral--800);
   --surface--900: var(--neutral--900);
-  --surface--950: black;
+  --surface--950: var(--neutral--950);
 
   /* colores para warning */
   --warning--100: rgba(255, 219, 153, 1);
