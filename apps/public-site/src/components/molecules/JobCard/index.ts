@@ -10,7 +10,7 @@ export interface JobCardProps{
     description:string;
     jobUrl?:string;
 }
-export const createJobCard = ({jobTitle,organization,description,from,jobLogo,jobUrl,to}:JobCardProps) => {
+export const createJobCard = ({jobTitle,organization,description,from,jobLogo,to}:JobCardProps) => {
     const container = document.createElement("div")
     container.className = "job-card"
     const generalInfo = document.createElement("div");

@@ -25,30 +25,27 @@ Modificadores
   justify-content: space-between;
   box-shadow: var(--shadow-sm);
   gap: var(--space-3);
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 }
 
-
-.job-card__general-info-container{
+.job-card__general-info-container {
   display: flex;
   gap: var(--space-4);
   min-width: 280px;
+
+  @media (min-width: 768px) {
+    border-right: 2px solid var(--primary--500);
+    margin-right: var(--space-4);
+  }
 }
 
-.job-card__general-info{
+.job-card__general-info {
   display: flex;
   flex-direction: column;
 }
 .job-card__logo {
   width: 80px;
-}
-@media(min-width:768px){
-  .job-card{
-    flex-direction: row;
-  }
-
-.job-card__general-info-container{
-  border-right: 2px solid var(--primary--500);
-  margin-right: var(--space-4);
-}
-
 }

@@ -56,11 +56,11 @@ export const ProjectItem = ({
       <div className="project-list__buttons flex overflow-x-scroll gap-2">
         <Link to={`/projects/edit/${project.id}`}>
           
-          <Button type={"button"} size={ButtonSizes.SMALL} label="Edit" />
+          <Button actionType={"button"} size={ButtonSizes.SMALL} label="Edit" />
         </Link>
         <Button
           onClick={handleDelete}
-          type={"button"}
+          actionType={"button"}
           size={ButtonSizes.SMALL}
           label="Delete"
         />

@@ -101,7 +101,7 @@ export const ProjectForm = (props: ProjectFormProps) => {
       {state.step == 3 && (
         <div className="h-1/5 flex gap-5 items-center justify-between w-full">
           <Button
-            type="button"
+            actionType="button"
             label="Previous"
             size={ButtonSizes.SMALL}
             onClick={(event) => {
@@ -116,7 +116,7 @@ export const ProjectForm = (props: ProjectFormProps) => {
             label="Submit"
             size={ButtonSizes.SMALL}
             onClick={handleSubmit}
-            type="submit"
+            actionType="submit"
           />
         </div>
       )}

@@ -66,14 +66,14 @@ export const Pagination: React.FC<PaginationProps> = ({ children }) => {
       <div
         className="option flex justify-between w-full"
       >
-        <Button size={ButtonSizes.SMALL} label="Previous" type="button" onClick={handlePrevPage}/>
+        <Button size={ButtonSizes.SMALL} label="Previous" actionType="button" onClick={handlePrevPage}/>
         <select name="" id="" {...paginationInput}>
           <option value="5">5</option>
           <option value="10">10</option>
           <option value="15">15</option>
           <option value="20">20</option>
         </select>
-        <Button size={ButtonSizes.SMALL} label="Next" type="button" onClick={handleNextPage}/>
+        <Button size={ButtonSizes.SMALL} label="Next" actionType="button" onClick={handleNextPage}/>
 
         <Typography size={TypographySize.bodyLarge}>Current Page: {currentPage}</Typography>
       </div>

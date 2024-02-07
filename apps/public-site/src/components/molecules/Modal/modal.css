@@ -14,6 +14,8 @@
   transform: translateY(20px);
   cursor: pointer;
   border: 1px solid var(--primary--500);
+  box-shadow:var(--shadow-sm)
+
 }
 
 .modal__close-icon:hover {
@@ -21,11 +23,7 @@
   border-color: var(--primary--600) !important;
   background-color: var(--primary--600) !important;
   transition: all 0.5s;
-  box-shadow: 0 0 5px var(--primary--600),
-  0 0 25px var(--primary--600),
-  0 0 50px var(--primary--600),
-  0 0 200px var(--primary--600);
-
+  box-shadow:var(--shadow-lg)
 }
 .modal.active .modal__close-icon {
   transition: opacity 300ms 300ms ease, transform 300ms 300ms ease,
@@ -47,6 +45,7 @@
   background-color: rgba(31, 32, 41, 0.75);
   pointer-events: none;
   opacity: 0;
+  /* From https://css.glass */
   transition: opacity 250ms 700ms ease;
 }
 .modal.active {
@@ -55,15 +54,16 @@
   transition: all 300ms ease-in-out;
 }
 .modal-wrap {
-  border-radius: 4px;
   overflow: hidden;
   align-self: center;
-  box-shadow: 0 12px 25px 0 rgba(199, 175, 189, 0.25);
   opacity: 0;
   transform: scale(0.6);
   transition: opacity 250ms 250ms ease, transform 300ms 250ms ease;
+
+
 }
 .modal.active .modal-wrap {
+
   opacity: 1;
   transform: scale(1);
   transition: opacity 250ms 500ms ease, transform 350ms 500ms ease;

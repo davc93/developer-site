@@ -21,11 +21,14 @@ h1,h2,h3,h4,h5,h6,p,span,ul {
 }
 .link.typography--link {
   text-decoration: underline;
+  text-shadow: var(--shadow-sm);
   color: var(--primary--600);
+  transition: all 0.3s;
 }
 .link.typography--link:hover{
   cursor: pointer;
-  color: var(--primary--100);
+
+  text-shadow: var(--shadow-lg);
   
 }
 .typography--title-large {

@@ -1,6 +1,9 @@
 .contact-form{
-    background-color: var(--surface--950);
     padding-block: var(--space-6);
     padding-inline: var(--space-8);
-    box-shadow: var(--shadow-sm);
+/* From https://css.glass */
+background: rgba(6, 6, 6, 0.6);
+box-shadow: var(--shadow-sm);
+backdrop-filter: blur(4.3px);
+-webkit-backdrop-filter: blur(4.3px);
 }

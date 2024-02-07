@@ -77,7 +77,7 @@ export const LoginPage = () => {
             className="mt-8"
             label="Login"
             size={ButtonSizes.WIDE}
-            type="submit"
+            actionType="submit"
             loading={loading}
           />
           <ErrorMessage>{error}</ErrorMessage>

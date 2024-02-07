@@ -41,7 +41,7 @@ export const LabelItem = ({data: label,setFilteredLabels,filteredLabels}:LabelPr
           </div>
           <Typography size={TypographySize.bodyLarge}>{`${label.createdAt}`}</Typography>
           <div className="flex overflow-x-scroll">
-            <Button type='button' onClick={handleDelete} label='Delete' size={ButtonSizes.SMALL} loading={loading}/>
+            <Button actionType='button' onClick={handleDelete} label='Delete' size={ButtonSizes.SMALL} loading={loading}/>
             <Link to={`/labels/edit/${label.id}`}>Edit</Link>
           </div>
         </div>

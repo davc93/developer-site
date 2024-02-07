@@ -6,13 +6,13 @@ bloques:
   
 modificadores: 
 
-  estado: loading,hover,focus,disable,normal 
-  tipo de accion del boton: primary , secondary,
+  estado: loading,hover,focus,disable
+  Estilo: primary , secondary,
   tamano: large ,wide, small
 
 elementos:
-  texto
-  icono (lado izquierdo)
+  text
+  icon (lado izquierdo)
   loader
 */
 .button {
@@ -102,6 +102,8 @@ elementos:
 
 .button--disabled {
   cursor: default;
+  box-shadow: none !important;
+  background: none !important;
 }
 
 .button--disabled .button__icon {
@@ -109,7 +111,7 @@ elementos:
   stroke: var(--primary--900);
 }
 
-.button--disabled:hover .button__icon {
+.button--disabled .button__icon {
 
   stroke: var(--primary--900);
 }
@@ -118,6 +120,11 @@ elementos:
   color: var(--primary--900);
 }
 
+.button--disabled.button--primary:hover .button__text,.button--disabled.button--primary:focus .button__text {
+  color: var(--primary--900);
+}
+
+
 .button--disabled.button--primary {
   border-color: var(--primary--900);
 }
@@ -125,6 +132,7 @@ elementos:
 /* primary */
 .button--primary {
   border-color: var(--primary--500);
+  box-shadow: var(--shadow-sm);
   background-color: transparent;
 }
 
@@ -132,15 +140,15 @@ elementos:
   color: var(--primary--500);
 }
 
-.button--primary.button--normal:hover,
-.button--primary.button--normal:focus {
+.button--primary:hover,
+.button--primary:focus {
   background-color: var(--primary--500);
   transition: all 0.3s;
   box-shadow: var(--shadow-lg);
 }
 
-.button--primary.button--normal:hover .button__text,
-.button--primary.button--normal:focus .button__text {
+.button--primary:hover .button__text,
+.button--primary:focus .button__text {
   color: var(--foreground--950);
 }
 
@@ -173,9 +181,9 @@ elementos:
   color: var(--foreground--900);
 }
 
-.button--secondary:hover.button--normal,
-.button--secondary:focus.button--normal {
-  background-color: var(--primary--950);
+.button--secondary:hover,
+.button--secondary:focus {
+  background-color: var(--surface--100);
   transition: all 0.3s;
 }
 

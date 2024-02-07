@@ -1,4 +1,4 @@
-import { HTMLAttributes } from "react";
+import { HTMLAttributes, ReactNode } from "react";
 
 export enum ButtonSizes {
   LARGE = "large",
@@ -6,16 +6,16 @@ export enum ButtonSizes {
   SMALL = "small"
 }
 
-export enum ButtonStyles {
-  filled = "button--filled",
-  outlined = "button--outlined",
+export enum ButtonType {
+  PRIMARY = "button--primary",
+  SECONDARY = "button--secondary",
 }
 
 export interface ButtonProps {
-  label: string;
-  size: ButtonSizes;
-  type: "button" | "submit";
-  style?: ButtonStyles;
+  children: ReactNode;
+  actionType?: "button" | "submit";
+  size?: ButtonSizes;
+  type?: ButtonType;
   href?: string;
   loading?: boolean;
   disable?: boolean;
@@ -24,10 +24,10 @@ export interface ButtonProps {
 
 type NativeProps = HTMLAttributes<HTMLButtonElement>;
 export const Button = ({
-  label,
-  size,
-  type,
-  style = ButtonStyles.outlined,
+  children,
+  size = ButtonSizes.LARGE,
+  actionType = "button",
+  type = ButtonType.PRIMARY,
   href,
   loading,
   disable,
@@ -35,11 +35,11 @@ export const Button = ({
 }: ButtonProps & NativeProps) => {
   return (
     <button
-      type={type}
+      type={actionType}
       {...props}
-      className={["button", style,loading ? "button--loading" : "", `button--${size}`, props.className].join(" ")}
+      className={["button",disable ? "button--disabled" : "", type,loading ? "button--loading" : "", `button--${size}`, props.className].join(" ")}
     >
-      <span className="button__content">{label}</span>
+      <span className="button__text">{children}</span>
       <div className="button__loader" />
     </button>
   );

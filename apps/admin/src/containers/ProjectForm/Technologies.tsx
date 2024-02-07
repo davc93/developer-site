@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Button, ButtonSizes, ButtonStyles } from "../../components/atoms/Button";
+import { Button, ButtonSizes, ButtonType } from "../../components/atoms/Button";
 import { Project } from "../../models/project.model";
 import { FormEventHandler } from "react";
 import { useGetLabels } from "../../components/organisms/ListOfLabels";
@@ -87,7 +87,7 @@ export const Technologies = (props: TechnologiesProps) => {
         <form className="w-full flex flex-col">
           <div className="self-end">
             <Button
-              type="button"
+              actionType="button"
               label="Agregar"
               size={ButtonSizes.SMALL}
               onClick={handleAddLabel}
@@ -144,7 +144,7 @@ export const Technologies = (props: TechnologiesProps) => {
                   <Button
                     label="Remove"
                     size={ButtonSizes.SMALL}
-                    type="button"
+                    actionType="button"
                     onClick={(event) => handleRemoveLabel(labelInput.inputId)}
                   />
                 </div>
@@ -155,7 +155,7 @@ export const Technologies = (props: TechnologiesProps) => {
       </div>
       <div className="h-1/5 flex gap-5 items-center justify-between w-full">
         <Button
-          type="button"
+          actionType="button"
           label="Previous"
           size={ButtonSizes.SMALL}
           onClick={(event) => {
@@ -167,7 +167,7 @@ export const Technologies = (props: TechnologiesProps) => {
         <Button
           label="Next"
           size={ButtonSizes.SMALL}
-          type="button"
+          actionType="button"
           onClick={(event) => {
             setStoredValue({
               ...storedValue,

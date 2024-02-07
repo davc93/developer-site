@@ -13,7 +13,7 @@ const meta = {
   },
   argTypes: {
     label: { control: 'text' },
-
+    placeholder:{control:"text"},
     inputType: { control: 'select',options:[
         TextFieldInputType.PASSWORD,
         TextFieldInputType.TEXT
@@ -29,8 +29,9 @@ type Story = StoryObj<TextFieldProps>;
 
 export const TextField: Story = {
   args: {
-    label:"Name",
+    label:"Nombre",
     inputType:TextFieldInputType.TEXT,
-    
+    placeholder:"Ingresa tu nombre",
+    error:"Nombre incorrecto"
   },
 };

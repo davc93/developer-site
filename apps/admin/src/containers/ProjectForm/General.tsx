@@ -78,7 +78,7 @@ export const General = (props: GeneralProps) => {
         
           <Link to="/projects">
             <Button
-              type="button"
+              actionType="button"
               label="Back to projects"
               size={ButtonSizes.SMALL}
             />
@@ -87,7 +87,7 @@ export const General = (props: GeneralProps) => {
           <Button
             label="Next"
             size={ButtonSizes.SMALL}
-            type="button"
+            actionType="button"
             onClick={(event) => {
               
               setStoredValue({
