@@ -1,7 +1,7 @@
 import "./style.css"
 
 import { JobsList } from "../../data/home";
-import { animate, inView, scroll } from "motion";
+// import { animate, inView, scroll } from "motion";
 import {
   contactButtonBottom,
   contactButtonHero,
@@ -25,48 +25,44 @@ const projects =await projectService.getProjects()
 shuffleArray(projects)
 const projectListEl = createListOfProjects(projects)
 
-const technologiesEl = createTechnologies();
 const formContainer = createContactForm();
 const formContainer2 = createContactForm();
 
-function animations() {
-  inView(
-    ".section",
-    ({ target }) => {
-      animate(
-        target.querySelectorAll(".typography--title-medium"),
-        { opacity: 1, transform: "none" },
-        { delay: 0.3, duration: 0.9, easing: [0.17, 0.55, 0.55, 1] }
-      );
-    },
-    { margin: "-100px" }
-  );
-  inView(
-    ".skills__stack-list",
-    ({ target }) => {
-      animate(
-        target.querySelectorAll(".level"),
-        { width: [0, target.clientWidth] },
-        { delay: 0.5, duration: 0.9, easing: [0.17, 0.55, 0.55, 1] }
-      );
-    },
-    { margin:"-50px" }
-  );
+// function animations() {
+//   inView(
+//     ".section",
+//     ({ target }) => {
+//       animate(
+//         target.querySelectorAll(".typography--title-medium"),
+//         { opacity: 1, transform: "none" },
+//         { delay: 0.3, duration: 0.9, easing: [0.17, 0.55, 0.55, 1] }
+//       );
+//     },
+//     { margin: "-100px" }
+//   );
+//   inView(
+//     ".skills__stack-list",
+//     ({ target }) => {
+//       animate(
+//         target.querySelectorAll(".level"),
+//         { width: [0, target.clientWidth] },
+//         { delay: 0.5, duration: 0.9, easing: [0.17, 0.55, 0.55, 1] }
+//       );
+//     },
+//     { margin:"-50px" }
+//   );
 
-  scroll(animate(".layer-1", { opacity: 0 }), {
-    offset: ["start start", "center center"],
-  });
-  scroll(animate(".bg-contact", { opacity: 1 }), {
-    offset: ["start start", "center center"],
-  });
-  scroll(animate(".progress-bar", { scaleY: [0, 1] }), {
-    offset: ["start start", "end end"],
-  });
-}
+//   scroll(animate(".layer-1", { opacity: 0 }), {
+//     offset: ["start start", "center center"],
+//   });
+//   scroll(animate(".bg-contact", { opacity: 1 }), {
+//     offset: ["start start", "center center"],
+//   });
+//   scroll(animate(".progress-bar", { scaleY: [0, 1] }), {
+//     offset: ["start start", "end end"],
+//   });
+// }
 
-function createTechnologies() {
-  
-}
 
 function createJobs() {
   const jobsContainer = document.createElement("div");

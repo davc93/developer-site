@@ -12,12 +12,10 @@ export function createContactForm() {
     form.className = "contact-form";
     const emailInput = createTextField({
       label: "Email",
-      required: true,
       name: "email",
     });
     const organizationInput = createTextField({
       label: "Organization",
-      required: true,
       name: "organization",
     });
     const messageInput = createTextArea({
