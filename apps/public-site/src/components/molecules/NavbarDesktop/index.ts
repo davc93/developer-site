@@ -31,7 +31,7 @@ export const createNavbarDesktop = ({}: NavbarDesktopProps) => {
     createLink({
       href: "/",
       children: createTypography({
-        label: "About",
+        label: "About me",
         size: TypographySize.bodyMedium,
       }),
     })
@@ -46,12 +46,12 @@ export const createNavbarDesktop = ({}: NavbarDesktopProps) => {
       }),
     })
   );
-  const appointments = document.createElement("li");
-  appointments.append(
+  const services = document.createElement("li");
+  services.append(
     createLink({
-      href: "/appointments",
+      href: "/servicios",
       children: createTypography({
-        label: "Appointments",
+        label: "Servicios 🇨🇱",
         size: TypographySize.bodyMedium,
       }),
     })
@@ -111,9 +111,9 @@ export const createNavbarDesktop = ({}: NavbarDesktopProps) => {
   linkedinLi.append(linkedinLink)
   
   divMenu.append(
+    services,
     about,
     portfolio,
-    appointments,
     profile,
     loginLi,
     loginOutLi,

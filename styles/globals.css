@@ -10,7 +10,6 @@
 
 html {
   font-size: 16px;
-  
 }
 
 body::-webkit-scrollbar {
@@ -31,10 +30,3 @@ body {
  
 }
 
-
-.icon {
-  transition: all 0.4s;
-}
-.icon:hover {
-  transition: all 0.4s;
-}

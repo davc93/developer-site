@@ -1,52 +1,10 @@
-.home-page-background{
+/* .home-page-background{
   background: linear-gradient(to bottom, rgba(0,0,0,0.25),rgba(0,0,0,1),rgba(0,0,0,0.95) ,rgba(0,0,0,0.2));
   z-index: 3;
   position: absolute;
   width: 100%;
   height: 600%;
-}
-
-.progress-bar {
-  position: fixed;
-  z-index: 5;
-  top: 5px;
-  left: 0;
-  right: 0;
-  height: 100vh;
-  width: 5px;
-  background: var(--white);
-  transform: scaleY(0);
-  transform-origin: top;
-  /* transform: rotate(90deg); */
-}
-
-.layer-1 {
-  position: fixed;
-  top: 0;
-  z-index: 1 !important;
-  background: url("https://res.cloudinary.com/dxryc5jgr/image/upload/c_scale,q_70,w_1622/v1692046970/developer-site/developer-1.webp");
-  background-position: top;
-  background-repeat: no-repeat;
-  width: 100%;
-  background-size: cover;
-  /* object-position: center; */
-  /* object-fit: fill; */
-  min-height: 100vh;
-}
-.bg-contact {
-  position: fixed;
-  top: 0;
-  z-index: 1 !important;
-  background: url(https://res.cloudinary.com/dxryc5jgr/image/upload/c_scale,q_60,w_1600/v1692046968/developer-site/developer-4.webp);
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 100%;
-  background-size: cover;
-  /* object-position: center; */
-  /* object-fit: fill; */
-  min-height: 100vh;
-  opacity: 0;
-}
+} */
 
 .contact__form-container {
   display: flex;

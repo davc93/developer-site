@@ -94,5 +94,4 @@ export const createHomePage = () => {
   projectList?.append(projectListEl);
   stackList?.append(createTechStack());
 
-  animations();
 };

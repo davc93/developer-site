@@ -56,23 +56,17 @@
 .linkedin-icon {
   fill: var(--primary--600);
   stroke: var(--primary--600);
-  box-shadow: var(--shadow-sm);
-
+ 
 }
-.linkedin-icon:hover {
-
-  box-shadow: var(--shadow-md);
-}
-
 .github-icon {
   fill: var(--primary--600);
 
-  box-shadow: var(--shadow-sm);
+}
+.github-icon {
+  fill: var(--primary--600);
+
 }
 
-.github-icon:hover {
-  box-shadow: var(--shadow-md);
-}
 
 
 
