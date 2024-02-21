@@ -1,5 +1,4 @@
 :root {
-  /* Color primario */
   --primary--50: #fff0f2;
   --primary--100: #ffdde2;
   --primary--200: #ffc0c9;
@@ -11,7 +10,7 @@
   --primary--800: #b1031d;
   --primary--900: #920a1e;
   --primary--950: #50000c;
-
+  
   --secondary--50: #e5efff;
   --secondary--100: #d0e1ff;
   --secondary--200: #abc7ff;
@@ -23,17 +22,6 @@
   --secondary--800: #000cdd;
   --secondary--900: #040ab4;
   --secondary--950: #030463;
-
-
-
-  /*
-  Colores para dar matices , se usara por ejemplo en:
-  - textos (tiene su variacion foreground)
-  - divisores
-  - lineas
-  - fondos
-  
-  */
 
   --neutral--50: rgba(244, 246, 247, 1);
   --neutral--100: rgba(227, 232, 234, 1);
@@ -47,7 +35,6 @@
   --neutral--900: rgba(54, 59, 67, 1);
   --neutral--950: rgb(10, 13, 15, 1);
 
-  /* colores para textos y contenido en general */
   --foreground--50: white;
   --foreground--100: var(--neutral--100);
   --foreground--200: var(--neutral--200);
@@ -60,11 +47,6 @@
   --foreground--900: var(--neutral--900);
   --foreground--950: black;
 
-  /* 
-  Colores para superficies donde va contenido como textos , imagenes etc...
-  - se puede usar para fondos de cards
-  - fondo general de la app  
-  */
   --surface--50: white;
   --surface--100: var(--neutral--100);
   --surface--200: var(--neutral--200);
@@ -77,45 +59,34 @@
   --surface--900: var(--neutral--900);
   --surface--950: var(--neutral--950);
 
-  /* colores para warning */
   --warning--100: rgba(255, 219, 153, 1);
   --warning--300: rgba(255, 165, 0, 1);
   --warning--600: rgba(161, 104, 0, 1);
-  /* colores para acciones exitosas */
+
   --success--100: rgba(153, 219, 200, 1);
   --success--300: rgba(0, 166, 118, 1);
   --success--600: rgba(0, 125, 90, 1);
 
-  /* colores informativos */
   --info--100: rgba(166, 213, 250, 1);
   --info--300: rgba(33, 150, 243, 1);
   --info--600: rgba(25, 113, 182, 1);
-  /* colores de errror */
+
   --error--100: rgba(246, 198, 198, 1);
   --error--300: rgba(255, 0, 0, 1);
   --error--600: rgba(166, 20, 20, 1);
-
-  /* shadows */
 
   --shadow-sm: 0 0 10px var(--primary--600);
   --shadow-md: 0 0 10px var(--primary--600), 0 0 20px var(--primary--600);
   --shadow-lg: 0 0 5px var(--primary--600), 0 0 25px var(--primary--600), 0 0 50px var(--primary--600);
   
-
-  /* dimensiones de las letras basados en serie de fibonacci*/
-
   --title-large: 4.268rem;
   --title-medium: 2.618rem;
   --title-small: 1.618rem;
   --body-medium: 1rem;
   --body-small: 0.618rem;
 
-
-  /* typography */
   --typography-primary:'Ubuntu', sans-serif;
   --typography-secondary:'Ubuntu', sans-serif;
-
-  /* TOdos los espacios estan determinados por esta escala */
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;

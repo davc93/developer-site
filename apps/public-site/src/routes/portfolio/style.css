@@ -5,13 +5,13 @@
   z-index: 1;
 }
 .projects-list-container {
-  min-height: 100vh;
+  background: linear-gradient(-225deg,var(--surface--950) 25%,var(--primary--900));
+  min-height: 100svh;
   /* display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 350px));
   justify-content: center;
   column-gap: var(--space-4);
   row-gap: var(--space-4); */
-  margin-top: var(--space-20);
   padding-inline: var(--space-10);
 }
 

@@ -1,11 +1,24 @@
-/* .home-page-background{
-  background: linear-gradient(to bottom, rgba(0,0,0,0.25),rgba(0,0,0,1),rgba(0,0,0,0.95) ,rgba(0,0,0,0.2));
+.home-background-color{
+  background: linear-gradient(to bottom, rgba(0,0,0,0.5),rgba(0,0,0,0.5),rgba(30, 12, 134, 0.4) );
   z-index: 3;
   position: absolute;
   width: 100%;
-  height: 600%;
-} */
+  height: 100%;
+}
 
+.home-background-image {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  background: url("https://res.cloudinary.com/dxryc5jgr/image/upload/c_scale,q_70,w_1622/v1692046970/developer-site/developer-1.webp");
+  background-position: top;
+  background-repeat: no-repeat;
+  width: 100%;
+  background-size: cover;
+  /* object-position: center; */
+  /* object-fit: fill; */
+  min-height: 100svh;
+}
 .contact__form-container {
   display: flex;
   flex-direction: column;

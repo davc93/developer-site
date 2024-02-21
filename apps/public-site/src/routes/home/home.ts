@@ -27,7 +27,33 @@ const projectListEl = createListOfProjects(projects)
 
 const formContainer = createContactForm();
 const formContainer2 = createContactForm();
+function createJobs() {
+  const jobsContainer = document.createElement("div");
+  jobsContainer.className = "jobs-list l-flex l-flex-col l-gap-20";
+  const jobsList = JobsList.map((job) => {
+    return createJobCard({jobTitle:job.jobTitle,organization:job.organization,from:job.from,to:job.to,jobLogo:job.logoUrl,jobUrl:job.link,description:job.description})
+  });
+  jobsContainer.append(...jobsList);
+  return jobsContainer;
+}
 
+export const createHomePage = () => {
+  jobsList?.append(createJobs());
+  contactButtonHero?.append(
+    createModal({
+      label: "Send me a message",
+      element: formContainer,
+      width: "90vmin"
+    }),
+
+    
+  );
+  contactButtonHero.classList.add("l-horizontal","l-gap-3")
+  contactButtonBottom?.append(formContainer2);
+  projectList?.append(projectListEl);
+  stackList?.append(createTechStack());
+
+};
 // function animations() {
 //   inView(
 //     ".section",
@@ -62,32 +88,3 @@ const formContainer2 = createContactForm();
 //     offset: ["start start", "end end"],
 //   });
 // }
-
-
-function createJobs() {
-  const jobsContainer = document.createElement("div");
-  jobsContainer.className = "jobs-list l-flex l-flex-col l-gap-20";
-  const jobsList = JobsList.map((job) => {
-    return createJobCard({jobTitle:job.jobTitle,organization:job.organization,from:job.from,to:job.to,jobLogo:job.logoUrl,jobUrl:job.link,description:job.description})
-  });
-  jobsContainer.append(...jobsList);
-  return jobsContainer;
-}
-
-export const createHomePage = () => {
-  jobsList?.append(createJobs());
-  contactButtonHero?.append(
-    createModal({
-      label: "Send me a message",
-      element: formContainer,
-      width: "90vmin"
-    }),
-
-    
-  );
-  contactButtonHero.classList.add("l-horizontal","l-gap-3")
-  contactButtonBottom?.append(formContainer2);
-  projectList?.append(projectListEl);
-  stackList?.append(createTechStack());
-
-};
