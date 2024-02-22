@@ -25,7 +25,10 @@ Modificadores
   justify-content: space-between;
   box-shadow: var(--shadow-sm);
   gap: var(--space-3);
-
+  background: rgba(6, 6, 6, 0.6);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(4.3px);
+  -webkit-backdrop-filter: blur(4.3px);
   @media (min-width: 768px) {
     flex-direction: row;
   }

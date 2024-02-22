@@ -1,5 +1,5 @@
 .home-background-color{
-  background: linear-gradient(to bottom, rgba(0,0,0,0.5),rgba(0,0,0,0.5),rgba(30, 12, 134, 0.4) );
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3),rgba(0,0,0,0.5),rgba(30, 12, 134, 0.4) );
   z-index: 3;
   position: absolute;
   width: 100%;
@@ -17,7 +17,11 @@
   background-size: cover;
   /* object-position: center; */
   /* object-fit: fill; */
-  min-height: 100svh;
+  min-height: 110vh;
+  @media (1024px <= width) {
+    min-height: 100svh;
+    
+  }
 }
 .contact__form-container {
   display: flex;
