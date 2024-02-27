@@ -1,0 +1,15 @@
+
+.build-page{
+    width: 100%;
+    min-height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-image: url(https://res.cloudinary.com/dxryc5jgr/image/upload/c_scale,e_gamma:-50,q_65,w_1600/v1692046972/developer-site/developer-3.webp);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgb(0,0,0,0.8);
+  }
+  

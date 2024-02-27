@@ -1,35 +1,15 @@
-.home-page-background{
-  background: linear-gradient(to bottom, rgba(0,0,0,0.25),rgba(0,0,0,1),rgba(0,0,0,0.95) ,rgba(0,0,0,0.2));
+.home-background-color{
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3),rgba(0,0,0,0.5),rgba(30, 12, 134, 0.4) );
   z-index: 3;
   position: absolute;
   width: 100%;
-  height: 600%;
-}
-.jobs-list {
-  grid-template-columns: repeat(auto-fit,minmax(280px,340px));
-  display: grid;
-  gap: var(--space-4);
-  justify-content: space-evenly;
+  height: 100%;
 }
 
-.progress-bar {
-  position: fixed;
-  z-index: 5;
-  top: 5px;
-  left: 0;
-  right: 0;
-  height: 100vh;
-  width: 5px;
-  background: var(--white);
-  transform: scaleY(0);
-  transform-origin: top;
-  /* transform: rotate(90deg); */
-}
-
-.layer-1 {
+.home-background-image {
   position: fixed;
   top: 0;
-  z-index: 1 !important;
+  z-index: 1;
   background: url("https://res.cloudinary.com/dxryc5jgr/image/upload/c_scale,q_70,w_1622/v1692046970/developer-site/developer-1.webp");
   background-position: top;
   background-repeat: no-repeat;
@@ -37,259 +17,13 @@
   background-size: cover;
   /* object-position: center; */
   /* object-fit: fill; */
-  min-height: 100vh;
-}
-
-.hero {
-  min-height: 105vh;
-  grid-template-rows: repeat(5, 1fr);
-  overflow: hidden;
- 
-}
-.hero__text {
-  grid-row: 2/-1;
-  align-self: center;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-}
-.hero__social-media-container {
-  display: flex;
-  height: 52px;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: end;
-  gap: var(--space-5);
-  margin-block: var(--space-8);
-}
-.hero__social-media-container .social-media {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-}
-
-@media (min-width: 768px) {
-  .hero__text {
-    grid-column: 1/6;
-    grid-row: 2/5;
+  min-height: 110vh;
+  @media (1024px <= width) {
+    min-height: 100svh;
+    background-position: center 30%;
+    
   }
 }
-.experience {
-  display: flex;
-  flex-direction: column;
-  /* align-items: center; */
-  gap: var(--space-10);
-}
-.experience > h2 {
-  text-align: center;
-}
-
-.skills {
-  row-gap: var(--space-11);
-  padding-bottom: var(--space-11);
-}
-.skills > h2 {
-  justify-self: center;
-  /* margin-bottom: var(--space-11); */
-  z-index: 5;
-}
-
-.skills__techs-stack {
-  display: flex;
-  flex-direction: column;
-  grid-row: 2/3;
-}
-
-.skills__techs-stack > h3 {
-  margin-bottom: var(--space-3);
-}
-
-.skills__stack-list {
-  grid-row: 3/4;
-}
-
-.skills__stack-list {
-  padding: var(--space-5);
-  border: 1px solid var(--primary--500);
-}
-.skills__stack-list > .tech-container {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-}
-.skills__soft-skills {
-  display: flex;
-  flex-direction: column;
-}
-
-.skills__soft-skills > h3 {
-  margin-bottom: var(--space-3);
-}
-@media (min-width: 768px) {
-  .skills__techs-stack {
-    grid-column: 1/5;
-    grid-row: 2/3;
-  }
-  .skills__stack-list {
-    grid-column: 1/5;
-    grid-row: 3/4;
-  }
-
-  .skills__soft-skills {
-    grid-column: 1/5;
-    grid-row: 4/5;
-  }
-}
-@media (min-width: 1024px) {
-  .skills__techs-stack {
-    grid-column: 1/4;
-    grid-row: 2/3;
-  }
-  .skills__stack-list {
-    grid-column: 4/7;
-    grid-row: 2/3;
-  }
-
-  .skills__soft-skills {
-    grid-column: 1/5;
-    grid-row: 3/4;
-  }
-}
-
-.about-me {
-  padding-top: var(--space-11);
-  grid-template-rows: auto 50vh auto;
-  row-gap: var(--space-11);
-  padding-bottom: var(--space-11);
-}
-.about-me > h2 {
-  justify-self: center;
-}
-.about-me__experience {
-  display: flex;
-  flex-direction: column;
-  grid-row: 2/3;
-}
-.about-me__experience > *:nth-child(1) {
-  margin-bottom: var(--space-3);
-}
-.about-me__experience > *:nth-child(2) {
-  margin-bottom: var(--space-2);
-}
-.about-me__expectations {
-  display: flex;
-  flex-direction: column;
-  grid-row: 3/4;
-}
-.about-me__expectations > *:nth-child(1) {
-  margin-bottom: var(--space-3);
-}
-
-.about-me__expectations > *:nth-child(2) {
-  margin-bottom: var(--space-2);
-}
-.about-me__hobbies {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  grid-row: 4/5;
-}
-.about-me__hobbies > *:nth-child(1) {
-  margin-bottom: var(--space-3);
-}
-
-.about-me__hobbies > *:nth-child(2) {
-  margin-bottom: var(--space-2);
-}
-@media (min-width: 768px) {
-  .about-me > h2 {
-    grid-column: 1/5;
-  }
-  .about-me__experience {
-    grid-row: 2/3;
-    grid-column: 1/5;
-  }
-  .about-me__expectations {
-    grid-column: 1/5;
-    grid-row: 3/4;
-  }
-  .about-me__hobbies {
-    grid-column: 1/5;
-    grid-row: 4/5;
-  }
-}
-@media (min-width: 1024px) {
-  .about-me > h2 {
-    grid-column: 1/7;
-  }
-  .about-me__experience {
-    grid-row: 2/3;
-    grid-column: 1/4;
-  }
-  .about-me__expectations {
-    grid-column: 4/7;
-    grid-row: 2/3;
-  }
-  .about-me__hobbies {
-    grid-column: 1/7;
-    grid-row: 3/4;
-  }
-}
-
-.portfolio {
-  padding-top: var(--space-11);
-  row-gap: var(--space-11);
-  padding-bottom: var(--space-11);
-  width: 100%;
-  /* height: 100vh; */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  z-index: 4;
-}
-.portfolio__text {
-  justify-self: center;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-6);
-}
-
-@media (min-width: 768px) {
-  .portfolio__text {
-    grid-column: 1/5;
-    grid-row: 1/2;
-  }
-  .portfolio__slider {
-    grid-column: 1/5;
-  }
-}
-@media (min-width: 1024px) {
-  .portfolio__text {
-    grid-column: 1/7;
-    grid-row: 1/2;
-  }
-  .portfolio__slider {
-    grid-column: 1/7;
-  }
-}
-
-.bg-contact {
-  position: fixed;
-  top: 0;
-  z-index: 1 !important;
-  background: url(https://res.cloudinary.com/dxryc5jgr/image/upload/c_scale,q_60,w_1600/v1692046968/developer-site/developer-4.webp);
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 100%;
-  background-size: cover;
-  /* object-position: center; */
-  /* object-fit: fill; */
-  min-height: 100vh;
-  opacity: 0;
-}
-
 .contact__form-container {
   display: flex;
   flex-direction: column;
@@ -312,30 +46,4 @@
 }
 .contact-form textarea {
   margin-bottom: 2rem;
-}
-
-.cta-contact {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  min-height: 100vh;
-  /* align-items: center; */
-  gap: var(--space-8);
-}
-.cta-contact .social-media {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  background: var(--neutral--950);
-  height: fit-content;
-  padding: var(--space-6);  
-}
-.cta-contact .social-media > div {
-  display: flex;
-  gap: var(--space-4);
-}
-
-/* animations */
-.home-page .typography--title-medium {
-  opacity: 0;
 }

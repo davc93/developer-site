@@ -4,10 +4,6 @@
   "version": "1.0.0",
   "description": "Monorepo of davc93 applications, frontend, nodeapss , etc...",
   "main": "index.js",
-  "scripts": {
-    "dev": "npm --filter './apps/**/*' run dev",
-    "build": "npm --filter './apps/**/*' run build"
-  },
   "keywords": [
     "nodejs",
     "javascript",
@@ -18,7 +14,9 @@
   "author": "Diego Vergara <davc93@gmail.com>",
   "license": "ISC",
   "workspaces": [
-    "apps/**/*",
-    "packages/*"
+    "apps/admin",
+    "apps/public-site",
+    "apps/api",
+    "apps/storybook"
   ]
 }

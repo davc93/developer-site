@@ -6,12 +6,12 @@ import { AuthContext } from "../../context/AuthContext";
 import { imageService } from "../../services/image.service";
 import { ActionTypes, Step, initialState, reducer } from "./reducer";
 import { Link, useNavigate } from "react-router-dom";
-import { Button, ButtonSizes } from "../../components/Button";
+import { Button, ButtonSizes } from "../../components/atoms/Button";
 import { General } from "./General";
 import { Technologies } from "./Technologies";
 import { Images } from "./Images";
 import { ProjectFormContext } from "./Context";
-import { ErrorMessage } from "../../components/ErrorMessage";
+import { ErrorMessage } from "../../components/atoms/ErrorMessage";
 import { useLocalStorage } from "../../hooks/useLocalStorage";
 type ProjectFormProps = {
   project: Project | null;
@@ -101,7 +101,7 @@ export const ProjectForm = (props: ProjectFormProps) => {
       {state.step == 3 && (
         <div className="h-1/5 flex gap-5 items-center justify-between w-full">
           <Button
-            type="button"
+            actionType="button"
             label="Previous"
             size={ButtonSizes.SMALL}
             onClick={(event) => {
@@ -116,7 +116,7 @@ export const ProjectForm = (props: ProjectFormProps) => {
             label="Submit"
             size={ButtonSizes.SMALL}
             onClick={handleSubmit}
-            type="submit"
+            actionType="submit"
           />
         </div>
       )}

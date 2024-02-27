@@ -1,4 +1,3 @@
-
 import pg from "pg"
 import { Sequelize, DataTypes } from "sequelize";
 import { config } from "../../../server-config.js";

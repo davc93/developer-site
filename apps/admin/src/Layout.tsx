@@ -1,5 +1,5 @@
 import React, { useContext, ReactNode } from "react";
-import { Sidebar } from "./components/Sidebar";
+import { Sidebar } from "./components/molecules/Sidebar";
 import { AuthContext } from "./context/AuthContext";
 import "./style.css";
 type LayoutProps = {

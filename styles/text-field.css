@@ -1,55 +1,78 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
 
-/* Reset input appearance and border */
-input {
-    appearance: none;
-    border-radius: 0;
-}
+/*
+
+bloque input,input-container
+    
+    input:focus
+    input--error
+    input--loading
+    
+    input__icon
+    input__label
+    input__placeholder
+    
+    error-message
+    error-message__text
+    error-message__icon
+
+*/
+
 
 /* Styling for the input container */
-.input {
+.input-container {
     width: 100%;
     display: flex;
     flex-direction: column-reverse;
     position: relative;
     padding-top: 1.5rem;
-	font-family: 'Ubuntu', sans-serif;
 }
 
-/* padStyling for subsequent input containers */
 
-/* Styling for the input label */
-.input-label {
-    color: var(--neutral--100);
-    position: absolute;
-    top: 1.5rem;
-    transition: .25s ease;
-}
 
-/* Styling for the input field */
-.input-field {
+.input {
     border: 0;
     z-index: 1;
     background-color: transparent;
-    border-bottom: 1px solid var(--neutral--100);
-    font: inherit;
+    border-bottom: 1px solid var(--foreground--100);
     font-size: 1.125rem;
-    padding: .25rem 0;
-	color: var(--white);
-}
+    padding: var(--space-1);
+	color: var(--foreground--50);
+    margin-top: var(--space-1);
 
+    font-family: var(--typography-secondary);
+    margin-bottom: var(--space-2);
+}
+.input__label {
+    color: var(--foreground--400);
+    font-family: var(--typography-secondary);
+}
+.input--error{
+
+    border-bottom-color: var(--error--300);
+}
+.input::placeholder{
+    color: var(--foreground--300);
+    opacity: 01;
+}
 /* Styling for focused and valid input fields */
-.input-field:focus,
-.input-field:valid {
+.input:focus {
     outline: 0;
-    border-bottom-color: var(--white);
+    border-bottom-color: var(--foreground--50);
 }
 
-/* Styling for focused and valid input labels */
-.input-field:focus + .input-label,
-.input-field:valid + .input-label {
-    color: var(--neutral--600);
-    transform: translateY(-1.5rem);
+.error-message{
+    display: flex;
+    gap: var(--space-1);
+
+}
+.error-message__icon{
+    width: 24px;
+    color: var(--error--300);
+}
+
+.error-message__text{
+    color: var(--error--300);
 }
 
 

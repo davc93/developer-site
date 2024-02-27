@@ -1,0 +1,32 @@
+@import url("./button.css");
+@import url("./icon-button.css");
+@import url("./text-area.css");
+@import url("./text-field.css");
+@import url("./select.css");
+@import url("./notification.css");
+@import url("./typography.css");
+@import url("./section-container.css");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+html {
+  font-size: 16px;
+}
+
+body::-webkit-scrollbar {
+  width: 8px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: black;        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--foreground--200);    /* color of the scroll thumb */
+  border-radius: 5px;       /* roundness of the scroll thumb */
+}
+
+body {
+  background: black;
+ 
+}
+

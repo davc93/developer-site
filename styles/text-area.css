@@ -26,7 +26,7 @@ textarea {
 
 /* Styling for the input label */
 .text-area-label {
-    color: var(--neutral--300);
+    color: var(--foreground--300);
     position: absolute;
     top: 1.5rem;
     transition: .25s ease;
@@ -37,21 +37,21 @@ textarea {
     border: 0;
     z-index: 1;
     background-color: transparent;
-    border-bottom: 1px solid var(--neutral--600);
+    border-bottom: 1px solid var(--foreground--600);
     font: inherit;
     font-size: 1.125rem;
-	color: var(--white);
+	color: var(--foreground--50);
 }
 
 /* Styling for focused and valid input fields */
 .text-area-field:focus, .text-area-field:valid {
     outline: 0;
-    border-bottom-color: var(--white);
+    border-bottom-color: var(--foreground--50);
 }
 
 /* Styling for focused and valid input labels */
 .text-area-field:focus + .text-area-label,.text-area-field:valid + .text-area-label {
-    color: var(--neutral--600);
+    color: var(--foreground--600);
     transform: translateY(-1.5rem);
 }
 

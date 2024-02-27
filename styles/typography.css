@@ -4,8 +4,8 @@ h1,h2,h3,h4,h5,h6,p,span,ul {
   margin: 0;
 }
 .typography {
-    color: var(--white);
-    font-family: 'Ubuntu', sans-serif;
+    color: var(--foreground--50);
+    font-family: var(--typography-primary);
 }
 
 .typography--primary{
@@ -13,15 +13,22 @@ h1,h2,h3,h4,h5,h6,p,span,ul {
 }
 
 .typography--white{
-  color: var(--white);
+  color: var(--foreground--50);
+}
+
+.typography--dark{
+  color: var(--foreground--950);
 }
 .link.typography--link {
   text-decoration: underline;
+  text-shadow: var(--shadow-sm);
   color: var(--primary--600);
+  transition: all 0.3s;
 }
 .link.typography--link:hover{
   cursor: pointer;
-  color: var(--primary--100);
+
+  text-shadow: var(--shadow-lg);
   
 }
 .typography--title-large {

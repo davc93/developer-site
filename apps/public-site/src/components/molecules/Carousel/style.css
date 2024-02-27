@@ -1,0 +1,57 @@
+.carousel {
+  min-height: 105vh;
+  /* max-width: 1280px; */
+}
+.carousel > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  /* max-height: 40vh; */
+  position: relative;
+}
+
+.slide {
+  /* height: 100vh; */
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: 200ms opacity ease-in-out;
+  transition-delay: 200ms;
+
+  z-index: 1;
+}
+
+.slide[data-active] {
+  opacity: 1;
+  z-index: 2;
+  transition-delay: 0ms;
+}
+
+.carousel-button {
+  position: absolute;
+  background: none;
+  border: none;
+  top: 50%;
+  cursor: pointer;
+  z-index: 6;
+  margin-inline: 0.5rem;
+}
+
+.carousel-button:hover,
+.carousel-button:focus {
+}
+
+.carousel-button:focus {
+  outline: 1px solid black;
+}
+
+.carousel-button.prev {
+  left: 0;
+  transform: rotate(90deg) translate(-320%, 0%);
+}
+
+.carousel-button.next {
+  right: 0;
+
+  transform: rotate(-90deg) translate(320%, 0%);
+}

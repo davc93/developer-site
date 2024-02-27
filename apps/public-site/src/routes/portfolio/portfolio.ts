@@ -1,9 +1,8 @@
-import { createProjects } from "../../components/ListOfProjects";
-import { ProjectCardType } from "../../components/ProjectCard";
-import { createSelect } from "../../components/Select";
+import { createSelect } from "../../components/atoms/Select";
 import { projectListPortfolio, projectsFilterForm } from "../../nodes";
 import { projectService } from "../../services/project.service";
 import "./style.css";
+import { createListOfProjects } from "../../components/organisms/ListOfProjects";
 const techs = await projectService.getLabels();
 const options = [{label:"All",value:""},...techs.map((tech) => {
   return {
@@ -15,18 +14,18 @@ const selectTechEl = createSelect({ options });
 export const createPortfolioPage = async () => {
 
 const projects = await projectService.getProjects();
-const projectsEl = createProjects(projects,ProjectCardType.MEDIUM);
+const projectsEl = createListOfProjects(projects);
   selectTechEl.addEventListener("change", async (event) => {
     const target = event.target as any;
     const projects = await projectService.getProjects({
       labelId: target?.value,
     });
-    const projectsEl = createProjects(projects,ProjectCardType.MEDIUM)
+    const projectsEl = createListOfProjects(projects)
     while (projectListPortfolio?.firstChild) {
       projectListPortfolio.firstChild.remove();
     }
-    projectListPortfolio?.append(...projectsEl)
+    projectListPortfolio?.append(projectsEl)
   });
   projectsFilterForm?.append(selectTechEl);
-  projectListPortfolio?.append(...projectsEl);
+  projectListPortfolio?.append(projectsEl);
 };

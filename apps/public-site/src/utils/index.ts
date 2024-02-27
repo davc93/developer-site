@@ -1,5 +1,5 @@
 import { animate } from "motion"
-import { createNotification ,NotificationProps} from "../components/Notification"
+import { createNotification ,NotificationProps} from "../components/molecules/Notification"
 type ShowNotificationProps = {
     duration?:number
 }

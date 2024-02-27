@@ -2,8 +2,8 @@ import {
   ButtonSizes,
   ButtonStyles,
   createButton,
-} from "../../components/Button";
-import { NotificationType } from "../../components/Notification";
+} from "../../components/atoms/Button";
+import { NotificationType } from "../../components/molecules/Notification";
 import { profileButton, profileInfo } from "../../nodes";
 import { authService } from "../../services/auth.service";
 import { showNotification } from "../../utils";
@@ -12,7 +12,7 @@ export const createProfilePage = () => {
   const getInfo = createButton({
     label: "Get info",
     size: ButtonSizes.LARGE,
-    style: ButtonStyles.outlined,
+    style: ButtonStyles.PRIMARY,
   });
   getInfo.addEventListener("click", async () => {
       getInfo.classList.add("button--loading")
