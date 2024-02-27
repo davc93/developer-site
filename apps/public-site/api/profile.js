@@ -10,7 +10,9 @@ export default async function profile(req,res) {
             }
         })
         const userInfo = await response.json()
-
+        if (response.status != 200) {
+            throw userInfo
+        }
         return res.status(200).json(userInfo)
     } catch (error) {
         return res.status(400).json({
