@@ -3,7 +3,6 @@ import querystring from "node:querystring";
 import jwt from "jsonwebtoken";
 import { config } from "../../server-config.js";
 import { sequelize, User } from "../lib/sequelize/sequelize.js";
-
 export default async function handler(req, res) {
   try {
     const options = {
@@ -27,7 +26,6 @@ export default async function handler(req, res) {
     const data = await response.json();
     const decoded = jwt.decode(data.id_token);
     await sequelize.authenticate();
-
     await User.findOrCreate({
       where: { email: decoded.email },
       defaults:{

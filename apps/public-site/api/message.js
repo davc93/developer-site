@@ -17,7 +17,7 @@ export default async function handler(request, response) {
     };
     const myMail = {
       from: config.smtpEmail,
-      to: config.smtpEmail,
+      to: "davc93@gmail.com",
       subject: "Mensaje de sitio web",
       html: `<h2>${body.email}</h2><h2>${body.organization}</h2><p>${body.message}</p>`,
     };
