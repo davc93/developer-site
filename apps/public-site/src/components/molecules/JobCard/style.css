@@ -25,7 +25,7 @@ Modificadores
   justify-content: space-between;
   box-shadow: var(--shadow-sm);
   gap: var(--space-3);
-  background: rgba(6, 6, 6, 0.6);
+  background: rgba(6, 6, 6, 0.4);
   box-shadow: var(--shadow-sm);
   backdrop-filter: blur(4.3px);
   -webkit-backdrop-filter: blur(4.3px);
@@ -38,7 +38,6 @@ Modificadores
   display: flex;
   gap: var(--space-4);
   min-width: 280px;
-
   @media (min-width: 768px) {
     border-right: 2px solid var(--primary--500);
     margin-right: var(--space-4);
@@ -47,7 +46,11 @@ Modificadores
 
 .job-card__general-info {
   display: flex;
+
   flex-direction: column;
+}
+.job-card__description{
+  color: var(--foreground--100) !important;
 }
 .job-card__logo {
   width: 80px;

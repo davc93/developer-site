@@ -43,8 +43,7 @@ export const createJobCard = ({jobTitle,organization,description,from,jobLogo,to
     const descriptionEl = createTypography({
       label: description,
       size: TypographySize.bodyMedium,
-      color: TypographyColor.White,
-      style:"color: var(--foreground--300); "
+      color: TypographyColor.White
     });
     generalInfoContainer.append(imageEl,generalInfo)
     descriptionEl.classList.add("job-card__description")

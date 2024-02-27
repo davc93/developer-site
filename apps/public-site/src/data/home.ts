@@ -1,14 +1,3 @@
-export const HomePage = {
-  aboutMe: {
-    experience:
-      "I define myself as a resourceful and enthusiastic developer who finds satisfaction in the pursuit of solutions. I consistently experiment with new technologies and approaches, allowing me to address problems from various angles. My curiosity drives me to creatively overcome obstacles, fueled by a passion for innovation. My goal is to deliver solutions that bring value to both users and business.",
-    hobbies:
-      "I consider myself a person who seeks to do what I love and find joy in it. This extends beyond my professional work to other activities, such as sports, where I hold a blue belt in Brazilian Jiu-Jitsu. I value an active social life surrounded by people who are fundamental to my life. I identify as someone who leads a modest lifestyle and, above all, appreciates the beauty in simplicity.",
-    motivations:
-      "I value flexible work arrangements to enhance my performance. I'm motivated by a team with a positive and collaborative environment. I prioritize a structured work approach and the opportunity to both listen and be heard. I aspire to an environment where my professional and personal growth is a priority, contributing to the achievement of shared objectives.",
-  },
-};
-
 export const JobsList = [
   {
     jobTitle: "Fullstack Developer",
@@ -18,7 +7,7 @@ export const JobsList = [
     from: "march. 2023",
     to: "present",
     description:
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh viverra non semper suscipit posuere a pede.",
+      "I lead web design and development projects, manage AWS, design frontend architectures, create and deploy microservices in NodeJS, collaborate with marketing on SEO strategies and integrate internal and external services",
 
     link: "https://www.linkedin.com/company/flow-sa/",
   },
@@ -31,7 +20,7 @@ export const JobsList = [
     from: "october. 2021",
     to: "present",
     description:
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh viverra non semper suscipit posuere a pede.",
+      "I offer simple solutions such as landing pages and sites with content aimed mainly at small companies, I create the architectures, do devops and everything necessary to have an application running in production",
 
     link: "https://www.linkedin.com/in/diego-vergara-casanova/",
   },
@@ -43,7 +32,7 @@ export const JobsList = [
     from: "july. 2021",
     to: "december 2021",
     description:
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh viverra non semper suscipit posuere a pede.",
+      "Collaborate in the development of software and applications necessary for this startup, creating its website and maintaining a CMS to manage the content of the website.",
     link: "https://www.linkedin.com/in/insect-revolution-847197208/?originalSubdomain=cl",
   },
 ];
