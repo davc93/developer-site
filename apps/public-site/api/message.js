@@ -1,15 +1,16 @@
-import { connectToDatabase, Message } from "./lib/mongodb.js";
 import { sendMail } from "./lib/nodemailer.js";
 import { config } from "../server-config.js";
 import { messageSchema } from "./lib/dto.js";
+import { sequelize,Message } from "./lib/sequelize/sequelize.js";
 
 export default async function handler(request, response) {
   try {
     const body = JSON.parse(request.body);
     await messageSchema.validateAsync(body)
-    await connectToDatabase();
-    const message = new Message(body);
-    await message.save();
+    //save in database
+    await sequelize.authenticate()
+    await Message.create(body)
+    
     const userMail = {
       from: config.smtpEmail,
       to: `${body.email}`,
