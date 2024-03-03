@@ -22,7 +22,7 @@ class Message extends Model {
     return {
       sequelize,
       tableName: MESSAGE_TABLE,
-      modelName: "Label",
+      modelName: "Message",
       timestamps: false,
     };
   }
