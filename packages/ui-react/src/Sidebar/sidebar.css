@@ -1,0 +1,20 @@
+.sidebar{
+    display: flex;
+    flex-direction: column;
+
+}
+.sidebar-item{
+    padding-inline:var(--space-10) ;
+    padding-block:var(--space-5);
+
+}
+.sidebar-item.active{
+    background: var(--primary--600);
+
+}
+.sidebar-item__name{
+    color: var(--foreground--100);
+}
+.sidebar-item__name.active{
+    color: var(--foreground--950);
+}

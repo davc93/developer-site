@@ -6,8 +6,8 @@ import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { ErrorMessage } from "../../components/atoms/ErrorMessage";
 import { TextField, TextFieldInputType } from "../../components/atoms/TextField";
-import { Button, ButtonSizes } from "../../components/atoms/Button";
-import { Typography, TypographySize } from "../../components/atoms/Typography";
+import { Button, ButtonSizes } from "ui-react/src/Button";
+import { Typography, TypographySize } from "ui-react/src/Typography";
 export const LoginPage = () => {
   const email = useInputValue("");
   const password = useInputValue("");
@@ -74,12 +74,15 @@ export const LoginPage = () => {
             inputType={TextFieldInputType.PASSWORD}
           />
           <Button
+            type="submit"
             className="mt-8"
-            label="Login"
+            
             size={ButtonSizes.WIDE}
-            actionType="submit"
+            
             loading={loading}
-          />
+          >
+          Login
+          </Button>
           <ErrorMessage>{error}</ErrorMessage>
         </form>
       </div>

@@ -14,9 +14,8 @@
   "author": "Diego Vergara <davc93@gmail.com>",
   "license": "ISC",
   "workspaces": [
-    "apps/admin",
-    "apps/public-site",
-    "apps/api",
-    "apps/storybook"
+    "apps/*",
+    "packages/*"
+
   ]
 }
