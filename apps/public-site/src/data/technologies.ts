@@ -9,6 +9,11 @@ export const technologies:Technology[] = [
     },
 
     {
+        name:"Next JS",
+        icon:null,
+        knowledgeLevel:5
+    },
+    {
         name:"CSS",
         icon:null,
         knowledgeLevel:5
@@ -29,25 +34,21 @@ export const technologies:Technology[] = [
         icon:null,
         knowledgeLevel:5
     },
+
     {
-        name:"Angular",
-        icon:null,
-        knowledgeLevel:4
-    },
-    {
-        name:"Next JS",
+        name:"Linux",
         icon:null,
         knowledgeLevel:5
     },
+
     {
         name:"Tailwind CSS",
         icon:null,
         knowledgeLevel:4
 
     },
-
     {
-        name:"GraphQL",
+        name:"Express",
         icon:null,
         knowledgeLevel:4
     },
@@ -58,16 +59,17 @@ export const technologies:Technology[] = [
         knowledgeLevel:4
     },
 
+    {
+        name:"Angular",
+        icon:null,
+        knowledgeLevel:4
+    },
+
 
     {
         name:"PostgreSQL",
         icon:null,
         knowledgeLevel:3
-    },
-    {
-        name:"Express",
-        icon:null,
-        knowledgeLevel:4
     },
 
     {

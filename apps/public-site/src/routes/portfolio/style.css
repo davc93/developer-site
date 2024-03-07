@@ -6,11 +6,17 @@
 }
 
 .portfolio-project-list {
-  margin-top: 10rem;
+ 
   margin-inline: auto;
   flex-wrap: wrap;
   justify-content: center;
   display: flex;
   gap: var(--space-3);
   max-width: 90vw;
+  padding-top: 10rem;
+}
+.projects-list-container{
+  
+  background: linear-gradient(-225deg,var(--surface--950) 25%,var(--primary--900));
+  
 }

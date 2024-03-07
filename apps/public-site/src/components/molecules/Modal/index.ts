@@ -97,7 +97,6 @@ export const createModal = ({element = createElement(),icon,disable,width = "375
   modalWrapDiv.style.width = width
   modalWrapDiv.style.height = height
   // Append the image and paragraph to the modal wrapper
-  element.classList.add("modal__element")
   modalWrapDiv.appendChild(element);
 
   // Append the modal wrapper to the modal container

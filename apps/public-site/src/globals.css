@@ -16,6 +16,21 @@
   padding: 0;
 }
 
+
+/* social media */
+.linkedin-icon {
+  fill: var(--primary--600);
+  stroke: var(--primary--600);
+ 
+}
+.github-icon {
+  fill: var(--primary--600);
+
+}
+
+
+
+
 .hidden {
   display: none !important;
 }
@@ -52,22 +67,6 @@
 .l-justify-end{
   justify-content: end;
 }
-/* social media */
-.linkedin-icon {
-  fill: var(--primary--600);
-  stroke: var(--primary--600);
- 
-}
-.github-icon {
-  fill: var(--primary--600);
-
-}
-.github-icon {
-  fill: var(--primary--600);
-
-}
-
-
 
 
 .l-gap-1{
