@@ -1,13 +1,9 @@
 .navbar-container {
   width: fit-content;
-  background-color: var(--neutral--950);
-
   font-family: "Ubuntu", sans-serif;
   z-index: 10;
-
   position: fixed;
   top: var(--space-6);
-
   left: var(--space-2);
 }
 
@@ -29,15 +25,19 @@
 
 .nav {
   position: relative;
-  background-color: var(--neutral--950);
-  padding: 20px;
+
+background: rgba(6, 6, 6, 0.3);
+backdrop-filter: blur(4.3px);
+-webkit-backdrop-filter: blur(4.3px);
+
+padding: 20px;
   transition: 0.5s;
   overflow: hidden;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-  border: 1px solid white;
+  border: 2px solid var(--primary--600);
+  box-shadow: var(--shadow-sm);
 }
 .nav__separator {
-  border: 1px solid white;
+  border: 1px solid var(--primary--400);
   height: 50px;
 }
 
@@ -71,6 +71,7 @@
 
 .menu li span:hover {
   color: var(--primary--600);
+  text-shadow: var(--shadow-sm);
 }
 
 .nav input {
@@ -87,11 +88,11 @@
   height: 4px;
   background-color: white;
   pointer-events: none;
-  transition: 0.5s;
+  transition: all 0.5s;
 }
 
 .nav input:checked ~ span {
-  background-color: white;
+  background-color: var(--primary--600);
 }
 
 .nav span:nth-child(2) {

@@ -6,7 +6,6 @@ import { createTextArea } from "../../atoms/TextArea";
 import { createTextField } from "../../atoms/TextField";
 
 export function createContactForm() {
-    const container = document.createElement("div")
   
     const form = document.createElement("form");
     form.className = "contact-form";
@@ -63,6 +62,5 @@ export function createContactForm() {
       }
       submitButton.classList.remove("button--loading");
     });
-    container.append(form);
-    return container;
+    return form;
   }
