@@ -6,7 +6,7 @@
 @import url("./notification.css");
 @import url("./typography.css");
 @import url("./section-container.css");
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;600;700&display=swap");
 
 html {
   font-size: 16px;
@@ -27,6 +27,54 @@ body::-webkit-scrollbar-thumb {
 
 body {
   background: black;
- 
 }
 
+button{
+  background: none ;
+  border: none;
+}
+ul{
+  list-style: none;
+  padding: 0;
+}
+.icon{
+  filter:none;
+  transition: all 0.3s;
+
+}
+.icon:hover{
+  filter:drop-shadow(var(--shadow-sm));
+  transition: all 0.3s;
+
+}
+
+@keyframes fade-in {
+  from{
+    opacity: 0;
+    display: none;
+  }
+} 
+@keyframes fade-out {
+  to{
+    opacity: 0;
+    display: none;
+  }
+} 
+
+@keyframes scale-increase {
+  from{
+    scale: 0.6;
+  }
+  to{
+    scale: 1;
+  }
+}
+
+@keyframes scale-decrease {
+  from{
+    scale: 1;
+  }
+  to{
+    scale: 0.6;
+  }
+}

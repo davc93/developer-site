@@ -133,7 +133,10 @@ elementos:
 .button--primary {
   border-color: var(--primary--500);
   box-shadow: var(--shadow-sm);
-  background-color: transparent;
+  background: rgba(6, 6, 6, 0.5);
+  backdrop-filter: blur(4.3px);
+  -webkit-backdrop-filter: blur(4.3px);
+  transition: all 0.3s;
 }
 
 .button--primary .button__text {
