@@ -1,15 +1,12 @@
-import { HTMLAttributes } from "react";
-
+import {  TextareaHTMLAttributes } from "react";
+import "../../../../styles/text-area.css"
 
 
 export interface TextAreaProps {
-  hidden?: boolean;
   label: string;
-  required?: boolean;
-  name?:string
 }
 
-type NativeProps = HTMLAttributes<HTMLElement>
+type NativeProps = TextareaHTMLAttributes<HTMLTextAreaElement>
 export const TextArea = ({label,required,name,...props}:TextAreaProps & NativeProps) => {
   return (
     <div className="text-area">

@@ -1,6 +1,6 @@
+import { Button, ButtonSizes, ButtonVariant} from "ui-react/src/Button";
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Button, ButtonSizes, ButtonVariant } from "ui-react/src/Button";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -11,7 +11,6 @@ const meta = {
     layout: 'centered',
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
-  tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
   },
@@ -49,8 +48,8 @@ export const Primary: Story = {
 
 export const Secondary: Story = {
   args: {
-    variant:ButtonVariant.SECONDARY,    
     children: 'Button',
+    variant:ButtonVariant.SECONDARY
   },
 };
 
@@ -64,7 +63,6 @@ export const Loading: Story = {
 export const Disabled: Story = {
   args: {   
     children: 'Button',
-    disable:true
+    disabled:true
   },
 };
-

@@ -1,14 +1,12 @@
-import React from 'react';
+import "../../../../styles/notification.css"
 type NotificationProps = {
     message:string
 }
 
-function Notification({ message }:NotificationProps) {
+export function Notification({ message }:NotificationProps) {
   return (
     <div className="notification">
       <p>{message}</p>
     </div>
   );
 }
-
-export default Notification;
