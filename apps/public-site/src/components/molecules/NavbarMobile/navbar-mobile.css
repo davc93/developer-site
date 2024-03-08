@@ -31,9 +31,12 @@
   right: 0;
   bottom: 0;
   border-style: solid;
-  border-width: 1px;
-  border-color: white;
-  background-color: var(--neutral--950);
+  border-width: 2px;
+  border-color: var(--primary--500);
+
+  background: rgba(6, 6, 6, 0.3);
+  backdrop-filter: blur(4.3px);
+  -webkit-backdrop-filter: blur(4.3px);
   transform: rotate(0deg);
   transition: all 0.4s cubic-bezier(0.54, -0.10, 0.57, 0.57);
 }
@@ -50,7 +53,7 @@
 
 .hamburger-line {
   width: 100%;
-  background: #fff;
+  background: var(--primary--500);
   height: 2px;
   display: block;
   transition: transform 0.4s cubic-bezier(0.54, -0.81, 0.57, 0.57);
@@ -78,7 +81,7 @@
   transform:  scale(0);
   transform-origin: center;
   transition: all 0.4s cubic-bezier(0.54, -0.10, 0.57, 0.57);
-  border: 1px solid white;
+  border: 2px solid var(--primary--500);
   color: white;
   width: 180px;
   left: 0;
@@ -91,7 +94,10 @@
   padding-inline: 30px;
   padding-block: 20px;
   flex-direction: column;
-  background-color: var(--neutral--950);
+
+  background: rgba(6, 6, 6, 0.3);
+  backdrop-filter: blur(4.3px);
+  -webkit-backdrop-filter: blur(4.3px);
 }
 .navbar-mobile__separator{
   border: 1px solid white;
