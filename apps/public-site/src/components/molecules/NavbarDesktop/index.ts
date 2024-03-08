@@ -111,10 +111,11 @@ export const createNavbarDesktop = ({}: NavbarDesktopProps) => {
   linkedinLi.append(linkedinLink)
   
   divMenu.append(
-    services,
+    
     about,
     portfolio,
     profile,
+    services,
     loginLi,
     loginOutLi,
     separator,

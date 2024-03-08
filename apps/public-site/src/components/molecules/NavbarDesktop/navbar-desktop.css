@@ -86,13 +86,14 @@ padding: 20px;
   left: 30px;
   width: 30px;
   height: 4px;
-  background-color: white;
+  background-color: var(--primary--500);
   pointer-events: none;
   transition: all 0.5s;
 }
 
 .nav input:checked ~ span {
-  background-color: var(--primary--600);
+  background-color: var(--primary--500);
+  box-shadow: var(--shadow-sm);
 }
 
 .nav span:nth-child(2) {
