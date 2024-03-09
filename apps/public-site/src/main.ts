@@ -10,7 +10,6 @@ import { createHomePage } from "@/routes/home/home";
 import { createPortfolioPage } from "@/routes/portfolio/portfolio";
 import { createProfilePage } from "@/routes/profile/profile";
 import { authService } from "@/services/auth.service";
-
 export const navbar =createNavbarDesktop({})
 export const navbarMobile = createNavbarMobile({})
 layout.append(navbar.element,navbarMobile.element);
