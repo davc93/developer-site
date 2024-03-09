@@ -42,12 +42,10 @@
 }
 .sidebar-item:hover .sidebar-item__name{
     color: var(--primary--600);
-    transition: all 0.3s;
 }
 
 .sidebar-item:hover .sidebar-item__icon{
     --icon-color: var(--primary--600);
-    transition: all 0.3s;
 }
 .sidebar-item--active{
     background: var(--primary--600);
@@ -70,7 +68,6 @@
 }
 .sidebar-item__icon{
     width: 1.5rem;
-    transition: all 0.3s;
 
 }
 .sidebar-item--active .sidebar-item__name{
