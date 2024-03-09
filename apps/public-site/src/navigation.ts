@@ -2,8 +2,8 @@ import {
   pageLoader,
   pagesContainer,
   portfolioDetails,
-} from "./nodes";
-import { createPortfolioDetailPage } from "./routes/portfolio/[slug]";
+} from "@/nodes";
+import { createPortfolioDetailPage } from "@/routes/portfolio/[slug]";
 
 export const goTo = (path: string) => {
   window.history.pushState({}, "", path);

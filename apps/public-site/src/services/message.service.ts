@@ -1,5 +1,5 @@
 
-import { Message } from "../models/message.model";
+import { Message } from "@/models/message.model";
 
 class MessageService {
   async sendMessage(message: Message) {
