@@ -1,3 +1,4 @@
+import "ui-styles/src/typography.css"
 
 export enum TypographySize {
   titleLarge = "typography--title-large",

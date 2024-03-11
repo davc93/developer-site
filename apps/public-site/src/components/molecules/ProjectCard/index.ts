@@ -1,14 +1,15 @@
-import { Project } from "../../../models/project.model";
-import { ButtonSizes, ButtonStyles, createButton } from "../../atoms/Button";
-import { createIconButton } from "../../atoms/IconButton";
-import { ArrowIcon } from "../../icons/ArrowIcon";
-import { ImageFormat, createImage } from "../../atoms/Image";
-import { createLink } from "../../atoms/Link";
+import "./style.css"
+import { Project } from "@/models/project.model";
+import { ButtonSizes, ButtonStyles, createButton } from "@/components/atoms/Button";
+import { createIconButton } from "@/components/atoms/IconButton";
+import { ArrowIcon } from "@/components/icons/ArrowIcon";
+import { ImageFormat, createImage } from "@/components/atoms/Image";
+import { createLink } from "@/components/atoms/Link";
 import {
   TypographyColor,
   TypographySize,
   createTypography,
-} from "../../atoms/Typography";
+} from "@/components/atoms/Typography";
 import { LinkIcon } from "../../icons/ExternalLink";
 export enum ProjectCardType {
   LARGE = "project-card--large",

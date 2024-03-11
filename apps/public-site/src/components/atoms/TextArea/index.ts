@@ -1,4 +1,4 @@
-
+import "ui-styles/src/text-area.css"
 
 export interface TextAreaProps {
   hidden?: boolean;

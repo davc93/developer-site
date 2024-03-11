@@ -1,9 +1,10 @@
 import "./globals.css";
-import "../../../styles/variables.css";
+import "ui-styles/src/variables.css"
+import "ui-styles/src/globals.css"
 import { createNavbarDesktop } from "@/components/molecules/NavbarDesktop";
 import { createNavbarMobile } from "@/components/molecules/NavbarMobile";
-import { navigation } from "./navigation";
-import { layout } from "./nodes";
+import { navigation } from "@/navigation";
+import { layout } from "@/nodes";
 import { createBuildPage } from "@/routes/build";
 import { createErrorPage } from "@/routes/error";
 import { createHomePage } from "@/routes/home/home";

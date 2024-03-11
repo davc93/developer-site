@@ -1,4 +1,4 @@
-import { goTo } from "../../../navigation"
+import { goTo } from "@/navigation"
 
 export interface LinkProps {
     href:string,

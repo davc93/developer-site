@@ -1,39 +1,31 @@
-import { ErrorIcon } from "../../icons/ErrorIcon";
+import "ui-styles/src/input.css"
+import { ErrorIcon } from "@/components/icons/ErrorIcon";
 
-export enum TextFieldInputType {
-  TEXT = "text",
-  PASSWORD = "password",
 
-}
-
-export interface TextFieldProps {
+export interface InputProps {
   label: string;
   name:string;
   error?:string;
-  placeholder?:string;
-  hidden?: boolean;
-  inputType?: TextFieldInputType;
+  placeholder?:string
 }
 
-export const createTextField = ({
+export const createInput = ({
   label,
-  inputType = TextFieldInputType.TEXT,
   name,
   error,
   placeholder,
   
-}: TextFieldProps) => {
+  
+}: InputProps) => {
 
   // Create input fields with labels
   const inputNames = `${label}`;
-  const inputTypes = inputType;
   const inputValues = "";
   const inputContainer = document.createElement("label");
   inputContainer.classList.add("input-container");
 
   const input = document.createElement("input");
   input.name = name
-  input.setAttribute("type", inputTypes);
   input.classList.add("input");
   input.setAttribute("value", inputValues);
   input.placeholder = placeholder ?? ""

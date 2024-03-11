@@ -32,11 +32,11 @@
     "vite": "^5.1.5"
   },
   "dependencies": {
+    "ui-styles":"*",
     "dotenv": "^16.3.1",
     "joi": "^17.10.1",
     "jsonwebtoken": "^9.0.2",
     "marked": "^9.0.3",
-    "mongoose": "^7.5.0",
     "motion": "^10.16.2",
     "nodemailer": "^6.9.4",
     "pg": "^8.11.3",

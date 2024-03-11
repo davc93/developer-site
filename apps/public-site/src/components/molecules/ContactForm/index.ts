@@ -1,19 +1,20 @@
-import { messageService } from "../../../services/message.service";
-import { showNotification } from "../../../utils";
-import { ButtonSizes, ButtonStyles, createButton } from "../../atoms/Button";
-import { NotificationType } from "../Notification";
-import { createTextArea } from "../../atoms/TextArea";
-import { createTextField } from "../../atoms/TextField";
+import "./style.css"
+import { messageService } from "@/services/message.service";
+import { showNotification } from "@/utils";
+import { ButtonSizes, ButtonStyles, createButton } from "@/components/atoms/Button";
+import { NotificationType } from "@/components/molecules/Notification";
+import { createTextArea } from "@/components/atoms/TextArea";
+import { createInput } from "@/components/atoms/Input";
 
 export function createContactForm() {
   
     const form = document.createElement("form");
     form.className = "contact-form";
-    const emailInput = createTextField({
+    const emailInput = createInput({
       label: "Email",
       name: "email",
     });
-    const organizationInput = createTextField({
+    const organizationInput = createInput({
       label: "Organization",
       name: "organization",
     });
