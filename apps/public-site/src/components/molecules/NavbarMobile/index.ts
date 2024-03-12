@@ -64,7 +64,7 @@ export const createNavbarMobile = ({ }: NavbarMobileProps) => {
   // Create and append individual divs with text content to the "item-list" div
   const aboutA = createLink({href:"/",children:createTypography({label:"About",size:TypographySize.bodyMedium})})
   const portfolioA = createLink({href:"/portfolio",children:createTypography({label:"Portfolio",size:TypographySize.bodyMedium})})
-  const services = createLink({href:"/servicios",children:createTypography({label:"Servicios 🇨🇱",size:TypographySize.bodyMedium})})
+  // const services = createLink({href:"/servicios",children:createTypography({label:"Servicios 🇨🇱",size:TypographySize.bodyMedium})})
 
   const profile = createLink({
     href: "/profile",
@@ -106,7 +106,7 @@ export const createNavbarMobile = ({ }: NavbarMobileProps) => {
   socialContainer.append(github,linkedin)
  
 
-  divItemList.append(aboutA,portfolioA,profile,services,loginEl,logOutButton,separator,socialContainer)
+  divItemList.append(aboutA,portfolioA,profile,loginEl,logOutButton,separator,socialContainer)
 
 
   // Append input, icon-wrapper, and item-list to the label "menu-button-wrapper"

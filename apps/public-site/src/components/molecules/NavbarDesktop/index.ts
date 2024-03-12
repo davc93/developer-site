@@ -47,16 +47,16 @@ export const createNavbarDesktop = ({}: NavbarDesktopProps) => {
       }),
     })
   );
-  const services = document.createElement("li");
-  services.append(
-    createLink({
-      href: "/servicios",
-      children: createTypography({
-        label: "Servicios 🇨🇱",
-        size: TypographySize.bodyMedium,
-      }),
-    })
-  );
+  // const services = document.createElement("li");
+  // services.append(
+  //   createLink({
+  //     href: "/servicios",
+  //     children: createTypography({
+  //       label: "Servicios 🇨🇱",
+  //       size: TypographySize.bodyMedium,
+  //     }),
+  //   })
+  // );
 
   const profile = document.createElement("li");
   profile.append(
@@ -116,7 +116,6 @@ export const createNavbarDesktop = ({}: NavbarDesktopProps) => {
     about,
     portfolio,
     profile,
-    services,
     loginLi,
     loginOutLi,
     separator,
