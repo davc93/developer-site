@@ -1,6 +1,5 @@
 import { Route, Routes, Navigate, BrowserRouter } from "react-router-dom";
 import { useState } from "react";
-
 import { Layout } from "@/Layout";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { AuthContext } from "@/context/AuthContext";
