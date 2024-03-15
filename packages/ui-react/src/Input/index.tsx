@@ -1,5 +1,5 @@
 import {  InputHTMLAttributes } from "react";
-import "../../../../styles/text-field.css"
+import "ui-styles/src/input.css"
 
 
 export interface InputProps {

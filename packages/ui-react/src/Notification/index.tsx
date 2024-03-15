@@ -1,4 +1,4 @@
-import "../../../../styles/notification.css"
+import "ui-styles/src/notification.css"
 type NotificationProps = {
     message:string
 }

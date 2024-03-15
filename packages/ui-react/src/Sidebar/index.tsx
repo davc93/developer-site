@@ -1,11 +1,11 @@
-import { HTMLAttributes, useRef, useState } from "react";
 import "./sidebar.css";
+import { HTMLAttributes, useRef, useState } from "react";
 import { Typography, TypographySize } from "../Typography";
-import { NotebookIcon } from "@/Icons/NotebookIcon";
-import { LetterIcon } from "@/Icons/LetterIcon";
-import { ProfileIcon } from "@/Icons/ProfileIcon";
-import { LabelIcon } from "@/Icons/LabelIcon";
-import { LogoutIcon } from "@/Icons/LogoutIcon";
+import { NotebookIcon } from "../Icons/NotebookIcon";
+import { LetterIcon } from "../Icons/LetterIcon";
+import { ProfileIcon } from "../Icons/ProfileIcon";
+import { LabelIcon } from "../Icons/LabelIcon";
+import { LogoutIcon } from "../Icons/LogoutIcon";
 type SidebarItem = {
   path: string;
   name: string;

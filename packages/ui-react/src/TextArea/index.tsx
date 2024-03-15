@@ -1,5 +1,5 @@
 import {  TextareaHTMLAttributes } from "react";
-import "../../../../styles/text-area.css"
+import "ui-styles/src/text-area.css"
 
 
 export interface TextAreaProps {

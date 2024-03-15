@@ -1,10 +1,10 @@
-import "../../../../styles/button.css"
+import "ui-styles/src/button.css";
 import { ButtonHTMLAttributes, ReactNode } from "react";
 
 export enum ButtonSizes {
   LARGE = "large",
   WIDE = "wide",
-  SMALL = "small"
+  SMALL = "small",
 }
 
 export enum ButtonVariant {
@@ -25,13 +25,20 @@ export const Button = ({
   size = ButtonSizes.LARGE,
   variant = ButtonVariant.PRIMARY,
   loading,
+  className,
   disabled,
   ...props
 }: ButtonProps & NativeProps) => {
   return (
     <button
-    
-    className={["button",disabled ? "button--disabled" : "", variant,loading ? "button--loading" : "", `button--${size}`, props.className].join(" ")}
+      className={[
+        "button",
+        disabled ? "button--disabled" : "",
+        variant,
+        loading ? "button--loading" : "",
+        `button--${size}`,
+        className,
+      ].join(" ")}
       {...props}
     >
       <span className="button__text">{children}</span>

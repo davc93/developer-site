@@ -1,19 +1,8 @@
-import { Route, Routes, Navigate, BrowserRouter } from "react-router-dom";
 import { useState } from "react";
-import { Layout } from "@/Layout";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { AuthContext } from "@/context/AuthContext";
-import { LoginPage } from "@/routes/login";
-import { ProfilePage } from "@/routes/profile";
-import { ProjectsPage } from "@/routes/projects";
-import { CreateProjectPage } from "@/routes/project-create";
-import { EditProjectPage } from "@/routes/project-edit";
-import { LabelsPage } from "@/routes/labels";
-import { CreateLabelPage } from "@/routes/label-create";
-import { EditLabelPage } from "@/routes/label-edit";
-import { AuthRoute } from "@/components/AuthRoute";
 import { NotificationContext } from "@/context/NotificationContext";
-import { PublicRoute } from "@/components/PublicRoute";
+import { Router } from "@/routes";
 
 function App() {
   const [token, setToken] = useLocalStorage("token");
@@ -25,77 +14,7 @@ function App() {
   return (
     <AuthContext.Provider value={{ token, setToken }}>
       <NotificationContext.Provider value={{ notifications, addNotification }}>
-        <BrowserRouter>
-          <Layout>
-            <Routes>
-              <Route
-                element={
-                  <PublicRoute>
-                    <LoginPage />
-                  </PublicRoute>
-                }
-                path="/login"
-              />
-              <Route
-                element={
-                  <AuthRoute>
-                    <ProfilePage />
-                  </AuthRoute>
-                }
-                path="/profile"
-              />
-              <Route
-                element={
-                  <AuthRoute>
-                    <ProjectsPage />
-                  </AuthRoute>
-                }
-                path="/projects"
-              />
-              <Route
-                element={
-                  <AuthRoute>
-                    <CreateProjectPage />
-                  </AuthRoute>
-                }
-                path="/projects/create"
-              />
-              <Route
-                element={
-                  <AuthRoute>
-                    <EditProjectPage />
-                  </AuthRoute>
-                }
-                path="/projects/edit/:id"
-              />
-              <Route
-                element={
-                  <AuthRoute>
-                    <LabelsPage />
-                  </AuthRoute>
-                }
-                path="/labels"
-              />
-              <Route
-                element={
-                  <AuthRoute>
-                    <CreateLabelPage />
-                  </AuthRoute>
-                }
-                path="/labels/create"
-              />
-              <Route
-                element={
-                  <AuthRoute>
-                    <EditLabelPage />
-                  </AuthRoute>
-                }
-                path="/labels/edit/:id"
-              />
-              <Route path="/*" element={<Navigate to="/login" replace />} />
-            </Routes>
-          </Layout>
-        </BrowserRouter>
+        <Router/>
       </NotificationContext.Provider>
     </AuthContext.Provider>
   );
