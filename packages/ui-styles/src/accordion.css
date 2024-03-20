@@ -1,0 +1,25 @@
+.accordion{
+    overflow: hidden;
+}
+
+
+.accordion-summary{
+    display: flex;
+}
+.accordion-summary__icon{
+    transform: rotate(-90deg);
+    width: 20px;
+    transition: 0.5s transform;
+}
+.accordion--open .accordion-summary__icon{
+    transform: rotate(90deg);
+
+}
+
+.accordion-detail{
+    display: none;
+}
+.accordion--open .accordion-detail{
+    display: block;
+    animation: fade-in 0.5s ;
+}

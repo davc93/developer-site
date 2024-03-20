@@ -1,0 +1,26 @@
+/* 
+
+error
+error__text
+error__icon
+*/
+
+
+
+.error{
+    padding-inline: 2.5rem;
+    padding-block: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    background: var(--error--100);
+    animation: fade-in 1s;
+
+}
+
+.error__text{
+    font-size: 0.875rem;
+    color: var(--error--300);
+}
+.error__icon{
+    width: 20px;
+}

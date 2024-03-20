@@ -1,6 +1,7 @@
-import { createButton, ButtonStyles, ButtonSizes, } from "../../atoms/Button";
-import type { ButtonProps } from "../../atoms/Button";
-import { CloseIcon } from "../../icons/CloseIcon";
+import "ui-styles/src/modal.css"
+import { createButton, ButtonStyles, ButtonSizes, } from "@/components/atoms/Button";
+import { CloseIcon } from "@/components/icons/CloseIcon";
+import type { ButtonProps } from "@/components/atoms/Button";
 export interface ModalProps extends Partial<ButtonProps> {
   element:HTMLElement;
   hidden?: boolean;

@@ -1,5 +1,5 @@
-
-import { createTypography, TypographySize } from "../../atoms/Typography";
+import "ui-styles/src/notification.css"
+import { createTypography, TypographySize } from "@/components/atoms/Typography";
 const warningIcon = () => {
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   svg.setAttribute("width", "48px");

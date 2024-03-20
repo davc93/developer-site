@@ -1,9 +1,10 @@
-import { updateAppSession } from "../../../main";
-import { goTo } from "../../../navigation";
-import { deleteCookie } from "../../../utils";
-import { GithubIcon, LinkedinIcon } from "../../icons/SocialIcons";
-import { createLink } from "../../atoms/Link";
-import { TypographySize, createTypography } from "../../atoms/Typography";
+import "./navbar-desktop.css"
+import { updateAppSession } from "@/main";
+import { goTo } from "@/navigation";
+import { deleteCookie } from "@/utils";
+import { GithubIcon, LinkedinIcon } from "@/components/icons/SocialIcons";
+import { createLink } from "@/components/atoms/Link";
+import { TypographySize, createTypography } from "@/components/atoms/Typography";
 
 // reference https://codepen.io/dmendozaec/pen/vwjRvw
 export interface NavbarDesktopProps {
@@ -46,16 +47,16 @@ export const createNavbarDesktop = ({}: NavbarDesktopProps) => {
       }),
     })
   );
-  const services = document.createElement("li");
-  services.append(
-    createLink({
-      href: "/servicios",
-      children: createTypography({
-        label: "Servicios 🇨🇱",
-        size: TypographySize.bodyMedium,
-      }),
-    })
-  );
+  // const services = document.createElement("li");
+  // services.append(
+  //   createLink({
+  //     href: "/servicios",
+  //     children: createTypography({
+  //       label: "Servicios 🇨🇱",
+  //       size: TypographySize.bodyMedium,
+  //     }),
+  //   })
+  // );
 
   const profile = document.createElement("li");
   profile.append(

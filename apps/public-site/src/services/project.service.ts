@@ -1,6 +1,6 @@
-import { config } from "../config";
-import type { Project } from "../models/project.model";
-import type { Label } from "../models/label.model";
+import { config } from "@/config";
+import type { Project } from "@/models/project.model";
+import type { Label } from "@/models/label.model";
 
 
 class ProjectService{

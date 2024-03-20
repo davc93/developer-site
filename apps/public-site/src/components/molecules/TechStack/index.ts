@@ -1,5 +1,6 @@
-import { TypographyColor, TypographySize, createTypography } from "../../atoms/Typography";
-import { technologies } from "../../../data/technologies";
+import "./style.css"
+import { TypographyColor, TypographySize, createTypography } from "@/components/atoms/Typography";
+import { technologies } from "@/data/technologies";
 export const createTechStack = () => {
     const techsContainer = document.createElement("div");
     techsContainer.className = "tech-stack";

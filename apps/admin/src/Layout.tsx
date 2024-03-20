@@ -1,7 +1,7 @@
-import React, { useContext, ReactNode } from "react";
-import { Sidebar } from "./components/molecules/Sidebar";
-import { AuthContext } from "./context/AuthContext";
-import "./style.css";
+import { useContext, ReactNode } from "react";
+import { Sidebar } from "ui-react";
+import { AuthContext } from "@/context/AuthContext";
+
 type LayoutProps = {
   children: ReactNode;
 };

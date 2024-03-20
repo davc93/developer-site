@@ -1,3 +1,4 @@
+import "ui-styles/src/select.css"
 interface Option {
     label:string;
     value:string;

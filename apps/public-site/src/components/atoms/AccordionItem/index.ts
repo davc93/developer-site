@@ -1,5 +1,5 @@
 import { TypographySize, TypographyTag, createTypography } from "../Typography"
-
+import "./style.css"
 
 export interface AccordionItemProps {
     header?:string

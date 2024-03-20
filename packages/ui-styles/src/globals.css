@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;600;700&display=swap");
+@import url("./section-container.css");
+
+html {
+  font-size: 16px;
+}
+
+body::-webkit-scrollbar {
+  width: 8px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: black;        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--foreground--200);    /* color of the scroll thumb */
+  border-radius: 5px;       /* roundness of the scroll thumb */
+}
+
+body {
+  background: black;
+}
+
+button{
+  background: none ;
+  border: none;
+}
+ul{
+  list-style: none;
+  padding: 0;
+}
+a{
+  text-decoration: none;
+}
+.icon{
+  filter:none;
+  transition: all 0.3s;
+
+}
+.icon:hover{
+  filter:drop-shadow(var(--shadow-sm));
+  transition: all 0.3s;
+
+}
+
+@keyframes fade-in {
+  from{
+    opacity: 0;
+    display: none;
+  }
+} 
+@keyframes fade-out {
+  to{
+    opacity: 0;
+    display: none;
+  }
+} 
+
+@keyframes scale-increase {
+  from{
+    scale: 0.6;
+  }
+  to{
+    scale: 1;
+  }
+}
+
+@keyframes scale-decrease {
+  from{
+    scale: 1;
+  }
+  to{
+    scale: 0.6;
+  }
+}

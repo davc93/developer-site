@@ -1,5 +1,6 @@
-import { ImageFormat, createImage } from "../../atoms/Image";
-import { createTypography,TypographySize,TypographyColor } from "../../atoms/Typography";
+import "./style.css"
+import { ImageFormat, createImage } from "@/components/atoms/Image";
+import { createTypography,TypographySize,TypographyColor } from "@/components/atoms/Typography";
 
 export interface JobCardProps{
     jobLogo:string;
