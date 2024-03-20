@@ -48,11 +48,10 @@ class UserProvider {
 
   generateSessionId() {
     // call to server to return cookie
+    this.appInfo
   }
   getGoogleProfile() {
     // llama a google y guarda la informacion aqui
-  }
-  get getAppInfo() {
-    return this.appInfo;
+    this.personalInfo
   }
 }

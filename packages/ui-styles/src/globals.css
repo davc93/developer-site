@@ -30,6 +30,9 @@ ul{
   list-style: none;
   padding: 0;
 }
+a{
+  text-decoration: none;
+}
 .icon{
   filter:none;
   transition: all 0.3s;
