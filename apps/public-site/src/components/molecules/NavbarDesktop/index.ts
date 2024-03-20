@@ -117,7 +117,6 @@ export const createNavbarDesktop = ({}: NavbarDesktopProps) => {
     about,
     portfolio,
     profile,
-    services,
     loginLi,
     loginOutLi,
     separator,
