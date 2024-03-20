@@ -37,6 +37,7 @@ export const createNavbarDesktop = ({}: NavbarDesktopProps) => {
       }),
     })
   );
+  
   const portfolio = document.createElement("li");
   portfolio.append(
     createLink({
