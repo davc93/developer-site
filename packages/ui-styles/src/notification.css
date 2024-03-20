@@ -2,11 +2,21 @@
     display: flex;
     gap: var(--space-3);
     background-color: var(--neutral--950);
-    padding: var(--space-4);
-    border: 1px solid var(--white);
+    padding: var(--space-8);
+    border: 1px solid white;
+    position: relative;
+    animation: fade-in 1.5s;
 }
 .notification__text-content{
     display: flex;
     flex-direction: column;
+    color: var(--foreground--100);
     gap: var(--space-1);
+}
+.notification__icon{
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
 }

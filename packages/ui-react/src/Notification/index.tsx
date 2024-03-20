@@ -1,3 +1,4 @@
+import { CrossIcon } from "@/Icons/CrossIcon";
 import "ui-styles/src/notification.css"
 type NotificationProps = {
     message:string
@@ -6,7 +7,11 @@ type NotificationProps = {
 export function Notification({ message }:NotificationProps) {
   return (
     <div className="notification">
-      <p>{message}</p>
+      
+      <p className="notification__text-content">{message}</p>
+      <div className="notification__icon">
+        <CrossIcon />
+      </div>
     </div>
   );
 }
