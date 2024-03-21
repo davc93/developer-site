@@ -1,4 +1,4 @@
-import "./navbar-mobile.css"
+// import "./navbar-mobile.css"
 import {  updateAppSession } from "@/main";
 import { goTo } from "@/navigation";
 import { deleteCookie } from "@/utils";

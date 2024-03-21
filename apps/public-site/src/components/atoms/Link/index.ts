@@ -1,14 +1,15 @@
 import { goTo } from "@/navigation"
 
-export interface LinkProps {
+type LinkProps = {
     href:string,
-    children:HTMLElement | SVGSVGElement
+    children:HTMLElement | SVGSVGElement,
+    className?:string
 
 }
-
-export const createLink = ({href,children}:LinkProps) => {
+export const createLink = ({href,children,className}:LinkProps ) => {
     const anchor = document.createElement("a")
-    anchor.className = "link"
+    
+    anchor.className = (`link ${className ? className : ""}`)
     anchor.href = href
     if(anchor.href.includes(window.location.host) && !href.includes("api")){
         anchor.addEventListener('click',(event)=>{
