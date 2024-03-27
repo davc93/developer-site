@@ -18,7 +18,6 @@ export const createNavbarDesktop = ({}: NavbarDesktopProps) => {
   const navbar = document.createElement("nav");
   navbar.className = "navbar-desktop";
 
-  // Create the menu
   const menuButton = document.createElement("button");
   menuButton.classList.add("menu-button");
   const line1 = document.createElement("span");

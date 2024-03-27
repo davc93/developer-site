@@ -23,6 +23,8 @@ type Story = StoryObj<typeof meta>;
 export const Large: Story = {
   args: {
     children: 'Button',
+    loading:false
+
   },
 };
 
@@ -36,13 +38,17 @@ export const Small: Story = {
 export const Wide: Story = {
   args: {
     children: 'Button',
-    size:ButtonSizes.WIDE
+    size:ButtonSizes.WIDE,
+    loading:false
+
   },
 };
 
 export const Primary: Story = {
   args: {   
     children: 'Button',
+    loading:false
+
   },
 };
 

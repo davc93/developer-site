@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" class="scrollbar--vertical">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fundamentals</title>
+    <link rel="stylesheet" href="./src/variables.css" />
+    <style>
+      :root {
+        background: var(--surface--950);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      .colors-section {
+        display: flex;
+        gap: 20px;
+      }
+      section{
+        margin-bottom: 50px;
+      }
+      .color {
+        width: 100px;
+        height: 100px;
+        align-content: center;
+        text-align: center;
+      }
+
+      h2 {
+        font-family: var(--typography-primary);
+        color: var(--foreground--50);
+        font-size: 3.5rem;
+        font-weight: 100;
+      }
+
+      p {
+        font-family: var(--typography-secondary);
+        color: var(--foreground--50);
+        font-weight: 400;
+        font-size: 1rem;
+      }
+    </style>
+  </head>
+
+  <body class="scrollbar--vertical" >
+    <div>
+      <h2>Primary</h2>
+      <section class="colors-section">
+        <div class="color" style="background: var(--primary--50)"></div>
+        <div class="color" style="background: var(--primary--100)"></div>
+        <div class="color" style="background: var(--primary--200)"></div>
+        <div class="color" style="background: var(--primary--300)"></div>
+        <div class="color" style="background: var(--primary--400)"></div>
+        <div class="color" style="background: var(--primary--500)"></div>
+        <div class="color" style="background: var(--primary--600)"></div>
+        <div class="color" style="background: var(--primary--700)"></div>
+        <div class="color" style="background: var(--primary--800)"></div>
+        <div class="color" style="background: var(--primary--900)"></div>
+        <div class="color" style="background: var(--primary--950)"></div>
+      </section>
+
+      <h2>Secondary</h2>
+      <section class="colors-section">
+        <div class="color" style="background: var(--secondary--50)"></div>
+        <div class="color" style="background: var(--secondary--100)"></div>
+        <div class="color" style="background: var(--secondary--200)"></div>
+        <div class="color" style="background: var(--secondary--300)"></div>
+        <div class="color" style="background: var(--secondary--400)"></div>
+        <div class="color" style="background: var(--secondary--500)"></div>
+        <div class="color" style="background: var(--secondary--600)"></div>
+        <div class="color" style="background: var(--secondary--700)"></div>
+        <div class="color" style="background: var(--secondary--800)"></div>
+        <div class="color" style="background: var(--secondary--900)"></div>
+        <div class="color" style="background: var(--secondary--950)"></div>
+      </section>
+
+      <h2>Surface</h2>
+      <section class="colors-section">
+        <div class="color" style="background: var(--surface--50)"></div>
+        <div class="color" style="background: var(--surface--100)"></div>
+        <div class="color" style="background: var(--surface--200)"></div>
+        <div class="color" style="background: var(--surface--300)"></div>
+        <div class="color" style="background: var(--surface--400)"></div>
+        <div class="color" style="background: var(--surface--500)"></div>
+        <div class="color" style="background: var(--surface--600)"></div>
+        <div class="color" style="background: var(--surface--700)"></div>
+        <div class="color" style="background: var(--surface--800)">✅</div>
+        <div class="color" style="background: var(--surface--900)">✅</div>
+        <div class="color" style="background: var(--surface--950)">✅</div>
+      </section>
+
+      <h2>Foreground</h2>
+      <section class="colors-section">
+        <div class="color" style="background: var(--foreground--50)"></div>
+        <div class="color" style="background: var(--foreground--100)"></div>
+        <div class="color" style="background: var(--foreground--200)"></div>
+        <div class="color" style="background: var(--foreground--300)"></div>
+        <div class="color" style="background: var(--foreground--400)"></div>
+        <div class="color" style="background: var(--foreground--500)"></div>
+        <div class="color" style="background: var(--foreground--600)"></div>
+        <div class="color" style="background: var(--foreground--700)"></div>
+        <div class="color" style="background: var(--foreground--800)"></div>
+        <div class="color" style="background: var(--foreground--900)"></div>
+        <div class="color" style="background: var(--foreground--950)"></div>
+      </section>
+
+      <h2>Warning</h2>
+      <section class="colors-section">
+        <div class="color" style="background: var(--warning--100)">100</div>
+        <div class="color" style="background: var(--warning--300)">300</div>
+        <div class="color" style="background: var(--warning--600)">600</div>
+      </section>
+
+      <h2>Error</h2>
+      <section class="colors-section">
+        <div class="color" style="background: var(--error--100)">100</div>
+        <div class="color" style="background: var(--error--300)">300</div>
+        <div class="color" style="background: var(--error--600)">600</div>
+      </section>
+      <h2>Success</h2>
+      <section class="colors-section">
+        <div class="color" style="background: var(--success--100)">100</div>
+        <div class="color" style="background: var(--success--300)">300</div>
+        <div class="color" style="background: var(--success--600)">600</div>
+      </section>
+
+      <h2>Info</h2>
+      <section class="colors-section">
+        <div class="color" style="background: var(--info--100)">100</div>
+        <div class="color" style="background: var(--info--300)">300</div>
+        <div class="color" style="background: var(--info--600)">600</div>
+      </section>
+    </div>
+    <div>
+      <section>
+        <h2>Scrollbar Native</h2>
+        <div class="scrollbar--native" style="height: 100px; width: 300px; overflow: auto; border: 1px solid white;">
+            <div style="width: 2000px; height: 100%;background: linear-gradient(90deg,black,var(--primary--900));">
+
+            </div>
+        </div>
+
+        <h2>Scrollbar horizontal</h2>
+        <div class="scrollbar--horizontal" style="height: 100px; width: 300px; overflow: auto; border: 1px solid white;">
+            <div class="scrollbar--horizontal" style="width: 2000px; height: 100%;background: linear-gradient(90deg,black,blue);">
+
+            </div>
+        </div>
+
+        <h2>Scrollbar vertical</h2>
+        <div class="scrollbar--vertical" style="width: 100px; height: 200px; overflow: auto; border: 1px solid white;">
+            <div class="scrollbar--vertical" style="height: 2000px; width: 100%;background: linear-gradient(180deg,black,blue);">
+
+            </div>
+        </div>
+      </section>
+      <section>
+        <h2>Gradients</h2>
+        <p>For components like buttons</p>
+      </section>
+    </div>
+
+    <div></div>
+  </body>
+</html>
