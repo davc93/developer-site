@@ -33,18 +33,13 @@ export const createModal = ({element,icon,disable,label = "button",style = Butto
   
   closeModal.classList.add("modal__close-icon");
   closeModal.addEventListener("click", () => {
-    modalDiv.classList.add("modal--closing");
+    modalDiv.classList.remove("modal--active");
 
   });
-  modalDiv.addEventListener("animationend",(ev) => {
-    if (ev.animationName == "fade-out") {
-      modalDiv.classList.remove("modal--active", "modal--closing");
-    }
-  }
-  )
+  
   document.addEventListener("keydown",function(event) {
     if (event.key === 'Escape' && modalDiv.classList.contains("modal--active")) {
-      modalDiv.classList.add("modal--closing");
+      modalDiv.classList.remove("modal--active");
 
     }
 })

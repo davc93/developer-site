@@ -53,7 +53,8 @@ export const createButton = ({
   text.textContent = label
   const loader = document.createElement("div");
   loader.className = "button__loader";
-  btn.append(text,loader);
+  text.append(loader)
+  btn.append(text);
 
   btn.className = [
     "button",

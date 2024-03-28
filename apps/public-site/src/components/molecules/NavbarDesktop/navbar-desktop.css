@@ -1,39 +1,20 @@
-/* 
-navbar-desktop
-navbar-desktop--open
-navbar-desktop__item
-navbar-desktop__item-list
-navbar-desktop__separator
-
-menu-button
-menu-button__line
-menu-button__line1
-menu-button__line2
-menu-button--open
-*/
 
 .navbar-desktop {
-  /* para mobile */
   display: none;
-}
-
-.navbar-desktop {
   z-index: 20;
   position: fixed;
   height: 70px;
-  gap: 2rem;
   top: var(--space-6);
   left: var(--space-2);
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--primary--600);
-  padding: 20px;
+  padding-inline: 20px;
   background: rgba(6, 6, 6, 0.3);
   backdrop-filter: blur(4.3px);
   -webkit-backdrop-filter: blur(4.3px);
+
 }
 
-.navbar-desktop--open {
-}
 @media (min-width: 768px) {
   .navbar-desktop {
     display: flex;
@@ -41,22 +22,29 @@ menu-button--open
 }
 
 .navbar-desktop__item-list {
-  display: none;
+  display: flex;
+  max-width: 0;
+  overflow: hidden;
   align-items: center;
   gap: 1.5rem;
+  transition-property: max-width margin-left;
+  transition-duration: 0.7s;
 }
-.navbar-desktop--open .navbar-desktop__item-list {
-  display: flex;
+.navbar-desktop--open {
+  .navbar-desktop__item-list {
+    margin-left: 40px;
+    max-width: 600px;
+  }
 }
 
 .navbar-desktop__item {
   text-transform: uppercase;
   font-family: var(--typography-primary);
   font-weight: 700;
-  transition: all 0.3s;
+  transition: color 0.3s;
+  text-wrap: nowrap;
 }
 .navbar-desktop__item:hover {
-  transition: all 0.3s;
   text-shadow: var(--shadow-sm);
   color: var(--primary--600);
 }
@@ -82,7 +70,7 @@ menu-button--open
   width: 2rem;
   height: 4px;
   background-color: var(--primary--600);
-  transition: all 0.5s;
+  transition: transform 0.5s;
 
   box-shadow: var(--shadow-sm);
 }

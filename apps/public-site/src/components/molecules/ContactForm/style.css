@@ -2,6 +2,8 @@
     padding-block: var(--space-6);
     padding-inline: var(--space-8);
 /* From https://css.glass */
+width: 100%;
+max-width: 400px;
 background: rgba(6, 6, 6, 0.6);
 box-shadow: var(--shadow-sm);
 backdrop-filter: blur(4.3px);

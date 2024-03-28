@@ -46,8 +46,8 @@ export const createNavbarMobile = ({}: NavbarMobileProps) => {
   });
 
   // Create the div element with class "item-list"
-  const itemList = document.createElement("div");
-  itemList.classList.add("navbar-mobile__item-list");
+  const menu = document.createElement("div");
+  menu.classList.add("navbar-mobile__menu");
 
   // Create and append individual divs with text content to the "item-list" div
   const aboutA = createLink({
@@ -55,7 +55,7 @@ export const createNavbarMobile = ({}: NavbarMobileProps) => {
     className: "navbar-mobile__item",
     children: createTypography({
       label: "About",
-      size: TypographySize.bodyMedium,
+      size: TypographySize.titleSmall,
     }),
   });
   const portfolioA = createLink({
@@ -64,7 +64,7 @@ export const createNavbarMobile = ({}: NavbarMobileProps) => {
 
     children: createTypography({
       label: "Portfolio",
-      size: TypographySize.bodyMedium,
+      size: TypographySize.titleSmall,
     }),
   });
   // const services = createLink({href:"/servicios",children:createTypography({label:"Servicios 🇨🇱",size:TypographySize.bodyMedium})})
@@ -74,7 +74,7 @@ export const createNavbarMobile = ({}: NavbarMobileProps) => {
     className: "navbar-mobile__item",
     children: createTypography({
       label: "Profile",
-      size: TypographySize.bodyMedium,
+      size: TypographySize.titleSmall,
     }),
   });
   const loginEl = createLink({
@@ -83,12 +83,12 @@ export const createNavbarMobile = ({}: NavbarMobileProps) => {
     className: "navbar-mobile__item",
     children: createTypography({
       label: "Login",
-      size: TypographySize.bodyMedium,
+      size: TypographySize.titleSmall,
     }),
   });
   const logOutButton = createTypography({
     label: "LogOut",
-    size: TypographySize.bodyMedium,
+    size: TypographySize.titleSmall,
     className: "navbar-mobile__item",
   });
   logOutButton.style.cursor = "pointer";
@@ -113,19 +113,24 @@ export const createNavbarMobile = ({}: NavbarMobileProps) => {
     children: LinkedinIcon({ width: "36px" }),
   });
   const socialContainer = document.createElement("div");
-  socialContainer.className = ["navbar-mobile__social-container","navbar-mobile__item"].join(" ");
+  socialContainer.className = ["navbar-mobile__social-container"].join(" ");
   socialContainer.append(github, linkedin);
+  const itemsContainer = document.createElement("div")
+  itemsContainer.className = ["navbar-mobile__items-container"].join(" ");
+  itemsContainer.append(
 
-  itemList.append(
     aboutA,
     portfolioA,
     loginEl,
-    socialContainer,
     profile,
     logOutButton,
+  )
+  menu.append(
+    itemsContainer,
+    socialContainer,
   );
 
-  navbarMobile.append(menuButton,itemList);
+  navbarMobile.append(menuButton,menu);
 
   const sessionActive = () => {
     loginEl.style.display = "none";
