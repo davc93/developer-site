@@ -4,11 +4,13 @@
   position: absolute;
   width: 100%;
   height: 100%;
+  
 }
 
 .home-background-image {
   position: fixed;
   top: 0;
+  left: 0;
   z-index: 1;
   background: url("https://res.cloudinary.com/dxryc5jgr/image/upload/c_scale,q_70,w_1622/v1692046970/developer-site/developer-1.webp");
   background-position: top;

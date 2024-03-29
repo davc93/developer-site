@@ -30,6 +30,8 @@ export const navigation = async () => {
         page[1].classList.add("hidden");
       } else {
         page[1].classList.remove("hidden");
+        page[1].classList.add("active")
+
       }
     });
 
@@ -43,6 +45,7 @@ export const navigation = async () => {
         page[1].classList.add("hidden");
       } else {
         page[1].classList.remove("hidden");
+        page[1].classList.add("active")
       }
     });
   }

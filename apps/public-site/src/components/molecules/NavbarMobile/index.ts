@@ -144,6 +144,7 @@ export const createNavbarMobile = ({}: NavbarMobileProps) => {
   };
   window.addEventListener("popstate", () => {
     // menuButton.checked = false
+    navbarMobile.classList.remove("navbar-mobile--open")
     menuButton.classList.remove("navbar-mobile-menu-button--open");
   });
   window.addEventListener("click", (e: any) => {

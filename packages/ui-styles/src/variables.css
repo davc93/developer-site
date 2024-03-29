@@ -88,9 +88,9 @@
   --error--300: rgba(255, 0, 0, 1);
   --error--600: rgba(166, 20, 20, 1);
 
-  --shadow-sm: 0 0 10px var(--primary--600);
-  --shadow-md: 0 0 10px var(--primary--600), 0 0 20px var(--primary--600);
-  --shadow-lg: 0 0 5px var(--primary--600), 0 0 25px var(--primary--600), 0 0 50px var(--primary--600);
+  --shadow-sm: 0 0 10px var(--primary--500);
+  --shadow-md: 0 0 10px var(--primary--500), 0 0 20px var(--primary--500);
+  --shadow-lg: 0 0 5px var(--primary--500), 0 0 25px var(--primary--500), 0 0 50px var(--primary--500);
   
   --title-large: 4.268rem;
   --title-medium: 2.618rem;

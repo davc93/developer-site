@@ -4,6 +4,18 @@
   padding: 0;
 }
 
+
+.pages-container > .active{
+  animation-name: page;
+  animation-duration: 0.7s;
+}
+@keyframes page {
+  from{
+    transform: translateX(100px);
+    opacity: 0;
+  }
+}
+
 /* social media */
 .linkedin-icon {
   fill: var(--primary--600);

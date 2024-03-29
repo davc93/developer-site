@@ -24,8 +24,10 @@ export const createNavbarDesktop = ({}: NavbarDesktopProps) => {
   line1.classList.add("menu-button__line1","menu-button__line");
   const line2 = document.createElement("span");
   line2.classList.add("menu-button__line2","menu-button__line");
+  const line3 = document.createElement("span");
+  line3.classList.add("menu-button__line3","menu-button__line");
 
-  menuButton.append(line1, line2);
+  menuButton.append(line1, line2,line3);
   menuButton.addEventListener("click",(event)=>{
     menuButton.classList.toggle("menu-button--open")
 
@@ -139,7 +141,9 @@ export const createNavbarDesktop = ({}: NavbarDesktopProps) => {
 
   navbar.append(menuButton, itemList);
   window.addEventListener("popstate", () => {
+    navbar.classList.remove("navbar-desktop--open");
     menuButton.classList.remove("menu-button--open");
+
   });
   document.addEventListener("click", (e: any) => {
     if (
