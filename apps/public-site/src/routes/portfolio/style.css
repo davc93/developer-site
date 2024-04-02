@@ -6,7 +6,6 @@
 }
 
 .portfolio-project-list {
- 
   margin-inline: auto;
   flex-wrap: wrap;
   justify-content: center;
@@ -15,8 +14,20 @@
   max-width: 90vw;
   padding-top: 10rem;
 }
-.projects-list-container{
-  
-  background: linear-gradient(-225deg,var(--surface--950) 25%,var(--primary--900));
-  
+.projects-list-container {
+  /* background: linear-gradient(-225deg,var(--surface--950) 25%,var(--primary--900)); */
+  background-image: url("https://res.cloudinary.com/dxryc5jgr/image/upload/c_scale,q_70,w_1512/v1692046970/developer-site/developer-2.webp");
+  background-repeat: no-repeat;
+  height: 100svh;
+  overflow: auto;
+  background-size: 170%;
+
+  background-position: 0% 55%;
+
+  @media (width >= 1024px) {
+    background-size: 100%;
+
+    background-position: center 55%;
+
+  }
 }

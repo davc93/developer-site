@@ -4,16 +4,16 @@
   position: fixed;
   justify-content: center;
   top: 0;
-  width: 100%;
+  left: 0;
   height: 100%;
-  background-color: rgba(31, 32, 41, 0.75);
   z-index: 10;
+  background-color: #2008469a;
 }
 
 .modal--active {
   display: block;
   animation-name: modal;
-  animation-duration: 0.3s;
+  animation-duration: 0.7s;
   animation-fill-mode: both;
 
   .modal-wrap {
@@ -22,8 +22,8 @@
     width: 90vmin;
     overflow: auto;
     animation-name: modal-wrap;
-    animation-duration: 1s;
-    animation-delay: .3s;
+    animation-duration: .7s;
+    animation-delay: .7s;
     animation-fill-mode: both;
   }
   
@@ -55,18 +55,23 @@
 @keyframes modal {
   from {
     opacity: 0;
+    width: 0;
+
   }
   to {
     opacity: 1;
+    width: 100%;
   }
 }
 
 @keyframes modal-closing {
   from {
     opacity: 1;
+    width: 100%;
   }
   to {
     opacity: 0;
+    width: 0;
   }
 }
 @keyframes modal-wrap {
