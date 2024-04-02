@@ -28,7 +28,7 @@ export const createNavbarDesktop = ({}: NavbarDesktopProps) => {
   line3.classList.add("menu-button__line3","menu-button__line");
 
   menuButton.append(line1, line2,line3);
-  menuButton.addEventListener("click",(event)=>{
+  menuButton.addEventListener("click",()=>{
     menuButton.classList.toggle("menu-button--open")
 
     navbar.classList.toggle("navbar-desktop--open")

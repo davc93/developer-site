@@ -15,7 +15,8 @@ level
     gap: var(--space-2);
     padding: var(--space-6);
     background: rgba(6, 6, 6, 0.3);
-    box-shadow: var(--shadow-sm);
+    /* box-shadow: var(--shadow-sm); */
+    border: 2px solid var(--primary--500);
     backdrop-filter: blur(4.3px);
     -webkit-backdrop-filter: blur(4.3px);
 }

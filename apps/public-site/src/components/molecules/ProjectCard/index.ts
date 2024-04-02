@@ -67,21 +67,18 @@ export const createProjectCard = ({ title,shortDescription,images,labels ,slug }
 
     const cardButtons = document.createElement("div");
       cardButtons.className = "project-card__actions"
-    const cta = createButton({
+    const buttonIcon = LinkIcon()
+    buttonIcon.style.stroke = "var(--primary--500)"
+      const cta = createButton({
       style: ButtonStyles.PRIMARY,
       size: ButtonSizes.SMALL,
       label: "More details",
       tag:"span",
-      icon:LinkIcon()
+      icon:buttonIcon
     });
     const link = createLink({href:`/portfolio/${slug}`,children:cta})
      
-    //  href: `/portfolio/${project.slug}`,
-    const techButton = createIconButton({ icon: ArrowIcon({}) });
-    techButton.addEventListener("click", () => {
-      techsContainer.classList.toggle("active");
-    });
-    cardButtons.append(link, techButton);
+    cardButtons.append(link);
     const content = document.createElement("div")
     content.className = "project-card__content"
     content.append(projectTitle, projectDescription,techsContainer);

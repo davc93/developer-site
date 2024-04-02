@@ -6,27 +6,43 @@
   top: 0;
   width: 100%;
   height: 100%;
-  z-index: 10;
   background-color: rgba(31, 32, 41, 0.75);
-  /* animation-fill-mode: both; */
-  /* animation-direction: alternate; */
-  /* animation-name: modal;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-direction: reverse;
-  animation-fill-mode: forwards; */
-  
+  z-index: 10;
 }
 
 .modal--active {
   display: block;
-}
-.modal-wrap {
-  margin: 0 auto;
+  animation-name: modal;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
 
-  width: 90vmin;
-  overflow: auto;
+  .modal-wrap {
+    display: block;
+    margin: 0 auto;
+    width: 90vmin;
+    overflow: auto;
+    animation-name: modal-wrap;
+    animation-duration: 1s;
+    animation-delay: .3s;
+    animation-fill-mode: both;
+  }
+  
 }
+.modal--closing{
+  animation-name: modal-closing;
+  animation-duration: 1s;
+  animation-delay: .5s;
+  .modal-wrap{
+    animation-name: modal-wrap-closing;
+    animation-duration: .5s;
+    animation-delay: 0s ;
+  }
+}
+.modal-wrap{
+  display: none;
+}
+
+
 .modal__close-icon {
   position: absolute;
   top: 10px;
@@ -37,23 +53,40 @@
   cursor: pointer;
 }
 @keyframes modal {
-  0% {
-    opacity: 0;
-    display: none;
-  }
-  100% {
-    opacity: 1;
-    display: block;
-  }
-}
-
-@keyframes modal-wrap {
   from {
-    display: none;
     opacity: 0;
   }
   to {
-    display: flex;
     opacity: 1;
+  }
+}
+
+@keyframes modal-closing {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes modal-wrap {
+  from {
+    scale: 0.4;
+    opacity: 0;
+  }
+  to{
+    scale: 1;
+    opacity: 1;
+  }
+}
+@keyframes modal-wrap-closing {
+  
+  from{
+    scale: 1;
+    opacity: 1;
+  }
+  to {
+    scale: 0.4;
+    opacity: 0;
   }
 }

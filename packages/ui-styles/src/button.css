@@ -46,6 +46,7 @@
     width: var(--body-medium);
     height: var(--body-medium);
   }
+
 }
 .button--wide {
   padding-block: 16px;
@@ -95,7 +96,7 @@
   border-color: var(--primary--500);
   box-shadow: var(--shadow-sm);
   background: rgba(6, 6, 6, 0.5);
-  transition-property: background box-shadow border-color;
+  transition-property: background, box-shadow, border-color;
   transition-duration: 0.3s;
   .button__text {
     color: var(--primary--500);

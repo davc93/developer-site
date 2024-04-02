@@ -38,13 +38,27 @@ export const createNavbarMobile = ({}: NavbarMobileProps) => {
     "navbar-mobile-menu-button__line3",
     "navbar-mobile-menu-button__line"
   );
-  menuButton.append(line1, line2,line3);
-  menuButton.addEventListener("click", (event) => {
-    menuButton.classList.toggle("navbar-mobile-menu-button--open");
 
-    navbarMobile.classList.toggle("navbar-mobile--open");
+  const toggleMenu = () => {
+    if (menu.classList.contains("navbar-mobile__menu--open")) {
+      menu.classList.add("navbar-mobile__menu--closing");
+      menuButton.classList.remove("navbar-mobile-menu-button--open");
+
+      menu.addEventListener("animationend", (event) => {
+        if (event.animationName == "navbar-mobile-menu-closing") {
+          menu.classList.remove("navbar-mobile__menu--closing");
+          menu.classList.remove("navbar-mobile__menu--open");
+        }
+      });
+    } else {
+      menu.classList.add("navbar-mobile__menu--open");
+      menuButton.classList.add("navbar-mobile-menu-button--open");
+    }
+  };
+  menuButton.append(line1, line2, line3);
+  menuButton.addEventListener("click", () => {
+    toggleMenu();
   });
-
   // Create the div element with class "item-list"
   const menu = document.createElement("div");
   menu.classList.add("navbar-mobile__menu");
@@ -115,22 +129,12 @@ export const createNavbarMobile = ({}: NavbarMobileProps) => {
   const socialContainer = document.createElement("div");
   socialContainer.className = ["navbar-mobile__social-container"].join(" ");
   socialContainer.append(github, linkedin);
-  const itemsContainer = document.createElement("div")
+  const itemsContainer = document.createElement("div");
   itemsContainer.className = ["navbar-mobile__items-container"].join(" ");
-  itemsContainer.append(
+  itemsContainer.append(aboutA, portfolioA, loginEl, profile, logOutButton);
+  menu.append(itemsContainer, socialContainer);
 
-    aboutA,
-    portfolioA,
-    loginEl,
-    profile,
-    logOutButton,
-  )
-  menu.append(
-    itemsContainer,
-    socialContainer,
-  );
-
-  navbarMobile.append(menuButton,menu);
+  navbarMobile.append(menuButton, menu);
 
   const sessionActive = () => {
     loginEl.style.display = "none";
@@ -144,7 +148,7 @@ export const createNavbarMobile = ({}: NavbarMobileProps) => {
   };
   window.addEventListener("popstate", () => {
     // menuButton.checked = false
-    navbarMobile.classList.remove("navbar-mobile--open")
+    menu.classList.remove("navbar-mobile__menu--open");
     menuButton.classList.remove("navbar-mobile-menu-button--open");
   });
   window.addEventListener("click", (e: any) => {

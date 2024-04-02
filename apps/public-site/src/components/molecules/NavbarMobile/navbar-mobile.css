@@ -6,10 +6,26 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* background:rgba(6, 6, 6, 0.9); */
+  padding-block: 10px;
   @media (width >=768px) {
     display: none;
   }
 }
+
+.navbar-mobile__menu--open {
+  display: flex !important;
+  animation-name: navbar-mobile-menu;
+  animation-duration: 0.7s;
+  animation-timing-function: ease-out;
+}
+.navbar-mobile__menu--closing{
+
+  animation-name: navbar-mobile-menu-closing !important;
+  animation-duration: 0.7s;
+  animation-timing-function: ease-out;
+}
+
 .navbar-mobile__menu {
   width: 100%;
   height: 100vh;
@@ -19,10 +35,9 @@
   position: absolute;
   justify-content: end;
   bottom: 0px;
-  box-shadow: var(--shadow-sm);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  background: rgba(6, 6, 6, 0.9);
+  background: rgba(6, 6, 6, 0.85);
 }
 .navbar-mobile__items-container {
   display: flex;
@@ -41,13 +56,7 @@
   border-top-color: var(--primary--500);
   padding-top: 30px;
 }
-.navbar-mobile--open {
-  .navbar-mobile__menu {
-    display: flex;
-  }
-}
 .navbar-mobile__item > * {
-  /* padding: 10px; */
   font-size: 20px;
   text-transform: uppercase;
   font-weight: 700;
@@ -60,13 +69,12 @@
   flex-direction: column;
   justify-content: center;
   gap: 8px;
-  margin-bottom: 30px;
   padding: 12px;
   background: rgba(6, 6, 6, 0.8);
-  backdrop-filter: blur(4.3px);
-  -webkit-backdrop-filter: blur(4.3px);
-  border: 3px solid var(--primary--500);
-  box-shadow: var(--shadow-sm);
+  /* backdrop-filter: blur(4.3px); */
+  /* -webkit-backdrop-filter: blur(4.3px); */
+  /* border: 3px solid var(--primary--500); */
+  /* box-shadow: var(--shadow-sm); */
 }
 
 .navbar-mobile-menu-button__line {
@@ -89,3 +97,16 @@
 .navbar-mobile-menu-button--open .navbar-mobile-menu-button__line3 {
   transform: translateY(-12px) rotate(45deg);
 }
+@keyframes navbar-mobile-menu {
+  from {
+    transform: translateX(-70%);
+    opacity: 0;
+  }
+}
+@keyframes navbar-mobile-menu-closing {
+  to {
+    transform: translateX(-70%);
+    opacity: 0;
+  }
+}
+

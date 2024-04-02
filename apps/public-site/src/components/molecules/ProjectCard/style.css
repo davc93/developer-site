@@ -1,29 +1,7 @@
-/* 
-blocks
-button
-project-card
-
-element
-content
-title
-description
-image
-tech-list
-tech-container
-tech-image
-tech-text
-modificadores
-
-hover
-focus
-
-
-*/
-
 .project-card {
   position: relative;
   min-width: 370px;
-  max-width: 380px;
+  max-width: 380px; 
 }
 
 .project-card__image {
@@ -42,7 +20,7 @@ focus
   bottom: 0;
   height: 100%;
   padding: var(--space-3);
-  transition: all 0.3s;
+  transition: opacity 0.7s;
   background: rgb(0, 0, 0);
   background: linear-gradient(
     180deg,

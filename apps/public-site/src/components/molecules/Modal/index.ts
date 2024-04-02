@@ -33,9 +33,16 @@ export const createModal = ({element,icon,disable,label = "button",style = Butto
   
   closeModal.classList.add("modal__close-icon");
   closeModal.addEventListener("click", () => {
-    modalDiv.classList.remove("modal--active");
+    modalDiv.classList.add("modal--closing");
 
   });
+  modalDiv.addEventListener("animationend",event=>{
+    if(event.animationName == "modal-closing"){
+      modalDiv.classList.remove("modal--active","modal--closing")
+    }
+  })
+
+
   
   document.addEventListener("keydown",function(event) {
     if (event.key === 'Escape' && modalDiv.classList.contains("modal--active")) {
