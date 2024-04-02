@@ -92,22 +92,21 @@
   </style>
 </head>
 
-<body>
+<body class="scrollbar--vertical">
   <div id="app">
     <div id="page-loader" class="page-loader">
       <span class="loader"></span>
       <span class="loader-text" style="color: white">Wait a second...</span>
     </div>
 
-    <div class="layout" id="layout">
+    <div class="layout" id="layout" >
       <div id="pages-container" class="pages-container" style="position: relative;">
 
         
-        <div id="/" class="home-page">
+        <div id="/" class="home-page" style="padding-bottom: 100px;">
           <div class="home-background-image">
 
           </div>
-          <div class="home-background-color"></div>
           <header class="">
             <div class="section-container min-h-screen l-flex l-flex-col l-gap-3 l-justify-center">
               <div>
@@ -124,12 +123,11 @@
                       box-shadow: var(--shadow-lg);
                     " />
                 <p class="typography typography--body-medium">
-                  Hello my name is Diego Vergara, i'm a Fullstack developer with
-                  complete knowledge of JavaScript-based technologies,
+                  With complete knowledge of JavaScript-based technologies,
                   especially React and NodeJS. Here you could see my
                   <span href="#" class="typography typography--body-medium typography--primary">Skills</span>, my
                   <a href="/portfolio" class="typography typography--body-medium typography--link link">portfolio</a>
-                  with some of my projects and professional and personal
+                  with some of my projects and
                   information
                   <span href="#" class="typography typography--body-medium typography--primary">about me.</span>
                 </p>
@@ -251,12 +249,12 @@
               </div>
             </section>
   
-            <section class="">
+            <section >
               <div class="section-container">
                 <h3 class="typography typography--title-medium l-text-center l-m-b-20">
                   Contact me
                 </h3>
-                <div class="l-flex l-justify-center l-flex-wrap l-gap-20">
+                <div id="contact-form-bottom" class="l-flex l-justify-center l-flex-wrap l-gap-20">
   
                   <div class="l-flex l-flex-col l-gap-4">
                     <h3 class="typography typography--title-small">
@@ -312,7 +310,7 @@
                       </a>
                     </div>
                   </div>
-                  <div id="contact-form-bottom"></div>
+                  <div></div>
                 </div>
               </div>
   
@@ -323,7 +321,7 @@
           <aside class="projects-filter">
             <form id="projects-filter-form" class="projects-filter-form"></form>
           </aside>
-          <main class="projects-list-container" id="project-list--portfolio"></main>
+          <main class="projects-list-container scrollbar--vertical" id="project-list--portfolio"></main>
         </div>
   
         <div id="/portfolio/:slug" class="section portfolio-detail-page">

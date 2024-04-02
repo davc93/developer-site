@@ -1,10 +1,13 @@
-import "./navbar-desktop.css"
+import "./navbar-desktop.css";
 import { updateAppSession } from "@/main";
 import { goTo } from "@/navigation";
 import { deleteCookie } from "@/utils";
 import { GithubIcon, LinkedinIcon } from "@/components/icons/SocialIcons";
 import { createLink } from "@/components/atoms/Link";
-import { TypographySize, createTypography } from "@/components/atoms/Typography";
+import {
+  TypographySize,
+  createTypography,
+} from "@/components/atoms/Typography";
 
 // reference https://codepen.io/dmendozaec/pen/vwjRvw
 export interface NavbarDesktopProps {
@@ -12,18 +15,26 @@ export interface NavbarDesktopProps {
 }
 
 export const createNavbarDesktop = ({}: NavbarDesktopProps) => {
-  const navbarContainer = document.createElement("nav");
-  navbarContainer.className = ["navbar-container", "navbar-desktop"].join(" ");
-  const divNav = document.createElement("div");
-  divNav.classList.add("nav");
-  // Create the menu
-  const inputCheckbox = document.createElement("input");
-  inputCheckbox.type = "checkbox";
+  const navbar = document.createElement("nav");
+  navbar.className = "navbar-desktop";
 
-  const span1 = document.createElement("span");
-  const span2 = document.createElement("span");
-  const divMenu = document.createElement("div");
-  divMenu.classList.add("menu");
+  const menuButton = document.createElement("button");
+  menuButton.classList.add("menu-button");
+  const line1 = document.createElement("span");
+  line1.classList.add("menu-button__line1","menu-button__line");
+  const line2 = document.createElement("span");
+  line2.classList.add("menu-button__line2","menu-button__line");
+  const line3 = document.createElement("span");
+  line3.classList.add("menu-button__line3","menu-button__line");
+
+  menuButton.append(line1, line2,line3);
+  menuButton.addEventListener("click",()=>{
+    menuButton.classList.toggle("menu-button--open")
+
+    navbar.classList.toggle("navbar-desktop--open")
+  })
+  const itemList = document.createElement("div");
+  itemList.classList.add("navbar-desktop__item-list");
 
   //Elements
 
@@ -34,10 +45,11 @@ export const createNavbarDesktop = ({}: NavbarDesktopProps) => {
       children: createTypography({
         label: "About me",
         size: TypographySize.bodyMedium,
+        className:"navbar-desktop__item"
       }),
     })
   );
-  
+
   const portfolio = document.createElement("li");
   portfolio.append(
     createLink({
@@ -45,19 +57,11 @@ export const createNavbarDesktop = ({}: NavbarDesktopProps) => {
       children: createTypography({
         label: "Portfolio",
         size: TypographySize.bodyMedium,
+        className:"navbar-desktop__item"
+
       }),
     })
   );
-  // const services = document.createElement("li");
-  // services.append(
-  //   createLink({
-  //     href: "/servicios",
-  //     children: createTypography({
-  //       label: "Servicios 🇨🇱",
-  //       size: TypographySize.bodyMedium,
-  //     }),
-  //   })
-  // );
 
   const profile = document.createElement("li");
   profile.append(
@@ -66,6 +70,8 @@ export const createNavbarDesktop = ({}: NavbarDesktopProps) => {
       children: createTypography({
         label: "Profile",
         size: TypographySize.bodyMedium,
+        className:"navbar-desktop__item"
+
       }),
     })
   );
@@ -77,82 +83,92 @@ export const createNavbarDesktop = ({}: NavbarDesktopProps) => {
       children: createTypography({
         label: "Login",
         size: TypographySize.bodyMedium,
+        className:"navbar-desktop__item"
+
       }),
     })
   );
   const loginOutLi = document.createElement("li");
-    const logOutButton = createTypography({
-      label: "LogOut",
-      size: TypographySize.bodyMedium,
-    })
-    logOutButton.style.cursor = "pointer"
-    logOutButton.addEventListener("click",()=>{
-      try {
-        deleteCookie("access_token")
-        goTo("/")
-        updateAppSession()
-      } catch (error) {
-          console.log(error);
-          
-      }
-    })
-  loginOutLi.append(
-    logOutButton
-    );
-  
-    const separator = document.createElement("li")
-    separator.className = "nav__separator"
+  const logOutButton = createTypography({
+    label: "LogOut",
+    size: TypographySize.bodyMedium,
+    className:"navbar-desktop__item"
 
+  });
+  logOutButton.style.cursor = "pointer";
+  logOutButton.addEventListener("click", () => {
+    try {
+      deleteCookie("access_token");
+      goTo("/");
+      updateAppSession();
+    } catch (error) {
+      console.log(error);
+    }
+  });
+  loginOutLi.append(logOutButton);
+
+  const separatorContainer = document.createElement("li");
+  const separator =  document.createElement("div")
+  separator.className = "navbar-desktop__separator";
+  separatorContainer.append(separator)
   //   const logout = createTypography({label:"Log out"})
-  const githubLi = document.createElement("li")
-  const githubLink = createLink({href:"https://github.com/davc93",children:GithubIcon({width:"36px"})})
-  githubLi.append(githubLink)
-  
-  const linkedinLi = document.createElement("li")
-  const linkedinLink = createLink({href:"https://www.linkedin.com/in/diego-vergara-casanova/",children:LinkedinIcon({width:'36px'})})
-  linkedinLi.append(linkedinLink)
-  
-  divMenu.append(
-    
+  const githubLi = document.createElement("li");
+  const githubLink = createLink({
+    href: "https://github.com/davc93",
+    children: GithubIcon({ width: "36px" }),
+  });
+  githubLi.append(githubLink);
+
+  const linkedinLi = document.createElement("li");
+  const linkedinLink = createLink({
+    href: "https://www.linkedin.com/in/diego-vergara-casanova/",
+    children: LinkedinIcon({ width: "36px" }),
+  });
+  linkedinLi.append(linkedinLink);
+
+  itemList.append(
     about,
     portfolio,
     profile,
     loginLi,
     loginOutLi,
-    separator,
+    separatorContainer,
     githubLi,
     linkedinLi
   );
 
   // Append all elements to the main div
-  divNav.append(inputCheckbox, span1, span2, divMenu);
 
-  navbarContainer.append(divNav);
-  window.addEventListener("popstate",()=>{
-    inputCheckbox.checked = false
-  })
-  window.addEventListener("click",(e:any)=>{
-    if (!navbarContainer.contains(e.target) && inputCheckbox.checked) {
-      inputCheckbox.checked = false
+  navbar.append(menuButton, itemList);
+  window.addEventListener("popstate", () => {
+    navbar.classList.remove("navbar-desktop--open");
+    menuButton.classList.remove("menu-button--open");
+
+  });
+  document.addEventListener("click", (e: any) => {
+    if (
+      !navbar.contains(e.target) &&
+      menuButton.classList.contains("menu-button--open")
+    ) {
+      menuButton.classList.remove("menu-button--open");
+      navbar.classList.toggle("navbar-desktop--open")
 
     }
-    
-  })
+  });
   const sessionActive = () => {
-     loginLi.style.display = "none"
-     profile.style.display = "block"
-     loginOutLi.style.display = "block"
-  }
+    loginLi.style.display = "none";
+    profile.style.display = "block";
+    loginOutLi.style.display = "block";
+  };
   const sessionInactive = () => {
-    loginLi.style.display = "block"
-    profile.style.display = "none"
-    loginOutLi.style.display = "none"
-    
-  }
+    loginLi.style.display = "block";
+    profile.style.display = "none";
+    loginOutLi.style.display = "none";
+  };
 
   return {
-    element:navbarContainer,
+    element: navbar,
     sessionActive,
-    sessionInactive
+    sessionInactive,
   };
 };

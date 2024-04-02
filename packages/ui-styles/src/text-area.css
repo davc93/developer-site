@@ -6,6 +6,8 @@ textarea {
     border-radius: 0;
     resize: none;
     height: 80px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary--500) transparent;
 
 }
 

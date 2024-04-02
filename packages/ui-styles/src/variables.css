@@ -1,4 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100..900&family=Open+Sans:wdth,wght@75..100,300..800&display=swap');
+
+@font-face {
+  font-family: 'Titles';
+  src: url(/TeroxiaDemoPersonalUse-GOxoD.otf) format('truetype');
+}
+
 :root {
+
+  --typography-primary:"Noto Sans", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --typography-titles: Titles, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  /* separadores, componentes, titulos,iconos, links, efectos hover */
   --primary--50: #fff0f2;
   --primary--100: #ffdde2;
   --primary--200: #ffc0c9;
@@ -10,19 +22,20 @@
   --primary--800: #b1031d;
   --primary--900: #920a1e;
   --primary--950: #50000c;
+  /*  separadores,textos importantes(titulos,navbar links, componentes)*/
+  --secondary--50: #edfffe;
+  --secondary--100: #c0fffe;
+  --secondary--200: #82fffe;
+  --secondary--300: #3bffff;
+  --secondary--400: #01fdf6;
+  --secondary--500: #00e1dc;
+  --secondary--600: #00b6b6;
+  --secondary--700: #008e90;
+  --secondary--800: #006d71;
+  --secondary--900: #045a5d;
+  --secondary--950: #00363a;
   
-  --secondary--50: #e5efff;
-  --secondary--100: #d0e1ff;
-  --secondary--200: #abc7ff;
-  --secondary--300: #79a0ff;
-  --secondary--400: #4568ff;
-  --secondary--500: #1b31ff;
-  --secondary--600: #000bff;
-  --secondary--700: #000eff;
-  --secondary--800: #000cdd;
-  --secondary--900: #040ab4;
-  --secondary--950: #030463;
-
+  
   --neutral--50: rgba(244, 246, 247, 1);
   --neutral--100: rgba(227, 232, 234, 1);
   --neutral--200: rgba(201, 210, 216, 1);
@@ -47,7 +60,7 @@
   --foreground--900: var(--neutral--900);
   --foreground--950: black;
 
-  --surface--50: white;
+  --surface--50: #fff;
   --surface--100: var(--neutral--100);
   --surface--200: var(--neutral--200);
   --surface--300: var(--neutral--300);
@@ -55,9 +68,9 @@
   --surface--500: var(--neutral--500);
   --surface--600: var(--neutral--600);
   --surface--700: var(--neutral--700);
-  --surface--800: var(--neutral--800);
-  --surface--900: var(--neutral--900);
-  --surface--950: var(--neutral--950);
+  --surface--800: #32393d;
+  --surface--900: #161a1d;
+  --surface--950: #000;
 
   --warning--100: rgba(255, 219, 153, 1);
   --warning--300: rgba(255, 165, 0, 1);
@@ -75,18 +88,15 @@
   --error--300: rgba(255, 0, 0, 1);
   --error--600: rgba(166, 20, 20, 1);
 
-  --shadow-sm: 0 0 10px var(--primary--600);
-  --shadow-md: 0 0 10px var(--primary--600), 0 0 20px var(--primary--600);
-  --shadow-lg: 0 0 5px var(--primary--600), 0 0 25px var(--primary--600), 0 0 50px var(--primary--600);
+  --shadow-sm: 0 0 10px var(--primary--500);
+  --shadow-md: 0 0 10px var(--primary--500), 0 0 20px var(--primary--500);
+  --shadow-lg: 0 0 5px var(--primary--500), 0 0 25px var(--primary--500), 0 0 50px var(--primary--500);
   
   --title-large: 4.268rem;
   --title-medium: 2.618rem;
   --title-small: 1.618rem;
   --body-medium: 1rem;
   --body-small: 0.618rem;
-
-  --typography-primary:'Ubuntu', sans-serif;
-  --typography-secondary:'Ubuntu', sans-serif;
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -118,3 +128,51 @@
   --space-80: 20rem;
   --space-96: 24rem;
 }
+.scrollbar--native{
+  scrollbar-width: auto;
+  scrollbar-color: var(--primary--600) transparent;
+}
+
+ /* width */
+ .scrollbar--horizontal::-webkit-scrollbar {
+  height: 8px;
+}
+
+/* Track */
+.scrollbar--horizontal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+.scrollbar--horizontal::-webkit-scrollbar-thumb {
+  background: var(--primary--600);
+  border-radius: 10px;
+
+}
+
+/* Handle on hover */
+.scrollbar--horizontal::-webkit-scrollbar-thumb:hover {
+background: var(--primary--400);
+} 
+
+ /* width */
+ .scrollbar--vertical::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+.scrollbar--vertical::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+.scrollbar--vertical::-webkit-scrollbar-thumb {
+  background: var(--primary--600);
+  border-radius: 10px;
+
+}
+
+/* Handle on hover */
+.scrollbar--vertical::-webkit-scrollbar-thumb:hover {
+background: var(--primary--400);
+} 

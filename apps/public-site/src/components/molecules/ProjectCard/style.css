@@ -1,29 +1,12 @@
-/* 
-blocks
-button
-project-card
-
-element
-content
-title
-description
-image
-tech-list
-tech-container
-tech-image
-tech-text
-modificadores
-
-hover
-focus
-
-
-*/
-
 .project-card {
   position: relative;
   min-width: 370px;
   max-width: 380px;
+  opacity: 0.9;
+  transition: opacity 0.5s;
+  @media(1024px<= width){
+    opacity: 0.7;
+  }
 }
 
 .project-card__image {
@@ -42,7 +25,6 @@ focus
   bottom: 0;
   height: 100%;
   padding: var(--space-3);
-  transition: all 0.3s;
   background: rgb(0, 0, 0);
   background: linear-gradient(
     180deg,
@@ -51,10 +33,21 @@ focus
 
     rgba(0, 0, 0, 1) 100%
   );
+  transition: inherit;
   @media(1024px<= width){
     opacity: 0;
   }
 }
+.project-card__button-icon{
+  stroke: var(--primary--500);
+  transition: stroke 0.5s;
+
+}
+
+.project-card__button-icon{
+  stroke: var(--primary--500);
+}
+
 .project-card__title {
   color: var(--primary--500) !important;
 }
@@ -67,15 +60,17 @@ focus
 }
 
 .project-card:hover {
-  .project-card__content {
+  opacity: 1;
+  .project-card__content{
+   opacity: 1; 
+
+  }
+  .project-card__actions{
     opacity: 1;
+
   }
 }
-.project-card:hover {
-  .project-card__actions {
-    opacity: 1;
-  }
-}
+
 .project-card__tech-list {
   display: flex;
   flex-wrap: wrap;
@@ -87,11 +82,15 @@ focus
   gap: var(--space-2);
 }
 .project-card__actions {
-  transition: all 0.3s;
+  transition: inherit;
+
   display: flex;
   top: 10px;
   right: 10px;
   position: absolute;
+  &:hover .project-card__button-icon{
+    stroke: black;
+  }
   @media(1024px<= width){
     opacity: 0;
   }

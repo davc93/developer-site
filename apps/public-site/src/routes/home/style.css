@@ -1,49 +1,42 @@
-.home-background-color{
-  background: linear-gradient(to bottom, rgba(0,0,0,0.3),rgba(0,0,0,0.5),rgba(30, 12, 134, 0.4) );
-  z-index: 3;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
+
 
 .home-background-image {
   position: fixed;
-  top: 0;
-  z-index: 1;
-  background: url("https://res.cloudinary.com/dxryc5jgr/image/upload/c_scale,q_70,w_1622/v1692046970/developer-site/developer-1.webp");
-  background-position: top;
-  background-repeat: no-repeat;
   width: 100%;
-  background-size: cover;
-  /* object-position: center; */
-  /* object-fit: fill; */
   min-height: 110vh;
+  z-index: 1;
+  background-image: url("https://res.cloudinary.com/dxryc5jgr/image/upload/c_scale,q_70,w_1622/v1692046970/developer-site/developer-1.webp");
+  background-position: top ;
+  background-size: 100%;
+  animation-name: hide;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+  animation-timeline: scroll(root);
   @media (1024px <= width) {
     min-height: 100svh;
     background-position: center 30%;
     
   }
 }
-.contact__form-container {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-8);
-}
-.contact__form-container__text {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-  width: 100%;
-}
-.contact__form-container__text:nth-child(1) p {
-  margin-bottom: 12px;
-}
+@keyframes hide {
+  0%{
+    opacity: .4;
 
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-}
-.contact-form textarea {
-  margin-bottom: 2rem;
+  }
+  20%{
+    opacity: 1;
+  }
+  65%{
+    opacity: 0.8;
+  }
+  85%{
+    opacity: 0;
+
+  }
+
+  100%{
+    opacity: 0;
+    background-position: center bottom;
+
+  }
 }

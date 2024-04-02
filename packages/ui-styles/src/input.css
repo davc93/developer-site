@@ -40,12 +40,12 @@ bloque input,input-container
 	color: var(--foreground--50);
     margin-top: var(--space-1);
 
-    font-family: var(--typography-secondary);
+    font-family: var(--typography-primary);
     margin-bottom: var(--space-2);
 }
 .input__label {
     color: var(--foreground--400);
-    font-family: var(--typography-secondary);
+    font-family: var(--typography-primary);
 }
 .input--error{
 

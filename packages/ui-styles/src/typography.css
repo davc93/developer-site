@@ -5,7 +5,6 @@ h1,h2,h3,h4,h5,h6,p,span,ul {
 }
 .typography {
     color: var(--foreground--50);
-    font-family: var(--typography-primary);
 }
 
 .typography--primary{
@@ -33,20 +32,29 @@ h1,h2,h3,h4,h5,h6,p,span,ul {
 }
 .typography--title-large {
   font-size: var(--title-large);
+
+  font-family: var(--typography-primary);
 }
 
 .typography--title-medium {
+  font-family: var(--typography-primary);
+
   font-size: var(--title-medium);
 }
 
 .typography--title-small {
   font-size: var(--title-small);
+  font-family: var(--typography-primary);
+
 }
 
 .typography--body-medium {
+  font-family: var(--typography-primary);
+
   font-size: var(--body-medium);
-  line-height: var(--space-6);
 }
 .typography--body-small {
+  font-family: var(--typography-primary);
+
   font-size: var(--body-small);
 }

@@ -17,6 +17,7 @@ export interface ButtonProps {
   size?: ButtonSizes;
   variant?: ButtonVariant;
   loading?: boolean;
+  disabled?:boolean;
 }
 
 type NativeProps = ButtonHTMLAttributes<HTMLButtonElement>;
@@ -26,14 +27,12 @@ export const Button = ({
   variant = ButtonVariant.PRIMARY,
   loading,
   className,
-  disabled,
   ...props
 }: ButtonProps & NativeProps) => {
   return (
     <button
       className={[
         "button",
-        disabled ? "button--disabled" : "",
         variant,
         loading ? "button--loading" : "",
         `button--${size}`,
@@ -41,8 +40,8 @@ export const Button = ({
       ].join(" ")}
       {...props}
     >
-      <span className="button__text">{children}</span>
-      <div className="button__loader" />
+      <span className="button__text">{children} <div className="button__loader" /></span>
+      
     </button>
   );
 };

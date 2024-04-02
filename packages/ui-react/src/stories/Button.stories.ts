@@ -23,40 +23,38 @@ type Story = StoryObj<typeof meta>;
 export const Large: Story = {
   args: {
     children: 'Button',
+    loading:false,
+
+    disabled:false
+
   },
 };
 
 export const Small: Story = {
   args: {
     children: 'Button',
-    size:ButtonSizes.SMALL
+    size:ButtonSizes.SMALL,
+
+    disabled:false
   },
 };
 
 export const Wide: Story = {
   args: {
     children: 'Button',
-    size:ButtonSizes.WIDE
-  },
-};
+    size:ButtonSizes.WIDE,
+    loading:false,
 
-export const Primary: Story = {
-  args: {   
-    children: 'Button',
-  },
-};
-
-export const Secondary: Story = {
-  args: {
-    children: 'Button',
-    variant:ButtonVariant.SECONDARY
+    disabled:false
   },
 };
 
 export const Loading: Story = {
   args: {   
     children: 'Button',
-    loading:true
+    loading:true,
+    disabled:false
+
   },
 };
 

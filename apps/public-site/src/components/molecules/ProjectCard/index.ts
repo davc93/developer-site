@@ -1,8 +1,6 @@
 import "./style.css"
 import { Project } from "@/models/project.model";
 import { ButtonSizes, ButtonStyles, createButton } from "@/components/atoms/Button";
-import { createIconButton } from "@/components/atoms/IconButton";
-import { ArrowIcon } from "@/components/icons/ArrowIcon";
 import { ImageFormat, createImage } from "@/components/atoms/Image";
 import { createLink } from "@/components/atoms/Link";
 import {
@@ -67,21 +65,18 @@ export const createProjectCard = ({ title,shortDescription,images,labels ,slug }
 
     const cardButtons = document.createElement("div");
       cardButtons.className = "project-card__actions"
-    const cta = createButton({
+    const buttonIcon = LinkIcon()
+    buttonIcon.classList.add("project-card__button-icon")
+      const cta = createButton({
       style: ButtonStyles.PRIMARY,
       size: ButtonSizes.SMALL,
       label: "More details",
       tag:"span",
-      icon:LinkIcon()
+      icon:buttonIcon
     });
     const link = createLink({href:`/portfolio/${slug}`,children:cta})
      
-    //  href: `/portfolio/${project.slug}`,
-    const techButton = createIconButton({ icon: ArrowIcon({}) });
-    techButton.addEventListener("click", () => {
-      techsContainer.classList.toggle("active");
-    });
-    cardButtons.append(link, techButton);
+    cardButtons.append(link);
     const content = document.createElement("div")
     content.className = "project-card__content"
     content.append(projectTitle, projectDescription,techsContainer);
