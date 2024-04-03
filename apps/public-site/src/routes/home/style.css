@@ -7,8 +7,9 @@
   z-index: 1;
   background-image: url("https://res.cloudinary.com/dxryc5jgr/image/upload/c_scale,q_70,w_1622/v1692046970/developer-site/developer-1.webp");
   background-position: top ;
-  background-size: 100%;
+  background-size: cover;
   animation-name: hide;
+  background-repeat: no-repeat;
   animation-timing-function: linear;
   animation-fill-mode: both;
   animation-timeline: scroll(root);
@@ -37,6 +38,5 @@
   100%{
     opacity: 0;
     background-position: center bottom;
-
   }
 }
