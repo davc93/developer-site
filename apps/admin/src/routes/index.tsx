@@ -1,4 +1,4 @@
-import { Route, Routes, Navigate, BrowserRouter } from "react-router-dom";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { Layout } from "@/Layout";
 import { LoginPage } from "@/routes/login";
 import { ProfilePage } from "@/routes/profile";
@@ -16,7 +16,6 @@ export const PublicRoutes = () => {
   return (
     <Routes>
       <Route element={<LoginPage />} path="/login" />
-      <Route path="/*" element={<Navigate to="/login" replace />} />
 
     </Routes>
   );
@@ -37,6 +36,7 @@ export const PublicRoutes = () => {
  };
 
 export const Router = () => {
+
   return (
     <BrowserRouter>
       <Layout>

@@ -9,6 +9,9 @@ export const LoginPage = () => {
         backgroundPosition: "center",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
+        animationName:"fade-in",
+        animationDuration:"1s",
+        animationTimingFunction:"ease-in"
       }}
       className="h-screen flex flex-col justify-center lg:items-center"
     >

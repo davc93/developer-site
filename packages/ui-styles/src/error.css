@@ -6,7 +6,10 @@ error__icon
 */
 
 
-
+.error-container{
+    height: 50px;
+    width: 100%;
+}
 .error{
     padding-inline: 2.5rem;
     padding-block: 1rem;
