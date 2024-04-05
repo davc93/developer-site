@@ -7,14 +7,14 @@ import { Typography, TypographySize } from "ui-react";
 export const ProfilePage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [profile, setProfile] = useState<User | null>(null)
+  const [profile, setProfile] = useState<User | null>(null);
   const { token } = useContext(AuthContext);
   const getProfile = async () => {
     setLoading(true);
     try {
       const profile = await authService.getProfile(token as string);
       setError(null);
-      setProfile(profile)
+      setProfile(profile);
     } catch (error) {
       setError(`${error}`);
     }
@@ -22,25 +22,27 @@ export const ProfilePage = () => {
   };
 
   React.useEffect(() => {
-    getProfile();
+    getProfile()
   }, []);
-  
-  if (loading) {
-    return <p>Loading...</p>;
-  }  else {
+
     return (
-      <section className="flex bg-dark justify-around h-screen">
+      <section className="flex justify-around h-screen">
         <div className="flex flex-col ">
-          {Object.entries(profile as User).map((entry) => {
+          
+          {!loading ? Object.entries(profile as User).map((entry) => {
             return (
               <Typography size={TypographySize.bodyLarge} key={entry[0]}>
                 {entry[0]}: {entry[1]}
               </Typography>
             );
-          })}
+          }) : (
+            <Typography size={TypographySize.bodyLarge}>
+              Loading...
+            </Typography>
+          )}
         </div>
         <div></div>
       </section>
     );
-  }
+  
 };

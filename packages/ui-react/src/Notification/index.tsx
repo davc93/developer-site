@@ -1,4 +1,4 @@
-import { CrossIcon } from "@/Icons/CrossIcon";
+import { CrossIcon } from "../Icons/CrossIcon";
 import "ui-styles/src/notification.css"
 type NotificationProps = {
     message:string

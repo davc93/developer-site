@@ -1,4 +1,4 @@
-import { Input } from "ui-react";
+import { Input,Error } from "ui-react";
 import { FormEventHandler, useContext, useState } from "react";
 import { authService } from "@/services/auth.service";
 import { useInputValue } from "@/hooks/useInputValue";
@@ -7,25 +7,33 @@ import { AuthContext } from "@/context/AuthContext";
 import { Button, ButtonSizes } from "ui-react";
 import { Typography, TypographySize } from "ui-react";
 import { useNavigate } from "react-router-dom";
+import { setCookie } from "@/utils";
 
 export const Login = () => {
   const email = useInputValue("");
   const password = useInputValue("");
-  const { setToken } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
+  const {setToken} = useContext(AuthContext)
   const navigate = useNavigate();
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault();
     setLoading(true);
     try {
-      const token = await authService.login(email.value, password.value);
-
+      const result = await authService.login(email.value, password.value);
       setError(null);
-      setToken(token.token);
-      navigate("/projects");
+      setToken(result.token)
+      
+      //execute animation
+      const container = document.querySelector(".login-container") as HTMLDivElement
+      container.classList.remove("fade-right-in")
+      container?.classList.add("fade-left-out")
+      container?.addEventListener("animationend",(event)=>{
+        navigate("/profile");
+      })
+      // container?.classList.remove("animate")
+
     } catch (error) {
       setError(`${error}`);
     }
@@ -34,14 +42,18 @@ export const Login = () => {
 
   return (
     <div
-      style={{ background: "rgba(0,0,0,0.7)" }}
-      className="form-container h-full lg:h-auto  flex flex-col items-center max-w-md w-full login-form py-8 px-8"
+      className="flex flex-col gap-4 items-center py-8 px-8"
+      style={{
+        backgroundColor:"rgba(0,0,0,0.3)",
+        minWidth:"320px",
+        maxWidth:"512px"
+      }}
     >
-      <Typography className="mb-8 text-center" size={TypographySize.titleSmall}>
-        Login Form
+      <Typography className="mb-2 text-center font-bold" size={TypographySize.titleSmall}>
+        Login 
       </Typography>
       <form
-        className="flex flex-col gap-4 items-center"
+      className="w-full"
         onSubmit={handleSubmit}
       >
         <Input
@@ -56,18 +68,23 @@ export const Login = () => {
           label="Password"
           id="password"
           name="password"
+          type="password"
           required={true}
           {...password}
         />
         <Button
           type="submit"
-          className="mt-8"
+          className="mt-16 mb-4"
           size={ButtonSizes.WIDE}
           loading={loading}
         >
           Login
         </Button>
       </form>
+      <Error>
+        {error}
+      </Error>
     </div>
   );
 };
+

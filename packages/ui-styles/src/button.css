@@ -27,7 +27,7 @@
 }
 .button__loader {
   position: absolute;
-  top: 0;
+  top: 3px;
   right: 0;
   opacity: 0;
   transition-property: opacity right;
@@ -79,6 +79,7 @@
   cursor: default;
   &.button--primary {
     &.button--large {
+      
       .button__loader {
         right: -20px;
         opacity: 1;
@@ -87,6 +88,13 @@
     &.button--small {
       .button__loader {
         right: -12px;
+        opacity: 1;
+      }
+    }
+    &.button--wide {
+      
+      .button__loader {
+        right: -20px;
         opacity: 1;
       }
     }

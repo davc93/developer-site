@@ -1,3 +1,70 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  background: linear-gradient(45deg,
+    #240b36 20%,
+    #440611
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.fade-left-out{
+  animation-name: fade-left-out ;
+  animation-duration: .7s;
+  animation-fill-mode: both;
+}
+
+.fade-right-in{
+  animation-name: fade-right-in ;
+  animation-duration: .7s;
+  animation-fill-mode: both;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    display: none;
+  }
+}
+@keyframes fade-out {
+  to {
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes scale-increase {
+  from {
+    scale: 0.6;
+  }
+  to {
+    scale: 1;
+  }
+}
+
+@keyframes scale-decrease {
+  from {
+    scale: 1;
+  }
+  to {
+    scale: 0.6;
+  }
+}
+
+@keyframes fade-left-out {
+  from{
+    opacity: 1;
+  }
+  to{
+    transform: translateX(-200px);
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes fade-right-in {
+  from{
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+}

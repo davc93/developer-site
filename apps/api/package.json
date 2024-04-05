@@ -27,21 +27,20 @@
   "dependencies": {
     "@apollo/server": "^4.7.1",
     "@graphql-tools/load-files": "^6.6.1",
-    "bcrypt": "^5.1.0",
-    "cloudinary": "^1.35.0",
+    "bcrypt": "^5.1.1",
+    "cloudinary": "^2.1.0",
     "cors": "^2.8.5",
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
     "graphql": "^16.6.0",
-    "joi": "^17.9.2",
-    "jose": "^4.14.4",
-    "mongoose": "^7.1.0",
-    "multer": "1.4.5-lts.1",
-    "nodemailer": "^6.9.2",
-    "pg": "^8.10.0",
-    "sequelize": "^6.35.2"
+    "joi": "^17.12.3",
+    "jose": "^5.2.3",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.13",
+    "pg": "^8.11.5",
+    "sequelize": "^6.37.2"
   },
   "devDependencies": {
-    "sequelize-cli": "^6.6.0"
+    "sequelize-cli": "^6.6.2"
   }
 }

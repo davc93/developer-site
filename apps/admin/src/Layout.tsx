@@ -1,6 +1,7 @@
-import { useContext, ReactNode } from "react";
-import { Sidebar } from "ui-react";
+import { useContext, ReactNode, useEffect } from "react";
+import { Sidebar } from "@/components/Sidebar";
 import { AuthContext } from "@/context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 type LayoutProps = {
   children: ReactNode;
@@ -8,10 +9,11 @@ type LayoutProps = {
 
 export const Layout = ({ children }: LayoutProps) => {
   const { token } = useContext(AuthContext);
+  
   return (
-    <div className="layout ">
+    <div className="h-screen">
       {token && <Sidebar />}
-      <main className={`page-content h-screen overflow-y-scroll  bg-dark ${token ? "pt-16 px-5" : ""}`}>{children}</main>
+      {children}
     </div>
   );
 };

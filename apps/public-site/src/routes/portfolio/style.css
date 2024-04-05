@@ -20,7 +20,7 @@
   background-repeat: no-repeat;
   height: 100svh;
   overflow: auto;
-  background-size: 170%;
+  background-size: cover;
 
   background-position: 0% 55%;
 
