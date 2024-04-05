@@ -1,16 +1,21 @@
-import "ui-styles/src/error.css"
-import { ErrorIcon } from "@/Icons/ErrorIcon";
-type ErrorProps = {
-  text: string;
-};
+import "ui-styles/src/error.css";
+import { ErrorIcon } from "../Icons/ErrorIcon";
+import { HTMLAttributes } from "react";
+type ErrorProps = HTMLAttributes<HTMLSpanElement>;
 
-export const Error = ({ text }: ErrorProps) => {
+export const Error = ({ children }: ErrorProps) => {
   return (
-    <div className="error">
-      <span className="error__text">{text}</span>
-      <div className="error__icon">
-        <ErrorIcon />        
-      </div>
+    <div className="error-container">
+      {children ? (
+        <div className="error">
+          <span className="error__text">{children}</span>
+          <div className="error__icon">
+            <ErrorIcon />
+          </div>
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };

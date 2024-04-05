@@ -1,35 +1,37 @@
 
 const bcrypt = require('bcrypt');
-const { Client } = require('pg');
 const readline = require('readline');
 const {config} = require('../src/config')
-const client = new Client({
-  connectionString: config.dbUrl,
-});
-
+const {Sequelize} = require("sequelize")
+const {UserSchema} = require("../src/db/models/user.model")
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
-
+const sequelize = new Sequelize(config.dbUrl,{
+  dialect:"postgres",
+  logging:console.log
+})
+const User = sequelize.define("user",UserSchema)
 
 async function createUser(email, password, role) {
-  const hashedPassword = await bcrypt.hash(password, 10);
-  const query = {
-    text: 'INSERT INTO users (email, password, role) VALUES ($1, $2, $3) RETURNING id, email, role',
-    values: [email, hashedPassword, role],
-  };
+  
+
   try {
-    console.log(hashedPassword);
-    await client.connect();
-    const result = await client.query(query);
+    await sequelize.authenticate()
+    console.log('Connection has been established successfully.');
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const result = await User.create({
+      email,
+      password:hashedPassword,
+      role
+    })
     console.log('New user created:');
-    console.log(result.rows[0]);
   } catch (err) {
     console.error(err);
   } finally {
-    await client.end();
+    await sequelize.close()
   }
 }
 function promptUser() {
@@ -37,7 +39,6 @@ function promptUser() {
       rl.question('Enter password: ', (password) => {
         rl.question('Enter role: ', (role) => {
           createUser(email, password, role);
-          client.end()
           rl.close();
         });
       });

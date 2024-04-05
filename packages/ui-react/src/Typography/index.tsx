@@ -1,3 +1,4 @@
+import "ui-styles/src/typography.css"
 import { HTMLAttributes } from "react";
 
 export enum TypographySize {
@@ -40,8 +41,8 @@ export interface TypographyProps {
   color?: TypographyColor;
 }
 type NativeProps = HTMLAttributes<HTMLSpanElement>
-export const Typography = ({label,size,weight,tag,color,children,...props}:TypographyProps & NativeProps) => {
+export const Typography = ({label,className,size,weight,tag,color,children,...props}:TypographyProps & NativeProps) => {
   return (
-    <span className={["typography",color,size,weight,props.className].join(" ")} {...props}>{label}{children}</span>
+    <span className={["typography",color,size,weight,className].join(" ")} {...props}>{label}{children}</span>
   )
 }
