@@ -19,8 +19,9 @@ class AuthService {
     if (data.error) {
       throw new Error(data.message);
     }
-    return data;
+    return data
   }
+  
   async getProfile(token: string): Promise<User> {
     const response = await fetch(`${config.apiUri}/auth/profile`, {
       method: "GET",

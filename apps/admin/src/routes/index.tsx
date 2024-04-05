@@ -1,7 +1,9 @@
-import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { Route, Routes, BrowserRouter, useNavigate } from "react-router-dom";
 import { Layout } from "@/Layout";
 import { LoginPage } from "@/routes/login";
 import { ProfilePage } from "@/routes/profile";
+import { useContext, useEffect } from "react";
+import { AuthContext } from "@/context/AuthContext";
 
 // import { ProjectsPage } from "@/routes/projects";
 // import { CreateProjectPage } from "@/routes/project-create";
@@ -13,6 +15,13 @@ import { ProfilePage } from "@/routes/profile";
 // import { PublicRoute } from "@/components/PublicRoute";
 
 export const PublicRoutes = () => {
+  const {token} = useContext(AuthContext)
+  const navigate = useNavigate()
+  useEffect(() => {
+    if (token) {
+      navigate("/profile")
+    }  
+  }, [])
   return (
     <Routes>
       <Route element={<LoginPage />} path="/login" />
@@ -22,6 +31,15 @@ export const PublicRoutes = () => {
 };
 
  export const PrivateRoutes = () => {
+  const {token} = useContext(AuthContext)
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (!token) {
+      navigate("/login")
+    }  
+  }, [])
+
    return (
      <Routes>
        <Route element={<ProfilePage />} path="/profile" />
@@ -36,7 +54,8 @@ export const PublicRoutes = () => {
  };
 
 export const Router = () => {
-
+  
+  
   return (
     <BrowserRouter>
       <Layout>

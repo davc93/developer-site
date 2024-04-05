@@ -1,4 +1,4 @@
-import "./style.css";
+import "ui-react/src/Sidebar/sidebar.css";
 import { HTMLAttributes, useContext, useRef, useState } from "react";
 import { Typography, TypographySize } from "ui-react";
 import { NotebookIcon } from "ui-react/src/Icons/NotebookIcon";

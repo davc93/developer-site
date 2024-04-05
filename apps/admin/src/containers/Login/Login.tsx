@@ -24,7 +24,16 @@ export const Login = () => {
       const result = await authService.login(email.value, password.value);
       setError(null);
       setToken(result.token)
-      navigate("/profile");
+      
+      //execute animation
+      const container = document.querySelector(".login-container") as HTMLDivElement
+      container.classList.remove("fade-right-in")
+      container?.classList.add("fade-left-out")
+      container?.addEventListener("animationend",(event)=>{
+        navigate("/profile");
+      })
+      // container?.classList.remove("animate")
+
     } catch (error) {
       setError(`${error}`);
     }
@@ -33,14 +42,18 @@ export const Login = () => {
 
   return (
     <div
-      style={{ background: "rgba(0,0,0,0.7)" }}
-      className="flex flex-col w-full items-center max-w-md py-8 px-8"
+      className="flex flex-col gap-4 items-center py-8 px-8"
+      style={{
+        backgroundColor:"rgba(0,0,0,0.3)",
+        minWidth:"320px",
+        maxWidth:"512px"
+      }}
     >
-      <Typography className="mb-8 text-center font-bold" size={TypographySize.titleSmall}>
+      <Typography className="mb-2 text-center font-bold" size={TypographySize.titleSmall}>
         Login 
       </Typography>
       <form
-        className="flex flex-col gap-4 items-center"
+      className="w-full"
         onSubmit={handleSubmit}
       >
         <Input
@@ -61,7 +74,7 @@ export const Login = () => {
         />
         <Button
           type="submit"
-          className="mt-8 mb-4"
+          className="mt-16 mb-4"
           size={ButtonSizes.WIDE}
           loading={loading}
         >

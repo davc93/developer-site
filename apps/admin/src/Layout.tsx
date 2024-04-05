@@ -9,17 +9,11 @@ type LayoutProps = {
 
 export const Layout = ({ children }: LayoutProps) => {
   const { token } = useContext(AuthContext);
-  const navigate = useNavigate()
-  useEffect(() => {
-    if (token) {
-      navigate("/profile")
-    }
-  }, [token])
   
   return (
-    <div className="layout ">
+    <div className="h-screen">
       {token && <Sidebar />}
-      <main className="h-screen">{children}</main>
+      {children}
     </div>
   );
 };
