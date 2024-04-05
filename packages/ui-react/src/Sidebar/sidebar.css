@@ -5,15 +5,14 @@
     color: aliceblue;
 }
 .sidebar{
+    width: fit-content;
     box-sizing: border-box;
     flex-direction: column;
-    position: absolute;
-    left: 0;
-    top: 0;
-    padding-inline: 1rem;
     padding-block: 0.5rem;
     height: 100svh;
     display: none;
+    border-right: 1px solid var(--primary--500);
+    box-shadow: var(--shadow-sm);
 }
 
 .sidebar--open{
@@ -21,7 +20,6 @@
     animation-name: fade-right-in;
     animation-duration: 0.7s;
     animation-fill-mode: both;
-    animation-delay: 0.7s;
 }
 .sidebar__header{
     margin-block: 2rem;

@@ -1,5 +1,5 @@
 
-export const CrossIcon = () => {
+export const IconCross = () => {
   return (
     <svg viewBox="0 -0.5 25 25" xmlns="http://www.w3.org/2000/svg">
       <g id="SVGRepo_bgCarrier" strokeWidth={0} />

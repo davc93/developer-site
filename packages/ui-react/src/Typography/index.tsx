@@ -41,7 +41,7 @@ export interface TypographyProps {
   color?: TypographyColor;
 }
 type NativeProps = HTMLAttributes<HTMLSpanElement>
-export const Typography = ({label,className,size,weight,tag,color,children,...props}:TypographyProps & NativeProps) => {
+export const Typography = ({label,className,size,weight,tag,color = TypographyColor.White,children,...props}:TypographyProps & NativeProps) => {
   return (
     <span className={["typography",color,size,weight,className].join(" ")} {...props}>{label}{children}</span>
   )

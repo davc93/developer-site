@@ -22,15 +22,15 @@ export const Login = () => {
     setLoading(true);
     try {
       const result = await authService.login(email.value, password.value);
-      setError(null);
-      setToken(result.token)
       
       //execute animation
       const container = document.querySelector(".login-container") as HTMLDivElement
       container.classList.remove("fade-right-in")
       container?.classList.add("fade-left-out")
       container?.addEventListener("animationend",(event)=>{
-        navigate("/profile");
+        setError(null);
+        setToken(result.token)
+        navigate("/dashboard");
       })
       // container?.classList.remove("animate")
 

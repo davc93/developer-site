@@ -1,11 +1,11 @@
 import "./sidebar.css";
 import { HTMLAttributes, useRef, useState } from "react";
 import { Typography, TypographySize } from "../Typography";
-import { NotebookIcon } from "../Icons/NotebookIcon";
-import { LetterIcon } from "../Icons/LetterIcon";
-import { ProfileIcon } from "../Icons/ProfileIcon";
-import { LabelIcon } from "../Icons/LabelIcon";
-import { LogoutIcon } from "../Icons/LogoutIcon";
+import { IconNotebook } from "../icons/icon-notebook";
+import { IconLetter } from "../icons/icon-letter";
+import { IconProfile } from "../icons/icon-profile";
+import { IconLabel } from "../icons/icon-label";
+import { IconLogout } from "../icons/icon-logout";
 type SidebarItem = {
   path: string;
   name: string;
@@ -19,22 +19,22 @@ const items: SidebarItem[] = [
   {
     path: "/profile",
     name: "Profile",
-    Icon: ProfileIcon,
+    Icon: IconProfile,
   },
   {
     path: "/projects",
     name: "Projects",
-    Icon: NotebookIcon,
+    Icon: IconNotebook,
   },
   {
     path: "/contact",
     name: "Contact",
-    Icon: LetterIcon,
+    Icon: IconLetter,
   },
   {
     path: "/labels",
     name: "Labels",
-    Icon: LabelIcon,
+    Icon: IconLabel,
   },
 ];
 
@@ -70,7 +70,7 @@ export const Sidebar = () => {
             />
           ))}
           <ul className="sidebar__bottom">
-            <SidebarItem name="Logout" path="/" Icon={LogoutIcon} />
+            <SidebarItem name="Logout" path="/" Icon={IconLogout} />
           </ul>
         </ul>
       </aside>

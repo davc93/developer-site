@@ -1,9 +1,10 @@
-import { Route, Routes, BrowserRouter, useNavigate } from "react-router-dom";
-import { Layout } from "@/Layout";
-import { LoginPage } from "@/routes/login";
-import { ProfilePage } from "@/routes/profile";
-import { useContext, useEffect } from "react";
-import { AuthContext } from "@/context/AuthContext";
+import { Route, Routes, BrowserRouter, useNavigate } from 'react-router-dom'
+import { Layout } from '@/Layout'
+import { LoginPage } from '@/routes/login'
+import { ProfilePage } from '@/routes/profile'
+import { useContext, useEffect } from 'react'
+import { AuthContext } from '@/context/AuthContext'
+import { DashboardPage } from '@/routes/dashboard'
 
 // import { ProjectsPage } from "@/routes/projects";
 // import { CreateProjectPage } from "@/routes/project-create";
@@ -15,53 +16,51 @@ import { AuthContext } from "@/context/AuthContext";
 // import { PublicRoute } from "@/components/PublicRoute";
 
 export const PublicRoutes = () => {
-  const {token} = useContext(AuthContext)
+  const { token } = useContext(AuthContext)
   const navigate = useNavigate()
   useEffect(() => {
     if (token) {
-      navigate("/profile")
-    }  
+      navigate('/dashboard')
+    }
   }, [])
   return (
     <Routes>
       <Route element={<LoginPage />} path="/login" />
-
     </Routes>
-  );
-};
+  )
+}
 
- export const PrivateRoutes = () => {
-  const {token} = useContext(AuthContext)
+export const PrivateRoutes = () => {
+  const { token } = useContext(AuthContext)
   const navigate = useNavigate()
 
   useEffect(() => {
     if (!token) {
-      navigate("/login")
-    }  
+      navigate('/login')
+    }
   }, [])
 
-   return (
-     <Routes>
-       <Route element={<ProfilePage />} path="/profile" />
-       {/* <Route element={<ProjectsPage />} path="/projects" />
+  return (
+    <Routes>
+      <Route element={<DashboardPage />} path="/dashboard" />
+      <Route element={<ProfilePage />} path="/profile" />
+      {/* <Route element={<ProjectsPage />} path="/projects" />
        <Route element={<CreateProjectPage />} path="/projects/create" />
        <Route element={<EditProjectPage />} path="/projects/edit/:id" />
        <Route element={<LabelsPage />} path="/labels" />
        <Route element={<CreateLabelPage />} path="/labels/create" />
        <Route element={<EditLabelPage />} path="/labels/edit/:id" /> */}
-     </Routes>
-   );
- };
+    </Routes>
+  )
+}
 
 export const Router = () => {
-  
-  
   return (
     <BrowserRouter>
       <Layout>
-          <PrivateRoutes />
-          <PublicRoutes />
+        <PrivateRoutes />
+        <PublicRoutes />
       </Layout>
     </BrowserRouter>
-  );
-};
+  )
+}

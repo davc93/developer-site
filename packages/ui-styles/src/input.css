@@ -42,6 +42,11 @@ bloque input,input-container
 
     font-family: var(--typography-primary);
     margin-bottom: var(--space-2);
+    &:disabled{
+        border-bottom: 1px solid var(--foreground--500);
+        color: var(--foreground--500);
+
+    }
 }
 .input__label {
     color: var(--foreground--400);
@@ -74,9 +79,3 @@ bloque input,input-container
 .error-message__text{
     color: var(--error--300);
 }
-
-
-
-
-
-

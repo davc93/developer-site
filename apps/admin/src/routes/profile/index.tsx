@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { User } from "@/models/user.model";
 import { authService } from "@/services/auth.service";
 import { AuthContext } from "@/context/AuthContext";
-import { Typography, TypographySize } from "ui-react";
+import { Input, Typography, TypographySize } from "ui-react";
 
 export const ProfilePage = () => {
   const [loading, setLoading] = useState(true);
@@ -22,27 +22,25 @@ export const ProfilePage = () => {
   };
 
   React.useEffect(() => {
-    getProfile()
+    getProfile();
   }, []);
 
-    return (
-      <section className="flex justify-around h-screen">
-        <div className="flex flex-col ">
-          
-          {!loading ? Object.entries(profile as User).map((entry) => {
-            return (
-              <Typography size={TypographySize.bodyLarge} key={entry[0]}>
-                {entry[0]}: {entry[1]}
-              </Typography>
-            );
-          }) : (
-            <Typography size={TypographySize.bodyLarge}>
-              Loading...
-            </Typography>
+  return (
+    <section className="">
+      <div className="max-w-sm">
+        <Typography className="text-center" size={TypographySize.titleSmall}>Profile</Typography>
+        <div className="flex flex-col">
+          {!loading ? (
+            Object.entries(profile as User).map((entry) => {
+              return (
+                <Input disabled value={entry[1]} label={entry[0]} />
+              );
+            })
+          ) : (
+            <Typography size={TypographySize.bodyLarge}>Loading...</Typography>
           )}
         </div>
-        <div></div>
-      </section>
-    );
-  
+      </div>
+    </section>
+  );
 };
