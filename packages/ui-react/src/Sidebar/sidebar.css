@@ -6,7 +6,6 @@
 }
 .sidebar{
     box-sizing: border-box;
-    display: flex;
     flex-direction: column;
     position: absolute;
     left: 0;
@@ -18,7 +17,11 @@
 }
 
 .sidebar--open{
-    display: block;
+    display: flex;
+    animation-name: fade-right-in;
+    animation-duration: 0.7s;
+    animation-fill-mode: both;
+    animation-delay: 0.7s;
 }
 .sidebar__header{
     margin-block: 2rem;
@@ -73,3 +76,11 @@
 .sidebar-item--active .sidebar-item__name{
     color: var(--foreground--950);
 }
+
+
+@keyframes fade-right-in {
+    from{
+      opacity: 0;
+      transform: translateX(-200px);
+    }
+  }
