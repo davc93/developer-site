@@ -52,7 +52,7 @@ export const Sidebar = () => {
       <button className="sidebar-button" onClick={handleToggleMenu}>
         Abrir
       </button>
-      <aside ref={sidebarRef} className="sidebar">
+      <aside ref={sidebarRef} className="sidebar scroll-bar--vertical">
         <div className="sidebar__header">
           <Typography
             size={TypographySize.bodyLarge}
@@ -61,7 +61,7 @@ export const Sidebar = () => {
             Diego Vergara
           </Typography>
         </div>
-        <ul className="sidebar__body">
+        <ul className="sidebar__body scrollbar--vertical">
           {items.map((item) => (
             <SidebarItem
               isActive={itemActive == item.name}
@@ -69,10 +69,11 @@ export const Sidebar = () => {
               {...item}
             />
           ))}
-          <ul className="sidebar__bottom">
+        </ul>
+
+        <ul className="sidebar__bottom">
             <SidebarItem name="Logout" path="/" Icon={IconLogout} />
           </ul>
-        </ul>
       </aside>
     </>
   );

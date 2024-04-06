@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import "ui-styles/src/variables.css"
 import "ui-styles/src/animations.css"
+import "ui-styles/src/base.css"
+
 
 import "./style.css"
 

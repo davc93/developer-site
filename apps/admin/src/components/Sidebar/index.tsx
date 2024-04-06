@@ -86,7 +86,7 @@ export const Sidebar = () => {
       </button> */}
       <aside ref={sidebarRef} className="sidebar sidebar--open">
         <div className="sidebar__header hidden"></div>
-        <ul className="sidebar__body">
+        <ul className="sidebar__body scrollbar--vertical">
           {items.map((item) => (
             <SidebarItem
               isActive={itemActive == item.name}
@@ -94,10 +94,11 @@ export const Sidebar = () => {
               {...item}
             />
           ))}
-          <ul className="sidebar__bottom">
+        </ul>
+
+        <ul className="sidebar__bottom">
             <LogoutButton />
           </ul>
-        </ul>
       </aside>
     </>
   );

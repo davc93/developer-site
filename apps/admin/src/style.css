@@ -3,10 +3,9 @@
 @tailwind utilities;
 
 html {
-  background: linear-gradient(45deg, #30064e 20%, #970f28);
+  background-color: var(--surface--950);
 
   @media (prefers-color-scheme: light) {
-    background: linear-gradient(45deg, #ebe3f1 20%, #c20d2e);
+    background-color: var(--surface--50);
   }
 }
-
