@@ -1,0 +1,31 @@
+
+@keyframes fade-in {
+    from{
+      opacity: 0;
+      display: none;
+    }
+  } 
+  @keyframes fade-out {
+    to{
+      opacity: 0;
+      display: none;
+    }
+  } 
+  
+  @keyframes scale-increase {
+    from{
+      scale: 0.6;
+    }
+    to{
+      scale: 1;
+    }
+  }
+  
+  @keyframes scale-decrease {
+    from{
+      scale: 1;
+    }
+    to{
+      scale: 0.6;
+    }
+  }

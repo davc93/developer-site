@@ -1,19 +1,16 @@
-
-
 .typography {
-    color: var(--foreground--50);
-    display: block;
-}
-
-.typography--primary{
-  color: var(--primary--600);
-}
-
-.typography--white{
   color: var(--foreground--50);
 }
 
-.typography--dark{
+.typography--primary {
+  color: var(--primary--600);
+}
+
+.typography--white {
+  color: var(--foreground--50);
+}
+
+.typography--dark {
   color: var(--foreground--950);
 }
 .link.typography--link {
@@ -22,11 +19,10 @@
   color: var(--primary--600);
   transition: all 0.3s;
 }
-.link.typography--link:hover{
+.link.typography--link:hover {
   cursor: pointer;
 
   text-shadow: var(--shadow-lg);
-  
 }
 .typography--title-large {
   font-size: var(--title-large);
@@ -43,7 +39,6 @@
 .typography--title-small {
   font-size: var(--title-small);
   font-family: var(--typography-primary);
-
 }
 
 .typography--body-medium {
