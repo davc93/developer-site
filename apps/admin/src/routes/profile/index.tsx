@@ -28,19 +28,47 @@ export const ProfilePage = () => {
   return (
     <section className="">
       <div className="max-w-sm">
-        <Typography className="text-center" size={TypographySize.titleSmall}>Profile</Typography>
+        <Typography className="text-center" size={TypographySize.titleSmall}>
+          Profile
+        </Typography>
         <div className="flex flex-col">
           {!loading ? (
             Object.entries(profile as User).map((entry) => {
-              return (
-                <Input disabled value={entry[1]} label={entry[0]} />
-              );
+              return <Input disabled value={entry[1]} label={entry[0]} />;
             })
           ) : (
-            <Typography size={TypographySize.bodyLarge}>Loading...</Typography>
+            <Skeletons />
           )}
         </div>
+
       </div>
     </section>
+  );
+};
+export const Skeletons = () => {
+  return (
+  <>
+    <div className="space space-y-2 h-24">
+      <div className="h-4 w-24 animate-pulse bg-gray-500 rounded-lg"></div>
+      <div className="h-8 w-full animate-pulse bg-gray-500 rounded-lg"></div>
+    </div>
+    <div className="space space-y-2 h-24">
+      <div className="h-4 w-24 animate-pulse bg-gray-500 rounded-lg"></div>
+      <div className="h-8 w-full animate-pulse bg-gray-500 rounded-lg"></div>
+    </div>
+    <div className="space space-y-2 h-24">
+      <div className="h-4 w-24 animate-pulse bg-gray-500 rounded-lg"></div>
+      <div className="h-8 w-full animate-pulse bg-gray-500 rounded-lg"></div>
+    </div>
+    <div className="space space-y-2 h-24">
+      <div className="h-4 w-24 animate-pulse bg-gray-500 rounded-lg"></div>
+      <div className="h-8 w-full animate-pulse bg-gray-500 rounded-lg"></div>
+    </div>
+    <div className="space space-y-2 h-24">
+      <div className="h-4 w-24 animate-pulse bg-gray-500 rounded-lg"></div>
+      <div className="h-8 w-full animate-pulse bg-gray-500 rounded-lg"></div>
+    </div>  
+  </>
+
   );
 };

@@ -5,8 +5,8 @@ import { ProfilePage } from '@/routes/profile'
 import { useContext, useEffect } from 'react'
 import { AuthContext } from '@/context/AuthContext'
 import { DashboardPage } from '@/routes/dashboard'
+import { ProjectsPage } from "@/routes/projects";
 
-// import { ProjectsPage } from "@/routes/projects";
 // import { CreateProjectPage } from "@/routes/project-create";
 // import { EditProjectPage } from "@/routes/project-edit";
 // import { LabelsPage } from "@/routes/labels";
@@ -44,7 +44,8 @@ export const PrivateRoutes = () => {
     <Routes>
       <Route element={<DashboardPage />} path="/dashboard" />
       <Route element={<ProfilePage />} path="/profile" />
-      {/* <Route element={<ProjectsPage />} path="/projects" />
+      <Route element={<ProjectsPage />} path="/projects" />
+      {/* 
        <Route element={<CreateProjectPage />} path="/projects/create" />
        <Route element={<EditProjectPage />} path="/projects/edit/:id" />
        <Route element={<LabelsPage />} path="/labels" />

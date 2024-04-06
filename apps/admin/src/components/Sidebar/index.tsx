@@ -1,11 +1,11 @@
 import "ui-react/src/Sidebar/sidebar.css";
 import { HTMLAttributes, useContext, useRef, useState } from "react";
-import { Typography, TypographySize } from "ui-react";
 import { IconNotebook } from "ui-react/src/icons/icon-notebook";
 import { IconLetter } from "ui-react/src/icons/icon-letter";
 import { IconProfile } from "ui-react/src/icons/icon-profile";
 import { IconLabel } from "ui-react/src/icons/icon-label";
 import { IconLogout } from "ui-react/src/icons/icon-logout";
+import { IconMonitor } from "ui-react/src/icons/icon-monitor";
 import { AuthContext } from "@/context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 type SidebarItem = {
@@ -18,14 +18,15 @@ type SidebarItemProps = SidebarItem & { isActive?: boolean };
 type SidebarItemNativeProps = HTMLAttributes<HTMLLIElement>;
 
 const items: SidebarItem[] = [
-  {
-    path: "/profile",
-    name: "Profile",
-    Icon: IconProfile,
-  },
+  
   {
     path: "/dashboard",
     name: "Dashboard",
+    Icon: IconMonitor,
+  },
+  {
+    path: "/profile",
+    name: "Profile",
     Icon: IconProfile,
   },
   {
@@ -84,14 +85,7 @@ export const Sidebar = () => {
         Abrir
       </button> */}
       <aside ref={sidebarRef} className="sidebar sidebar--open">
-        <div className="sidebar__header">
-          <Typography
-            size={TypographySize.bodyLarge}
-            style={{ fontWeight: 700 }}
-          >
-            Diego Vergara
-          </Typography>
-        </div>
+        <div className="sidebar__header hidden"></div>
         <ul className="sidebar__body">
           {items.map((item) => (
             <SidebarItem

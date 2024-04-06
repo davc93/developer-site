@@ -18,8 +18,12 @@ export const Layout = ({ children }: LayoutProps) => {
 
       </div>
       {token && <Sidebar />}
-      <main className="w-full max-w-5xl ml-12 mr-auto">
-      {children}
+      
+      <main className="overflow-y-auto w-full scrollbar--native">
+        <div className="w-full h-full max-w-5xl ml-12 mr-auto ">
+
+          {children}
+        </div>
       </main>
       
     </div>
