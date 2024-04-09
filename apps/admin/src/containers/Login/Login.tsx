@@ -44,7 +44,6 @@ export const Login = () => {
     <div
       className="flex flex-col gap-4 items-center py-8 px-8"
       style={{
-        backgroundColor:"rgba(0,0,0,0.3)",
         minWidth:"320px",
         maxWidth:"512px"
       }}

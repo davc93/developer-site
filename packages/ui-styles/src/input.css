@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
 
 /*
 
@@ -18,64 +18,74 @@ bloque input,input-container
 
 */
 
-
 /* Styling for the input container */
 .input-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column-reverse;
-    position: relative;
-    padding-top: 1.5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-top: 1.5rem;
 }
-
-
 
 .input {
-    border: 0;
-    z-index: 1;
-    background-color: transparent;
-    border-bottom: 1px solid var(--foreground--100);
-    font-size: 1.125rem;
-    padding: var(--space-1);
-	color: var(--foreground--50);
-    margin-top: var(--space-1);
-
-    font-family: var(--typography-primary);
-    margin-bottom: var(--space-2);
-    &:disabled{
-        border-bottom: 1px solid var(--foreground--500);
-        color: var(--foreground--500);
-
-    }
-}
-.input__label {
-    color: var(--foreground--400);
-    font-family: var(--typography-primary);
-}
-.input--error{
-
-    border-bottom-color: var(--error--300);
-}
-.input::placeholder{
-    color: var(--foreground--300);
-    opacity: 01;
-}
-/* Styling for focused and valid input fields */
-.input:focus {
+  border: 0;
+  z-index: 1;
+  background-color: transparent;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: var(--foreground--300);
+  font-size: 1.125rem;
+  padding: var(--space-1);
+  color: var(--foreground--50);
+  margin-top: var(--space-1);
+  font-family: var(--typography-primary);
+  margin-bottom: var(--space-2);
+  transition-property: border-bottom-color;
+  transition-duration: 0.3s;
+  &:focus {
     outline: 0;
     border-bottom-color: var(--foreground--50);
+
+  }
+  &::placeholder {
+    color: var(--foreground--300);
+    opacity: 01;
+  }
+
+  &:disabled {
+    border-bottom: 1px solid var(--foreground--500);
+    color: var(--foreground--500);
+  }
+}
+.input__label {
+  color: var(--foreground--400);
+  font-family: var(--typography-primary);
+}
+.input--error {
+  border-bottom-color: var(--error--300);
 }
 
-.error-message{
-    display: flex;
-    gap: var(--space-1);
-
-}
-.error-message__icon{
-    width: 24px;
-    color: var(--error--300);
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
 }
 
-.error-message__text{
-    color: var(--error--300);
+.error-message__icon-container {
+  width: 24px;
+  height: 24px;
+}
+.error-message__text {
+  color: var(--error--300);
+  font-size: 14px;
+  font-family: var(--typography-primary);
+}
+[data-theme="light"] .input{
+  background: rgba(255, 255, 255, 0.7);
+  border-bottom-color: var(--foreground--300);
+  color: var(--foreground--950);
+  &:focus{
+    border-bottom-color: var(--foreground--900);
+
+  }
 }

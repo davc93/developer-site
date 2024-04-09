@@ -5,7 +5,8 @@
 html {
   background-color: var(--surface--950);
 
-  @media (prefers-color-scheme: light) {
-    background-color: var(--surface--50);
-  }
+}
+[data-theme="light"]{
+  background-color: var(--surface--50);
+
 }

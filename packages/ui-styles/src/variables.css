@@ -127,4 +127,15 @@
   --space-72: 18rem;
   --space-80: 20rem;
   --space-96: 24rem;
+
+
+  --storybook-surface:#000000
+  
+}
+@media (prefers-color-scheme:light){
+  :root{
+
+    --storybook-surface:#ffffff
+  }
+
 }

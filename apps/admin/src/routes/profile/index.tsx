@@ -49,24 +49,24 @@ export const Skeletons = () => {
   return (
   <>
     <div className="space space-y-2 h-24">
-      <div className="h-4 w-24 animate-pulse bg-gray-500 rounded-lg"></div>
-      <div className="h-8 w-full animate-pulse bg-gray-500 rounded-lg"></div>
+      <div className="h-4 w-24 animate-pulse bg-gray-400 rounded-lg"></div>
+      <div className="h-8 w-full animate-pulse bg-gray-400 rounded-lg"></div>
     </div>
     <div className="space space-y-2 h-24">
-      <div className="h-4 w-24 animate-pulse bg-gray-500 rounded-lg"></div>
-      <div className="h-8 w-full animate-pulse bg-gray-500 rounded-lg"></div>
+      <div className="h-4 w-24 animate-pulse bg-gray-400 rounded-lg"></div>
+      <div className="h-8 w-full animate-pulse bg-gray-400 rounded-lg"></div>
     </div>
     <div className="space space-y-2 h-24">
-      <div className="h-4 w-24 animate-pulse bg-gray-500 rounded-lg"></div>
-      <div className="h-8 w-full animate-pulse bg-gray-500 rounded-lg"></div>
+      <div className="h-4 w-24 animate-pulse bg-gray-400 rounded-lg"></div>
+      <div className="h-8 w-full animate-pulse bg-gray-400 rounded-lg"></div>
     </div>
     <div className="space space-y-2 h-24">
-      <div className="h-4 w-24 animate-pulse bg-gray-500 rounded-lg"></div>
-      <div className="h-8 w-full animate-pulse bg-gray-500 rounded-lg"></div>
+      <div className="h-4 w-24 animate-pulse bg-gray-400 rounded-lg"></div>
+      <div className="h-8 w-full animate-pulse bg-gray-400 rounded-lg"></div>
     </div>
     <div className="space space-y-2 h-24">
-      <div className="h-4 w-24 animate-pulse bg-gray-500 rounded-lg"></div>
-      <div className="h-8 w-full animate-pulse bg-gray-500 rounded-lg"></div>
+      <div className="h-4 w-24 animate-pulse bg-gray-400 rounded-lg"></div>
+      <div className="h-8 w-full animate-pulse bg-gray-400 rounded-lg"></div>
     </div>  
   </>
 
