@@ -4,7 +4,6 @@ import { ButtonSizes, ButtonStyles, createButton } from "@/components/atoms/Butt
 import { ImageFormat, createImage } from "@/components/atoms/Image";
 import { createLink } from "@/components/atoms/Link";
 import {
-  TypographyContrast,
   TypographySize,
   createTypography,
 } from "@/components/atoms/Typography";

@@ -1,83 +1,106 @@
-import "ui-styles/src/table.css"
-export const Table = () => {
+import "ui-styles/src/table.css";
+import {
+  createColumnHelper,
+  flexRender,
+  getCoreRowModel,
+  useReactTable,
+} from "@tanstack/react-table";
+import type { ColumnDef, Row } from "@tanstack/react-table";
+
+interface TableProps {
+  data: unknown[];
+  columns: ColumnDef<any, any>[];
+}
+export const Table = ({ data, columns }: TableProps) => {
+  const table = useReactTable({
+    data,
+    columns,
+    getCoreRowModel: getCoreRowModel(),
+  });
   return (
     <div className="table-container">
       <table className="table">
         <thead>
-          <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Link</th>
-            <th></th>
-          </tr>
+          {table.getHeaderGroups().map((group, i) => {
+            return (
+              <tr className="table__header-row">
+                {group.headers.map((header) => {
+                  return (
+                    <th className="table__header-cell">
+                      {flexRender(
+                        header.column.columnDef.header,
+                        header.getContext()
+                      )}
+                    </th>
+                  );
+                })}
+              </tr>
+            );
+          })}
         </thead>
         <tbody>
-          <tr>
-            <td>Website</td>
-            <td>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Cupiditate dolores ducimus id hic ipsa eveniet nihil consectetur
-              aspernatur cum. Nobis rem{" "}
-            </td>
-            <td>google.com</td>
-            <td>
-              <button className="">Click here</button>
-            </td>
-          </tr>
-
-          <tr>
-            <td>Website</td>
-            <td>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Cupiditate dolores ducimus id hic ipsa eveniet nihil consectetur
-              aspernatur cum. Nobis rem{" "}
-            </td>
-            <td>google.com</td>
-            <td>
-              <button className="bg-blue-500">Click here</button>
-            </td>
-          </tr>
-
-          <tr>
-            <td>Website</td>
-            <td>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Cupiditate dolores ducimus id hic ipsa eveniet nihil consectetur
-              aspernatur cum. Nobis rem{" "}
-            </td>
-            <td>google.com</td>
-            <td>
-              <button className="bg-blue-500">Click here</button>
-            </td>
-          </tr>
-
-          <tr>
-            <td>Website</td>
-            <td>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Cupiditate dolores ducimus id hic ipsa eveniet nihil consectetur
-              aspernatur cum. Nobis rem{" "}
-            </td>
-            <td>google.com</td>
-            <td>
-              <button className="bg-blue-500">Click here</button>
-            </td>
-          </tr>
-
-          <tr>
-            <td>Website</td>
-            <td>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Cupiditate dolores ducimus id hic ipsa eveniet nihil consectetur
-              aspernatur cum. Nobis rem{" "}
-            </td>
-            <td>google.com</td>
-            <td>
-              <button className="bg-blue-500">Click here</button>
-            </td>
-          </tr>
+          {table.getRowModel().rows.map((row,index)=>{
+            return (
+              <TableRow key={index} {...row} />
+            )
+          })}
         </tbody>
       </table>
     </div>
   );
 };
+
+
+export const TableRow = (row:Row<unknown>) => {
+  return (
+    <tr className="table__row">
+      {row.getVisibleCells().map((cell)=>{
+        return (
+          <td key={cell.id} className="table__body-cell">
+            {flexRender(cell.column.columnDef.cell,cell.getContext())}
+          </td>
+        )
+      })}
+    </tr>
+  )
+}
+
+type Order = {
+  nOrder:number,
+  concept:string,
+  dateTime:string
+}
+
+
+const columnHelper = createColumnHelper<Order>()
+
+
+const columns = [
+
+  columnHelper.accessor("nOrder",{
+    header:"N° Order"
+  }),
+
+  columnHelper.accessor("concept",{
+    header:"Concept"
+  }),
+
+  columnHelper.accessor("dateTime",{
+    header:"Date"
+  }),
+
+]
+
+const data:Order[] = [
+  {
+    nOrder:94847292,
+    concept:"Compra",
+    dateTime:"23-04-04"
+  }
+]
+
+export const Example = () => {
+  return (
+    <Table columns={columns} data={data} />
+  )
+}

@@ -1,6 +1,6 @@
 import "./style.css"
 import { ImageFormat, createImage } from "@/components/atoms/Image";
-import { createTypography,TypographySize,TypographyContrast } from "@/components/atoms/Typography";
+import { createTypography,TypographySize } from "@/components/atoms/Typography";
 
 export interface JobCardProps{
     jobLogo:string;
@@ -24,14 +24,12 @@ export const createJobCard = ({jobTitle,organization,description,from,jobLogo,to
     const organizationEl = createTypography({
       label: organization,
       size: TypographySize.bodyMedium,
-      color: TypographyContrast.White,
       style:"color: var(--foreground--300); "
 
     });
     const fromToEl = createTypography({
       label: `${from} - ${to}`,
       size: TypographySize.bodyMedium,
-      color: TypographyContrast.White,
       style:"color: var(--foreground--300); "
 
     });
@@ -44,7 +42,6 @@ export const createJobCard = ({jobTitle,organization,description,from,jobLogo,to
     const descriptionEl = createTypography({
       label: description,
       size: TypographySize.bodyMedium,
-      color: TypographyContrast.White
     });
     generalInfoContainer.append(imageEl,generalInfo)
     descriptionEl.classList.add("job-card__description")

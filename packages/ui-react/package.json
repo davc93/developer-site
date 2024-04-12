@@ -1,8 +1,7 @@
 {
   "name": "ui-react",
   "version": "1.0.1",
-
-  "main":"./src/index.ts",
+  "main": "./src/index.ts",
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -30,5 +29,8 @@
     "ts-config": "*",
     "typescript": "^5.3.3",
     "vite": "^5.1.5"
+  },
+  "dependencies": {
+    "@tanstack/react-table": "^8.15.3"
   }
 }
