@@ -4,7 +4,7 @@ import { ButtonSizes, ButtonStyles, createButton } from "@/components/atoms/Butt
 import { ImageFormat, createImage } from "@/components/atoms/Image";
 import { createLink } from "@/components/atoms/Link";
 import {
-  TypographyColor,
+  TypographyContrast,
   TypographySize,
   createTypography,
 } from "@/components/atoms/Typography";
@@ -29,13 +29,11 @@ export const createProjectCard = ({ title,shortDescription,images,labels ,slug }
     image.className = "project-card__image"
     const projectTitle = createTypography({
       label: title,
-      color: TypographyColor.White,
-      size: TypographySize.titleSmall,
+      size: TypographySize.bodyMedium,
     });
     projectTitle.classList.add("project-card__title")
     const projectDescription = createTypography({
       label: shortDescription,
-      color: TypographyColor.White,
       size: TypographySize.bodyMedium,
     });
     projectDescription.classList.add("project-card__description")
@@ -54,7 +52,6 @@ export const createProjectCard = ({ title,shortDescription,images,labels ,slug }
         const techName = createTypography({
           label: label.title,
           size: TypographySize.bodyMedium,
-          color: TypographyColor.White,
         });
         techName.classList.add("project-card__tech-text")
         techContainer.append(techImage, techName);

@@ -41,12 +41,14 @@
   text-transform: uppercase;
   font-family: var(--typography-primary);
   font-weight: 700;
-  transition: color 0.3s;
+  transition-property: color,text-shadow;
+  transition-duration: 0.3s;
   text-wrap: nowrap;
+  color: var(--foreground--50);
 }
 .navbar-desktop__item:hover {
   text-shadow: var(--shadow-sm);
-  color: var(--primary--600);
+  color: var(--primary--500);
 }
 
 .navbar-desktop__separator {

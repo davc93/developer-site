@@ -18,10 +18,12 @@ export enum TypographyTag {
   span = "span",
 }
 
-export enum TypographyColor {
-    White = "typography--white",
-    Dark = "typography--dark",
-    Primary = "typography--primary",
+export enum TypographyContrast {
+  VERY_HIGH = "typography--very-high-contrast",
+  HIGH = "typography--high-contrast",
+  MEDIUM = "typography--medium-contrast",
+  LOW = "typography--low-contrast",
+  VERY_LOW = "typography--very-low-contrast",
 }
 
 
@@ -31,7 +33,7 @@ export interface TypographyProps {
   size: TypographySize;
   tag?: TypographyTag;
   style?:string;
-  color?: TypographyColor;
+  color?: TypographyContrast;
   className?:string,
 }
 
@@ -41,7 +43,7 @@ export const createTypography = ({
   size,
   style,
   className,
-  color = TypographyColor.White,
+  color = TypographyContrast.HIGH,
   tag = TypographyTag.span,
 }: TypographyProps):HTMLElement => {
   

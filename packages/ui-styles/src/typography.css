@@ -1,38 +1,10 @@
-.typography {
-  color: var(--foreground--50);
-}
-
-.typography--primary {
-  color: var(--primary--600);
-}
-
-.typography--white {
-  color: var(--foreground--50);
-}
-
-.typography--dark {
-  color: var(--foreground--950);
-}
-.link.typography--link {
-  text-decoration: underline;
-  text-shadow: var(--shadow-sm);
-  color: var(--primary--600);
-  transition: all 0.3s;
-}
-.link.typography--link:hover {
-  cursor: pointer;
-
-  text-shadow: var(--shadow-lg);
-}
 .typography--title-large {
   font-size: var(--title-large);
-
   font-family: var(--typography-primary);
 }
 
 .typography--title-medium {
   font-family: var(--typography-primary);
-
   font-size: var(--title-medium);
 }
 
@@ -43,11 +15,65 @@
 
 .typography--body-medium {
   font-family: var(--typography-primary);
-
   font-size: var(--body-medium);
 }
 .typography--body-small {
   font-family: var(--typography-primary);
-
   font-size: var(--body-small);
+}
+
+
+
+.typography--primary {
+  color: var(--primary--600);
+}
+
+.link.typography--link {
+  cursor: pointer;
+  text-decoration: underline;
+  text-shadow: var(--shadow-sm);
+  color: var(--primary--600);
+  transition: text-shadow, color 0.3s;
+  &:hover{
+    text-shadow: var(--shadow-lg);
+  
+  }
+}
+
+.typography--very-low-contrast {
+  color: var(--foreground--400);
+}
+
+[data-theme="light"] .typography--very-high-contrast {
+  color: var(--foreground--600);
+}
+
+.typography--low-contrast {
+  color: var(--foreground--300);
+}
+
+[data-theme="light"] .typography--low-contrast {
+  color: var(--foreground--700);
+}
+.typography--medium-contrast {
+  color: var(--foreground--200);
+}
+
+[data-theme="light"] .typography--medium-contrast {
+  color: var(--foreground--800);
+}
+
+.typography--high-contrast {
+  color: var(--foreground--100);
+}
+
+[data-theme="light"] .typography--high-contrast {
+  color: var(--foreground--900);
+}
+
+.typography--very-high-contrast {
+  color: var(--foreground--50);
+}
+[data-theme="light"] .typography--very-high-contrast {
+  color: var(--foreground--950);
 }

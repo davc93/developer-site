@@ -8,6 +8,7 @@ import { Button, ButtonSizes } from "ui-react";
 import { Typography, TypographySize } from "ui-react";
 import { useNavigate } from "react-router-dom";
 import { setCookie } from "@/utils";
+import { TypographyContrast } from "ui-react/src/Typography";
 
 export const Login = () => {
   const email = useInputValue("");
@@ -48,7 +49,7 @@ export const Login = () => {
         maxWidth:"512px"
       }}
     >
-      <Typography className="mb-2 text-center font-bold" size={TypographySize.titleSmall}>
+      <Typography color={TypographyContrast.HIGH} className="mb-2 text-center font-bold" size={TypographySize.titleSmall}>
         Login 
       </Typography>
       <form
