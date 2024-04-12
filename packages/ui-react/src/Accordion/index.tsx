@@ -1,6 +1,6 @@
 import { HTMLAttributes, Children, cloneElement, useRef } from "react";
 import "ui-styles/src/accordion.css";
-import { ArrowIcon } from "@/Icons/ArrowIcon";
+import { ArrowIcon } from "@/icons/ArrowIcon";
 
 type AccordionProps = {};
 

@@ -1,13 +1,13 @@
 import "ui-react/src/Sidebar/sidebar.css";
 import { HTMLAttributes, useContext, useRef, useState } from "react";
-import { Typography, TypographySize } from "ui-react";
-import { NotebookIcon } from "ui-react/src/Icons/NotebookIcon";
-import { LetterIcon } from "ui-react/src/Icons/LetterIcon";
-import { ProfileIcon } from "ui-react/src/Icons/ProfileIcon";
-import { LabelIcon } from "ui-react/src/Icons/LabelIcon";
-import { LogoutIcon } from "ui-react/src/Icons/LogoutIcon";
+import { IconNotebook } from "ui-react/src/icons/icon-notebook";
+import { IconLetter } from "ui-react/src/icons/icon-letter";
+import { IconProfile } from "ui-react/src/icons/icon-profile";
+import { IconLabel } from "ui-react/src/icons/icon-label";
+import { IconLogout } from "ui-react/src/icons/icon-logout";
+import { IconMonitor } from "ui-react/src/icons/icon-monitor";
 import { AuthContext } from "@/context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 type SidebarItem = {
   path: string;
   name: string;
@@ -18,63 +18,60 @@ type SidebarItemProps = SidebarItem & { isActive?: boolean };
 type SidebarItemNativeProps = HTMLAttributes<HTMLLIElement>;
 
 const items: SidebarItem[] = [
+  
+  {
+    path: "/dashboard",
+    name: "Dashboard",
+    Icon: IconMonitor,
+  },
   {
     path: "/profile",
     name: "Profile",
-    Icon: ProfileIcon,
+    Icon: IconProfile,
   },
   {
     path: "/projects",
     name: "Projects",
-    Icon: NotebookIcon,
+    Icon: IconNotebook,
   },
   {
     path: "/contact",
     name: "Contact",
-    Icon: LetterIcon,
+    Icon: IconLetter,
   },
   {
     path: "/labels",
     name: "Labels",
-    Icon: LabelIcon,
+    Icon: IconLabel,
   },
 ];
 
 export const LogoutButton = () => {
-  const {deleteToken} = useContext(AuthContext)
-  const navigate = useNavigate()
+  const { deleteToken } = useContext(AuthContext);
+  const navigate = useNavigate();
   const logout = () => {
     try {
-      deleteToken()
-      navigate("/login")
+      deleteToken();
+      navigate("/login");
       // mostrar un pequeno mensaje
-
     } catch (error) {
       console.error(error);
-      
     }
-  }
+  };
   return (
     <li onClick={logout}>
-    <button
-      className={[
-        "sidebar-item",
-      ].join(" ")}
-    >
-      <div className="sidebar-item__icon">
-        <LogoutIcon />
-      </div>
-      <span className="sidebar-item__name">Logout</span>
-    </button>
-  </li>
-
-  )
-}
-
-
+      <button className={["sidebar-item"].join(" ")}>
+        <div className="sidebar-item__icon">
+          <IconLogout />
+        </div>
+        <span className="sidebar-item__name">Logout</span>
+      </button>
+    </li>
+  );
+};
 
 export const Sidebar = () => {
-  const [itemActive, setItemActive] = useState("Profile");
+  const [itemActive, setItemActive] = useState("Dashboard");
   const handleButtonClick = (item: string) => {
     setItemActive(itemActive !== item ? item : itemActive);
   };
@@ -88,15 +85,8 @@ export const Sidebar = () => {
         Abrir
       </button> */}
       <aside ref={sidebarRef} className="sidebar sidebar--open">
-        <div className="sidebar__header">
-          <Typography
-            size={TypographySize.bodyLarge}
-            style={{ fontWeight: 700 }}
-          >
-            Diego Vergara
-          </Typography>
-        </div>
-        <ul className="sidebar__body">
+        <div className="sidebar__header hidden"></div>
+        <ul className="sidebar__body scrollbar--vertical">
           {items.map((item) => (
             <SidebarItem
               isActive={itemActive == item.name}
@@ -104,10 +94,11 @@ export const Sidebar = () => {
               {...item}
             />
           ))}
-          <ul className="sidebar__bottom">
+        </ul>
+
+        <ul className="sidebar__bottom">
             <LogoutButton />
           </ul>
-        </ul>
       </aside>
     </>
   );
@@ -122,7 +113,8 @@ const SidebarItem = ({
 }: SidebarItemProps & SidebarItemNativeProps) => {
   return (
     <li {...props}>
-      <button
+      <Link
+        to={path}
         className={[
           "sidebar-item",
           isActive ? "sidebar-item--active" : "",
@@ -132,7 +124,7 @@ const SidebarItem = ({
           <Icon />
         </div>
         <span className="sidebar-item__name">{name}</span>
-      </button>
+      </Link>
     </li>
   );
 };

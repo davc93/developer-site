@@ -1,4 +1,4 @@
-export const ProfileIcon = () => {
+export const IconProfile = () => {
     return (
       <svg
         viewBox="0 0 20 20"

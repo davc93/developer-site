@@ -1,5 +1,5 @@
 
-export const HomeIcon = () => {
+export const IconHome = () => {
     return (
       <svg
         viewBox="-2 0 21 21"

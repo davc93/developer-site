@@ -1,6 +1,13 @@
 import "./globals.css";
 import "ui-styles/src/variables.css"
-import "ui-styles/src/globals.css"
+import "ui-styles/src/base.css"
+import "ui-styles/src/animations.css"
+
+import "ui-styles/src/icon.css"
+import "ui-styles/src/section-container.css"
+
+
+
 import { createNavbarDesktop } from "@/components/molecules/NavbarDesktop";
 import { createNavbarMobile } from "@/components/molecules/NavbarMobile";
 import { navigation } from "@/navigation";

@@ -1,5 +1,5 @@
 import type { Preview } from "@storybook/react";
-import "ui-styles/src/globals.css"
+// import "ui-styles/src/globals.css"
 import "ui-styles/src/variables.css"
 
 const preview: Preview = {
@@ -16,11 +16,11 @@ const preview: Preview = {
       values: [
         {
           name: 'dark',
-          value: 'var(--surface--950)',
+          value: 'var(--storybook-surface)',
         },
         {
           name: 'light',
-          value: '#fff',
+          value: 'var(--storybook-surface)',
         },
       ],
     },

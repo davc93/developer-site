@@ -7,8 +7,13 @@ export const LoginPage = () => {
     
     
     
+    
     >
-      <div className="ml-16 w-full max-w-lg login-container fade-right-in" >
+      <div className="ml-16 w-full max-w-lg login-container fade-right-in rounded-md" 
+      style={{
+        border:"2px solid var(--primary--400)",
+        boxShadow:"var(--shadow-md)"
+      }}>
         <Login />
       </div>
     </section>

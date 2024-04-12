@@ -1,0 +1,11 @@
+
+.icon{
+    filter:none;
+    transition: filter 0.3s;
+  
+  }
+  .icon:hover{
+    filter:drop-shadow(var(--shadow-sm));
+   
+  }
+  

@@ -22,15 +22,15 @@ export const Login = () => {
     setLoading(true);
     try {
       const result = await authService.login(email.value, password.value);
-      setError(null);
-      setToken(result.token)
       
       //execute animation
       const container = document.querySelector(".login-container") as HTMLDivElement
       container.classList.remove("fade-right-in")
       container?.classList.add("fade-left-out")
       container?.addEventListener("animationend",(event)=>{
-        navigate("/profile");
+        setError(null);
+        setToken(result.token)
+        navigate("/dashboard");
       })
       // container?.classList.remove("animate")
 
@@ -44,7 +44,6 @@ export const Login = () => {
     <div
       className="flex flex-col gap-4 items-center py-8 px-8"
       style={{
-        backgroundColor:"rgba(0,0,0,0.3)",
         minWidth:"320px",
         maxWidth:"512px"
       }}

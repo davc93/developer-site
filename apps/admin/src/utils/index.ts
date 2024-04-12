@@ -23,3 +23,16 @@ export function getCookie(cname: string) {
 export function deleteCookie(cookieName: string) {
   document.cookie = `${cookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; Path=/;`;
 }
+
+export function handleColorSchemeChange(event:any) {
+  const html = document.documentElement;
+  if (event.matches) {
+    // Dark mode
+    html.setAttribute("data-theme", "dark");
+    console.log("User prefers dark mode");
+  } else {
+    // Light mode
+    html.setAttribute("data-theme", "light");
+    console.log("User prefers light mode");
+  }
+}

@@ -1,4 +1,4 @@
-export const ErrorIcon = () => {
+export const IconError = () => {
   return (
     <svg
       viewBox="0 0 24 24"

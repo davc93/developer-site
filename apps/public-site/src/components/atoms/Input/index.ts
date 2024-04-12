@@ -36,6 +36,8 @@ export const createInput = ({
   const labelElement = document.createElement("span");
   labelElement.classList.add("input__label");
   labelElement.textContent = inputNames;
+  
+  inputContainer.append(labelElement,input);
   if (error) {
     
     const errorMessage = document.createElement("div")
@@ -49,7 +51,6 @@ export const createInput = ({
     errorMessage.append(icon,errorMessageText)
     inputContainer.append(errorMessage)
   }
-  inputContainer.append(input,labelElement);
   
   return inputContainer;
 };

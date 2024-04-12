@@ -1,0 +1,79 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+ul {
+  margin: 0;
+}
+button {
+  background: none;
+  border: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+li {
+  list-style: none;
+}
+a {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  text-decoration: none;
+}
+.scrollbar--native {
+  scrollbar-width: auto;
+  scrollbar-color: var(--primary--600) transparent;
+}
+
+/* width */
+.scrollbar--horizontal::-webkit-scrollbar {
+  height: 8px;
+}
+
+/* Track */
+.scrollbar--horizontal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+.scrollbar--horizontal::-webkit-scrollbar-thumb {
+  background: var(--primary--600);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.scrollbar--horizontal::-webkit-scrollbar-thumb:hover {
+  background: var(--primary--400);
+}
+
+/* width */
+.scrollbar--vertical::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+.scrollbar--vertical::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+.scrollbar--vertical::-webkit-scrollbar-thumb {
+  background: var(--primary--600);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.scrollbar--vertical::-webkit-scrollbar-thumb:hover {
+  background: var(--primary--400);
+}

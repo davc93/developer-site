@@ -1,23 +1,16 @@
-import {  TextareaHTMLAttributes } from "react";
-import "ui-styles/src/text-area.css"
-
+import { TextareaHTMLAttributes } from "react";
+import "ui-styles/src/text-area.css";
 
 export interface TextAreaProps {
   label: string;
 }
 
-type NativeProps = TextareaHTMLAttributes<HTMLTextAreaElement>
-export const TextArea = ({label,required,name,...props}:TextAreaProps & NativeProps) => {
+type NativeProps = TextareaHTMLAttributes<HTMLTextAreaElement>;
+export const TextArea = ({ label, ...props }: TextAreaProps & NativeProps) => {
   return (
-    <div className="text-area">
-      <textarea
-      {...props}
-        name={name}
-        className="text-area-field"
-        required={required}
-        
-      />
-      <label className="text-area-label">{label} {required && "*"}</label>
+    <div className="text-area-container">
+      <label className="text-area__label">{label} </label>
+      <textarea {...props} className="text-area" />
     </div>
   );
 };

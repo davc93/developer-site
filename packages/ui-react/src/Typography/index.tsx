@@ -8,12 +8,6 @@ export enum TypographySize {
   bodyLarge = "typography--body-large",
   bodySmall = "typography--body-small",
 }
-export enum TypographyWeight {
-  LIGHT="typography--light",
-  REGULAR="typography--regular",
-  MEDIUM="typography--medium",
-  BOLD="typography--bold"
-}
 export enum TypographyTag {
   H1 = "h1",
   H2 = "h2",
@@ -34,15 +28,13 @@ export enum TypographyColor {
 
 
 export interface TypographyProps {
-  label?: string;
   size: TypographySize;
-  weight?:TypographyWeight;
   tag?: TypographyTag;
   color?: TypographyColor;
 }
 type NativeProps = HTMLAttributes<HTMLSpanElement>
-export const Typography = ({label,className,size,weight,tag,color,children,...props}:TypographyProps & NativeProps) => {
+export const Typography = ({className,size,tag,color = TypographyColor.White,children,...props}:TypographyProps & NativeProps) => {
   return (
-    <span className={["typography",color,size,weight,className].join(" ")} {...props}>{label}{children}</span>
+    <span className={["typography",color,size,className].join(" ")} {...props}>{children}</span>
   )
 }
