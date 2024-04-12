@@ -1,3 +1,3 @@
-import { createContext } from "react";
+import { createContext } from 'react'
 
-export const AuthContext = createContext<{token:string | null,setToken:any,deleteToken:any}>({token:null,setToken:null,deleteToken:null})
+export const AuthContext = createContext<{ token: string | null, setToken: any, deleteToken: any }>({ token: null, setToken: null, deleteToken: null })

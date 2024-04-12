@@ -1,0 +1,91 @@
+.fade-left-out {
+  animation-name: fade-left-out;
+  animation-duration: 0.7s;
+  animation-fill-mode: both;
+}
+
+.fade-right-in {
+  animation-name: fade-right-in;
+  animation-duration: 0.7s;
+  animation-fill-mode: both;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    display: none;
+  }
+}
+@keyframes fade-out {
+  to {
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes scale-increase {
+  from {
+    scale: 0.6;
+  }
+  to {
+    scale: 1;
+  }
+}
+
+@keyframes scale-decrease {
+  from {
+    scale: 1;
+  }
+  to {
+    scale: 0.6;
+  }
+}
+
+@keyframes fade-left-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-200px);
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes fade-right-in {
+  from {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+}
+
+@keyframes fade-in {
+    from{
+      opacity: 0;
+      display: none;
+    }
+  } 
+  @keyframes fade-out {
+    to{
+      opacity: 0;
+      display: none;
+    }
+  } 
+  
+  @keyframes scale-increase {
+    from{
+      scale: 0.6;
+    }
+    to{
+      scale: 1;
+    }
+  }
+  
+  @keyframes scale-decrease {
+    from{
+      scale: 1;
+    }
+    to{
+      scale: 0.6;
+    }
+  }

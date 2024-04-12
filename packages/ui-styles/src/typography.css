@@ -1,21 +1,16 @@
-
-
-h1,h2,h3,h4,h5,h6,p,span,ul {
-  margin: 0;
-}
 .typography {
-    color: var(--foreground--50);
-}
-
-.typography--primary{
-  color: var(--primary--600);
-}
-
-.typography--white{
   color: var(--foreground--50);
 }
 
-.typography--dark{
+.typography--primary {
+  color: var(--primary--600);
+}
+
+.typography--white {
+  color: var(--foreground--50);
+}
+
+.typography--dark {
   color: var(--foreground--950);
 }
 .link.typography--link {
@@ -24,11 +19,10 @@ h1,h2,h3,h4,h5,h6,p,span,ul {
   color: var(--primary--600);
   transition: all 0.3s;
 }
-.link.typography--link:hover{
+.link.typography--link:hover {
   cursor: pointer;
 
   text-shadow: var(--shadow-lg);
-  
 }
 .typography--title-large {
   font-size: var(--title-large);
@@ -45,7 +39,6 @@ h1,h2,h3,h4,h5,h6,p,span,ul {
 .typography--title-small {
   font-size: var(--title-small);
   font-family: var(--typography-primary);
-
 }
 
 .typography--body-medium {

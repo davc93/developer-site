@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Project } from "../../../models/project.model";
-import { projectService } from "../../../services/project.service";
+import { Project } from "@/models/project.model";
+import { projectService } from "@/services/project.service";
 import "./style.css";
 import { ProjectItem } from "../../molecules/ProjectItem";
 import { useInputValue } from "../../../hooks/useInputValue";

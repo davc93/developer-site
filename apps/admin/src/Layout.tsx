@@ -11,9 +11,21 @@ export const Layout = ({ children }: LayoutProps) => {
   const { token } = useContext(AuthContext);
   
   return (
-    <div className="h-screen">
+    <div className="h-screen w-full overflow-hidden flex"
+    
+    >
+      <div>
+
+      </div>
       {token && <Sidebar />}
-      {children}
+      
+      <main className="overflow-y-auto w-full scrollbar--native">
+        <div className="w-full h-full max-w-5xl pl-12 mr-auto ">
+
+          {children}
+        </div>
+      </main>
+      
     </div>
   );
 };

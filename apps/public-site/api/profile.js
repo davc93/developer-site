@@ -15,6 +15,7 @@ export default async function profile(req,res) {
         }
         return res.status(200).json(userInfo)
     } catch (error) {
+        console.error(error);
         return res.status(400).json({
             message:"something went wrong"
         })
