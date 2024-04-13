@@ -68,7 +68,8 @@ export const TableRow = (row:Row<unknown>) => {
 type Order = {
   nOrder:number,
   concept:string,
-  dateTime:string
+  dateTime:string,
+  link:string
 }
 
 
@@ -89,14 +90,44 @@ const columns = [
     header:"Date"
   }),
 
+  columnHelper.accessor("link",{
+    header:"Link"
+  }),
+
 ]
 
 const data:Order[] = [
   {
     nOrder:94847292,
-    concept:"Compra",
-    dateTime:"23-04-04"
-  }
+    concept:"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh viverra non semper suscipit posuere a pede.",
+    dateTime:"23-04-04",
+    link:"https://lorem2.com/"
+  },
+  {
+    nOrder:94847292,
+    concept:"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh viverra non semper suscipit posuere a pede.",
+    dateTime:"23-04-04",
+    link:"https://lorem2.com/"
+  },
+  {
+    nOrder:94847292,
+    concept:"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh viverra non semper suscipit posuere a pede.",
+    dateTime:"23-04-04",
+    link:"https://lorem2.com/"
+  },
+  {
+    nOrder:94847292,
+    concept:"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh viverra non semper suscipit posuere a pede.",
+    dateTime:"23-04-04",
+    link:"https://lorem2.com/"
+  },
+  {
+    nOrder:94847292,
+    concept:"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh viverra non semper suscipit posuere a pede.",
+    dateTime:"23-04-04",
+    link:"https://lorem2.com/"
+  },
+  
 ]
 
 export const Example = () => {
