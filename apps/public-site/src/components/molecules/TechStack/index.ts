@@ -1,5 +1,5 @@
 import "./style.css"
-import { TypographyColor, TypographySize, createTypography } from "@/components/atoms/Typography";
+import { TypographySize, createTypography } from "@/components/atoms/Typography";
 import { technologies } from "@/data/technologies";
 export const createTechStack = () => {
     const techsContainer = document.createElement("div");
@@ -17,8 +17,7 @@ export const createTechStack = () => {
         level.style.width = `${((100 - width) / 5) * tech.knowledgeLevel}%`;
         const name = createTypography({
           label: tech.name,
-          size: TypographySize.bodyMedium,
-          color: TypographyColor.White,
+          size: TypographySize.bodyMedium
         });
         name.classList.add("tech-stack__label")
         name.style.width = `${width}%`;

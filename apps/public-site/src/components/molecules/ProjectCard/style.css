@@ -19,17 +19,18 @@
 .project-card__content {
   display: flex;
   flex-direction: column;
-  gap: var(--space-6);
+  gap: var(--space-2);
   position: absolute;
   justify-content: end;
   bottom: 0;
   height: 100%;
-  padding: var(--space-3);
+  padding-inline: var(--space-6);
+  padding-block-end: var(--space-8);
+
   background: rgb(0, 0, 0);
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.5) 0%,
-    rgba(0, 0, 0, 0.5) 15%,
+    rgba(0, 0, 0, 0.85) 40%,
 
     rgba(0, 0, 0, 1) 100%
   );
@@ -50,6 +51,9 @@
 
 .project-card__title {
   color: var(--primary--500) !important;
+  text-transform: uppercase;
+  font-weight: 700;
+
 }
 
 .project-card__description {
@@ -74,7 +78,13 @@
 .project-card__tech-list {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-3);
+  gap: var(--space-5);
+  padding-top: 20px;
+  margin-top: 12px;
+
+  border-top-width: 2px;
+  border-top-style: solid;
+  border-color: var(--primary--500);
 }
 .project-card__tech-container {
   display: flex;

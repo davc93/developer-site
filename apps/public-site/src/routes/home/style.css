@@ -5,9 +5,12 @@
   width: 100%;
   min-height: 110vh;
   z-index: 1;
-  background-image: url("https://res.cloudinary.com/dxryc5jgr/image/upload/c_scale,q_70,w_1622/v1692046970/developer-site/developer-1.webp");
+  color: black;
+  filter:  opacity(0.7);
+  background-image:   url("https://res.cloudinary.com/dxryc5jgr/image/upload/c_scale,q_70,w_1622/v1692046970/developer-site/developer-1.webp");
   background-position: top ;
   background-size: cover;
+  background-blend-mode: saturation;
   animation-name: hide;
   background-repeat: no-repeat;
   animation-timing-function: linear;
@@ -21,22 +24,16 @@
 }
 @keyframes hide {
   0%{
-    opacity: .4;
+    opacity: 1;
 
   }
   20%{
-    opacity: 1;
-  }
-  65%{
-    opacity: 0.8;
-  }
-  85%{
     opacity: 0;
+    background-position: center bottom;
 
   }
 
   100%{
     opacity: 0;
-    background-position: center bottom;
   }
 }

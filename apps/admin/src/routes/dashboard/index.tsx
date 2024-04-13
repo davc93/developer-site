@@ -1,5 +1,5 @@
 import { Typography, TypographySize } from "ui-react"
-import { TypographyColor } from "ui-react/src/Typography"
+import { TypographyContrast } from "ui-react/src/Typography"
 
 
 export const DashboardPage = () => {
@@ -8,7 +8,7 @@ export const DashboardPage = () => {
         <Typography className="text-center" size={TypographySize.titleMedium}>Dashboard</Typography>
         <div className="flex gap-4 justify-between mt-10">
             <div className=" border-2 flex flex-col items-center gap-2 p-6 border-white rounded-sm">
-                <Typography size={TypographySize.titleSmall} color={TypographyColor.Primary}>
+                <Typography size={TypographySize.titleSmall} color={TypographyContrast.HIGH}>
                     10
                 </Typography>
 
@@ -17,7 +17,7 @@ export const DashboardPage = () => {
                 </Typography>
             </div>
             <div className=" border-2 flex flex-col items-center gap-2 p-6 border-white rounded-sm">
-                <Typography size={TypographySize.titleSmall} color={TypographyColor.Primary}>
+                <Typography size={TypographySize.titleSmall} color={TypographyContrast.HIGH}>
                     04-04-2024
                 </Typography>
 
@@ -26,7 +26,7 @@ export const DashboardPage = () => {
                 </Typography>
             </div>
             <div className=" border-2 flex flex-col items-center gap-2 p-6 border-white rounded-sm">
-                <Typography size={TypographySize.titleSmall} color={TypographyColor.Primary}>
+                <Typography size={TypographySize.titleSmall} >
                     1
                 </Typography>
 

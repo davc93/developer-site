@@ -19,10 +19,12 @@ export enum TypographyTag {
   span = "span",
 }
 
-export enum TypographyColor {
-    White = "typography--white",
-    Dark = "typography--dark",
-    Primary = "typography--primary",
+export enum TypographyContrast {
+    VERY_HIGH = "typography--very-high-contrast",
+    HIGH = "typography--high-contrast",
+    MEDIUM = "typography--medium-contrast",
+    LOW = "typography--low-contrast",
+    VERY_LOW = "typography--very-low-contrast",
 }
 
 
@@ -30,10 +32,10 @@ export enum TypographyColor {
 export interface TypographyProps {
   size: TypographySize;
   tag?: TypographyTag;
-  color?: TypographyColor;
+  color?: TypographyContrast;
 }
 type NativeProps = HTMLAttributes<HTMLSpanElement>
-export const Typography = ({className,size,tag,color = TypographyColor.White,children,...props}:TypographyProps & NativeProps) => {
+export const Typography = ({className,size,tag,color = TypographyContrast.VERY_HIGH,children,...props}:TypographyProps & NativeProps) => {
   return (
     <span className={["typography",color,size,className].join(" ")} {...props}>{children}</span>
   )
