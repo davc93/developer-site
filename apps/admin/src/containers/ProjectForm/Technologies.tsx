@@ -1,12 +1,14 @@
-import { useContext, useEffect, useState } from "react";
-import { Button, ButtonSizes, ButtonType } from "../../components/atoms/Button";
-import { Project } from "../../models/project.model";
-import { FormEventHandler } from "react";
-import { useGetLabels } from "../../components/organisms/ListOfLabels";
-import { Link } from "react-router-dom";
+import { useContext, useState,useEffect } from "react";
+import type { FormEventHandler } from "react";
+import type { Label } from "@/models/project.model";
+import { Button, ButtonSizes } from "ui-react";
+import { Project } from "@/models/project.model";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { labelService } from "@/services/label.service";
 import { ProjectFormContext } from "./Context";
 import { ActionTypes, Step } from "./reducer";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
+
+
 type TechnologiesProps = {
   project: Partial<Project> | null;
 };
@@ -16,6 +18,32 @@ type LabelInput = {
   order: number | null;
   labelId: number | null;
 };
+const useGetLabels = () => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [labels, setLabels] = useState<Label[]>([]);
+
+  const getLabels = async () => {
+    setLoading(true);
+    try {
+      const data = await labelService.getLabels();
+      setLabels(data);
+    } catch (error) {
+      setError(`${error}`);
+    }
+    setLoading(false);
+  };
+  useEffect(() => {
+    getLabels();
+  }, []);
+  return {
+    loading,
+    error,
+    labels,
+    getLabels,
+  };
+};
+
 export const useLabelsInputs = (project: any) => {
   const [labelsInputs, setLabelsInputs] = useState<LabelInput[]>(() => {
     if (project) {
@@ -76,22 +104,24 @@ export const useLabelsInputs = (project: any) => {
 };
 
 export const Technologies = (props: TechnologiesProps) => {
-  const {state,dispatch} = useContext(ProjectFormContext)
-  const [storedValue,setStoredValue] = useLocalStorage("projectForm",{})
-  const { labels, loading, error } = useGetLabels();
-  const { handleAddLabel, handleInputChange, handleRemoveLabel, labelsInputs } = useLabelsInputs(props.project);
-  
+  const { state, dispatch } = useContext(ProjectFormContext);
+  const [storedValue, setStoredValue] = useLocalStorage("projectForm", {});
+  const { labels } = useGetLabels();
+  const { handleAddLabel, handleInputChange, handleRemoveLabel, labelsInputs } =
+    useLabelsInputs(props.project);
+
   return (
     <>
       <div className="flex h-4/5 overflow-y-scroll">
         <form className="w-full flex flex-col">
           <div className="self-end">
             <Button
-              actionType="button"
-              label="Agregar"
+              type="button"
               size={ButtonSizes.SMALL}
               onClick={handleAddLabel}
-            />
+            >
+              Add
+            </Button>
           </div>
           <div className="flex flex-col gap-8">
             {labelsInputs.map((labelInput) => {
@@ -142,11 +172,12 @@ export const Technologies = (props: TechnologiesProps) => {
                     </select>
                   </div>
                   <Button
-                    label="Remove"
                     size={ButtonSizes.SMALL}
-                    actionType="button"
+                    type="button"
                     onClick={(event) => handleRemoveLabel(labelInput.inputId)}
-                  />
+                  >
+                    Remove
+                  </Button>
                 </div>
               );
             })}
@@ -155,35 +186,41 @@ export const Technologies = (props: TechnologiesProps) => {
       </div>
       <div className="h-1/5 flex gap-5 items-center justify-between w-full">
         <Button
-          actionType="button"
-          label="Previous"
+          type="button"
           size={ButtonSizes.SMALL}
           onClick={(event) => {
-            dispatch({type:ActionTypes.CHANGE_STEP,payload:Step.GENERAL})
-
+            dispatch({ type: ActionTypes.CHANGE_STEP, payload: Step.GENERAL });
           }}
-        />
+        >
+          Previous
+        </Button>
 
         <Button
-          label="Next"
           size={ButtonSizes.SMALL}
-          actionType="button"
+          type="button"
           onClick={(event) => {
             setStoredValue({
               ...storedValue,
-              labels:labelsInputs.map((label)=>({...label,id:label.labelId as number}))
-              
-            })
-            dispatch({type:ActionTypes.SET_PROJECT,payload:{
-              ...state.projectDTO,
-              labels:labelsInputs.map((label)=>({...label,id:label.labelId as number}))
-              
-              
-            }})
-            dispatch({type:ActionTypes.CHANGE_STEP,payload:Step.IMAGES})
-
+              labels: labelsInputs.map((label) => ({
+                ...label,
+                id: label.labelId as number,
+              })),
+            });
+            dispatch({
+              type: ActionTypes.SET_PROJECT,
+              payload: {
+                ...state.projectDTO,
+                labels: labelsInputs.map((label) => ({
+                  ...label,
+                  id: label.labelId as number,
+                })),
+              },
+            });
+            dispatch({ type: ActionTypes.CHANGE_STEP, payload: Step.IMAGES });
           }}
-        />
+        >
+          Next
+        </Button>
       </div>
     </>
   );

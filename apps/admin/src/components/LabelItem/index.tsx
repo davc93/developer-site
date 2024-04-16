@@ -1,12 +1,11 @@
-import React, { useContext, useState } from 'react'
-import { Label } from '../../../models/label.model'
-import { labelService } from '../../../services/label.service'
-import { AuthContext } from '../../../context/AuthContext'
-import { useGetLabels } from '../../organisms/ListOfLabels'
-import { Link } from 'react-router-dom'
 import './style.css'
-import { Button, ButtonSizes } from '../../atoms/Button'
-import { Typography, TypographySize } from '../../atoms/Typography'
+import { Link } from 'react-router-dom'
+import  { useContext, useState } from 'react'
+import { Button, ButtonSizes } from 'ui-react'
+import { Label } from '@/models/label.model'
+import { labelService } from '@/services/label.service'
+import { AuthContext } from '@/context/AuthContext'
+import { Typography, TypographySize } from 'ui-react'
 type LabelProps = {
     data:Label,
     getLabels:any

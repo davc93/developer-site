@@ -1,18 +1,18 @@
+import "./style.css";
 import React, {
   FormEventHandler,
   useContext,
   useEffect,
   useState,
 } from "react";
-import { labelService } from "../../../services/label.service";
-import { Label } from "../../../models/label.model";
+import { Input } from "ui-react";
+import { Typography, TypographySize } from "ui-react";
+import { labelService } from "@/services/label.service";
+import { Label } from "@/models/label.model";
 
-import "./style.css";
-import { LabelItem } from "../../molecules/LabelItem";
-import { useInputValue } from "../../../hooks/useInputValue";
-import { Pagination } from "../../molecules/Pagination";
-import { TextField, TextFieldInputType } from "../../atoms/TextField";
-import { Typography, TypographySize } from "../../atoms/Typography";
+import { LabelItem } from "@/components/LabelItem";
+import { useInputValue } from "@/hooks/useInputValue";
+import { Pagination } from "@/components/Pagination";
 export const useGetLabels = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -63,9 +63,8 @@ export const ListOfLabels = () => {
     <section className="label-list">
       <div className="label-list__options my-4">
         <form className="label-list__searchbar">
-          <TextField
+          <Input
           required
-            inputType={TextFieldInputType.TEXT}
             label="write a label name"
             {...searchInput}
           />

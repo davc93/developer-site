@@ -5,12 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",
-    "lint":"eslint ./src/**/*.tsx",
-    "lint:fix":"eslint --fix ./src/**/*.tsx",
+    "lint": "eslint ./src/**/*.tsx",
+    "lint:fix": "eslint --fix ./src/**/*.tsx",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-table": "^8.16.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3",

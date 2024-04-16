@@ -1,14 +1,14 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { TextArea } from "../../components/atoms/TextArea";
-import { TextField, TextFieldInputType } from "../../components/atoms/TextField";
-import { useCheckbox } from "../../hooks/useCheckbox";
-import { useInputValue } from "../../hooks/useInputValue";
-import { Project } from "../../models/project.model";
-import { Button, ButtonSizes } from "../../components/atoms/Button";
-import { useContext, useEffect } from "react";
+import { TextArea } from "ui-react";
+import { Input} from "ui-react";
+import { useCheckbox } from "@/hooks/useCheckbox";
+import { useInputValue } from "@/hooks/useInputValue";
+import type { Project } from "@/models/project.model";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { Button, ButtonSizes } from "ui-react";
 import { ProjectFormContext } from "./Context";
 import { ActionTypes, Step } from "./reducer";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
 type GeneralProps = {
   project: Partial<Project> | null;
 };
@@ -25,30 +25,26 @@ export const General = (props: GeneralProps) => {
   const publishedInput = useCheckbox(props.project?.published ?? true);
  
   return (
-    <>
-      <div className="flex h-4/5 overflow-y-scroll">
-        <form className="flex gap-16 mt-4   w-full justify-between">
-          <div className="w-1/3">
-            <TextField
-              inputType={TextFieldInputType.TEXT}
+    <div>
+      <div className="">
+        <form className="flex gap-16 justify-between">
+          <div className="">
+            <Input
               name="title"
               label="Title"
               {...title}
             />
-            <TextField
-              inputType={TextFieldInputType.TEXT}
+            <Input
               name="shortDescription"
               label="ShortDescription"
               {...shortDescription}
             />
-            <TextField
-              inputType={TextFieldInputType.TEXT}
+            <Input
               name="link"
               label="Link"
               {...link}
             />
-            <TextField
-              inputType={TextFieldInputType.TEXT}
+            <Input
               name="repository"
               label="Repository"
               {...repository}
@@ -57,39 +53,39 @@ export const General = (props: GeneralProps) => {
               <label>Published:</label>
               <input type="checkbox" name="published" {...publishedInput} />
             </div>
-            <TextField
-              inputType={TextFieldInputType.TEXT}
+            <Input
               name="slug"
               label="Slug"
               {...slug}
             />
           </div>
-          <div className="w-2/3 overflow-y-scroll">
+          <div className="w-full">
             <TextArea
-              style={{ height: "70vh" }}
               name="description"
               label="description"
+              style={{
+                he
+              }}
               {...description}
             />
           </div>
         </form>
       </div>
-      <div className="h-1/5 flex gap-5 items-center justify-between w-full">
+      <div className="flex justify-between">
         
           <Link to="/projects">
             <Button
-              actionType="button"
-              label="Back to projects"
+              type="button"
               size={ButtonSizes.SMALL}
-            />
+            >
+              Back to projects
+            </Button>
           </Link>
       
           <Button
-            label="Next"
             size={ButtonSizes.SMALL}
-            actionType="button"
+            type="button"
             onClick={(event) => {
-              
               setStoredValue({
                 ...storedValue,
                 title:title.value,
@@ -113,8 +109,10 @@ export const General = (props: GeneralProps) => {
                 }})
               dispatch({type:ActionTypes.CHANGE_STEP,payload:Step.TECHNOLOGIES})
             }}
-          />
+          >
+            Next
+          </Button>
       </div>
-    </>
+    </div>
   );
 };

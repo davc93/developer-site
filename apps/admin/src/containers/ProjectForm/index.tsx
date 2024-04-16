@@ -1,37 +1,31 @@
-import { FormEventHandler, useContext, useEffect, useReducer, useState } from "react";
-import { Project } from "../../models/project.model";
-import { projectService } from "../../services/project.service";
-import { labelProjectService } from "../../services/label-project.service";
-import { AuthContext } from "../../context/AuthContext";
-import { imageService } from "../../services/image.service";
-import { ActionTypes, Step, initialState, reducer } from "./reducer";
-import { Link, useNavigate } from "react-router-dom";
-import { Button, ButtonSizes } from "../../components/atoms/Button";
+import { FormEventHandler, useContext, useState } from "react";
+import { Project } from "@/models/project.model";
+import { projectService } from "@/services/project.service";
+import { labelProjectService } from "@/services/label-project.service";
+import { AuthContext } from "@/context/AuthContext";
+import { imageService } from "@/services/image.service";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { ActionTypes, Step } from "./reducer";
+import { useNavigate } from "react-router-dom";
+import { Button, ButtonSizes } from "ui-react";
 import { General } from "./General";
 import { Technologies } from "./Technologies";
 import { Images } from "./Images";
 import { ProjectFormContext } from "./Context";
-import { ErrorMessage } from "../../components/atoms/ErrorMessage";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
+import { Error } from "ui-react";
 type ProjectFormProps = {
   project: Project | null;
 };
 
 export const ProjectForm = (props: ProjectFormProps) => {
-  // if not local storage then fill with project if not edit then let empty
-  const [storedValue,setStoredValue] = useLocalStorage("projectForm",{})
   const { token } = useContext(AuthContext);
   const { state, dispatch } = useContext(ProjectFormContext);
-  const [submitError, setSubmitError] = useState<string | null>(null)
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const navigate = useNavigate();
   const isEdit = props.project;
   const handleSubmit: FormEventHandler = async (event) => {
     event.preventDefault();
-    
     const { images, labels, ...general } = state.projectDTO;
-    
-    
-    
     try {
       if (!isEdit) {
         const { id } = await projectService.addProject(
@@ -88,21 +82,20 @@ export const ProjectForm = (props: ProjectFormProps) => {
       }
       navigate("/projects");
     } catch (error) {
-      setSubmitError(`${error}`)
+      setSubmitError(`${error}`);
     }
   };
-  
+
   return (
-    <section className="flex h-full flex-col">
+    <section className="flex flex-col">
       {state.step == 1 && <General project={props.project} />}
       {state.step == 2 && <Technologies project={props.project} />}
       {state.step == 3 && <Images project={props.project} />}
 
       {state.step == 3 && (
-        <div className="h-1/5 flex gap-5 items-center justify-between w-full">
+        <div className="flex justify-between">
           <Button
-            actionType="button"
-            label="Previous"
+            type="button"
             size={ButtonSizes.SMALL}
             onClick={(event) => {
               dispatch({
@@ -110,14 +103,13 @@ export const ProjectForm = (props: ProjectFormProps) => {
                 payload: Step.TECHNOLOGIES,
               });
             }}
-          />
-          <ErrorMessage>{submitError}</ErrorMessage>
-          <Button
-            label="Submit"
-            size={ButtonSizes.SMALL}
-            onClick={handleSubmit}
-            actionType="submit"
-          />
+          >
+            Previous
+          </Button>
+          <Error>{submitError}</Error>
+          <Button type="submit" size={ButtonSizes.SMALL} onClick={handleSubmit}>
+            Submit
+          </Button>
         </div>
       )}
     </section>
