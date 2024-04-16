@@ -36,7 +36,6 @@ class LabelService {
   }
 
   async deleteByProject(projectId){
-    console.log(projectId);
     const id = await models.LabelProject.destroy({
       where:{
         projectId
