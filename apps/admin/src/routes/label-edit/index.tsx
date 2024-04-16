@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { LabelForm } from "../../containers/LabelForm";
-import { useParams } from "react-router-dom";
-import { Label } from "../../models/label.model";
-import { labelService } from "../../services/label.service";
+import { LabelForm } from "@/containers/LabelForm";
+import { Link, useParams } from "react-router-dom";
+import { Label } from "@/models/label.model";
+import { labelService } from "@/services/label.service";
+import { Button, ButtonSizes } from "ui-react";
 
 export const EditLabelPage = () => {
   const { id } = useParams();
@@ -15,7 +16,7 @@ export const EditLabelPage = () => {
     try {
       const data = await labelService.getLabel(parseInt(id as string));
       setLabel(data);
-      setError(null)
+      setError(null);
     } catch (error) {
       setError(`${error}`);
     }
@@ -25,12 +26,14 @@ export const EditLabelPage = () => {
     getLabel();
   }, []);
 
-  if (loading) {
-    return <p>Loading...</p>;
-  } else if (error) {
-    return <p>{error}</p>;
-  } else {
-    
-    return <LabelForm label={label} />;
-  }
+  return (
+    <div className="flex flex-col justify-center ">
+      {!loading && <LabelForm label={label} />}
+      <Link className="mt-8" to={"/labels"}>
+        <Button size={ButtonSizes.SMALL}>Back to labels</Button>
+      </Link>
+      {error && <p>{error}</p>}
+      {loading && <p>Loading...</p>}
+    </div>
+  );
 };

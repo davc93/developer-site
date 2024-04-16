@@ -1,12 +1,14 @@
-
-import { LabelForm } from "../../containers/LabelForm";
+import { LabelForm } from "@/containers/LabelForm";
+import { Link } from "react-router-dom";
+import { Button, ButtonSizes } from "ui-react";
 
 export const CreateLabelPage = () => {
   return (
-    <main className="absolute top-20 left-0 right-0">
-      <div className="flex justify-center ">
+      <div className="flex flex-col justify-center ">
         <LabelForm label={null} />
+        <Link className="mt-8" to={"/labels"}>
+          <Button size={ButtonSizes.SMALL}>Back to labels</Button>
+        </Link>
       </div>
-    </main>
   );
 };

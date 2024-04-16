@@ -63,9 +63,7 @@ export const General = (props: GeneralProps) => {
             <TextArea
               name="description"
               label="description"
-              style={{
-                he
-              }}
+              
               {...description}
             />
           </div>

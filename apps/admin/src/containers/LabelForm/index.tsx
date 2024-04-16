@@ -1,9 +1,10 @@
 import React, { useState, FormEventHandler, useContext } from "react";
-import { labelService } from "../../services/label.service";
-import { Label } from "../../models/label.model";
-import { AuthContext } from "../../context/AuthContext";
-import { useInputValue } from "../../hooks/useInputValue";
-import { useFileInput } from "../../hooks/useFileInput";
+import { labelService } from "@/services/label.service";
+import { Label } from "@/models/label.model";
+import { AuthContext } from "@/context/AuthContext";
+import { useInputValue } from "@/hooks/useInputValue";
+import { useFileInput } from "@/hooks/useFileInput";
+import { Button, Input } from "ui-react";
 
 type LabelFormProps = {
   label: Label | null;
@@ -52,13 +53,11 @@ export const LabelForm = ({ label }: LabelFormProps) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="input-group">
-        <label>Title:</label>
-        <input type="text" name="title" {...title} />
-      </div>
+      
+      <Input label="Title" name="title" {...title}/>
       <div className="input-group">
         <label>Type:</label>
-        <select name="type" placeholder="Technologies" {...type}>
+        <select name="type"  {...type}>
           <option value="tech">Tech</option>
           <option value="other">Otro</option>
         </select>
@@ -70,7 +69,7 @@ export const LabelForm = ({ label }: LabelFormProps) => {
         {fileError && <p>{fileError}</p>}
         {file && <img src={file} alt="" />}
       </div>
-      <button type="submit">Submit</button>
+      <Button type="submit">Submit</Button>
       {loading && <p>Loading</p>}
       {error && <p>{error}</p>}
     </form>

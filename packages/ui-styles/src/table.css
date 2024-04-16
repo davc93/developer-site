@@ -8,6 +8,7 @@
 .table{
   border-spacing: 0 !important;
   border-collapse: separate;
+  width: 100%;
 
 }
 .table__header-row{
