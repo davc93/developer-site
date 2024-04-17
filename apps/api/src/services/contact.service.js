@@ -4,7 +4,7 @@ class ContactService{
 
 
     async getAllMessages(limit,offset){
-        const messages = await models.Message.findAll({limit,offset})
+        const messages = await models.Message.findAndCountAll({limit,offset})
         return messages
     }
 }

@@ -7,10 +7,13 @@ router.get('/',async (req,res,next)=>{
     try {
         const {query:{page,results}} = req
         const messages = await contactService.getAllMessages(results,page*results - results)
-        res.json({results:messages,info:{
-            results,
-            page
-        }})
+        res.json({
+            results:messages.rows,
+            info:{
+                page:Number(page),
+                results:messages.rows.length
+            }
+        })
     } catch (error) {
         next(error)
     }
