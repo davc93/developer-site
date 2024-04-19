@@ -1,5 +1,5 @@
 import "ui-styles/src/button.css";
-import { ButtonHTMLAttributes, ReactNode } from "react";
+import { ButtonHTMLAttributes, LabelHTMLAttributes, ReactNode } from "react";
 
 export enum ButtonSizes {
   LARGE = "large",
@@ -18,19 +18,22 @@ export interface ButtonProps {
   variant?: ButtonVariant;
   loading?: boolean;
   disabled?:boolean;
+  tag?:"button" | "label" | "span"
 }
 
-type NativeProps = ButtonHTMLAttributes<HTMLButtonElement>;
+type NativeProps = ButtonHTMLAttributes<HTMLElement> ;
 export const Button = ({
   children,
   size = ButtonSizes.LARGE,
   variant = ButtonVariant.PRIMARY,
   loading,
   className,
+  tag = "button",
   ...props
 }: ButtonProps & NativeProps) => {
+  const Component = tag as any
   return (
-    <button
+    <Component
       className={[
         "button",
         variant,
@@ -42,6 +45,6 @@ export const Button = ({
     >
       <span className="button__text">{children} <div className="button__loader" /></span>
       
-    </button>
+    </Component>
   );
 };

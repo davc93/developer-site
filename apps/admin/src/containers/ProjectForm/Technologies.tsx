@@ -1,16 +1,15 @@
-import { useContext, useState,useEffect } from "react";
-import type { FormEventHandler } from "react";
-import type { Label } from "@/models/project.model";
-import { Button, ButtonSizes } from "ui-react";
+import { useState, useEffect, useContext } from "react";
+import { Button, ButtonSizes, Select } from "ui-react";
 import { Project } from "@/models/project.model";
-import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { labelService } from "@/services/label.service";
+import type { Label } from "@/models/project.model";
+import type { FormEventHandler } from "react";
 import { ProjectFormContext } from "./Context";
 import { ActionTypes, Step } from "./reducer";
 
-
 type TechnologiesProps = {
   project: Partial<Project> | null;
+  show: boolean;
 };
 
 type LabelInput = {
@@ -103,125 +102,83 @@ export const useLabelsInputs = (project: any) => {
   };
 };
 
-export const Technologies = (props: TechnologiesProps) => {
-  const { state, dispatch } = useContext(ProjectFormContext);
-  const [storedValue, setStoredValue] = useLocalStorage("projectForm", {});
+export const Technologies = ({ project, show }: TechnologiesProps) => {
   const { labels } = useGetLabels();
+  const { dispatch, state } = useContext(ProjectFormContext);
+
   const { handleAddLabel, handleInputChange, handleRemoveLabel, labelsInputs } =
-    useLabelsInputs(props.project);
+    useLabelsInputs(project);
 
+  useEffect(() => {
+    dispatch({
+      type: ActionTypes.SET_PROJECT,
+      payload: {
+        labels: labelsInputs.map((label:any) => ({
+          ...label,
+          id: label.labelId as number,
+        })),
+      },
+    });
+
+  }, [show]);
   return (
-    <>
-      <div className="flex h-4/5 overflow-y-scroll">
-        <form className="w-full flex flex-col">
-          <div className="self-end">
-            <Button
-              type="button"
-              size={ButtonSizes.SMALL}
-              onClick={handleAddLabel}
-            >
-              Add
-            </Button>
-          </div>
-          <div className="flex flex-col gap-8">
-            {labelsInputs.map((labelInput) => {
-              return (
-                <div
-                  className="flex gap-4 items-center"
-                  key={labelInput.inputId}
+    <form className={`flex flex-col w-fit mb-4 ${show ? "" : "hidden"}`}>
+      <div className="self-end mb-4">
+        <Button type="button" size={ButtonSizes.SMALL} onClick={handleAddLabel}>
+          Add
+        </Button>
+      </div>
+      <div className="flex w-fit flex-col gap-8">
+        {labelsInputs.map((labelInput) => {
+          return (
+            <div className="flex  gap-4 items-center" key={labelInput.inputId}>
+              <div className="input-group">
+                <Select
+                  value={labelInput.labelId ?? ""}
+                  name=""
+                  id={`labelId-${labelInput.inputId}`}
+                  onInput={handleInputChange}
+                  placeholder={"Select a label"}
+                  disabled={labels.length == 0}
                 >
-                  <div className="input-group">
-                    <label htmlFor="">Label</label>
-                    <select
-                      value={labelInput.labelId ?? ""}
-                      name=""
-                      id={`labelId-${labelInput.inputId}`}
-                      onInput={handleInputChange}
-                    >
-                      {labels.length == 0 && (
-                        <option disabled>Loading...</option>
-                      )}
-                      {!labelInput.labelId && (
-                        <option value="">Seleccione una opcion</option>
-                      )}
-                      {labels.map((label) => {
-                        return (
-                          <option key={label.id} value={label.id}>
-                            {label.title}{" "}
-                          </option>
-                        );
-                      })}
-                    </select>
-                  </div>
-                  <div className="input-group">
-                    <label htmlFor="">Order</label>
-                    <select
-                      value={labelInput.order ?? ""}
-                      name=""
-                      id={`order-${labelInput.inputId}`}
-                      onInput={handleInputChange}
-                    >
-                      {!labelInput.order && <option>Choose the order</option>}
-                      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((number) => {
-                        return (
-                          <option key={number} value={number}>
-                            {number}
-                          </option>
-                        );
-                      })}
-                    </select>
-                  </div>
-                  <Button
-                    size={ButtonSizes.SMALL}
-                    type="button"
-                    onClick={(event) => handleRemoveLabel(labelInput.inputId)}
-                  >
-                    Remove
-                  </Button>
-                </div>
-              );
-            })}
-          </div>
-        </form>
+                  {labels.map((label) => {
+                    return (
+                      <option key={label.id} value={label.id}>
+                        {label.title}{" "}
+                      </option>
+                    );
+                  })}
+                </Select>
+              </div>
+              <div className="input-group">
+                <Select
+                  value={labelInput.order ?? ""}
+                  name=""
+                  id={`order-${labelInput.inputId}`}
+                  onInput={handleInputChange}
+                  placeholder="Choose the order"
+                >
+                  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((number) => {
+                    return (
+                      <option key={number} value={number}>
+                        {number}
+                      </option>
+                    );
+                  })}
+                </Select>
+              </div>
+              <Button
+                size={ButtonSizes.SMALL}
+                type="button"
+                onClick={(event) => handleRemoveLabel(labelInput.inputId)}
+              >
+                Remove
+              </Button>
+            </div>
+          );
+        })}
       </div>
-      <div className="h-1/5 flex gap-5 items-center justify-between w-full">
-        <Button
-          type="button"
-          size={ButtonSizes.SMALL}
-          onClick={(event) => {
-            dispatch({ type: ActionTypes.CHANGE_STEP, payload: Step.GENERAL });
-          }}
-        >
-          Previous
-        </Button>
 
-        <Button
-          size={ButtonSizes.SMALL}
-          type="button"
-          onClick={(event) => {
-            setStoredValue({
-              ...storedValue,
-              labels: labelsInputs.map((label) => ({
-                ...label,
-                id: label.labelId as number,
-              })),
-            });
-            dispatch({
-              type: ActionTypes.SET_PROJECT,
-              payload: {
-                ...state.projectDTO,
-                labels: labelsInputs.map((label) => ({
-                  ...label,
-                  id: label.labelId as number,
-                })),
-              },
-            });
-            dispatch({ type: ActionTypes.CHANGE_STEP, payload: Step.IMAGES });
-          }}
-        >
-          Next
-        </Button>
-      </div>
-    </>
+    </form>
   );
 };

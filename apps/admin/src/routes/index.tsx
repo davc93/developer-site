@@ -12,6 +12,7 @@ import { EditProjectPage } from "@/routes/project-edit";
 import { LabelsPage } from "@/routes/labels";
 import { CreateLabelPage } from "@/routes/label-create";
 import { EditLabelPage } from "@/routes/label-edit";
+import { ContactPage } from "./contact";
 
 export const PublicRoutes = () => {
   const { token } = useContext(AuthContext);
@@ -48,6 +49,7 @@ export const PrivateRoutes = () => {
       <Route element={<LabelsPage />} path="/labels" />
       <Route element={<CreateLabelPage />} path="/label/create" />
       <Route element={<EditLabelPage />} path="/label/edit/:id" /> */
+      <Route element={<ContactPage />} path="/contact" /> */
     </Routes>
   );
 };

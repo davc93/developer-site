@@ -4,7 +4,7 @@
 .text-area-container {
   display: flex;
   flex-direction: column;
-
+  height: 100%;
   font-family: var(--typography-primary);
   gap: 4px;
   /* background-color: var(--dark); */

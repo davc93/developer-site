@@ -30,10 +30,10 @@ export const Table = ({ data, columns, actions }: TableProps) => {
         <thead>
           {table.getHeaderGroups().map((group, i) => {
             return (
-              <tr className="table__header-row">
-                {group.headers.map((header) => {
+              <tr className="table__header-row" key={i}>
+                {group.headers.map((header,i) => {
                   return (
-                    <th className="table__header-cell">
+                    <th className="table__header-cell" key={i}>
                       {flexRender(
                         header.column.columnDef.header,
                         header.getContext()
@@ -125,13 +125,13 @@ export const OptionButton = ({
           </svg>
         </button>
         <div className="option-menu__content">
-          {actions?.map((action) => {
+          {actions?.map((action,index) => {
             const handleClick = () => {
               action.fn(rowData);
             };
 
             return (
-              <div onClick={handleClick} className="option-menu__title">
+              <div key={index} onClick={handleClick} className="option-menu__title">
                 <span >{action.name}</span>
               </div>
             );
@@ -156,7 +156,8 @@ export const TableRow = (row: Row<unknown> & { actions?: Action[] }) => {
           </td>
         );
       })}
-      <OptionButton actions={row.actions} rowData={row.original} />
+
+      {row.actions && <OptionButton actions={row.actions} rowData={row.original} />}
     </tr>
   );
 };

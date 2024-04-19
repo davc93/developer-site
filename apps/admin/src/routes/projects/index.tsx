@@ -54,7 +54,6 @@ export const ProjectsPage = () => {
   ];
   const getProjects = async () => {
     const projects = await projectService.getProjects();
-    console.log(projects);
 
     setData(projects);
   };

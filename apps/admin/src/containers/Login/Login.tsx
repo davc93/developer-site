@@ -43,7 +43,7 @@ export const Login = () => {
 
   return (
     <div
-      className="flex flex-col gap-4 items-center py-8 px-8"
+      className="flex flex-col  items-center py-8 px-8"
       style={{
         minWidth:"320px",
         maxWidth:"512px"
@@ -53,7 +53,7 @@ export const Login = () => {
         Login 
       </Typography>
       <form
-      className="w-full"
+      className="w-full gap-8 flex flex-col"
         onSubmit={handleSubmit}
       >
         <Input
@@ -74,7 +74,7 @@ export const Login = () => {
         />
         <Button
           type="submit"
-          className="mt-16 mb-4"
+          className="mt-8"
           size={ButtonSizes.WIDE}
           loading={loading}
         >
