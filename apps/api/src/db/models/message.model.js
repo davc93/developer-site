@@ -15,6 +15,19 @@ const MessageSchema = {
     type: DataTypes.STRING,
     allowNull: true,
   },
+  createdAt: {
+    allowNull: false,
+    type: DataTypes.DATE,
+    field: 'created_at',
+    defaultValue: Sequelize.NOW
+  },
+  updatedAt:{
+    allowNull: true,
+    type: DataTypes.DATE,
+    field: 'updated_at',
+    defaultValue: Sequelize.NOW
+  
+  },
 };
 
 class Message extends Model {

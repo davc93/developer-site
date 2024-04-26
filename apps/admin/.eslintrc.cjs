@@ -10,5 +10,10 @@ module.exports = {
     sourceType: 'module'
   },
   plugins: ['react'],
-  rules: {}
+  rules: {
+    "@typescript-eslint/quotes": 'off',
+    "quotes-props": "off",
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/strict-boolean-expressions": "off"
+  }
 }

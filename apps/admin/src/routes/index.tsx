@@ -1,43 +1,43 @@
-import { Route, Routes, BrowserRouter, useNavigate } from "react-router-dom";
-import { Layout } from "@/Layout";
-import { LoginPage } from "@/routes/login";
-import { ProfilePage } from "@/routes/profile";
-import { useContext, useEffect } from "react";
-import { AuthContext } from "@/context/AuthContext";
-import { DashboardPage } from "@/routes/dashboard";
-import { ProjectsPage } from "@/routes/projects";
+import { Route, Routes, BrowserRouter, useNavigate } from "react-router-dom"
+import { Layout } from "@/Layout"
+import { LoginPage } from "@/routes/login"
+import { ProfilePage } from "@/routes/profile"
+import { useContext, useEffect } from "react"
+import { AuthContext } from "@/context/AuthContext"
+import { DashboardPage } from "@/routes/dashboard"
+import { ProjectsPage } from "@/routes/projects"
 
-import { CreateProjectPage } from "@/routes/project-create";
-import { EditProjectPage } from "@/routes/project-edit";
-import { LabelsPage } from "@/routes/labels";
-import { CreateLabelPage } from "@/routes/label-create";
-import { EditLabelPage } from "@/routes/label-edit";
-import { ContactPage } from "./contact";
+import { CreateProjectPage } from "@/routes/project-create"
+import { EditProjectPage } from "@/routes/project-edit"
+import { LabelsPage } from "@/routes/labels"
+import { CreateLabelPage } from "@/routes/label-create"
+import { EditLabelPage } from "@/routes/label-edit"
+import { ContactPage } from "./contact"
 
-export const PublicRoutes = () => {
-  const { token } = useContext(AuthContext);
-  const navigate = useNavigate();
+export const PublicRoutes = (): JSX.Element => {
+  const { token } = useContext(AuthContext)
+  const navigate = useNavigate()
   useEffect(() => {
     if (token) {
-      navigate("/dashboard");
+      navigate("/dashboard")
     }
-  }, []);
+  }, [])
   return (
     <Routes>
       <Route element={<LoginPage />} path="/login" />
     </Routes>
-  );
-};
+  )
+}
 
-export const PrivateRoutes = () => {
-  const { token } = useContext(AuthContext);
-  const navigate = useNavigate();
+export const PrivateRoutes = (): JSX.Element => {
+  const { token } = useContext(AuthContext)
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (!token) {
-      navigate("/login");
+      navigate("/login")
     }
-  }, []);
+  }, [])
 
   return (
     <Routes>
@@ -51,10 +51,10 @@ export const PrivateRoutes = () => {
       <Route element={<EditLabelPage />} path="/label/edit/:id" /> */
       <Route element={<ContactPage />} path="/contact" /> */
     </Routes>
-  );
-};
+  )
+}
 
-export const Router = () => {
+export const Router = (): JSX.Element => {
   return (
     <BrowserRouter>
       <Layout>
@@ -62,5 +62,5 @@ export const Router = () => {
         <PublicRoutes />
       </Layout>
     </BrowserRouter>
-  );
-};
+  )
+}
