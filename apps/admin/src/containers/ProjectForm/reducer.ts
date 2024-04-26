@@ -1,4 +1,4 @@
-import type { CreateProjectDto,UpdateProjectDto, ImageDto } from "@/models/project.model";
+import type { Project } from "@/models/project.model";
 export enum ActionTypes {
   CHANGE_STEP = "CHANGE_STEP",
   SET_PROJECT = "SET_PROJECT",
@@ -13,14 +13,37 @@ export enum Step {
 }
 
 
+
+export interface ProjectDto extends Partial<Omit<Project, "id" | "createdAt"|"labels"|"images">> {
+  labels?:{
+    order:number,
+    labelId:number
+  }[],
+  images?:{
+    url:string
+  }[]
+
+}
+
 export type ReducerState = {
-  projectDTO: CreateProjectDto | UpdateProjectDto;
+  projectDTO: ProjectDto;
   step: Step;
 };
 
 export const initialState: ReducerState = {
   step: Step.GENERAL,
-  projectDTO: {},
+  projectDTO: {
+    title:"",
+    link:"",
+    repository:"",
+    shortDescription:"",
+    published:true,
+    description:"",
+    slug:"",
+    images:[],
+    labels:[]
+
+  },
 };
 
 export type Actions = {

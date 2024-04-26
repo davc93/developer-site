@@ -6,54 +6,88 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import type { ColumnDef, Row } from "@tanstack/react-table";
-import { ButtonHTMLAttributes, MouseEventHandler, useEffect, useRef } from "react";
-
+import {
+  ButtonHTMLAttributes,
+  MouseEventHandler,
+  useEffect,
+  useRef,
+} from "react";
+import { Button, ButtonSizes } from "../Button";
+import { Typography, TypographySize } from "..";
 interface TableProps {
   data: unknown[];
   columns: ColumnDef<any, any>[];
   actions?: Action[];
+  isLoading?: boolean;
+  handleNextClick?: () => void;
+  handlePreviousClick?: () => void;
+  page?: number;
 }
 type Action = {
   name: string;
   fn: (params: any) => void;
 };
-export const Table = ({ data, columns, actions }: TableProps) => {
+export const Table = ({
+  isLoading,
+  data,
+  page,
+  columns,
+  actions,
+  handleNextClick,
+  handlePreviousClick,
+}: TableProps) => {
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
   });
 
-  return (
-    <div className="table-container">
-      <table className="table">
-        <thead>
-          {table.getHeaderGroups().map((group, i) => {
-            return (
-              <tr className="table__header-row" key={i}>
-                {group.headers.map((header,i) => {
-                  return (
-                    <th className="table__header-cell" key={i}>
-                      {flexRender(
-                        header.column.columnDef.header,
-                        header.getContext()
-                      )}
-                    </th>
-                  );
-                })}
-                <th></th>
-              </tr>
-            );
-          })}
-        </thead>
-        <tbody>
-          {table.getRowModel().rows.map((row, index) => {
-            return <TableRow key={index} {...row} actions={actions} />;
-          })}
-        </tbody>
-      </table>
-    </div>
-  );
+  if (isLoading) {
+    return <></>;
+  } else {
+    return (
+      <>
+        <div className="table-container">
+          <table className="table">
+            <thead>
+              {table.getHeaderGroups().map((group, i) => {
+                return (
+                  <tr className="table__header-row" key={i}>
+                    {group.headers.map((header, i) => {
+                      return (
+                        <th className="table__header-cell" key={i}>
+                          {flexRender(
+                            header.column.columnDef.header,
+                            header.getContext()
+                          )}
+                        </th>
+                      );
+                    })}
+                    <th></th>
+                  </tr>
+                );
+              })}
+            </thead>
+            <tbody>
+              {table.getRowModel().rows.map((row, index) => {
+                return <TableRow key={index} {...row} actions={actions} />;
+              })}
+            </tbody>
+          </table>
+        </div>
+
+        <div className="table-pagination">
+          <Button onClick={handlePreviousClick} size={ButtonSizes.SMALL}>
+            Prev
+          </Button>
+          <Typography style={{width:20,textAlign:"center"}} size={TypographySize.bodyLarge}>{page}</Typography>
+          <Button onClick={handleNextClick} size={ButtonSizes.SMALL}>
+            Next
+          </Button>
+        </div>
+      </>
+    );
+  }
 };
 
 export const OptionButton = ({
@@ -67,7 +101,7 @@ export const OptionButton = ({
   rowData: unknown;
 }) => {
   const menuRef = useRef<HTMLDivElement>(null);
-  const handleClick:MouseEventHandler<HTMLButtonElement> = (event) => {
+  const handleClick: MouseEventHandler<HTMLButtonElement> = (event) => {
     if (menuRef.current?.classList.contains("option-menu--closed")) {
       menuRef.current?.classList.remove("option-menu--closed");
     } else {
@@ -88,10 +122,10 @@ export const OptionButton = ({
   }, []);
 
   return (
-    <td className="option-menu-icon" >
+    <td className="option-menu-icon">
       <div ref={menuRef} className="option-menu option-menu--closed">
         <button
-        className={["icon-option-menu",className].join(" ")}
+          className={["icon-option-menu", className].join(" ")}
           onClick={handleClick}
           style={{ width: "24px", ...style }}
           {...props}
@@ -125,14 +159,18 @@ export const OptionButton = ({
           </svg>
         </button>
         <div className="option-menu__content">
-          {actions?.map((action,index) => {
+          {actions?.map((action, index) => {
             const handleClick = () => {
               action.fn(rowData);
             };
 
             return (
-              <div key={index} onClick={handleClick} className="option-menu__title">
-                <span >{action.name}</span>
+              <div
+                key={index}
+                onClick={handleClick}
+                className="option-menu__title"
+              >
+                <span>{action.name}</span>
               </div>
             );
           })}
@@ -157,7 +195,9 @@ export const TableRow = (row: Row<unknown> & { actions?: Action[] }) => {
         );
       })}
 
-      {row.actions && <OptionButton actions={row.actions} rowData={row.original} />}
+      {row.actions && (
+        <OptionButton actions={row.actions} rowData={row.original} />
+      )}
     </tr>
   );
 };

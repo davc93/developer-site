@@ -113,9 +113,9 @@ export const Technologies = ({ project, show }: TechnologiesProps) => {
     dispatch({
       type: ActionTypes.SET_PROJECT,
       payload: {
-        labels: labelsInputs.map((label:any) => ({
-          ...label,
-          id: label.labelId as number,
+        labels: labelsInputs.map(({inputId,labelId,order }) => ({
+          order:order as number ,
+          labelId:labelId as number
         })),
       },
     });

@@ -5,7 +5,7 @@ import { sequelize,Message } from "./lib/sequelize/sequelize.js";
 
 export default async function handler(request, response) {
   try {
-    const {body} = request
+    const body = JSON.parse(request.body)
     
     await messageSchema.validateAsync(body)
     //save in database

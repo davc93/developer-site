@@ -8,8 +8,8 @@ export interface Project {
   description:      string;
   createdAt:        string;
   slug:             string;
-  images?:           Image[];
-  labels?:           Label[];
+  images:           Image[];
+  labels:           Label[];
 }
 
 export interface Image {
@@ -32,9 +32,7 @@ export interface LabelProject {
   createdAt: Date;
 }
 
-export interface CreateProjectDto extends Omit<Project, "images" | "labels" | "id" | "createdAt">{
-  images:Omit<Image,"id">[],
-  labels:Partial<LabelProject> []
+export interface CreateProjectDto extends Omit<Project, "id" | "createdAt">{
 }
 
 

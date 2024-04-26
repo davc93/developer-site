@@ -31,4 +31,10 @@ export function handleColorSchemeChange(event:any) {
   } else {
     html.setAttribute("data-theme", "light");
   }
+
+
+}
+
+export function sendNotification(message:any) {
+  alert(`${message}`)
 }

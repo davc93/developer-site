@@ -15,6 +15,6 @@ export interface Project {
 }
 
 export interface CreateProjectDto
-  extends Omit<Project, "id" | "images" | "labels" | "createdAt"> {}
+  extends Omit<Project, "id"  | "createdAt"> {}
 
 export interface UpdateProjectDto extends Partial<CreateProjectDto> {}
