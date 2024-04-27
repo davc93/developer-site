@@ -4,11 +4,13 @@ import { Button, ButtonSizes } from "ui-react";
 
 export const CreateLabelPage = () => {
   return (
-      <div className="flex flex-col justify-center ">
+    <div className="flex flex-col h-full justify-between">
+      <div className="h-full" style={{alignContent:"center"}}>
         <LabelForm label={null} />
-        <Link className="mt-8" to={"/labels"}>
-          <Button size={ButtonSizes.SMALL}>Back to labels</Button>
-        </Link>
       </div>
+      <Link className="mb-8" to={"/labels"}>
+        <Button size={ButtonSizes.SMALL}>Back to labels</Button>
+      </Link>
+    </div>
   );
 };

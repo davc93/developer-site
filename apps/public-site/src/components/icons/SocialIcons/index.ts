@@ -25,8 +25,6 @@ export const GithubIcon = ({width}:SVGProps) => {
   iconCarrier.setAttribute("id", "SVGRepo_iconCarrier");
   
   // Create title and desc elements
-  const title = document.createElementNS("http://www.w3.org/2000/svg", "title");
-  title.textContent = "github [#ffffff142]";
   
   const desc = document.createElementNS("http://www.w3.org/2000/svg", "desc");
   desc.textContent = "Created with Sketch.";
@@ -57,7 +55,6 @@ export const GithubIcon = ({width}:SVGProps) => {
   svg.appendChild(bgCarrier);
   svg.appendChild(tracerCarrier);
   svg.appendChild(iconCarrier);
-  iconCarrier.appendChild(title);
   iconCarrier.appendChild(desc);
   iconCarrier.appendChild(pageGroup);
   pageGroup.appendChild(dribbbleGroup);
