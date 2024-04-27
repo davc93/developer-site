@@ -1,12 +1,13 @@
+import "ui-styles/src/variables.css";
+import "ui-styles/src/animations.css";
+import "ui-styles/src/base.css";
+import "./style.css";
+
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { handleColorSchemeChange } from "@/utils";
 import { QueryClientProvider,QueryClient } from "@tanstack/react-query";
-import "ui-styles/src/variables.css";
-import "ui-styles/src/animations.css";
-import "ui-styles/src/base.css";
-import "./style.css";
 
 handleColorSchemeChange(window.matchMedia("(prefers-color-scheme: dark)"));
 
