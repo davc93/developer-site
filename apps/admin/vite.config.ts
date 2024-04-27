@@ -13,7 +13,10 @@ export default defineConfig({
   build: {
     rollupOptions: {
       external: [
-        "ui-styles/src/variables.css"
+        "ui-styles/src/variables.css",
+        "ui-styles/src/animations.css",
+        "ui-styles/src/base.css",
+
       ],
     },
   },
