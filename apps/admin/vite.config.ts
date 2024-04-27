@@ -9,15 +9,5 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     }
   } ,
-  plugins: [ react() ],
-  build: {
-    rollupOptions: {
-      external: [
-        "ui-styles/src/variables.css",
-        "ui-styles/src/animations.css",
-        "ui-styles/src/base.css",
-
-      ],
-    },
-  },
+  plugins: [ react() ]
 })
