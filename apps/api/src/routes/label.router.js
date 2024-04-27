@@ -59,7 +59,6 @@ validatorHandler(updateLabelDto,'body'),
 router.delete('/:id', checkAuth,
   async (req, res, next) => {
     try {
-      console.log(req);
       const { id } = req.params;
       await service.delete(id);
       res.status(201).json({id});

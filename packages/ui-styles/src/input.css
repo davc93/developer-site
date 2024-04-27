@@ -24,7 +24,6 @@ bloque input,input-container
   display: flex;
   flex-direction: column;
   position: relative;
-  padding-top: 1.5rem;
 }
 
 .input {

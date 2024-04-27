@@ -1,49 +1,77 @@
-import { CreateProjectDto } from "../../models/project.model"
+import type { Project } from "@/models/project.model";
 export enum ActionTypes {
-    CHANGE_STEP = "CHANGE_STEP",
-    SET_PROJECT = "SET_PROJECT"
+  CHANGE_STEP = "CHANGE_STEP",
+  SET_PROJECT = "SET_PROJECT",
 }
 
 // disptach({type:ActionTypes.CHANGE_STEP,payload:Step.TECHNOLOGIES})
 
-
 export enum Step {
-    GENERAL = 1,
-    TECHNOLOGIES = 2,
-    IMAGES = 3
+  GENERAL = 1,
+  TECHNOLOGIES = 2,
+  IMAGES = 3,
 }
 
 
+
+export interface ProjectDto extends Partial<Omit<Project, "id" | "createdAt"|"labels"|"images">> {
+  labels?:{
+    order:number,
+    labelId:number
+  }[],
+  images?:{
+    url:string
+  }[]
+
+}
 
 export type ReducerState = {
-    projectDTO: Partial<CreateProjectDto> 
-    step: Step
-}
+  projectDTO: ProjectDto;
+  step: Step;
+};
 
-export const initialState:ReducerState = {
-    step: Step.GENERAL,
-    projectDTO:{}
-}
+export const initialState: ReducerState = {
+  step: Step.GENERAL,
+  projectDTO: {
+    title:"",
+    link:"",
+    repository:"",
+    shortDescription:"",
+    published:true,
+    description:"",
+    slug:"",
+    images:[],
+    labels:[]
 
-export type Actions = {type:ActionTypes,payload:Step | Partial<CreateProjectDto>}
+  },
+};
 
-const reducerObject = (state:ReducerState,payload:Step | Partial<CreateProjectDto>) => {
+export type Actions = {
+  type: ActionTypes;
+  payload: Step | ReducerState["projectDTO"];
+};
 
-    return {
-        "SET_PROJECT":{
-            ...state,
-            projectDTO:{
-                ...payload as Partial<CreateProjectDto>
-            }
-        },
+const reducerObject = (
+  state: ReducerState,
+  payload: Step | ReducerState["projectDTO"]
+) => {
 
-        "CHANGE_STEP":{
-            ...state,
-            step:payload as Step
-            
-        }
-    }
-}
-export const reducer = (state:ReducerState,action:Actions)=>{
-    return reducerObject(state,action.payload)[action.type] || state   
-}
+  return {
+    SET_PROJECT: {
+      ...state,
+      projectDTO: {
+        ...state.projectDTO,
+        ...payload as ReducerState["projectDTO"]
+      },
+    },
+
+    CHANGE_STEP: {
+      ...state,
+      step: payload as Step,
+    },
+  };
+};
+export const reducer = (state: ReducerState, action: Actions) => {
+  
+  return reducerObject(state, action.payload)[action.type] || state;
+};

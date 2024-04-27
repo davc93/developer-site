@@ -4,7 +4,7 @@
 .text-area-container {
   display: flex;
   flex-direction: column;
-
+  height: 100%;
   font-family: var(--typography-primary);
   gap: 4px;
   /* background-color: var(--dark); */
@@ -32,7 +32,6 @@
   resize: none;
   scrollbar-width: thin;
   scrollbar-color: var(--primary--500) transparent;
-  height: 80px;
   transition-property: border-bottom-color;
   transition-duration: 0.3s;
   &:focus {

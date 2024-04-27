@@ -8,15 +8,15 @@ export interface Project {
   description:      string;
   createdAt:        string;
   slug:             string;
-  images?:           Image[];
-  labels?:           Label[];
+  images:           Image[];
+  labels:           Label[];
 }
 
 export interface Image {
   id:  number;
   url: string;
 }
-
+export interface ImageDto extends Omit<Image,"id">{}
 export interface Label {
   id:           number;
   title?:        string;
@@ -26,10 +26,14 @@ export interface Label {
 
 export interface LabelProject {
   order:     null;
+  id:any
+  projectId:  any;
+  labelId:any;
   createdAt: Date;
 }
 
-export interface CreateProjectDto
-  extends Omit<Project, "id"   | "createdAt"> {}
+export interface CreateProjectDto extends Omit<Project, "id" | "createdAt">{
+}
+
 
 export interface UpdateProjectDto extends Partial<CreateProjectDto> {}

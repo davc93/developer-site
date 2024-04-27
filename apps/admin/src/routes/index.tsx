@@ -1,26 +1,25 @@
-import { Route, Routes, BrowserRouter, useNavigate } from 'react-router-dom'
-import { Layout } from '@/Layout'
-import { LoginPage } from '@/routes/login'
-import { ProfilePage } from '@/routes/profile'
-import { useContext, useEffect } from 'react'
-import { AuthContext } from '@/context/AuthContext'
-import { DashboardPage } from '@/routes/dashboard'
-import { ProjectsPage } from "@/routes/projects";
+import { Route, Routes, BrowserRouter, useNavigate } from "react-router-dom"
+import { Layout } from "@/Layout"
+import { LoginPage } from "@/routes/login"
+import { ProfilePage } from "@/routes/profile"
+import { useContext, useEffect } from "react"
+import { AuthContext } from "@/context/AuthContext"
+import { DashboardPage } from "@/routes/dashboard"
+import { ProjectsPage } from "@/routes/projects"
 
-// import { CreateProjectPage } from "@/routes/project-create";
-// import { EditProjectPage } from "@/routes/project-edit";
-// import { LabelsPage } from "@/routes/labels";
-// import { CreateLabelPage } from "@/routes/label-create";
-// import { EditLabelPage } from "@/routes/label-edit";
-// import { AuthRoute } from "@/components/AuthRoute";
-// import { PublicRoute } from "@/components/PublicRoute";
+import { CreateProjectPage } from "@/routes/project-create"
+import { EditProjectPage } from "@/routes/project-edit"
+import { LabelsPage } from "@/routes/labels"
+import { CreateLabelPage } from "@/routes/label-create"
+import { EditLabelPage } from "@/routes/label-edit"
+import { ContactPage } from "./contact"
 
-export const PublicRoutes = () => {
+export const PublicRoutes = (): JSX.Element => {
   const { token } = useContext(AuthContext)
   const navigate = useNavigate()
   useEffect(() => {
     if (token) {
-      navigate('/dashboard')
+      navigate("/dashboard")
     }
   }, [])
   return (
@@ -30,13 +29,13 @@ export const PublicRoutes = () => {
   )
 }
 
-export const PrivateRoutes = () => {
+export const PrivateRoutes = (): JSX.Element => {
   const { token } = useContext(AuthContext)
   const navigate = useNavigate()
 
   useEffect(() => {
     if (!token) {
-      navigate('/login')
+      navigate("/login")
     }
   }, [])
 
@@ -45,17 +44,17 @@ export const PrivateRoutes = () => {
       <Route element={<DashboardPage />} path="/dashboard" />
       <Route element={<ProfilePage />} path="/profile" />
       <Route element={<ProjectsPage />} path="/projects" />
-      {/* 
-       <Route element={<CreateProjectPage />} path="/projects/create" />
-       <Route element={<EditProjectPage />} path="/projects/edit/:id" />
-       <Route element={<LabelsPage />} path="/labels" />
-       <Route element={<CreateLabelPage />} path="/labels/create" />
-       <Route element={<EditLabelPage />} path="/labels/edit/:id" /> */}
+      <Route element={<CreateProjectPage />} path="/project/create" />
+      <Route element={<EditProjectPage />} path="/project/edit/:id" />
+      <Route element={<LabelsPage />} path="/labels" />
+      <Route element={<CreateLabelPage />} path="/label/create" />
+      <Route element={<EditLabelPage />} path="/label/edit/:id" /> */
+      <Route element={<ContactPage />} path="/contact" /> */
     </Routes>
   )
 }
 
-export const Router = () => {
+export const Router = (): JSX.Element => {
   return (
     <BrowserRouter>
       <Layout>

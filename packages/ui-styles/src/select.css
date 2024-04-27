@@ -1,18 +1,28 @@
-
-  .box select {
-    background-color: var(--neutral--950);
-    color: white;
-    padding: 12px;
-    width: 100%;
-    border: none;
-    font-size: 20px;
+.select{
+  border: 0;
+  background-color: transparent;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: var(--foreground--300);
+  font-size: 1.125rem;
+  color: var(--foreground--50);
+  padding-bottom: 8px;
+  &:focus{
+    
     outline: none;
-    border: 1px solid var(--white);
+  }
+  option{
+    color: var(--foreground--300);
+    background: var(--foreground--950);
+  }
+}
+[data-theme="light"] .select{
 
+  color: var(--foreground--900);
+
+  option{
+
+    color: var(--foreground--500);
+    background: var(--foreground--50);
   }
-  
-  
-  
-  .box select option {
-    padding: 30px;
-  }
+}

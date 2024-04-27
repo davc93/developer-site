@@ -21,7 +21,7 @@ class ProjectService{
 
     }
 
-    async addProject(token:string,project:CreateProjectDto):Promise<Project>{
+    async addProject(token:string,project:Omit<CreateProjectDto,"labels" | "images" > ):Promise<Project>{
         const response =  await fetch(`${config.apiUri}/projects`,{
             method:"POST",
             headers:{

@@ -13,7 +13,7 @@ if (envs[env]) {
 require("dotenv").config(options);
 
 const config = {
-  env,
+  isProd:process.env.ENVIRONMENT == "production" ? true : false,
   dbUrl: process.env.DATABASE_URL,
   port: process.env.PORT ?? 3000,
   jwtSecret: process.env.JWT_SECRET,

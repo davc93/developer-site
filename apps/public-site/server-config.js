@@ -2,6 +2,7 @@ import dotenv from "dotenv"
 dotenv.config()
 
 export const config = {
+    isProd:process.env.ENVIRONMENT == "production" ? true : false,
     mongoDB:process.env.MONGO_DB,
     postgresDB:process.env.POSTGRES_DB,
     smtpEmail:process.env.SMTP_EMAIL,

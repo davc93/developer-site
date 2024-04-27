@@ -89,6 +89,7 @@ export const Sidebar = () => {
         <ul className="sidebar__body scrollbar--vertical">
           {items.map((item) => (
             <SidebarItem
+            key={item.path}
               isActive={itemActive == item.name}
               onClick={() => handleButtonClick(item.name)}
               {...item}

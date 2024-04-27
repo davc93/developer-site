@@ -27,7 +27,6 @@ export const updateAppSession = async () =>{
         navbar.sessionActive()
         navbarMobile.sessionActive()    
     } catch (error) {
-        console.error(error);
         
         navbar.sessionInactive()
         navbarMobile.sessionInactive()   

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import ReactDOM from 'react-dom';
-import { NotificationContext } from '../../../context/NotificationContext';
-import Notification from '../Notification';
+import { NotificationContext } from '@/context/NotificationContext';
+import {Notification} from "ui-react"
 
 function NotificationPortal() {
   const { notifications } = useContext(NotificationContext)

@@ -5,22 +5,26 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host",
-    "lint":"eslint ./src/**/*.tsx",
-    "lint:fix":"eslint --fix ./src/**/*.tsx",
+    "lint": "eslint ./src/**/*.tsx",
+    "lint:fix": "eslint --fix ./src/**/*.tsx",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.32.0",
+    "@tanstack/react-table": "^8.16.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3",
-    "ui-react": "^1.0.1"
+    "ui-react": "^1.0.1",
+    "ui-styles": "*"
+
   },
   "devDependencies": {
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
-    "@vitejs/plugin-react-swc": "^3.6.0",
+    "@vitejs/plugin-react-swc": "^3.5.0",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.57.0",
     "eslint-config-standard-with-typescript": "^43.0.1",
@@ -32,5 +36,6 @@
     "tailwindcss": "^3.3.3",
     "typescript": "^5.4.4",
     "vite": "^5.2.8"
+    
   }
 }
