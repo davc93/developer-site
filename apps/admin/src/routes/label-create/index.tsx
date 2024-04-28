@@ -8,9 +8,7 @@ export const CreateLabelPage = () => {
       <div className="h-full" style={{alignContent:"center"}}>
 
         <LabelForm label={null} />
-        <Link className="mt-8" to={"/labels"}>
-          <Button size={ButtonSizes.SMALL}>Back to labels</Button>
-        </Link>
+        
       </div>
       <Link className="mb-8" to={"/labels"}>
         <Button size={ButtonSizes.SMALL}>Back to labels</Button>
