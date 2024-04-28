@@ -2,7 +2,7 @@ import "./style.css";
 import type { Project } from "@/models/project.model";
 import { createSelect } from "@/components/atoms/Select";
 import { createProjectCard } from "@/components/molecules/ProjectCard";
-import { projectListPortfolio, projectsFilterForm } from "@/nodes";
+import { projectListPortfolio } from "@/nodes";
 import { projectService } from "@/services/project.service";
 
 function createListOfProjects(projects: Project[]) {
