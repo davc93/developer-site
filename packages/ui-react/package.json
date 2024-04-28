@@ -31,6 +31,7 @@
     "vite": "^5.1.5"
   },
   "dependencies": {
-    "@tanstack/react-table": "^8.15.3"
+    "@tanstack/react-table": "^8.15.3",
+    "ui-styles":"*"
   }
 }

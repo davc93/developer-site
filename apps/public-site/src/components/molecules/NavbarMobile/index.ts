@@ -131,7 +131,7 @@ export const createNavbarMobile = ({}: NavbarMobileProps) => {
   socialContainer.append(github, linkedin);
   const itemsContainer = document.createElement("div");
   itemsContainer.className = ["navbar-mobile__items-container"].join(" ");
-  itemsContainer.append(aboutA, portfolioA, loginEl, profile, logOutButton);
+  itemsContainer.append(aboutA, portfolioA);
   menu.append(itemsContainer, socialContainer);
 
   navbarMobile.append(menuButton, menu);

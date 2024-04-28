@@ -27,13 +27,15 @@ export const EditLabelPage = () => {
   }, []);
 
   return (
-    <div className="flex flex-col justify-center ">
-      {!loading && <LabelForm label={label} />}
-      <Link className="mt-8" to={"/labels"}>
+    <div className="flex flex-col h-full justify-between">
+      <div className="h-full" style={{ alignContent: "center" }}>
+        {!loading && <LabelForm label={label} />}
+        {error && <p>{error}</p>}
+        {loading && <p>Loading...</p>}
+      </div>
+      <Link className="mb-8" to={"/labels"}>
         <Button size={ButtonSizes.SMALL}>Back to labels</Button>
       </Link>
-      {error && <p>{error}</p>}
-      {loading && <p>Loading...</p>}
     </div>
   );
 };

@@ -129,9 +129,6 @@ export const createNavbarDesktop = ({}: NavbarDesktopProps) => {
   itemList.append(
     about,
     portfolio,
-    profile,
-    loginLi,
-    loginOutLi,
     separatorContainer,
     githubLi,
     linkedinLi
