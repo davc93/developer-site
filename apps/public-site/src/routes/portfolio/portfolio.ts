@@ -43,6 +43,6 @@ export const createPortfolioPage = async () => {
     }
     projectListPortfolio?.append(projectsEl);
   });
-  projectsFilterForm?.append(selectTechEl);
+  // projectsFilterForm?.append(selectTechEl);
   projectListPortfolio?.append(projectsEl);
 };

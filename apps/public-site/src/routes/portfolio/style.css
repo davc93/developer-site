@@ -16,18 +16,18 @@
 }
 .projects-list-container {
   /* background: linear-gradient(-225deg,var(--surface--950) 25%,var(--primary--900)); */
-  background-image: url("https://res.cloudinary.com/dxryc5jgr/image/upload/c_scale,q_70,w_1512/v1692046970/developer-site/developer-2.webp");
-  background-repeat: no-repeat;
+  /* background-image: url("https://res.cloudinary.com/dxryc5jgr/image/upload/c_scale,q_70,w_1512/v1692046970/developer-site/developer-2.webp"); */
+  /* background-repeat: no-repeat; */
   height: 100svh;
   overflow: auto;
-  background-size: cover;
+  /* background-size: cover; */
 
-  background-position: 0% 55%;
+  /* background-position: 0% 55%; */
 
   @media (width >= 1024px) {
-    background-size: 100%;
+    /* background-size: 100%; */
 
-    background-position: center 55%;
+    /* background-position: center 55%; */
 
   }
 }

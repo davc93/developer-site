@@ -16,6 +16,28 @@ html{
     opacity: 0;
   }
 }
+.secret-button{
+  display: none;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  z-index: 5;
+  color: var(--primary--500);
+  transition-property: color, text-shadow,opacity;
+  transition-duration: .3s;
+  transition-timing-function: linear;
+  font-family: var(--typography-primary);
+  text-transform: uppercase;
+  font-weight: 900;
+  &:hover{
+    color: var(--primary--500);
+    text-shadow: var(--shadow-sm);
+    opacity: 1 !important;
+  }
+  @media (width >= 1024px) {
+    display: block;
+  }
+}
 
 /* social media */
 .linkedin-icon {
