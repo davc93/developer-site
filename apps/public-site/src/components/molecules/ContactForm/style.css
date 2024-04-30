@@ -1,17 +1,26 @@
 .contact-form {
-  display: flex;
+  display: flex !important;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--space-6);
   padding-block: var(--space-6);
   padding-inline: var(--space-8);
   /* From https://css.glass */
   width: 100%;
-  max-width: 400px;
-  background: rgba(6, 6, 6, 0.6);
-  box-shadow: var(--shadow-sm);
-  backdrop-filter: blur(4.3px);
-  -webkit-backdrop-filter: blur(4.3px);
+  max-width: 500px;
+  /* backdrop-filter: blur(4.3px);
+  -webkit-backdrop-filter: blur(4.3px); */
 }
-.contact-form textarea{
+.contact-form .text-area-container{
     margin-bottom: 32px;
+    textarea{
+      height: 120px ;
+    }
+}
+#contact-form-bottom .contact-form{
+  background:linear-gradient(150deg,var(--primary--600),#000)
+}
+.modal{
+  .contact-form{
+    background: rgba(0, 0, 0, .8);
+  }
 }

@@ -5,7 +5,7 @@ import { TypographyContrast } from "ui-react/src/Typography"
 export const DashboardPage = () => {
   return (
     <section className="h-full overflow-y-auto w-full">
-        <Typography className="text-center" size={TypographySize.titleMedium}>Dashboard</Typography>
+        <Typography className="text-center" size={TypographySize.titleSmall}>Dashboard</Typography>
         <div className="flex gap-4 justify-between mt-10">
             <div className=" border-2 flex flex-col items-center gap-2 p-6 border-white rounded-sm">
                 <Typography size={TypographySize.titleSmall} color={TypographyContrast.HIGH}>

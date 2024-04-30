@@ -64,7 +64,7 @@ export const ProjectsPage = () => {
 
   return (
     <section className="flex flex-col">
-      <Typography size={TypographySize.titleMedium} className="">
+      <Typography size={TypographySize.titleSmall} className="">
         Projects Page
       </Typography>
       <div className="space-y-4">

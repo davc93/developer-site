@@ -35,7 +35,9 @@ function createJobs() {
 }
 
 export const createHomePage = async () => {
-  const projects = await projectService.getProjects();
+  const projects = await projectService.getProjects({
+    published:true
+  });
 
   shuffleArray(projects);
   const projectListEl = createListOfProjects(projects);

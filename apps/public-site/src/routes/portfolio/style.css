@@ -10,7 +10,7 @@
   flex-wrap: wrap;
   justify-content: center;
   display: flex;
-  gap: var(--space-3);
+  gap: var(--space-8);
   max-width: 90vw;
   padding-top: 10rem;
 }

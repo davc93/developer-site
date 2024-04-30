@@ -83,20 +83,30 @@
   box-shadow: var(--shadow-sm);
 
 }
+[data-theme="light"] .option-menu__content{
+  background-color: var(--surface--50);
+
+}
+
+[data-theme="light"] .option-menu__title{
+  color: var(--foreground--900);
+
+}
 .option-menu__title{
   cursor: pointer;
   padding-left: 10px;
   padding-right: 40px;
   padding-block: 10px;
+  font-weight: 600;
   color: var(--foreground--100);
   border-bottom-color: var(--primary--400);
   border-bottom-style: solid;
   border-bottom-width: 1px;
   transition-property: background-color;
   transition-duration: .5s;
-  &:hover{
-    background-color: var(--primary--500);
 
+  &:hover{
+    color: var(--primary--500);
   }
 }
 [data-theme="light"] .table__body-cell{

@@ -10,3 +10,15 @@ html {
   background-color: var(--surface--50);
 
 }
+.page-container >*{
+  animation-name: pages;
+  animation-duration: .5s;
+  animation-fill-mode: both;
+  animation-timing-function: linear;
+}
+
+@keyframes pages {
+  from{
+    opacity: 0;
+  }
+}

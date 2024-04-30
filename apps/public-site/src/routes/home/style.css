@@ -7,7 +7,8 @@
   z-index: 1;
   color: black;
   filter:  opacity(0.7);
-  background-image:   url("https://res.cloudinary.com/dxryc5jgr/image/upload/c_scale,q_70,w_1622/v1692046970/developer-site/developer-1.webp");
+  background-image:   url("https://res.cloudinary.com/dxryc5jgr/image/upload/q_50,w_1620/v1714351865/developer-site/0_Developer_working_in_a_desktop_looking_out_the_wi_esrgan-v1-x2plus_xdtbjx.webp");
+  
   background-position: top ;
   background-size: cover;
   background-blend-mode: saturation;
@@ -27,7 +28,7 @@
     opacity: 1;
 
   }
-  20%{
+  40%{
     opacity: 0;
     background-position: center bottom;
 
