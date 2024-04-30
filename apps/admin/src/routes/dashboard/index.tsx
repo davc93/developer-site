@@ -1,10 +1,14 @@
-import { Typography, TypographySize } from "ui-react"
+import { NotificationContext } from "@/context/NotificationContext"
+import { useContext } from "react"
+import { Button, Typography, TypographySize } from "ui-react"
+import { NotificationType } from "ui-react/src/Notification"
 import { TypographyContrast } from "ui-react/src/Typography"
 
 
 export const DashboardPage = () => {
+    
   return (
-    <section className="h-full overflow-y-auto w-full">
+    <section className="h-full  w-full">
         <Typography className="text-center" size={TypographySize.titleSmall}>Dashboard</Typography>
         <div className="flex gap-4 justify-between mt-10">
             <div className=" border-2 flex flex-col items-center gap-2 p-6 border-white rounded-sm">
@@ -34,7 +38,9 @@ export const DashboardPage = () => {
                     Usuarios
                 </Typography>
             </div>
+
         </div>
     </section>
   )
 }
+

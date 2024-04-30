@@ -5,10 +5,12 @@
   padding-block: var(--space-6);
   padding-inline: var(--space-8);
   /* From https://css.glass */
+  /* border: 1px solid white; */
+  border-radius: 15px;
   width: 100%;
   max-width: 500px;
-  /* backdrop-filter: blur(4.3px);
-  -webkit-backdrop-filter: blur(4.3px); */
+  backdrop-filter: blur(20.3px);
+  -webkit-backdrop-filter: blur(20.3px);
 }
 .contact-form .text-area-container{
     margin-bottom: 32px;
@@ -17,10 +19,12 @@
     }
 }
 #contact-form-bottom .contact-form{
-  background:linear-gradient(150deg,var(--primary--600),#000)
+  background-color: rgba(179, 22, 69, 0.4);
 }
 .modal{
   .contact-form{
-    background: rgba(0, 0, 0, .8);
+    /* background: rgba(0, 0, 0, .8); */
+    background-color: rgba(179, 22, 69, 0.4);
+
   }
 }

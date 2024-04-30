@@ -3,38 +3,32 @@
 .home-background-image {
   position: fixed;
   width: 100%;
-  min-height: 110vh;
+  min-height: 100svh;
   z-index: 1;
-  color: black;
-  filter:  opacity(0.7);
-  background-image:   url("https://res.cloudinary.com/dxryc5jgr/image/upload/q_50,w_1620/v1714351865/developer-site/0_Developer_working_in_a_desktop_looking_out_the_wi_esrgan-v1-x2plus_xdtbjx.webp");
-  
-  background-position: top ;
+  background-image:   url("https://res.cloudinary.com/dxryc5jgr/image/upload/w_1620,q_60/v1714496976/0_Person_looking_dark_city_from_rooftop_with_persona_esrgan-v1-x2plus_pntynh.webp");
+  background-position: top  ;
   background-size: cover;
-  background-blend-mode: saturation;
   animation-name: hide;
   background-repeat: no-repeat;
   animation-timing-function: linear;
   animation-fill-mode: both;
   animation-timeline: scroll(root);
+
+  background-position: center top;
+  filter: saturate(200%) brightness(40%);
   @media (1024px <= width) {
-    min-height: 100svh;
-    background-position: center 30%;
     
   }
 }
 @keyframes hide {
   0%{
-    opacity: 1;
+
 
   }
-  40%{
-    opacity: 0;
-    background-position: center bottom;
-
-  }
-
   100%{
-    opacity: 0;
+    filter: saturate(200%)  brightness(100%);
+
+    background-position: center bottom;
   }
+  
 }

@@ -1,22 +1,43 @@
 .notification {
     display: flex;
+    flex-direction: column;
     gap: var(--space-3);
     background-color: var(--neutral--950);
-    padding: var(--space-8);
-    border: 1px solid white;
+    padding-block: 20px;
+    border: 1px solid var(--primary--400);
     position: relative;
-    animation: fade-in 1.5s;
+    animation: fade-in .7s;
+    padding-inline-end: 5px;
+    padding-inline-start: 20px;
+   
+}
+.notification__title{
+    display: flex;
+    align-items: center;
+    color: var(--foreground--100);
+    font-weight: 600;
+    gap: 10px;
 }
 .notification__text-content{
+    padding-inline-start: 10px;
+
     display: flex;
     flex-direction: column;
     color: var(--foreground--100);
     gap: var(--space-1);
+    max-height: 100px;
+    overflow-y:auto;
+    padding-inline-end: 48px;
+   
+
 }
 .notification__icon{
     cursor: pointer;
     position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 20px;
+    top: 5px;
+    right: 5px;
+    width: 30px;
+}
+.notification__type-icon{
+    width: 40px;
 }

@@ -1,16 +1,46 @@
+import { IconInfo } from "../icons/icon-info";
 import { IconCross } from "../icons/icon-cross";
-import "ui-styles/src/notification.css"
-type NotificationProps = {
-    message:string
+import "ui-styles/src/notification.css";
+
+export enum NotificationType {
+  ERROR = "error",
+  INFO = "info",
 }
 
-export function Notification({ message }:NotificationProps) {
+type NotificationProps = {
+  id?: string;
+  title: string;
+  message: string;
+  type: NotificationType;
+  onClose: (id: string | undefined) => () => void;
+};
+
+export function Notification({
+  id,
+  message,
+  title,
+  type,
+  onClose,
+}: NotificationProps) {
+  const notificationTypeIcon = {
+    error: <IconCross stroke="var(--error--300)" fill="var(--error--300)" />,
+    info: <IconInfo stroke="var(--info--300)" fill="var(--info--300)" />,
+  };
+
   return (
     <div className="notification">
-      
-      <p className="notification__text-content">{message}</p>
-      <div className="notification__icon">
-        <IconCross />
+      <div className="notification__title">
+        <span className="notification__type-icon">
+          {notificationTypeIcon[type]}
+        </span>
+        <span>
+
+        {title}
+        </span>
+      </div>
+      <p className="notification__text-content scrollbar--native">{message}</p>
+      <div className="notification__icon" onClick={onClose(id)}>
+        <IconCross stroke="var(--primary--400)" fill="var(--primary--400)" />
       </div>
     </div>
   );

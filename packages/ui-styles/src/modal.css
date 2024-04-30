@@ -7,7 +7,10 @@
   left: 0;
   height: 100%;
   z-index: 10;
-  background-color: #2008469a;
+  background-color: #00000080;
+
+  backdrop-filter: blur(7.3px);
+  -webkit-backdrop-filter: blur(7.3px);
 }
 
 .modal--active {

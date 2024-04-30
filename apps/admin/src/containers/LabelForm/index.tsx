@@ -6,12 +6,16 @@ import { useInputValue } from "@/hooks/useInputValue";
 import { Button, Input, Select } from "ui-react";
 import { fileService } from "@/services/file.service";
 import { useNavigate } from "react-router-dom";
+import { NotificationContext } from "@/context/NotificationContext";
+import { NotificationType } from "ui-react/src/Notification";
 
 type LabelFormProps = {
   label: Label | null;
 };
 
 export const LabelForm = ({ label }: LabelFormProps) => {
+
+  const {addNotification} = useContext(NotificationContext)
   const [image, setImage] = useState(label?.image ?? undefined);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -31,9 +35,24 @@ export const LabelForm = ({ label }: LabelFormProps) => {
           type: type.value,
           image,
         };
-        await labelService.updateLabel(token as string, changes, label.id);
+        const response = await labelService.updateLabel(token as string, changes, label.id);
         navigate("/labels");
-      } catch (error) {}
+        addNotification({
+          title:"Save succesfully",
+          message:"The label was save succesfully",
+          type:NotificationType.INFO
+          
+        })
+      } catch (error) {
+
+
+        addNotification({
+          title:"Error saving",
+          message:`${error}`,
+          type:NotificationType.ERROR
+          
+        })
+      }
     } else {
       try {
         await labelService.createLabel(token as string, {
@@ -42,7 +61,22 @@ export const LabelForm = ({ label }: LabelFormProps) => {
           image: image as string,
         });
         navigate("/labels");
-      } catch (error) {}
+        addNotification({
+          title:"Save succesfully",
+          message:"The label was save succesfully",
+          type:NotificationType.INFO
+          
+        })
+
+      } catch (error) {
+
+        addNotification({
+          title:"Error saving",
+          message:`${error}`,
+          type:NotificationType.ERROR
+          
+        })
+      }
     }
     setSubmitting(false);
   };
@@ -81,11 +115,10 @@ export const LabelForm = ({ label }: LabelFormProps) => {
         </div>
       </div>
       {loading && <p>Loading File...</p>}
-      <Button className="self-end mt-8" type="submit">
+      <Button className="self-end mt-8" type="submit" loading={submitting}>
         Submit
       </Button>
 
-      {submitting && <p>Loading</p>}
       {error && <p>{error}</p>}
     </form>
   );

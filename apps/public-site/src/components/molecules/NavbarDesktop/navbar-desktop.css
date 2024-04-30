@@ -1,7 +1,7 @@
 
 .navbar-desktop {
   display: none;
-  z-index: 20;
+  z-index: 10;
   position: fixed;
   height: 70px;
   top: var(--space-6);

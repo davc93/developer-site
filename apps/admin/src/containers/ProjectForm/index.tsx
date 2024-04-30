@@ -10,8 +10,9 @@ import { General } from "./General";
 import { Technologies } from "./Technologies";
 import { Images } from "./Images";
 import { ProjectFormContext } from "./Context";
-import { sendNotification } from "@/utils";
 import type { CreateProjectDto, Project } from "@/models/project.model";
+import { NotificationContext } from "@/context/NotificationContext";
+import { NotificationType } from "ui-react/src/Notification";
 type ProjectFormProps = {
   project: Project | null;
 };
@@ -22,6 +23,8 @@ export const ProjectForm = (props: ProjectFormProps) => {
   const navigate = useNavigate();
   const [submitting, setSubmitting] = useState(false)
   const isEdit = props.project ? true : false;
+  const {addNotification} = useContext(NotificationContext)
+
   const submit = async () => {
     setSubmitting(true)
     const { images, labels, ...project } =
@@ -49,8 +52,23 @@ export const ProjectForm = (props: ProjectFormProps) => {
         await Promise.all(imagePromises);
         await Promise.all(LabelProjectPromises);
         navigate("/projects");
+        
+        addNotification({
+          title:"Save succesfully",
+          message:"The project was save succesfully",
+          type:NotificationType.INFO
+          
+        })
+
+
       } catch (error) {
-        sendNotification(error);
+
+        addNotification({
+          title:"Error saving",
+          message:`${error}`,
+          type:NotificationType.ERROR
+          
+        })
       }
     } else {
       try {
@@ -74,8 +92,21 @@ export const ProjectForm = (props: ProjectFormProps) => {
         await Promise.all(imagePromises);
         await Promise.all(LabelProjectPromises);
         navigate("/projects");
+
+        addNotification({
+          title:"Save succesfully",
+          message:"The project was save succesfully",
+          type:NotificationType.INFO
+          
+        })
       } catch (error) {
-        sendNotification(error);
+
+        addNotification({
+          title:"Error saving",
+          message:`${error}`,
+          type:NotificationType.ERROR
+          
+        })
       }
     }
     setSubmitting(false)
