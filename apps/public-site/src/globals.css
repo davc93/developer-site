@@ -4,6 +4,7 @@ html{
 }
 
 .pages-container{
+  z-index: 2;
   overflow: hidden;
 }
 .pages-container > .active{

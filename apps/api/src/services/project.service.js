@@ -17,42 +17,8 @@ class ProjectService {
     const newItem = await models.LabelProject.create(data);
     return newItem;
   }
-  async findAll(limit, offset, slug, labelId) {
-    if (slug) {
-      const projects = await models.Project.findAll({
-        include: [{ all: true }],
-        where: {
-          slug,
-        },
-        limit: 1,
-      });
-      return projects;
-    }
-    if (labelId) {
-      const projects = await models.Project.findAll({
-        include: [
-          {
-            model: models.Image,
-            as: "images",
-            attributes: ["id", "url"],
-          },
-          {
-            model: models.Label,
-            as: "labels",
-            attributes: ["id", "title", "image"],
-            through: ["project_id", "label_id"],
-          },
-        ],
-      });
-
-      const projectsFiltered = projects.filter((project) =>
-        project.labels.some((labelObj) => {
-          return labelObj.id == labelId;
-        })
-      );
-      return projectsFiltered;
-    }
-
+  async findAll(query) {
+    const {limit,offset,...fields} = query
     const projects = await models.Project.findAll({
       include: [
         { model: models.Image, as: "images", attributes: ["id", "url"] },
@@ -63,6 +29,11 @@ class ProjectService {
           attributes: ["id", "title", "image"],
         },
       ],
+      where:{
+        ...fields
+      },
+      limit,
+      offset
     });
     return projects;
   }

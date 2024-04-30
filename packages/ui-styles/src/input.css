@@ -57,7 +57,7 @@ bloque input,input-container
   }
 }
 .input__label {
-  color: var(--foreground--400);
+  color: var(--foreground--300);
   font-family: var(--typography-primary);
 }
 .input--error {

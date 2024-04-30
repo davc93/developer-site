@@ -11,7 +11,7 @@ import "ui-styles/src/section-container.css"
 import { createNavbarDesktop } from "@/components/molecules/NavbarDesktop";
 import { createNavbarMobile } from "@/components/molecules/NavbarMobile";
 import { navigation } from "@/navigation";
-import { layout } from "@/nodes";
+import { layout, pageLoader } from "@/nodes";
 import { createBuildPage } from "@/routes/build";
 import { createErrorPage } from "@/routes/error";
 import { createHomePage } from "@/routes/home/home";
@@ -39,5 +39,5 @@ createProfilePage();
 createErrorPage()
 createBuildPage()
 navigation();
-
+pageLoader.classList.add("inactive");
 updateAppSession()

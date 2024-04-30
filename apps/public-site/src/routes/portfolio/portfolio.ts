@@ -29,7 +29,9 @@ export const createPortfolioPage = async () => {
   ];
   const selectTechEl = createSelect({ options });
 
-  const projects = await projectService.getProjects();
+  const projects = await projectService.getProjects({
+    published:true
+  });
   const projectsEl = createListOfProjects(projects);
 
   selectTechEl.addEventListener("change", async (event) => {

@@ -88,6 +88,18 @@ export const createNavbarDesktop = ({}: NavbarDesktopProps) => {
       }),
     })
   );
+  //contact-button-modal
+  const contactButton = createTypography({
+    label: "Contact",
+    size: TypographySize.bodyMedium,
+    className:"navbar-desktop__item"
+
+  }); 
+  contactButton.addEventListener("click",()=>{
+    const button = document.querySelector("#contact-button-modal") as HTMLButtonElement
+    button.click()
+  })
+  contactButton.style.cursor = "pointer"
   const loginOutLi = document.createElement("li");
   const logOutButton = createTypography({
     label: "LogOut",
@@ -129,6 +141,7 @@ export const createNavbarDesktop = ({}: NavbarDesktopProps) => {
   itemList.append(
     about,
     portfolio,
+    contactButton,
     separatorContainer,
     githubLi,
     linkedinLi

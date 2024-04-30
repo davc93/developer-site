@@ -35,7 +35,9 @@ function createJobs() {
 }
 
 export const createHomePage = async () => {
-  const projects = await projectService.getProjects();
+  const projects = await projectService.getProjects({
+    published:true
+  });
 
   shuffleArray(projects);
   const projectListEl = createListOfProjects(projects);
@@ -44,13 +46,16 @@ export const createHomePage = async () => {
   const formContainer2 = createContactForm();
 
   jobsList?.append(createJobs());
+  const contactModal = createModal({
+    label: "Send me a message",
+    element: formContainer,
+    width: "90vmin",
+  })
+  contactModal.id = "contact-button-modal"
   contactButtonHero?.append(
-    createModal({
-      label: "Send me a message",
-      element: formContainer,
-      width: "90vmin",
-    })
+    contactModal
   );
+  
   contactButtonHero.classList.add("l-horizontal", "l-gap-3");
   contactButtonBottom?.append(formContainer2);
   projectList?.append(projectListEl);

@@ -11,7 +11,7 @@ export const createLink = ({href,children,className}:LinkProps ) => {
     
     anchor.className = (`link ${className ? className : ""}`)
     anchor.href = href
-    if(anchor.href.includes(window.location.host) && !href.includes("api")){
+    if(anchor.href.includes(window.location.host) && !href.includes("api/auth")){
         anchor.addEventListener('click',(event)=>{
             
             event.preventDefault()

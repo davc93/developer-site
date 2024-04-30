@@ -6,7 +6,7 @@ import type { Label } from "@/models/label.model";
 class ProjectService{
 
 
-    async getProjects(queryParamsObj?:Record<string, string>):Promise<Project[]>{
+    async getProjects(queryParamsObj?:Record<string, any>):Promise<Project[]>{
         
         const queryParams = queryParamsObj ? `?${(new URLSearchParams(queryParamsObj)).toString()}` : ""
         const url = `${config.apiUrl}/projects${queryParams}`

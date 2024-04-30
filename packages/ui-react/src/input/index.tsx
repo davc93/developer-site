@@ -12,7 +12,7 @@ type NativeProps = InputHTMLAttributes<HTMLInputElement>
 export const Input = ({label,error,...props}:InputProps & NativeProps) => {
   return (
     <label className="input-container">
-      <label className="input__label">{label}</label>
+      <span className="input__label">{label}</span>
 
       <input
       

@@ -1,5 +1,4 @@
 import {
-  pageLoader,
   pagesContainer,
   portfolioDetails,
 } from "@/nodes";
@@ -13,7 +12,7 @@ export const goTo = (path: string) => {
 
 export const navigation = async () => {
   // detect path
-  pageLoader.classList.remove("inactive");
+  // pageLoader.classList.remove("inactive");
 
   const path = window.location.pathname;
 
@@ -34,6 +33,7 @@ export const navigation = async () => {
 
       }
     });
+    
 
     await createPortfolioDetailPage();
   } else if (!currentPage) {
@@ -48,13 +48,12 @@ export const navigation = async () => {
         page[1].classList.add("active")
       }
     });
+
+
   }
-
-  scrollTo(0, 0);
-
   // navbarInput.checked = false;
   // navbarMobileInput.checked = false;
-  pageLoader.classList.add("inactive");
+  // pageLoader.classList.add("inactive");
 };
 
 document.querySelectorAll<HTMLAnchorElement>(".link").forEach((anchor) => {

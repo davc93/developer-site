@@ -23,7 +23,7 @@ export const createProjectCard = ({ title,shortDescription,images,labels ,slug }
     const imageContainer = document.createElement("div")
     imageContainer.className = "project-card__image-container"
     
-    const image = createImage({url:images[0].url,width:600,height:600,format:ImageFormat.JPG,isCloudinary:true})
+    const image = createImage({mode:"c_thumb",url:images[0].url,width:400,height:400,format:ImageFormat.WEBP,quality:50,isCloudinary:true})
     imageContainer.append(image)
     image.className = "project-card__image"
     const projectTitle = createTypography({
