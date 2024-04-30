@@ -59,6 +59,7 @@ export const LabelForm = ({ label }: LabelFormProps) => {
           title: title.value,
           type: type.value,
           image: image as string,
+
         });
         navigate("/labels");
         addNotification({
@@ -118,7 +119,6 @@ export const LabelForm = ({ label }: LabelFormProps) => {
       <Button className="self-end mt-8" type="submit" loading={submitting}>
         Submit
       </Button>
-
       {error && <p>{error}</p>}
     </form>
   );

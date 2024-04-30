@@ -23,6 +23,7 @@
   overflow: auto;
   /* background-size: cover; */
   padding-bottom: 160px;
+
   /* background-position: 0% 55%; */
 
   @media (width >= 1024px) {
