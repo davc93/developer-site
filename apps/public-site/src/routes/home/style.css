@@ -23,6 +23,7 @@
 @keyframes hide {
   0%{
 
+    background-position: center top;
 
   }
   100%{

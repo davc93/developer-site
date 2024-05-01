@@ -1,27 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100..900&family=Open+Sans:wdth,wght@75..100,300..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100..900&family=Open+Sans:wdth,wght@75..100,300..800&display=swap");
 
 @font-face {
-  font-family: 'Titles';
+  font-family: "Titles";
   /* src: url(/TeroxiaDemoPersonalUse-GOxoD.otf) format('truetype'); */
 }
 
 :root {
-
-  --typography-primary:"Noto Sans", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  --typography-titles: Titles, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --typography-primary: "Noto Sans", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+  --typography-titles: Titles, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 
   /* separadores, componentes, titulos,iconos, links, efectos hover */
-  --primary--50: #fff0f2;
-  --primary--100: #ffdde2;
-  --primary--200: #ffc0c9;
-  --primary--300: #ff94a4;
-  --primary--400: #ff5770;
-  --primary--500: #ff2344;
-  --primary--600: #fa0025;
-  --primary--700: #d70020;
-  --primary--800: #b1031d;
-  --primary--900: #920a1e;
-  --primary--950: #50000c;
+  --primary--50: #ffeff2;
+  --primary--100: #ffe1e6;
+  --primary--200: #ffc8d4;
+  --primary--300: #ff9ab0;
+  --primary--400: #ff6287;
+  --primary--500: #ff2c62;
+  --primary--600: #f70850;
+  --primary--700: #d00044;
+  --primary--800: #ae0340;
+  --primary--900: #95063e;
+  --primary--950: #54001d;
   /*  separadores,textos importantes(titulos,navbar links, componentes)*/
   --secondary--50: #edfffe;
   --secondary--100: #c0fffe;
@@ -34,8 +36,7 @@
   --secondary--800: #006d71;
   --secondary--900: #045a5d;
   --secondary--950: #00363a;
-  
-  
+
   --neutral--50: rgba(244, 246, 247, 1);
   --neutral--100: rgba(227, 232, 234, 1);
   --neutral--200: rgba(201, 210, 216, 1);
@@ -90,8 +91,9 @@
 
   --shadow-sm: 0 0 10px var(--primary--500);
   --shadow-md: 0 0 10px var(--primary--500), 0 0 20px var(--primary--500);
-  --shadow-lg: 0 0 5px var(--primary--500), 0 0 25px var(--primary--500), 0 0 50px var(--primary--500);
-  
+  --shadow-lg: 0 0 5px var(--primary--500), 0 0 25px var(--primary--500),
+    0 0 50px var(--primary--500);
+
   --title-large: 4.268rem;
   --title-medium: 2.618rem;
   --title-small: 1.618rem;
@@ -128,14 +130,10 @@
   --space-80: 20rem;
   --space-96: 24rem;
 
-
-  --storybook-surface:#000000
-  
+  --storybook-surface: #000000;
 }
-@media (prefers-color-scheme:light){
-  :root{
-
-    --storybook-surface:#ffffff
+@media (prefers-color-scheme: light) {
+  :root {
+    --storybook-surface: #ffffff;
   }
-
 }
