@@ -24,10 +24,16 @@ Modificadores
   padding: var(--space-6);
   justify-content: space-between;
   gap: var(--space-3);
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.4);
   border-radius: 15px;
   backdrop-filter: blur(7.3px);
+  z-index: 1;
   -webkit-backdrop-filter: blur(7.3px);
+  animation-name: reveal;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+  animation-timeline: view();
+  animation-range: entry 30%;
   @media (min-width: 768px) {
     flex-direction: row;
   }
@@ -53,4 +59,13 @@ Modificadores
 }
 .job-card__logo {
   width: 80px;
+}
+
+@keyframes reveal {
+  from{
+    opacity: 0 ;
+  }
+  to{
+    opacity: 1 ;
+  }
 }
