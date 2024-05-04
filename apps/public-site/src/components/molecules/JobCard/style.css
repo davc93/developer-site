@@ -54,7 +54,7 @@ Modificadores
 
   flex-direction: column;
 }
-.job-card__description{
+.job-card__description {
   color: var(--foreground--100) !important;
 }
 .job-card__logo {
@@ -62,10 +62,10 @@ Modificadores
 }
 
 @keyframes reveal {
-  from{
-    opacity: 0 ;
+  from {
+    opacity: 0;
   }
-  to{
-    opacity: 1 ;
+  to {
+    opacity: 1;
   }
 }

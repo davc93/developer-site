@@ -29,6 +29,7 @@
       width: 100%;
       height: 100svh;
       background: black;
+ 
       opacity: 1;
       transition: all 0.4s;
       display: flex;
@@ -39,9 +40,9 @@
     }
 
     .page-loader.inactive {
-      display: none;
-      opacity: 0;
-      transition: all 0.4s;
+      animation-name: hide-page-loader;
+      animation-fill-mode: forwards;
+      animation-duration: .7s;
     }
 
     .loader {
@@ -89,6 +90,12 @@
         opacity: 1;
       }
     }
+    @keyframes hide-page-loader {
+      to{
+        display: none;
+        opacity: 0;
+      }
+    }
   </style>
 </head>
 
@@ -104,7 +111,7 @@
       <div id="pages-container" class="pages-container" style="position: relative">
         <div id="/" class="home-page" style="padding-bottom: 100px">
           <header class="">
-            <div class="section-container min-h-screen l-flex l-flex-col l-gap-3 l-justify-center">
+            <div style="min-height: 90svh;" class="section-container l-flex l-flex-col l-gap-3 l-justify-center">
               <div>
                 <h2 class="typography typography--high-contrast typography--title-medium">
                   Diego Vergara
@@ -121,7 +128,7 @@
                       border: 1px solid;
                       box-shadow: var(--shadow-lg);
                     " />
-                <p style="text-wrap: balance" class="typography typography--body-medium typography--medium-contrast">
+                <p style="max-width: 700px;text-wrap: balance" class="typography typography--body-medium typography--medium-contrast">
                   Specialist in JavaScript-based technologies, especially
                   React and NodeJS. Here you could see my
                   <span href="#" class="typography typography--body-medium typography--primary">Skills</span>, my
@@ -188,7 +195,7 @@
           </header>
           <main>
             <section class="">
-              <div class="section-container">
+              <div class="section-container l-m-b-40" style="margin-bottom: 15vmax;">
                 <h2 class="typography typography--high-contrast typography--title-medium l-m-b-12 l-text-center">
                   Experience
                 </h2>
@@ -197,7 +204,7 @@
             </section>
 
             <section class="">
-              <div class="section-container l-m-b-12 l-m-t-12">
+              <div class="section-container l-m-b-20 l-m-t-12" style="margin-bottom: 15vmax;">
                 <div class="l-m-b-8">
                   <h3 class="typography typography--high-contrast typography--title-medium l-m-b-2">
                     Technologies stack
@@ -210,7 +217,7 @@
               </div>
             </section>
             <section class="">
-              <div class="section-container l-m-b-12">
+              <div class="section-container l-m-b-20" style="margin-bottom: 15vmax;">
                 <h3 class="typography typography--high-contrast typography--title-medium">
                   Other skills
                 </h3>
@@ -227,7 +234,7 @@
             </section>
 
             <section class="">
-              <div class="section-container l-flex l-flex-col l-align-center l-gap-3">
+              <div class="section-container l-flex l-flex-col l-align-center l-gap-3" style="margin-bottom: 15vmax;">
                 <h2 class="typography typography--high-contrast typography--title-medium">
                   My portfolio
                 </h2>

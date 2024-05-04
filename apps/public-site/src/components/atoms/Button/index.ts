@@ -7,18 +7,18 @@ export enum ButtonSizes {
 
 export enum ButtonStyles {
   PRIMARY = "button--primary",
-  SECONDARY = "button--secondary",
+  SECONDARY = "button--secondary"
 }
 
 export interface ButtonProps {
-  size: ButtonSizes;
-  style: ButtonStyles;
-  label: string;
-  loading?: boolean;
-  disable?: boolean;
-  type?: "button" | "submit";
-  tag?: "button" | "span";
-  icon?:SVGSVGElement
+  size: ButtonSizes
+  style: ButtonStyles
+  label: string
+  loading?: boolean
+  disable?: boolean
+  type?: "button" | "submit"
+  tag?: "button" | "span"
+  icon?: SVGSVGElement
 }
 
 /**
@@ -33,9 +33,9 @@ export const createButton = ({
   type = "button",
   tag = "button",
   icon
-}: ButtonProps) :HTMLButtonElement => {
-  const btn = document.createElement(tag) as any ;
-  if(tag == "button"){
+}: ButtonProps): HTMLButtonElement => {
+  const btn = document.createElement(tag) as any
+  if (tag == "button") {
     btn.type = type
   }
   if (icon) {
@@ -44,17 +44,15 @@ export const createButton = ({
     iconContainer.className = "button__icon-container"
     iconContainer.append(icon)
     btn.append(iconContainer)
-    
   }
-  
 
   const text = document.createElement("span")
   text.className = "button__text"
   text.textContent = label
-  const loader = document.createElement("div");
-  loader.className = "button__loader";
+  const loader = document.createElement("div")
+  loader.className = "button__loader"
   text.append(loader)
-  btn.append(text);
+  btn.append(text)
 
   btn.className = [
     "button",
@@ -62,9 +60,8 @@ export const createButton = ({
     style,
     loading ? "button--loading" : "",
     disable ? "button--disabled" : "",
-    !loading && !disable ? "button--normal" :""
-  ].join(" ");
+    !loading && !disable ? "button--normal" : ""
+  ].join(" ")
 
-
-  return btn;
-};
+  return btn
+}

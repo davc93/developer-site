@@ -1,12 +1,10 @@
-
-
 .home-background-image {
   position: fixed;
   width: 100%;
   min-height: 100svh;
   z-index: 1;
-  background-image:   url("https://res.cloudinary.com/dxryc5jgr/image/upload/w_1620,q_60/v1714496976/0_Person_looking_dark_city_from_rooftop_with_persona_esrgan-v1-x2plus_pntynh.webp");
-  background-position: top  ;
+  background-image: url("https://res.cloudinary.com/dxryc5jgr/image/upload/w_1620,q_60/v1714496976/0_Person_looking_dark_city_from_rooftop_with_persona_esrgan-v1-x2plus_pntynh.webp");
+  background-position: top;
   background-size: cover;
   animation-name: hide;
   background-repeat: no-repeat;
@@ -15,21 +13,17 @@
   animation-timeline: scroll(root);
 
   background-position: center top;
-  filter: saturate(200%) brightness(40%);
+  filter: saturate(200%) brightness(60%);
   @media (1024px <= width) {
-    
   }
 }
 @keyframes hide {
-  0%{
-
+  0% {
     background-position: center top;
-
   }
-  100%{
-    filter: saturate(200%)  brightness(100%);
+  100% {
+    filter: saturate(200%) brightness(100%);
 
     background-position: center bottom;
   }
-  
 }

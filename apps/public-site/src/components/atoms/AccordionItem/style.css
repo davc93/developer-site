@@ -13,7 +13,7 @@
 .accordion-item__content {
   width: 100%;
 
-margin-top: var(--space-2);
+  margin-top: var(--space-2);
   right: 0;
   height: 0;
   overflow: hidden;
@@ -22,9 +22,9 @@ margin-top: var(--space-2);
   background: var(--dark);
 }
 .accordion-item__content.active {
-    margin-top: var(--space-2);
+  margin-top: var(--space-2);
 
-    height: 250px;
+  height: 250px;
 
   transition: height 0.3s;
 }

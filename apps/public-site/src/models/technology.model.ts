@@ -1,6 +1,5 @@
-
 export interface Technology {
-    name:string
-    icon:SVGSVGElement | null,
-    knowledgeLevel: number
+  name: string
+  icon: SVGSVGElement | null
+  knowledgeLevel: number
 }

@@ -12,19 +12,18 @@
   backdrop-filter: blur(20.3px);
   -webkit-backdrop-filter: blur(20.3px);
 }
-.contact-form .text-area-container{
-    margin-bottom: 32px;
-    textarea{
-      height: 120px ;
-    }
+.contact-form .text-area-container {
+  margin-bottom: 32px;
+  textarea {
+    height: 120px;
+  }
 }
-#contact-form-bottom .contact-form{
+#contact-form-bottom .contact-form {
   background-color: rgba(179, 22, 69, 0.4);
 }
-.modal{
-  .contact-form{
+.modal {
+  .contact-form {
     /* background: rgba(0, 0, 0, .8); */
-    background-color: rgba(179, 22, 69, 0.4);
-
+    /* background-color: rgba(179, 22, 69, 0.4); */
   }
 }

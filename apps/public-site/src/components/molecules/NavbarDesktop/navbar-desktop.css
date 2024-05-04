@@ -1,4 +1,3 @@
-
 .navbar-desktop {
   display: none;
   z-index: 10;
@@ -12,7 +11,7 @@
   backdrop-filter: blur(4.3px);
   -webkit-backdrop-filter: blur(4.3px);
   transition-property: box-shadow;
-  transition-duration: .7s;
+  transition-duration: 0.7s;
   transition-timing-function: ease-out;
 }
 
@@ -43,7 +42,7 @@
   text-transform: uppercase;
   font-family: var(--typography-primary);
   font-weight: 700;
-  transition-property: color,text-shadow;
+  transition-property: color, text-shadow;
   transition-duration: 0.3s;
   text-wrap: nowrap;
   color: var(--foreground--50);
@@ -74,8 +73,7 @@
   width: 2.4rem;
   height: 4px;
   background-color: var(--primary--600);
-  transition: transform 0.5s,opacity 0.5s;
-
+  transition: transform 0.5s, opacity 0.5s;
 }
 
 .menu-button--open .menu-button__line1 {
@@ -88,4 +86,3 @@
 .menu-button--open .menu-button__line3 {
   transform: translateY(-12px) rotate(45deg);
 }
-

@@ -1,8 +1,7 @@
-
 .error-page-container {
-    background: var(--surface--950);
-    min-height: 100vh;
-    display: grid;
-    justify-content: center;
-    align-content: center;
-  }
+  background: var(--surface--950);
+  min-height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}

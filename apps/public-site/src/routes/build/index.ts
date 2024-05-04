@@ -1,4 +1,2 @@
 import "./style.css"
-export const createBuildPage = () => {
-    
-}
+export const createBuildPage = () => {}

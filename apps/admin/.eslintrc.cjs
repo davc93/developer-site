@@ -15,6 +15,9 @@ module.exports = {
     "quotes-props": "off",
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/strict-boolean-expressions": "off",
-    "@typescript-eslint/non-nullable-type-assertion-style": "off"
+    "@typescript-eslint/non-nullable-type-assertion-style": "off",
+    "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/indent": "off",
+    "@typescript-eslint/no-floating-promises": "off"
   }
 }

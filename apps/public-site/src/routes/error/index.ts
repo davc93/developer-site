@@ -1,4 +1,2 @@
 import "./style.css"
-export const createErrorPage = () => {
-    
-}
+export const createErrorPage = () => {}

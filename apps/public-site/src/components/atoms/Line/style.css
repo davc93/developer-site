@@ -7,27 +7,25 @@
 */
 
 .line {
-    display: block;
+  display: block;
 }
 
-.line--vertical{
-    width: 5px;
-    height: 100%;
-
+.line--vertical {
+  width: 5px;
+  height: 100%;
 }
 
-.line--horizontal{
-    width: 100%;
-    height: 5px;
+.line--horizontal {
+  width: 100%;
+  height: 5px;
 }
-.line--white{
-    background-color: var(--foreground--50);
+.line--white {
+  background-color: var(--foreground--50);
 }
 
-.line--primary{
-    background-color: var(--primary--500);
+.line--primary {
+  background-color: var(--primary--500);
 }
-.line--black{
-
-    background-color: var(--foreground--950);
+.line--black {
+  background-color: var(--foreground--950);
 }

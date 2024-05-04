@@ -19,8 +19,7 @@
   animation-duration: 0.7s;
   animation-timing-function: ease-out;
 }
-.navbar-mobile__menu--closing{
-
+.navbar-mobile__menu--closing {
   animation-name: navbar-mobile-menu-closing !important;
   animation-duration: 0.7s;
   animation-timing-function: ease-out;
@@ -37,7 +36,7 @@
   bottom: 0px;
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  background: rgba(6, 6, 6, 0.85);
+  background: radial-gradient(farthest-corner at 10% 90%, rgba(6, 196, 230, 0.712) 0%, #0000ff00 70%), linear-gradient(to top right, #000000 0%, #000000 100%);
 }
 .navbar-mobile__items-container {
   display: flex;
@@ -109,4 +108,3 @@
     opacity: 0;
   }
 }
-
