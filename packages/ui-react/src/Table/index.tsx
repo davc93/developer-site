@@ -5,6 +5,7 @@ import {
   getCoreRowModel,
   getFilteredRowModel,
   getPaginationRowModel,
+  getSortedRowModel,
   useReactTable
 } from '@tanstack/react-table'
 import type { ColumnDef, Row } from '@tanstack/react-table'
@@ -18,6 +19,7 @@ import {
 import { Button, ButtonSizes } from '../Button'
 import { Typography, TypographySize } from '../Typography'
 import { Input } from '../input'
+import { IconArrow } from '../icons/icon-arrow'
 interface TableProps {
   data: unknown[]
   columns: ColumnDef<any, any>[]
@@ -26,7 +28,7 @@ interface TableProps {
   handleNextClick?: () => void
   handlePreviousClick?: () => void
   page?: number
-  manualPagination?: boolean
+  serverSide?: boolean
 }
 type Action = {
   name: string
@@ -40,42 +42,46 @@ export const Table = ({
   actions,
   handleNextClick,
   handlePreviousClick,
-  manualPagination = false
+  serverSide = false
 }: TableProps) => {
   const [globalFilter, setGlobalFilter] = useState('')
-
   const table = useReactTable({
     data,
     columns,
-    manualPagination,
-    getFilteredRowModel:getFilteredRowModel(),
+    manualPagination: serverSide,
+    manualFiltering: serverSide,
+    manualSorting:serverSide,
+    getFilteredRowModel: getFilteredRowModel(),
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
+    getSortedRowModel:getSortedRowModel(),    
     initialState: {
       pagination: {
         pageSize: 10
-      }
+      },
     },
-    state:{
-      globalFilter
-    },
-    onGlobalFilterChange:setGlobalFilter
+    state: {
+      globalFilter,
 
+    },
+    onGlobalFilterChange: setGlobalFilter
   })
-  useEffect(() => {
-    console.log(globalFilter);
-    console.log("lala");
-    
-  }, [globalFilter])
-  
-
 
   if (isLoading) {
     return <></>
   } else {
     return (
       <>
-        <Input value={globalFilter ?? ""} onChange={event => {setGlobalFilter(String(event?.target.value)) } } label="Search" placeholder="Enter a keyword " />
+        {!serverSide && (
+          <Input
+            value={globalFilter ?? ''}
+            onChange={(event) => {
+              setGlobalFilter(String(event?.target.value))
+            }}
+            label="Search"
+            placeholder="Enter a keyword "
+          />
+        )}
         <div className="table-container">
           <table className="table">
             <thead>
@@ -83,12 +89,41 @@ export const Table = ({
                 return (
                   <tr className="table__header-row" key={i}>
                     {group.headers.map((header, i) => {
+                      const ref = useRef<HTMLDivElement>(null)
+                      const handleOrderClick = () => {
+                        header.column.toggleSorting()
+                        const sort = header.column.getNextSortingOrder()
+                        if (sort == "asc") {
+                        ref.current?.classList.add("table__order-icon--asc")
+                        ref.current?.classList.remove("table__order-icon--desc")
+                          
+                        }else if(sort == "desc") {
+
+                        ref.current?.classList.add("table__order-icon--desc")
+                        ref.current?.classList.remove("table__order-icon--asc")
+                          
+                        } else {
+
+                        ref.current?.classList.remove("table__order-icon--desc")
+                        ref.current?.classList.remove("table__order-icon--asc")
+                          
+                        }
+                        
+                      }
                       return (
-                        <th className="table__header-cell" key={i}>
-                          {flexRender(
-                            header.column.columnDef.header,
-                            header.getContext()
-                          )}
+                        <th className="table__header-cell-container" key={i} style={{cursor:header.column.getCanSort() ? "pointer" : "default"}}>
+                          <div className='table__header-cell' onClick={handleOrderClick}>
+                            <span>
+                              {flexRender(
+                                header.column.columnDef.header,
+                                header.getContext()
+                              )}
+                            </span>
+
+                            <div ref={ref}  className="table__order-icon">
+                              {header.column.getCanSort()  && <IconArrow fill="var(--primary--500)" />}
+                            </div>
+                          </div>
                         </th>
                       )
                     })}
@@ -105,7 +140,7 @@ export const Table = ({
           </table>
         </div>
 
-        {manualPagination ? (
+        {serverSide ? (
           <div className="table-pagination">
             <Button onClick={handlePreviousClick} size={ButtonSizes.SMALL}>
               Prev

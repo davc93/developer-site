@@ -1,8 +1,8 @@
 // import { ListOfProjects } from '../../components/organisms/ListOfProjects'
 import { projectService } from '@/services/project.service'
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { Typography, TypographySize, Table } from 'ui-react'
+import { Link, useNavigate } from 'react-router-dom'
+import { Typography, TypographySize, Table, Button, ButtonSizes } from 'ui-react'
 import type { Project } from '@/models/project.model'
 import { createColumnHelper } from '@tanstack/react-table'
 
@@ -17,7 +17,8 @@ const columns = [
     header: 'Id'
   }),
   columnHelper.accessor('title', {
-    header: 'Title'
+    header: 'Title',
+    enableSorting: false
   }),
   columnHelper.accessor('shortDescription', {
     header: 'Short description'
@@ -70,12 +71,18 @@ export const ProjectsPage = (): JSX.Element => {
 
   return (
     <section className="flex flex-col">
+      <div className='flex justify-between'>
+
       <Typography size={TypographySize.titleSmall} className="">
         Projects Page
       </Typography>
-      <div className="space-y-4">
-        <Table columns={columns} data={data} actions={actions} />
+      <Link to="/project/create">
+        <Button tag='span' size={ButtonSizes.LARGE}>
+            Create Project
+        </Button>
+      </Link>
       </div>
+        <Table columns={columns} data={data} actions={actions} />
     </section>
   )
 }

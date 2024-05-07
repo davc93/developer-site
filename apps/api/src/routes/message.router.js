@@ -5,15 +5,9 @@ const {ContactService} = require("../services/contact.service")
 const contactService = new ContactService()
 router.get('/',async (req,res,next)=>{
     try {
-        const {query:{page,results}} = req
-        const messages = await contactService.getAllMessages(results,page*results - results)
-        res.json({
-            results:messages.rows,
-            info:{
-                page:Number(page),
-                results:messages.rows.length
-            }
-        })
+        const {query} = req
+        const messages = await contactService.getAllMessages(query)
+        res.json(messages)
     } catch (error) {
         next(error)
     }

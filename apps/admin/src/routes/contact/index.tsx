@@ -65,7 +65,7 @@ export const ContactPage = (): JSX.Element => {
       <div className="mt-8">
         {isError && <p style={{ color: 'white' }}>{error.message}</p>}
         <Table
-          manualPagination={true}
+          serverSide={true}
           data={data as MessageResponse['results']}
           columns={columns}
           handleNextClick={handleNextClick}
