@@ -2,7 +2,7 @@
 import { projectService } from '@/services/project.service'
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Typography, TypographySize, Table, Button, ButtonSizes } from 'ui-react'
+import { Typography, TypographySize, TableClient, Button, ButtonSizes } from 'ui-react'
 import type { Project } from '@/models/project.model'
 import { createColumnHelper } from '@tanstack/react-table'
 
@@ -82,7 +82,7 @@ export const ProjectsPage = (): JSX.Element => {
         </Button>
       </Link>
       </div>
-        <Table columns={columns} data={data} actions={actions} />
+        <TableClient columns={columns} data={data} actions={actions} />
     </section>
   )
 }

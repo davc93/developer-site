@@ -13,6 +13,11 @@
 .table__header-row{
   
 }
+.table-filters{
+  display: flex;
+  overflow-x: auto;
+  gap: 40px;
+}
 .table__order-icon{
   width: 0;
   transition-property: transform, width;
@@ -33,7 +38,7 @@
 
 }
 .table-pagination{
-  margin-top: 20px;
+  margin-top: 10px;
   display: flex;
   align-items: center;
   justify-content: end;

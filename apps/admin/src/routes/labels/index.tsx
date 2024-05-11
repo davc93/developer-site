@@ -1,7 +1,7 @@
 import {
   Button,
   ButtonSizes,
-  Table,
+  TableClient,
   Typography,
   TypographySize
 } from 'ui-react'
@@ -60,7 +60,7 @@ export const LabelsPage = (): JSX.Element => {
       </Link>
       </div>
 
-      <Table columns={columns} data={data} actions={actions} />
+      <TableClient columns={columns} data={data} actions={actions} />
     </div>
   )
 }
