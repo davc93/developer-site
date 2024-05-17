@@ -1,21 +1,17 @@
-import { Login } from "@/containers/Login/Login";
+import { Login } from '@/containers/Login/Login'
 
-export const LoginPage = () => {
+export const LoginPage = (): JSX.Element => {
   return (
-    <section
-    className="h-full flex items-center"
-    
-    
-    
-    
-    >
-      <div className="ml-16 w-full max-w-lg login-container fade-right-in rounded-md" 
-      style={{
-        border:"2px solid var(--primary--400)",
-        boxShadow:"var(--shadow-md)"
-      }}>
+    <section className="h-full flex items-center">
+      <div
+        className="w-full max-w-lg login-container fade-right-in rounded-md "
+        style={{
+          border: '2px solid var(--secondary--400)',
+          boxShadow: '0 0 10px 4px var(--secondary--600)'
+        }}
+      >
         <Login />
       </div>
     </section>
-  );
-};
+  )
+}

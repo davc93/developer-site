@@ -22,3 +22,14 @@ html {
     opacity: 0;
   }
 }
+.login-page-background{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(90deg,#00000099 50%,#00000030),url(https://res.cloudinary.com/dxryc5jgr/image/upload/v1692046970/developer-site/developer-1.webp);
+  background-size: cover;
+  background-position: center 20%;
+  /* filter: brightness(20% 50%); */
+}

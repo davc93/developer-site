@@ -1,84 +1,83 @@
-import "ui-react/src/Sidebar/sidebar.css";
-import { HTMLAttributes, useContext, useRef, useState } from "react";
-import { IconNotebook } from "ui-react/src/icons/icon-notebook";
-import { IconLetter } from "ui-react/src/icons/icon-letter";
-import { IconProfile } from "ui-react/src/icons/icon-profile";
-import { IconLabel } from "ui-react/src/icons/icon-label";
-import { IconLogout } from "ui-react/src/icons/icon-logout";
-import { IconMonitor } from "ui-react/src/icons/icon-monitor";
-import { AuthContext } from "@/context/AuthContext";
-import { Link, useNavigate } from "react-router-dom";
-type SidebarItem = {
-  path: string;
-  name: string;
-  Icon: () => JSX.Element;
-};
+import 'ui-react/src/Sidebar/sidebar.css'
+import { type HTMLAttributes, useContext, useRef, useState } from 'react'
+import { IconNotebook } from 'ui-react/src/icons/icon-notebook'
+import { IconLetter } from 'ui-react/src/icons/icon-letter'
+import { IconProfile } from 'ui-react/src/icons/icon-profile'
+import { IconLabel } from 'ui-react/src/icons/icon-label'
+import { IconLogout } from 'ui-react/src/icons/icon-logout'
+import { IconMonitor } from 'ui-react/src/icons/icon-monitor'
+import { AuthContext } from '@/context/AuthContext'
+import { Link, useNavigate } from 'react-router-dom'
+type SidebarItemProps = {
+  path: string
+  name: string
+  Icon: () => JSX.Element
+  isActive?: boolean
+}
 
-type SidebarItemProps = SidebarItem & { isActive?: boolean };
-type SidebarItemNativeProps = HTMLAttributes<HTMLLIElement>;
+type SidebarItemNativeProps = HTMLAttributes<HTMLLIElement>
 
-const items: SidebarItem[] = [
-  
+const items: SidebarItemProps[] = [
   {
-    path: "/dashboard",
-    name: "Dashboard",
-    Icon: IconMonitor,
+    path: '/dashboard',
+    name: 'Dashboard',
+    Icon: IconMonitor
   },
   {
-    path: "/profile",
-    name: "Profile",
-    Icon: IconProfile,
+    path: '/profile',
+    name: 'Profile',
+    Icon: IconProfile
   },
   {
-    path: "/projects",
-    name: "Projects",
-    Icon: IconNotebook,
+    path: '/projects',
+    name: 'Projects',
+    Icon: IconNotebook
   },
   {
-    path: "/contact",
-    name: "Contact",
-    Icon: IconLetter,
+    path: '/contact',
+    name: 'Contact',
+    Icon: IconLetter
   },
   {
-    path: "/labels",
-    name: "Labels",
-    Icon: IconLabel,
-  },
-];
+    path: '/labels',
+    name: 'Labels',
+    Icon: IconLabel
+  }
+]
 
-export const LogoutButton = () => {
-  const { deleteToken } = useContext(AuthContext);
-  const navigate = useNavigate();
-  const logout = () => {
+export const LogoutButton = (): JSX.Element => {
+  const { deleteToken } = useContext(AuthContext)
+  const navigate = useNavigate()
+  const logout = (): void => {
     try {
-      deleteToken();
-      navigate("/login");
+      deleteToken()
+      navigate('/login')
       // mostrar un pequeno mensaje
     } catch (error) {
-      console.error(error);
+      console.error(error)
     }
-  };
+  }
   return (
     <li onClick={logout}>
-      <button className={["sidebar-item"].join(" ")}>
+      <button className={['sidebar-item'].join(' ')}>
         <div className="sidebar-item__icon">
           <IconLogout />
         </div>
         <span className="sidebar-item__name">Logout</span>
       </button>
     </li>
-  );
-};
+  )
+}
 
-export const Sidebar = () => {
-  const [itemActive, setItemActive] = useState("Dashboard");
-  const handleButtonClick = (item: string) => {
-    setItemActive(itemActive !== item ? item : itemActive);
-  };
-  const sidebarRef = useRef<HTMLElement>(null);
-  const handleToggleMenu = () => {
-    sidebarRef.current?.classList.toggle("sidebar--open");
-  };
+export const Sidebar = (): JSX.Element => {
+  const [itemActive, setItemActive] = useState('Dashboard')
+  const handleButtonClick = (item: string): void => {
+    setItemActive(itemActive !== item ? item : itemActive)
+  }
+  const sidebarRef = useRef<HTMLElement>(null)
+  // const handleToggleMenu = () => {
+  //   sidebarRef.current?.classList.toggle('sidebar--open')
+  // }
   return (
     <>
       {/* <button className="sidebar-button" onClick={handleToggleMenu}>
@@ -89,21 +88,21 @@ export const Sidebar = () => {
         <ul className="sidebar__body scrollbar--vertical">
           {items.map((item) => (
             <SidebarItem
-            key={item.path}
-              isActive={itemActive == item.name}
-              onClick={() => handleButtonClick(item.name)}
+              key={item.path}
+              isActive={itemActive === item.name}
+              onClick={() => { handleButtonClick(item.name) }}
               {...item}
             />
           ))}
         </ul>
 
         <ul className="sidebar__bottom">
-            <LogoutButton />
-          </ul>
+          <LogoutButton />
+        </ul>
       </aside>
     </>
-  );
-};
+  )
+}
 
 const SidebarItem = ({
   Icon,
@@ -111,15 +110,15 @@ const SidebarItem = ({
   path,
   isActive,
   ...props
-}: SidebarItemProps & SidebarItemNativeProps) => {
+}: SidebarItemProps & SidebarItemNativeProps): JSX.Element => {
   return (
     <li {...props}>
       <Link
         to={path}
         className={[
-          "sidebar-item",
-          isActive ? "sidebar-item--active" : "",
-        ].join(" ")}
+          'sidebar-item',
+          isActive ? 'sidebar-item--active' : ''
+        ].join(' ')}
       >
         <div className="sidebar-item__icon">
           <Icon />
@@ -127,5 +126,5 @@ const SidebarItem = ({
         <span className="sidebar-item__name">{name}</span>
       </Link>
     </li>
-  );
-};
+  )
+}

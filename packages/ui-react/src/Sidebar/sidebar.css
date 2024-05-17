@@ -13,6 +13,7 @@
   height: 100svh;
   display: none;
   box-shadow: var(--shadow-sm);
+  z-index: 1;
 }
 
 .sidebar--open {

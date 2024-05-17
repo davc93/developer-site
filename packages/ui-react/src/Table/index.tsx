@@ -304,9 +304,14 @@ export const TableServer = ({
             })}
           </thead>
           <tbody>
-            {table.getRowModel().rows.map((row, index) => {
-              return <TableRow key={index} {...row} actions={actions} isLoading={isLoading} />
+            {!isLoading && table.getRowModel().rows.map((row, index) => {
+              
+                return <TableRow key={index} {...row} actions={actions} />
+              
             })}
+            {
+              isLoading && (<p style={{color:"white"}}>Loading ...</p>)
+            }
           </tbody>
         </table>
       </div>
