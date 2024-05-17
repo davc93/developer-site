@@ -9,8 +9,8 @@ const router = express.Router()
 const service = new LabelService()
 router.get('/', async (req, res, next) => {
   try {
-
-    const labels = await service.findAll();
+    const {query} = req
+    const labels = await service.findAll(query);
     res.json(labels);
   } catch (error) {
     next(error);
