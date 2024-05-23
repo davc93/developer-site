@@ -20,27 +20,13 @@ import { Button, ButtonSizes } from '../Button'
 import { Typography, TypographySize } from '../Typography'
 import { Input } from '../input'
 import { IconArrow } from '../icons/icon-arrow'
+export {TableServer} from "./TableServer"
 interface TableClientProps {
   data: unknown[]
   columns: ColumnDef<any, any>[]
   actions?: Action[]
 }
-interface TableServerProps {
-  data: unknown[]
-  rowCount: number | undefined
-  columns: ColumnDef<any, any>[]
-  actions?: Action[]
-  handleNextClick: () => void
-  handlePreviousClick: () => void
-  handleSortClick: (toSort: SortingState[0] | null) => Promise<void>
-  pagination: any
-  columnFilters:any
-  setPagination: any
-  isLoading: boolean
-  sorting: SortingState
-  setSorting: any
-  setColumnFilters: any
-}
+
 
 type Action = {
   name: string
@@ -162,185 +148,6 @@ export const TableClient = ({ data, columns, actions }: TableClientProps) => {
   )
 }
 
-export const TableServer = ({
-  data,
-  columns,
-  actions,
-  rowCount,
-  pagination,
-  sorting,
-  handleNextClick,
-  handlePreviousClick,
-  handleSortClick,
-  setPagination,
-  setSorting,
-  setColumnFilters,
-  columnFilters,
-  isLoading
-}: TableServerProps) => {
-  const table = useReactTable({
-    data,
-    columns,
-    manualPagination: true,
-    manualFiltering: true,
-    manualSorting: true,
-    getCoreRowModel: getCoreRowModel(),
-    rowCount,
-    state: {
-      pagination,
-      sorting,
-      columnFilters
-    },
-    onPaginationChange: setPagination,
-    onSortingChange: setSorting,
-    onColumnFiltersChange:setColumnFilters
-  })
-  return (
-    <>
-      <div className='table-filters'>
-        {/* {columns.map((column)=>{
-          return (
-            <Input label={column.header?.toString() as string} />
-          )
-        })} */}
-      </div>
-      <div className="table-container">
-        <table className="table">
-          <thead>
-            {table.getHeaderGroups().map((group, i) => {
-              return (
-                <tr className="table__header-row" key={i}>
-                  {group.headers.map((header, i) => {
-                    const ref = useRef<HTMLDivElement>(null)
-                    const generalSort = table.getState().sorting[0]
-
-                    const descSort = !generalSort
-                      ? null
-                      : generalSort.id !== header.column.id
-                      ? null
-                      : generalSort.desc
-                      ? true
-                      : false
-
-                    const setCursor = {
-                      orderAsc: () => {
-                        ref.current?.classList.add('table__order-icon--asc')
-                        ref.current?.classList.remove('table__order-icon--desc')
-                      },
-                      orderDesc: () => {
-                        ref.current?.classList.add('table__order-icon--desc')
-                        ref.current?.classList.remove('table__order-icon--asc')
-                      },
-                      noOrder: () => {
-                        ref.current?.classList.remove('table__order-icon--desc')
-                        ref.current?.classList.remove('table__order-icon--asc')
-                      }
-                    }
-                    if (descSort === null) {
-                      setCursor.noOrder()
-                    } else if (descSort === true) {
-                      setCursor.orderDesc()
-                    } else if (descSort === false) {
-                      setCursor.orderAsc()
-                    }
-
-                    const handleOrderClick = async () => {
-                      if (descSort !== null) {
-                        if (descSort) {
-                          await handleSortClick({
-                            id: header.column.id,
-                            desc: false
-                          })
-                          setCursor.orderAsc()
-                        } else {
-                          await handleSortClick(null)
-                          setCursor.noOrder()
-                        }
-                      } else {
-                        await handleSortClick({
-                          id: header.column.id,
-                          desc: true
-                        })
-                        setCursor.orderDesc()
-                      }
-                    }
-                    return (
-                      <th
-                        className="table__header-cell-container"
-                        key={i}
-                        style={{
-                          cursor: header.column.getCanSort()
-                            ? 'pointer'
-                            : 'default'
-                        }}
-                      >
-                        <div
-                          className="table__header-cell"
-                          onClick={handleOrderClick}
-                        >
-                          <span>
-                            {flexRender(
-                              header.column.columnDef.header,
-                              header.getContext()
-                            )}
-                          </span>
-
-                          <div
-                            onClick={handleOrderClick}
-                            ref={ref}
-                            className="table__order-icon"
-                          >
-                            {header.column.getCanSort() && (
-                              <IconArrow fill="var(--primary--500)" />
-                            )}
-                          </div>
-                        </div>
-                      </th>
-                    )
-                  })}
-                  <th></th>
-                </tr>
-              )
-            })}
-          </thead>
-          <tbody>
-            {!isLoading && table.getRowModel().rows.map((row, index) => {
-              
-                return <TableRow key={index} {...row} actions={actions} />
-              
-            })}
-            {
-              isLoading && (<p style={{color:"white"}}>Loading ...</p>)
-            }
-          </tbody>
-        </table>
-      </div>
-
-      <div className="table-pagination">
-        <Button
-          disabled={!table.getCanPreviousPage()}
-          onClick={handlePreviousClick}
-          size={ButtonSizes.SMALL}
-        >
-          Prev
-        </Button>
-        <Typography
-          style={{ minWidth: 60, textAlign: 'center' }}
-          size={TypographySize.bodyLarge}
-        >
-          {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
-        </Typography>
-        <Button
-          disabled={!table.getCanNextPage()}
-          onClick={handleNextClick}
-          size={ButtonSizes.SMALL}
-        >
-          Next
-        </Button>
-      </div>
-    </>
-  )
-}
 
 export const OptionButton = ({
   actions,
@@ -432,19 +239,19 @@ export const OptionButton = ({
   )
 }
 
-export const TableRow = (row: Row<unknown> & { actions?: Action[] , isLoading?:boolean }) => {
+export const TableRow = (
+  row: Row<unknown> & { actions?: Action[]; isLoading?: boolean }
+) => {
   return (
     <tr className="table__row">
       {row.getVisibleCells().map((cell) => {
         if (row.isLoading) {
           return (
             <td>
-              <span style={{color:"white"}}>
-                Loading...
-              </span>
+              <span style={{ color: 'white' }}>Loading...</span>
             </td>
           )
-        }else {
+        } else {
           return (
             <td
               title={`${cell.getContext().getValue()}`}
@@ -455,7 +262,6 @@ export const TableRow = (row: Row<unknown> & { actions?: Action[] , isLoading?:b
             </td>
           )
         }
-        
       })}
 
       {row.actions && (

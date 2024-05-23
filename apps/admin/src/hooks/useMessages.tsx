@@ -1,24 +1,33 @@
-import { useQuery } from '@tanstack/react-query'
+import { keepPreviousData, useQuery } from '@tanstack/react-query'
 
 import type { MessageResponse } from '@/models/message.model'
 import { config } from '@/config'
 import { AuthContext } from '@/context/AuthContext'
 import { useContext, useEffect, useState } from 'react'
 
+type Filter = {
+  field: string
+  operator: string
+  value: string
+}
+
 const fetchMessages = async (
-  page: number = 1,
-  token: string = '',
+  page: string = '1',
+  token: string,
   orderBy: string = 'id',
   orderDirection: 'desc' | 'asc' = 'desc',
-  filters?: any
+  filters?: Filter[]
 ): Promise<MessageResponse> => {
   const params = new URLSearchParams()
-  params.append('page', `${page}`)
+  params.append('page', page)
+  params.append('pageSize', '10')
   params.append('orderBy', orderBy)
   params.append('orderDirection', orderDirection)
-
+  filters?.forEach((filter) => {
+    params.append(`filters[${filter.field}][${filter.operator}]`, filter.value)
+  })
   const response = await fetch(
-    `${config.apiUri}/messages?page=${page}&pageSize=10&orderBy=${orderBy}&orderDirection=${orderDirection}`,
+    `${config.apiUri}/messages?${params.toString()}`,
     {
       headers: {
         Authorization: `Bearer ${token}`
@@ -48,15 +57,16 @@ export const useMessages = () => {
     queryKey: ['messages', { page, order }],
     queryFn: async () =>
       await fetchMessages(
-        page,
+        `${page}`,
         token ?? '',
         order.orderBy,
         order.orderDirection
-      )
-    // staleTime: 1000 * 60,
-    // placeholderData: keepPreviousData
+      ),
+    staleTime: 1000 * 60
   })
-
+  const firstPage = (): void => {
+    setPage(1)
+  }
   const nextPage = (): void => {
     setPage(page + 1)
   }
@@ -75,6 +85,8 @@ export const useMessages = () => {
     page,
     nextPage,
     previousPage,
-    sort
+    sort,
+    order,
+    firstPage
   }
 }

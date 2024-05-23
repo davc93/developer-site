@@ -1,15 +1,10 @@
+import { ProjectForm } from '../../containers/ProjectForm'
+import { ProjectFormProvider } from '../../containers/ProjectForm/Context'
 
-import { ProjectForm } from "../../containers/ProjectForm";
-import { ProjectFormProvider } from "../../containers/ProjectForm/Context";
-
-export const CreateProjectPage =  () => {
-  
-  
-
+export const CreateProjectPage = () => {
   return (
     <ProjectFormProvider>
-      <ProjectForm project={null}/>
+      <ProjectForm project={null} />
     </ProjectFormProvider>
-    
   )
 }

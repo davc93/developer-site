@@ -18,6 +18,10 @@ module.exports = {
     "@typescript-eslint/non-nullable-type-assertion-style": "off",
     "@typescript-eslint/consistent-type-definitions": "off",
     "@typescript-eslint/indent": "off",
-    "@typescript-eslint/no-floating-promises": "off"
+    "@typescript-eslint/no-floating-promises": "off",
+    "@typescript-eslint/explicit-function-return-type": "warn",
+    "@typescript-eslint/member-delimiter-style": "off",
+    "@typescript-eslint/no-misused-promises": "off",
+    "@typescript-eslint/space-before-function-paren": "off"
   }
 }

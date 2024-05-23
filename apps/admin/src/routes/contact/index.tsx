@@ -1,11 +1,5 @@
 import { createColumnHelper } from '@tanstack/react-table'
-import type {
-  ColumnFiltersState,
-  PaginationState,
-  SortingState
-} from '@tanstack/react-table'
 import type { MessageResponse } from '@/models/message.model'
-import { useState } from 'react'
 import { TableServer, Typography, TypographySize } from 'ui-react'
 import { useMessages } from '@/hooks/useMessages'
 
@@ -29,19 +23,8 @@ const columns = [
 ]
 
 export const ContactPage = (): JSX.Element => {
-  // const defaultSorting: SortingState = [
-  //   {
-  //     id: 'createdAt',
-  //     desc: true
-  //   }
-  // ]
-  // const defaultPagination: PaginationState = {
-  //   pageSize: 10,
-  //   pageIndex: 0
-  // }
-  // const defaultFilters: ColumnFiltersState = []
-
-  const { messagesQuery, nextPage, previousPage, sort } = useMessages()
+  const { messagesQuery, nextPage, firstPage, previousPage, sort, page, order } =
+    useMessages()
   return (
     <div>
       <Typography size={TypographySize.titleSmall}>Contact Page</Typography>
@@ -56,7 +39,10 @@ export const ContactPage = (): JSX.Element => {
           handleNextClick={nextPage}
           handlePreviousClick={previousPage}
           handleSortClick={sort}
+          handleFirstPage={firstPage}
           isLoading={messagesQuery.isLoading}
+          page={page}
+          order={order}
         />
       </div>
     </div>
