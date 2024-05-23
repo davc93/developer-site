@@ -5,9 +5,9 @@
 
 }
 .checkbox__label{
-    color: var(--foreground--400);
+    color: var(--foreground--100);
 }
 [data-theme="light"] .checkbox__label{
-    color: var(--foreground--500);
+    color: var(--foreground--900);
 
 }

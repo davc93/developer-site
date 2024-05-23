@@ -9,7 +9,7 @@ import { Typography, TypographySize } from '../Typography'
 import { IconArrow } from '../icons/icon-arrow'
 import { useEffect, useRef } from 'react'
 import { TableRow } from '.'
-
+import { LoaderShape } from '../LoaderShape'
 type Action = {
   name: string
   fn: (params: any) => void
@@ -22,7 +22,7 @@ interface TableServerProps {
   order: any
   columns: ColumnDef<any, any>[]
   actions?: Action[]
-  handleFirstPage:() => void
+  handleFirstPage: () => void
   handleNextClick: () => void
   handlePreviousClick: () => void
   handleSortClick: (order: {
@@ -129,7 +129,6 @@ export const TableServer = ({
                         handleSortClick({ orderBy: id, orderDirection: 'desc' })
                       }
                       handleFirstPage()
-                    
                     }
 
                     return (
@@ -187,7 +186,13 @@ export const TableServer = ({
           style={{ minWidth: 60, textAlign: 'center' }}
           size={TypographySize.bodyLarge}
         >
-          {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
+          {isLoading ? (
+            <LoaderShape width={30} />
+          ) : (
+            `${
+              table.getState().pagination.pageIndex + 1
+            } of ${table.getPageCount()}`
+          )}
         </Typography>
         <Button
           disabled={!table.getCanNextPage()}

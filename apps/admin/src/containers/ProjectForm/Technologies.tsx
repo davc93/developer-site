@@ -1,47 +1,46 @@
-import { useState, useEffect, useContext } from "react";
-import { Button, ButtonSizes, Select } from "ui-react";
-import { Project } from "@/models/project.model";
-import { labelService } from "@/services/label.service";
-import type { Label } from "@/models/project.model";
-import type { FormEventHandler } from "react";
-import { ProjectFormContext } from "./Context";
-import { ActionTypes, Step } from "./reducer";
+import { useState, useEffect, useContext } from 'react'
+import { Button, ButtonSizes, Select } from 'ui-react'
+import type { Project, Label } from '@/models/project.model'
+import { labelService } from '@/services/label.service'
+import type { FormEventHandler } from 'react'
+import { ProjectFormContext } from './Context'
+import { ActionTypes } from './reducer'
 
 type TechnologiesProps = {
-  project: Partial<Project> | null;
-  show: boolean;
-};
+  project: Partial<Project> | null
+  show: boolean
+}
 
 type LabelInput = {
-  inputId: string;
-  order: number | null;
-  labelId: number | null;
-};
+  inputId: string
+  order: number | null
+  labelId: number | null
+}
 const useGetLabels = () => {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [labels, setLabels] = useState<Label[]>([]);
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [labels, setLabels] = useState<Label[]>([])
 
   const getLabels = async () => {
-    setLoading(true);
+    setLoading(true)
     try {
-      const data = await labelService.getLabels();
-      setLabels(data);
+      const data = await labelService.getLabels()
+      setLabels(data.data)
     } catch (error) {
-      setError(`${error}`);
+      setError(`${error}`)
     }
-    setLoading(false);
-  };
+    setLoading(false)
+  }
   useEffect(() => {
-    getLabels();
-  }, []);
+    getLabels()
+  }, [])
   return {
     loading,
     error,
     labels,
-    getLabels,
-  };
-};
+    getLabels
+  }
+}
 
 export const useLabelsInputs = (project: any) => {
   const [labelsInputs, setLabelsInputs] = useState<LabelInput[]>(() => {
@@ -50,79 +49,78 @@ export const useLabelsInputs = (project: any) => {
         return {
           inputId: `input-label-${label.id}`,
           order: label.labelProject.order,
-          labelId: label.id,
-        };
-      });
+          labelId: label.id
+        }
+      })
     } else {
-      return [];
+      return []
     }
-  });
+  })
 
   const handleAddLabel = () => {
     setLabelsInputs([
       {
         inputId: `input-label-${labelsInputs.length}`,
         order: null,
-        labelId: null,
+        labelId: null
       },
-      ...labelsInputs,
-    ]);
-  };
+      ...labelsInputs
+    ])
+  }
 
   const handleRemoveLabel = (id: string) => {
     setLabelsInputs(
       labelsInputs.filter((labelInput) => labelInput.inputId !== id)
-    );
-  };
+    )
+  }
 
   const handleInputChange: FormEventHandler<HTMLElement> = (event) => {
-    event.preventDefault();
-    const target = event.target as HTMLInputElement;
-    const value = target.value;
-    const [property, input, label, id] = target.id.split("-");
+    event.preventDefault()
+    const target = event.target as HTMLInputElement
+    const value = target.value
+    const [property, input, label, id] = target.id.split('-')
 
     setLabelsInputs((prev) => {
       return prev.map((labelInput) => {
         if (labelInput.inputId == `input-label-${id}`) {
           return {
             ...labelInput,
-            [property]: value,
-          };
+            [property]: value
+          }
         } else {
-          return labelInput;
+          return labelInput
         }
-      });
-    });
-  };
+      })
+    })
+  }
   return {
     handleAddLabel,
     handleInputChange,
     handleRemoveLabel,
-    labelsInputs,
-  };
-};
+    labelsInputs
+  }
+}
 
 export const Technologies = ({ project, show }: TechnologiesProps) => {
-  const { labels } = useGetLabels();
-  const { dispatch, state } = useContext(ProjectFormContext);
+  const { labels } = useGetLabels()
+  const { dispatch, state } = useContext(ProjectFormContext)
 
   const { handleAddLabel, handleInputChange, handleRemoveLabel, labelsInputs } =
-    useLabelsInputs(project);
+    useLabelsInputs(project)
 
   useEffect(() => {
     dispatch({
       type: ActionTypes.SET_PROJECT,
       payload: {
-        labels: labelsInputs.map(({inputId,labelId,order }) => ({
-          order:order as number ,
-          labelId:labelId as number
-        })),
-      },
-    });
-
-  }, [show]);
+        labels: labelsInputs.map(({ inputId, labelId, order }) => ({
+          order: order as number,
+          labelId: labelId as number
+        }))
+      }
+    })
+  }, [show])
   return (
-    <form className={`flex flex-col w-fit mb-4 ${show ? "" : "hidden"}`}>
+    <form className={`flex flex-col w-fit mb-4 ${show ? '' : 'hidden'}`}>
       <div className="self-end mb-4">
         <Button type="button" size={ButtonSizes.SMALL} onClick={handleAddLabel}>
           Add
@@ -134,25 +132,25 @@ export const Technologies = ({ project, show }: TechnologiesProps) => {
             <div className="flex  gap-4 items-center" key={labelInput.inputId}>
               <div className="input-group">
                 <Select
-                  value={labelInput.labelId ?? ""}
+                  value={labelInput.labelId ?? ''}
                   name=""
                   id={`labelId-${labelInput.inputId}`}
                   onInput={handleInputChange}
-                  placeholder={"Select a label"}
+                  placeholder={'Select a label'}
                   disabled={labels.length == 0}
                 >
                   {labels.map((label) => {
                     return (
                       <option key={label.id} value={label.id}>
-                        {label.title}{" "}
+                        {label.title}{' '}
                       </option>
-                    );
+                    )
                   })}
                 </Select>
               </div>
               <div className="input-group">
                 <Select
-                  value={labelInput.order ?? ""}
+                  value={labelInput.order ?? ''}
                   name=""
                   id={`order-${labelInput.inputId}`}
                   onInput={handleInputChange}
@@ -163,7 +161,7 @@ export const Technologies = ({ project, show }: TechnologiesProps) => {
                       <option key={number} value={number}>
                         {number}
                       </option>
-                    );
+                    )
                   })}
                 </Select>
               </div>
@@ -175,10 +173,9 @@ export const Technologies = ({ project, show }: TechnologiesProps) => {
                 Remove
               </Button>
             </div>
-          );
+          )
         })}
       </div>
-
     </form>
-  );
-};
+  )
+}

@@ -12,7 +12,7 @@
 
 /* Styling for the input label */
 .text-area__label {
-  color: var(--foreground--400);
+  color: var(--foreground--100);
 
   font-family: var(--typography-primary);
 }

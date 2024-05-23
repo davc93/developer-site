@@ -42,8 +42,8 @@ class LabelService{
 
     }
 
-    async getLabels():Promise<Label[]>{
-        const response =  await fetch(`${config.apiUri}/labels`)
+    async getLabels():Promise<any>{
+        const response =  await fetch(`${config.apiUri}/labels?pagination[size]=100&pagination[page]=1&sort[0]=id:desc`)
         const data = await response.json()
         
         if(data.error){
