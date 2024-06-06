@@ -36,5 +36,3 @@ export function handleColorSchemeChange(event: any) {
 export function sendNotification(message: any) {
   alert(`${message}`)
 }
-
-export async function sleep(seconds: number): Promise<void> {}

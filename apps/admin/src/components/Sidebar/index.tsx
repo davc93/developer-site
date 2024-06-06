@@ -6,6 +6,7 @@ import { IconProfile } from 'ui-react/src/icons/icon-profile'
 import { IconLabel } from 'ui-react/src/icons/icon-label'
 import { IconLogout } from 'ui-react/src/icons/icon-logout'
 import { IconMonitor } from 'ui-react/src/icons/icon-monitor'
+import { IconTasks } from 'ui-react/src/icons/icon-tasks'
 import { AuthContext } from '@/context/AuthContext'
 import { Link, useNavigate } from 'react-router-dom'
 type SidebarItemProps = {
@@ -42,6 +43,11 @@ const items: SidebarItemProps[] = [
     path: '/labels',
     name: 'Labels',
     Icon: IconLabel
+  },
+  {
+    path: '/tasks',
+    name: 'Task',
+    Icon: IconTasks
   }
 ]
 
@@ -90,7 +96,9 @@ export const Sidebar = (): JSX.Element => {
             <SidebarItem
               key={item.path}
               isActive={itemActive === item.name}
-              onClick={() => { handleButtonClick(item.name) }}
+              onClick={() => {
+                handleButtonClick(item.name)
+              }}
               {...item}
             />
           ))}

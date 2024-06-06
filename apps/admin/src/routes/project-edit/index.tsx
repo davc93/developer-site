@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { ProjectForm } from "../../containers/ProjectForm";
+import { ProjectForm } from "../../components/ProjectForm";
 import { Project } from "../../models/project.model";
 import { projectService } from "../../services/project.service";
-import {  ProjectFormProvider } from "../../containers/ProjectForm/Context";
+import {  ProjectFormProvider } from "../../components/ProjectForm/Context";
 export const EditProjectPage = () => {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);

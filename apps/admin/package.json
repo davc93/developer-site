@@ -18,7 +18,8 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3",
     "ui-react": "^1.0.1",
-    "ui-styles": "*"
+    "ui-styles": "*",
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@tanstack/react-query-devtools": "^5.36.0",

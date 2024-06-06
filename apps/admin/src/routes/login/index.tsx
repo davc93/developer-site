@@ -1,4 +1,4 @@
-import { Login } from '@/containers/Login/Login'
+import { Login } from '@/components/Login/Login'
 
 export const LoginPage = (): JSX.Element => {
   return (

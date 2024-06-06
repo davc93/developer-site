@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { AuthContext } from '@/context/AuthContext'
 import {
   NotificationContext,
-  NotificationProps
+  type NotificationProps
 } from '@/context/NotificationContext'
 import { Router } from '@/routes'
 import { useCookies } from './hooks/useCookies'

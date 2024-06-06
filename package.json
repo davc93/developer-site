@@ -1,6 +1,6 @@
 {
   "name": "developer-site",
-  "private":true,
+  "private": true,
   "version": "1.0.0",
   "description": "Monorepo of davc93 applications, frontend, nodeapss , etc...",
   "main": "index.js",
@@ -16,6 +16,8 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-
-  ]
+  ],
+  "dependencies": {
+    "immer": "^10.1.1"
+  }
 }

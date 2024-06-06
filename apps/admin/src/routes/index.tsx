@@ -10,6 +10,8 @@ import { CreateProjectPage } from '@/routes/project-create'
 import { EditProjectPage } from '@/routes/project-edit'
 import { ContactPage } from './contact'
 import { LabelApp } from './labels'
+import { TasksApp } from './todos'
+import { RegisterApp } from './register'
 
 export const PublicRoutes = (): JSX.Element => {
   const { token } = useContext(AuthContext)
@@ -44,7 +46,9 @@ export const PrivateRoutes = (): JSX.Element => {
       <Route element={<CreateProjectPage />} path="/project/create" />
       <Route element={<EditProjectPage />} path="/project/edit/:id" />
       <Route element={<ContactPage />} path="/contact" /> */
-      <Route element={<LabelApp />} path='/labels/*'/>
+      <Route element={<LabelApp />} path="/labels/*" />
+      <Route element={<TasksApp />} path="/tasks/*" />
+      <Route element={<RegisterApp/>} path='/register/*' />
     </Routes>
   )
 }
