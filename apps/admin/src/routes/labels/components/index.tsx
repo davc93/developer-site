@@ -5,7 +5,7 @@ import {
   type ChangeEvent
 } from 'react'
 import type { Label } from '@/models/label.model'
-import { AuthContext } from '@/context/AuthContext'
+import { AuthContext } from '@/providers/auth-provider'
 import { useInputValue } from '@/hooks/useInputValue'
 import { Button, Input, Select } from 'ui-react'
 import { fileService } from '@/services/file.service'

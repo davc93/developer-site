@@ -1,7 +1,7 @@
 import { type FormEventHandler, useContext, useState } from 'react'
 import { authService } from '@/services/auth.service'
 import { useInputValue } from '@/hooks/useInputValue'
-import { AuthContext } from '@/context/AuthContext'
+import { AuthContext } from '@/providers/auth-provider'
 import {
   Button,
   ButtonSizes,
@@ -25,9 +25,7 @@ export const Login = () => {
     event.preventDefault()
     setLoading(true)
     try {
-      const result = await authService.login(email.value, password.value)
-
-      //execute animation
+      const result = await authService.login(email.value as string, password.value as string)
       const container = document.querySelector(
         '.login-container'
       ) as HTMLDivElement

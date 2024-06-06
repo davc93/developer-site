@@ -7,7 +7,7 @@ import {
 } from "react";
 import { IconCross } from "ui-react/src/icons/icon-cross";
 import { Button } from "ui-react";
-import { AuthContext } from "@/context/AuthContext";
+import { AuthContext } from "@/providers/auth-provider";
 import { fileService } from "@/services/file.service";
 
 import type { Project } from "@/models/project.model";

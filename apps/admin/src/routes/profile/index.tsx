@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { User } from "@/models/user.model";
 import { authService } from "@/services/auth.service";
-import { AuthContext } from "@/context/AuthContext";
+import { AuthContext } from "@/providers/auth-provider";
 import { Input, Typography, TypographySize } from "ui-react";
 
 export const ProfilePage = () => {

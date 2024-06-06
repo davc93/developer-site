@@ -1,7 +1,7 @@
 import { FormEventHandler, useContext, useState } from "react";
 import { projectService } from "@/services/project.service";
 import { labelProjectService } from "@/services/label-project.service";
-import { AuthContext } from "@/context/AuthContext";
+import { AuthContext } from "@/providers/auth-provider";
 import { imageService } from "@/services/image.service";
 import { ActionTypes, ProjectDto, Step } from "./reducer";
 import { useNavigate } from "react-router-dom";
@@ -11,7 +11,7 @@ import { Technologies } from "./Technologies";
 import { Images } from "./Images";
 import { ProjectFormContext } from "./Context";
 import type { CreateProjectDto, Project } from "@/models/project.model";
-import { NotificationContext } from "@/context/NotificationContext";
+import { NotificationContext } from "@/providers/notification-provider";
 import { NotificationType } from "ui-react/src/Notification";
 type ProjectFormProps = {
   project: Project | null;

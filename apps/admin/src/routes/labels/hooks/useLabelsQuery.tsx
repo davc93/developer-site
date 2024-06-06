@@ -1,5 +1,5 @@
 import { config } from '@/config'
-import { AuthContext } from '@/context/AuthContext'
+import { AuthContext } from '@/providers/auth-provider'
 import { useInfiniteQuery } from '@tanstack/react-query'
 import { useContext, useState } from 'react'
 import type { LabelsResponse } from '../models/Label'

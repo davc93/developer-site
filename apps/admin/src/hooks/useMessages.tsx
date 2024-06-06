@@ -2,7 +2,7 @@ import { keepPreviousData, useQuery } from '@tanstack/react-query'
 
 import type { MessageResponse } from '@/models/message.model'
 import { config } from '@/config'
-import { AuthContext } from '@/context/AuthContext'
+import { AuthContext } from '@/providers/auth-provider'
 import { useContext, useEffect, useState } from 'react'
 
 type Filter = {

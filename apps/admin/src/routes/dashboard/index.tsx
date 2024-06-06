@@ -1,4 +1,4 @@
-import { NotificationContext } from "@/context/NotificationContext"
+import { NotificationContext } from "@/providers/NotificationContext"
 import { useContext } from "react"
 import { Button, Typography, TypographySize } from "ui-react"
 import { NotificationType } from "ui-react/src/Notification"

@@ -7,7 +7,7 @@ import { IconLabel } from 'ui-react/src/icons/icon-label'
 import { IconLogout } from 'ui-react/src/icons/icon-logout'
 import { IconMonitor } from 'ui-react/src/icons/icon-monitor'
 import { IconTasks } from 'ui-react/src/icons/icon-tasks'
-import { AuthContext } from '@/context/AuthContext'
+import { AuthContext } from '@/providers/auth-provider'
 import { Link, useNavigate } from 'react-router-dom'
 type SidebarItemProps = {
   path: string
@@ -20,32 +20,32 @@ type SidebarItemNativeProps = HTMLAttributes<HTMLLIElement>
 
 const items: SidebarItemProps[] = [
   {
-    path: '/dashboard',
+    path: '',
     name: 'Dashboard',
     Icon: IconMonitor
   },
   {
-    path: '/profile',
+    path: 'profile',
     name: 'Profile',
     Icon: IconProfile
   },
   {
-    path: '/projects',
+    path: 'projects',
     name: 'Projects',
     Icon: IconNotebook
   },
   {
-    path: '/contact',
+    path: 'contact',
     name: 'Contact',
     Icon: IconLetter
   },
   {
-    path: '/labels',
+    path: 'labels',
     name: 'Labels',
     Icon: IconLabel
   },
   {
-    path: '/tasks',
+    path: 'tasks',
     name: 'Task',
     Icon: IconTasks
   }

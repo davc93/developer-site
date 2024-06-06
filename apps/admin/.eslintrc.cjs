@@ -31,8 +31,11 @@ module.exports = {
     '@typescript-eslint/semi': 'off',
     '@typescript-eslint/key-spacing': 'off',
     'eol-last': 'off',
-    '@typescript-eslint/comma-spacing':'off',
-    'arrow-spacing':'off',
-    'padded-blocks':'off'
+    '@typescript-eslint/comma-spacing': 'off',
+    'arrow-spacing': 'off',
+    'padded-blocks': 'off',
+    '@typescript-eslint/comma-dangle': 'off',
+    '@typescript-eslint/object-curly-spacing': 'off',
+    'no-multi-spaces':'off'
   }
 }

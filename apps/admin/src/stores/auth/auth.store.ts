@@ -1,7 +1,7 @@
 import type { User } from '@/models/user.model'
 import { authService } from '@/services/auth.service'
 import { create, type StateCreator } from 'zustand'
-import { devtools } from 'zustand/middleware'
+import { devtools, persist } from 'zustand/middleware'
 
 export enum AuthStatus {
   AUTHORIZED = 'authorized',
@@ -53,4 +53,6 @@ const storeApi: StateCreator<AuthState> = (set, get) => {
   }
 }
 
-export const useAuthStore = create<AuthState>()(devtools(storeApi))
+export const useAuthStore = create<AuthState>()(
+  devtools(persist(storeApi, { name: 'auth-store' }))
+)

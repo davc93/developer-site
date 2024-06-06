@@ -1,43 +1,38 @@
-import { config } from "../config";
-import { Token } from "../models/auth.model";
-import { User } from "../models/user.model";
+import { developerApi } from '@/apis/developer.api'
+import type { LoginResponse } from '../models/auth.model'
+import type { User } from '../models/user.model'
+import { AxiosError } from 'axios'
+
+type ProfileResponse = User
+
 class AuthService {
-  async login(email: string, password: string): Promise<Token> {
-    const response = await fetch(`${config.apiUri}/auth/login`, {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({
+  async login(email: string, password: string): Promise<LoginResponse> {
+    try {
+      const { data } = await developerApi.post<LoginResponse>('/auth/login', {
         email,
-        password,
-      }),
-    });
-
-    const data = await response.json();
-
-    if (data.error) {
-      throw new Error(data.message);
+        password
+      })
+      return data
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        throw new Error(error.response?.data as string)
+      }
+      throw new Error('No se pudo hacer login correctamente')
     }
-    return data
   }
-  
-  async getProfile(token: string): Promise<User> {
-    const response = await fetch(`${config.apiUri}/auth/profile`, {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-type": "application/json",
-      },
-    });
 
-    const data = await response.json();
-    if (data.error) {
-      throw new Error(data.message);
+  async getProfile(token: string): Promise<ProfileResponse> {
+    try {
+      const { data } = await developerApi.get<ProfileResponse>('/auth/profile',{headers:{Authorization:`Bearer ${token}`}})
+      return data
+    } catch (error) {
+      if (error instanceof AxiosError) {
+        throw new Error(error.response?.data as string)
+      }
+      throw new Error('No se pudo obtener informacion del usuario')
     }
-    return data;
   }
 }
 
-const authService = new AuthService();
-export { authService };
+const authService = new AuthService()
+export { authService }

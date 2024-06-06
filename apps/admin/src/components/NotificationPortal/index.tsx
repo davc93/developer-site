@@ -1,7 +1,7 @@
 import './style.css'
 import React, { useContext } from 'react'
 import ReactDOM from 'react-dom'
-import { NotificationContext } from '@/context/NotificationContext'
+import { NotificationContext } from '@/providers/NotificationContext'
 import { Notification } from 'ui-react'
 
 function NotificationPortal() {

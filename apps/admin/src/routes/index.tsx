@@ -1,65 +1,37 @@
-import { Route, Routes, BrowserRouter, useNavigate } from 'react-router-dom'
-import { Layout } from '@/Layout'
+import { Route, Routes, BrowserRouter, Navigate } from 'react-router-dom'
 import { LoginPage } from '@/routes/login'
 import { ProfilePage } from '@/routes/profile'
-import { useContext, useEffect } from 'react'
-import { AuthContext } from '@/context/AuthContext'
 import { DashboardPage } from '@/routes/dashboard'
 import { ProjectsPage } from '@/routes/projects'
 import { CreateProjectPage } from '@/routes/project-create'
 import { EditProjectPage } from '@/routes/project-edit'
 import { ContactPage } from './contact'
 import { LabelApp } from './labels'
-import { TasksApp } from './todos'
+import { TasksApp } from './tasks'
 import { RegisterApp } from './register'
-
-export const PublicRoutes = (): JSX.Element => {
-  const { token } = useContext(AuthContext)
-  const navigate = useNavigate()
-  useEffect(() => {
-    if (token) {
-      navigate('/dashboard')
-    }
-  }, [])
-  return (
-    <Routes>
-      <Route element={<LoginPage />} path="/login" />
-    </Routes>
-  )
-}
-
-export const PrivateRoutes = (): JSX.Element => {
-  const { token } = useContext(AuthContext)
-  const navigate = useNavigate()
-
-  useEffect(() => {
-    if (!token) {
-      navigate('/login')
-    }
-  }, [])
-
-  return (
-    <Routes>
-      <Route element={<DashboardPage />} path="/dashboard" />
-      <Route element={<ProfilePage />} path="/profile" />
-      <Route element={<ProjectsPage />} path="/projects" />
-      <Route element={<CreateProjectPage />} path="/project/create" />
-      <Route element={<EditProjectPage />} path="/project/edit/:id" />
-      <Route element={<ContactPage />} path="/contact" /> */
-      <Route element={<LabelApp />} path="/labels/*" />
-      <Route element={<TasksApp />} path="/tasks/*" />
-      <Route element={<RegisterApp/>} path='/register/*' />
-    </Routes>
-  )
-}
+import { DashboardLayout } from '@/layouts'
+import { LoginLayout } from '@/layouts/login-layout'
 
 export const Router = (): JSX.Element => {
   return (
     <BrowserRouter>
-      <Layout>
-        <PrivateRoutes />
-        <PublicRoutes />
-      </Layout>
+      <Routes>
+        <Route path="dashboard" element={<DashboardLayout />}>
+          <Route element={<DashboardPage />} path="" />
+          <Route element={<ProfilePage />} path="profile" />
+          <Route element={<ProjectsPage />} path="projects" />
+          <Route element={<CreateProjectPage />} path="project/create" />
+          <Route element={<EditProjectPage />} path="project/edit/:id" />
+          <Route element={<ContactPage />} path="contact" /> */
+          <Route element={<LabelApp />} path="labels/*" />
+          <Route element={<TasksApp />} path="tasks/*" />
+          <Route element={<RegisterApp />} path="register/*" />
+        </Route>
+        <Route path="login" element={<LoginLayout />}>
+          <Route element={<LoginPage />} path="" />
+        </Route>
+        <Route path="/*" element={<Navigate to="login" />} />
+      </Routes>
     </BrowserRouter>
   )
 }
