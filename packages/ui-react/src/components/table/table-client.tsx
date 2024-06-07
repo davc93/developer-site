@@ -1,4 +1,5 @@
-import { IconArrow } from '@/icons/icon-arrow'
+import "ui-styles/src/table.css"
+import { IconArrow } from '../../icons/icon-arrow'
 import {
   useReactTable,
   getFilteredRowModel,

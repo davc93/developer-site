@@ -1,75 +1,66 @@
-import {
-  ChangeEvent,
-  useContext,
-  useEffect,
-  useReducer,
-  useState,
+import { type ChangeEvent, useContext, useEffect, useState } from 'react'
+import { IconCross, Button } from 'ui-react'
+import { AuthContext } from '@/providers/auth-provider'
+import { fileService } from '@/services/file.service'
 
-} from "react";
-import { IconCross,Button } from "ui-react";
-import { AuthContext } from "@/providers/auth-provider";
-import { fileService } from "@/services/file.service";
-
-import type { Project } from "@/models/project.model";
-import type { ProjectDto } from "./reducer";
-import { ActionTypes, reducer } from "./reducer";
-import { ProjectFormContext } from "./Context";
+import type { Project } from '@/models/project.model'
+import type { ProjectDto } from './reducer'
+import { ActionTypes } from './reducer'
+import { ProjectFormContext } from './Context'
 type ImageProps = {
-  project: Partial<Project> | null;
-  show: boolean;
-};
+  project: Partial<Project> | null
+  show: boolean
+}
 
 export const Images = ({ show, project }: ImageProps) => {
-  const { token } = useContext(AuthContext);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [images, setImages] = useState<ProjectDto["images"]>(() => {
+  const { token } = useContext(AuthContext)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [images, setImages] = useState<ProjectDto['images']>(() => {
     if (project) {
-      return project.images?.map((image) => ({ url: image.url }));
+      return project.images?.map((image) => ({ url: image.url }))
     } else {
-      return [];
+      return []
     }
-  });
-  const { state, dispatch } = useContext(ProjectFormContext);
+  })
+  const { dispatch } = useContext(ProjectFormContext)
   const handleDeleteImage = (url: string) => () => {
-    setImages(images?.filter((file) => file.url !== url));
-  };
+    setImages(images?.filter((file) => file.url !== url))
+  }
   const handleFiles = async (event: ChangeEvent<HTMLInputElement>) => {
-    event.preventDefault();
-    setLoading(true);
-    const files = event.target.files;
+    event.preventDefault()
+    setLoading(true)
+    const files = event.target.files
     if (files) {
       try {
-        const filesUploading: Promise<any>[] = [];
+        const filesUploading: Promise<any>[] = []
         for (let i = 0; i < files.length; i++) {
-          const formData = new FormData();
-          formData.append("image", files[i]);
-          filesUploading.push(
-            fileService.uploadFile(token as string, formData)
-          );
+          const formData = new FormData()
+          formData.append('image', files[i])
+          filesUploading.push(fileService.uploadFile(token as string, formData))
         }
-        const result = await Promise.all(filesUploading);
+        const result = await Promise.all(filesUploading)
         if (images) {
-          setImages([...images, ...result]);
+          setImages([...images, ...result])
         } else {
-          setImages(result);
+          setImages(result)
         }
       } catch (error) {
-        setError("Something went wrong");
+        setError('Something went wrong')
       }
     }
-    setLoading(false);
-  };
+    setLoading(false)
+  }
   useEffect(() => {
     dispatch({
       type: ActionTypes.SET_PROJECT,
       payload: {
-        images: images?.map((image) => ({ url: image.url })),
-      },
-    });
-  }, [show, images]);
+        images: images?.map((image) => ({ url: image.url }))
+      }
+    })
+  }, [show, images])
   return (
-    <div className={`flex ${show ? "" : "hidden"}`}>
+    <div className={`flex ${show ? '' : 'hidden'}`}>
       {loading && <p className="text-white">Loading Images</p>}
       {error && <p>{error}</p>}
 
@@ -91,9 +82,9 @@ export const Images = ({ show, project }: ImageProps) => {
               </div>
               <img className="h-48 w-64" key={i} src={image.url} alt="" />
             </div>
-          );
+          )
         })}
       </div>
     </div>
-  );
-};
+  )
+}

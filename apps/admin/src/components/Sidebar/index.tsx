@@ -1,15 +1,8 @@
-import 'ui-react/src/Sidebar/sidebar.css'
-import { type HTMLAttributes, useContext, useRef, useState } from 'react'
-import { IconNotebook } from 'ui-react/src/icons/icon-notebook'
-import { IconLetter } from 'ui-react/src/icons/icon-letter'
-import { IconProfile } from 'ui-react/src/icons/icon-profile'
-import { IconLabel } from 'ui-react/src/icons/icon-label'
-import { IconLogout } from 'ui-react/src/icons/icon-logout'
-import { IconMonitor } from 'ui-react/src/icons/icon-monitor'
-import { IconTasks } from 'ui-react/src/icons/icon-tasks'
-import { AuthContext } from '@/providers/auth-provider'
+import './style.css'
+import { type HTMLAttributes, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuth'
+import { IconMonitor, IconProfile, IconNotebook, IconLetter, IconLabel, IconTasks, IconLogout } from 'ui-react'
 type SidebarItemProps = {
   path: string
   name: string

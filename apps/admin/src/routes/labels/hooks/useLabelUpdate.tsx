@@ -5,7 +5,7 @@ import { useContext } from 'react'
 import { AuthContext } from '@/providers/auth-provider'
 import { NotificationContext } from '@/providers/notification-provider'
 import { useNavigate } from 'react-router-dom'
-import { NotificationType } from 'ui-react/src/Notification'
+import { NotificationType } from 'ui-react'
 
 const updateLabel = async (
   token: string,

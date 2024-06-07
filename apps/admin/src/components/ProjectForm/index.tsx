@@ -1,18 +1,17 @@
-import { FormEventHandler, useContext, useState } from "react";
+import { type FormEventHandler, useContext, useState } from "react";
 import { projectService } from "@/services/project.service";
 import { labelProjectService } from "@/services/label-project.service";
 import { AuthContext } from "@/providers/auth-provider";
 import { imageService } from "@/services/image.service";
-import { ActionTypes, ProjectDto, Step } from "./reducer";
+import { ActionTypes, type ProjectDto, Step } from "./reducer";
 import { useNavigate } from "react-router-dom";
-import { Button, ButtonSizes } from "ui-react";
+import { NotificationType, Button, ButtonSizes } from "ui-react";
 import { General } from "./General";
 import { Technologies } from "./Technologies";
 import { Images } from "./Images";
 import { ProjectFormContext } from "./Context";
 import type { CreateProjectDto, Project } from "@/models/project.model";
 import { NotificationContext } from "@/providers/notification-provider";
-import { NotificationType } from "ui-react/src/Notification";
 type ProjectFormProps = {
   project: Project | null;
 };
