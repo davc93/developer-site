@@ -4,9 +4,9 @@ import {
   useEffect,
   useReducer,
   useState,
+
 } from "react";
-import { IconCross } from "ui-react/src/icons/icon-cross";
-import { Button } from "ui-react";
+import { IconCross,Button } from "ui-react";
 import { AuthContext } from "@/providers/auth-provider";
 import { fileService } from "@/services/file.service";
 

@@ -1,8 +1,8 @@
-import { NotificationContext } from "@/providers/NotificationContext"
+import { NotificationContext } from "@/providers/notification-provider"
 import { useContext } from "react"
 import { Button, Typography, TypographySize } from "ui-react"
-import { NotificationType } from "ui-react/src/Notification"
-import { TypographyContrast } from "ui-react/src/Typography"
+import { NotificationType } from "ui-react"
+import { TypographyContrast } from "ui-react"
 
 
 export const DashboardPage = () => {

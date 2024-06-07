@@ -14,7 +14,8 @@ export interface AuthState {
   user?: User
   status: AuthStatus
   logIn: (email: string, password: string) => Promise<void>
-  logout: () => void
+  logout: () => void,
+  setToken:(token:string) => void
 }
 
 const storeApi: StateCreator<AuthState> = (set, get) => {
@@ -22,6 +23,11 @@ const storeApi: StateCreator<AuthState> = (set, get) => {
     user: undefined,
     token: undefined,
     status: AuthStatus.PENDING,
+    setToken:(token:string)=>{
+      set({
+        token
+      })
+    },
     logIn: async (email: string, password: string) => {
       try {
         const { token } = await authService.login(email, password)

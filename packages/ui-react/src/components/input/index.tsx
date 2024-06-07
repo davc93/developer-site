@@ -1,4 +1,4 @@
-import { IconError } from "../icons/icon-error";
+import { IconError } from "../../icons/icon-error";
 import {  InputHTMLAttributes } from "react";
 import "ui-styles/src/input.css"
 

@@ -1,9 +1,9 @@
-import { keepPreviousData, useQuery } from '@tanstack/react-query'
+import {  useQuery } from '@tanstack/react-query'
 
 import type { MessageResponse } from '@/models/message.model'
 import { config } from '@/config'
-import { AuthContext } from '@/providers/auth-provider'
-import { useContext, useEffect, useState } from 'react'
+import {  useEffect, useState } from 'react'
+import { useAuth } from './useAuth'
 
 type Filter = {
   field: string
@@ -42,8 +42,9 @@ const fetchMessages = async (
 
   return data
 }
+
 export const useMessages = () => {
-  const { token } = useContext(AuthContext)
+  const { token } = useAuth()
   const [page, setPage] = useState(1)
   const [order, setOrder] = useState<{
     orderBy: string

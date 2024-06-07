@@ -1,25 +1,23 @@
-import { type FormEventHandler, useContext, useState } from 'react'
+import { type FormEventHandler, useState } from 'react'
 import { authService } from '@/services/auth.service'
 import { useInputValue } from '@/hooks/useInputValue'
-import { AuthContext } from '@/providers/auth-provider'
 import {
   Button,
   ButtonSizes,
   Typography,
   TypographySize,
   Input,
+  TypographyContrast,
   Error
 } from 'ui-react'
-import { useNavigate } from 'react-router-dom'
-import { TypographyContrast } from 'ui-react/src/Typography'
+import { useAuth } from '@/hooks/useAuth'
 
 export const Login = () => {
   const email = useInputValue('')
   const password = useInputValue('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const { setToken } = useContext(AuthContext)
-  const navigate = useNavigate()
+  const { setToken } = useAuth()
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault()
@@ -34,7 +32,6 @@ export const Login = () => {
       container?.addEventListener('animationend', (event) => {
         setError(null)
         setToken(result.token)
-        navigate('/dashboard')
       })
       // container?.classList.remove("animate")
     } catch (error) {

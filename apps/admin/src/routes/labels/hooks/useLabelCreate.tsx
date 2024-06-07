@@ -44,7 +44,8 @@ export const useLabelCreate = () => {
         message: ''
       })
       queryClient.invalidateQueries({ queryKey: ['labels', 'infinite'] })
-      navigate('/labels')
+      navigate('..',{relative:'path'})
+
     }
   })
   return mutation

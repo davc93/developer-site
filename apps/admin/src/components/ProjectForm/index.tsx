@@ -51,7 +51,7 @@ export const ProjectForm = (props: ProjectFormProps) => {
         });
         await Promise.all(imagePromises);
         await Promise.all(LabelProjectPromises);
-        navigate("/projects");
+        navigate("..");
         
         addNotification({
           title:"Save succesfully",
@@ -91,7 +91,7 @@ export const ProjectForm = (props: ProjectFormProps) => {
         });
         await Promise.all(imagePromises);
         await Promise.all(LabelProjectPromises);
-        navigate("/projects");
+        navigate("../..");
 
         addNotification({
           title:"Save succesfully",

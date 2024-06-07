@@ -8,7 +8,7 @@ export const CreateLabelPage = () => {
       <div className="h-full" style={{ alignContent: 'center' }}>
         <LabelForm label={undefined} />
       </div>
-      <Link className="mb-8" to={'/labels'}>
+      <Link className="mb-8" to={'..'}>
         <Button size={ButtonSizes.SMALL}>Back to labels</Button>
       </Link>
     </div>

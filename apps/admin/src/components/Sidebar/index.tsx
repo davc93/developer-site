@@ -9,6 +9,7 @@ import { IconMonitor } from 'ui-react/src/icons/icon-monitor'
 import { IconTasks } from 'ui-react/src/icons/icon-tasks'
 import { AuthContext } from '@/providers/auth-provider'
 import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '@/hooks/useAuth'
 type SidebarItemProps = {
   path: string
   name: string
@@ -52,11 +53,11 @@ const items: SidebarItemProps[] = [
 ]
 
 export const LogoutButton = (): JSX.Element => {
-  const { deleteToken } = useContext(AuthContext)
+  const { logout } = useAuth()
   const navigate = useNavigate()
-  const logout = (): void => {
+  const handleLogout = (): void => {
     try {
-      deleteToken()
+      logout()
       navigate('/login')
       // mostrar un pequeno mensaje
     } catch (error) {
@@ -64,7 +65,7 @@ export const LogoutButton = (): JSX.Element => {
     }
   }
   return (
-    <li onClick={logout}>
+    <li onClick={handleLogout}>
       <button className={['sidebar-item'].join(' ')}>
         <div className="sidebar-item__icon">
           <IconLogout />

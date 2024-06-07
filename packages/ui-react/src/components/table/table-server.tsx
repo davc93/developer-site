@@ -4,16 +4,13 @@ import {
   getCoreRowModel,
   useReactTable
 } from '@tanstack/react-table'
-import { Button, ButtonSizes } from '../Button'
-import { Typography, TypographySize } from '../Typography'
-import { IconArrow } from '../icons/icon-arrow'
+import { Button, ButtonSizes } from '../button'
+import { Typography, TypographySize } from '../typography'
+import { IconArrow } from '../../icons/icon-arrow'
 import { useEffect, useRef } from 'react'
-import { TableRow } from '.'
-import { LoaderShape } from '../LoaderShape'
-type Action = {
-  name: string
-  fn: (params: any) => void
-}
+import { TableRow } from './table-row'
+import { LoaderShape } from '../loader-shape'
+import type { Action } from './models'
 
 interface TableServerProps {
   data: unknown[]

@@ -1,22 +1,21 @@
 import {
   useState,
   type FormEventHandler,
-  useContext,
   type ChangeEvent
 } from 'react'
 import type { Label } from '@/models/label.model'
-import { AuthContext } from '@/providers/auth-provider'
 import { useInputValue } from '@/hooks/useInputValue'
 import { Button, Input, Select } from 'ui-react'
 import { fileService } from '@/services/file.service'
 import { useLabelCreate, useLabelUpdate } from '../hooks'
+import { useAuth } from '@/hooks/useAuth'
 
 type LabelFormProps = {
   label: Label | undefined
 }
 
 export const LabelForm = ({ label }: LabelFormProps) => {
-  const { token } = useContext(AuthContext)
+  const { token } = useAuth()
   const [image, setImage] = useState(label?.image ?? undefined)
   const [error] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)

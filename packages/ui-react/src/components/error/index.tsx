@@ -1,5 +1,5 @@
 import "ui-styles/src/error.css";
-import { IconError } from "../icons/icon-error";
+import { IconError } from "../../icons/icon-error";
 import { HTMLAttributes } from "react";
 type ErrorProps = HTMLAttributes<HTMLSpanElement>;
 

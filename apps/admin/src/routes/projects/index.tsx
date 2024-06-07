@@ -44,7 +44,7 @@ export const ProjectsPage = (): JSX.Element => {
     {
       name: 'Edit',
       fn: (project: Project) => {
-        navigate(`/project/edit/${project.id}`)
+        navigate(`edit/${project.id}`)
       }
     },
     {

@@ -1,14 +1,14 @@
-import React, { useContext, useState } from "react";
-import { User } from "@/models/user.model";
+import React, { useState } from "react";
+import type { User } from "@/models/user.model";
 import { authService } from "@/services/auth.service";
-import { AuthContext } from "@/providers/auth-provider";
 import { Input, Typography, TypographySize } from "ui-react";
+import { useAuth } from "@/hooks/useAuth";
 
 export const ProfilePage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [profile, setProfile] = useState<User | null>(null);
-  const { token } = useContext(AuthContext);
+  const { token } = useAuth()
   const getProfile = async () => {
     setLoading(true);
     try {

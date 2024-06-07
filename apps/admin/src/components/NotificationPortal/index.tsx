@@ -1,7 +1,7 @@
 import './style.css'
 import React, { useContext } from 'react'
 import ReactDOM from 'react-dom'
-import { NotificationContext } from '@/providers/NotificationContext'
+import { NotificationContext } from '@/providers/notification-provider'
 import { Notification } from 'ui-react'
 
 function NotificationPortal() {
@@ -13,7 +13,7 @@ function NotificationPortal() {
   }
   return ReactDOM.createPortal(
     <>
-      {notifications.map((notification, i) => (
+      {notifications.map((notification:any, i:number) => (
         <Notification
           key={i}
           {...notification}

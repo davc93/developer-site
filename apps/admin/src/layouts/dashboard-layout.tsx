@@ -1,10 +1,9 @@
-import { useContext } from 'react'
 import { Sidebar } from '@/components/Sidebar'
-import { AuthContext } from '@/providers/auth-provider'
 import { Navigate, Outlet } from 'react-router-dom'
+import { useAuth } from '@/hooks/useAuth'
 
 export const DashboardLayout = () => {
-  const { token } = useContext(AuthContext)
+  const { token } = useAuth()
 
   if (!token) {
     return <Navigate to={'/login'} />

@@ -14,7 +14,7 @@ export const EditLabelPage = () => {
         {query.isError && <p>error {query.error.message}</p>}
         {query.isLoading && <p>Loading...</p>}
       </div>
-      <Link className="mb-8" to={'/labels'}>
+      <Link className="mb-8" to={'..'}>
         <Button size={ButtonSizes.SMALL}>Back to labels</Button>
       </Link>
     </div>

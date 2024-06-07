@@ -1,5 +1,5 @@
-import { IconInfo } from "../icons/icon-info";
-import { IconCross } from "../icons/icon-cross";
+import { IconInfo } from "../../icons/icon-info";
+import { IconCross } from "../../icons/icon-cross";
 import "ui-styles/src/notification.css";
 import { useEffect } from "react";
 

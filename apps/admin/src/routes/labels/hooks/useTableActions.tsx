@@ -10,7 +10,7 @@ export const useTableActions = () => {
       {
         name: 'Edit',
         fn: (labelId: number) => {
-          navigate(`/labels/edit/${labelId}`)
+          navigate(`edit/${labelId}`)
         }
       },
       {
