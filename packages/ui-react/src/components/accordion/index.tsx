@@ -1,2 +1,2 @@
-export { Accordion } from "../ui/accordion";
+export * from "../ui/accordion";
 

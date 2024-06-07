@@ -2,7 +2,7 @@ import './style.css'
 import { type HTMLAttributes, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/hooks/useAuth'
-import { IconMonitor, IconProfile, IconNotebook, IconLetter, IconLabel, IconTasks, IconLogout } from 'ui-react'
+import { IconMonitor, IconProfile, IconNotebook, IconLetter, IconLabel, IconTasks, IconLogout, IconDesing } from 'ui-react'
 type SidebarItemProps = {
   path: string
   name: string
@@ -42,6 +42,11 @@ const items: SidebarItemProps[] = [
     path: 'tasks',
     name: 'Task',
     Icon: IconTasks
+  },
+  {
+    path: 'design-system',
+    name: 'Design',
+    Icon: IconDesing
   }
 ]
 

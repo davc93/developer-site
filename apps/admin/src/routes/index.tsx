@@ -11,6 +11,8 @@ import { TasksApp } from './tasks'
 import { RegisterApp } from './register'
 import { DashboardLayout } from '@/layouts'
 import { LoginLayout } from '@/layouts/login-layout'
+import { DesignApp } from './design'
+import { DesignSystemLayout } from '@/layouts/design-system-layout'
 
 export const Router = (): JSX.Element => {
   return (
@@ -26,9 +28,15 @@ export const Router = (): JSX.Element => {
           <Route element={<LabelApp />} path="labels/*" />
           <Route element={<TasksApp />} path="tasks/*" />
           <Route element={<RegisterApp />} path="register/*" />
+          <Route element={<DesignSystemLayout />} path="design-system">
+            <Route path="*" element={<DesignApp />} />
+          </Route>
         </Route>
         <Route path="login" element={<LoginLayout />}>
           <Route element={<LoginPage />} path="" />
+        </Route>
+        <Route path="design-system" element={<DesignSystemLayout />}>
+          <Route path="*" element={<DesignApp />} />
         </Route>
         <Route path="/*" element={<Navigate to="login" />} />
       </Routes>

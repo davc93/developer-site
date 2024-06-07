@@ -13,7 +13,7 @@ export const DashboardLayout = () => {
       <Sidebar />
       <div className="login-page-background"></div>
       <main className="overflow-y-auto z-10 overflow-x-hidden w-full scrollbar--native">
-        <div className="page-container w-full h-full max-w-5xl pl-12 ">
+        <div className="page-container w-full h-full pl-1 ">
           <Outlet />
         </div>
       </main>
