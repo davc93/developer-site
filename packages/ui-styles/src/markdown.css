@@ -1,0 +1,44 @@
+.markdown {
+  h1 {
+    font-size: var(--title-medium);
+    font-family: var(--typography-primary);
+    color: white;
+    margin-bottom: 1.5rem;
+  }
+  h2 {
+    font-family: var(--typography-primary);
+    font-size: var(--title-small);
+    color: white;
+    margin-bottom: 1.25rem;
+
+}
+  h3 {
+    font-family: var(--typography-primary);
+    font-size: var(--body-large);
+    color: white;
+    font-weight: bolder;
+    margin-bottom: 1.25rem;
+
+}
+  p{
+    font-family: var(--typography-primary);
+    font-size: var(--body-large);
+    color: white;
+    margin-bottom: 1.25rem;
+    
+  }
+}
+[data-theme='light'] .markdown {
+  h1 {
+    color: black;
+  }
+  h2 {
+    color: black;
+  }
+  h3 {
+    color: black;
+  }
+  p{
+    color: black;
+  }
+}

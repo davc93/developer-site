@@ -35,8 +35,9 @@ export interface TypographyProps {
   color?: TypographyContrast;
 }
 type NativeProps = HTMLAttributes<HTMLSpanElement>
-export const Typography = ({className,size,tag,color = TypographyContrast.VERY_HIGH,children,...props}:TypographyProps & NativeProps) => {
+export const Typography = ({className,size,tag = TypographyTag.span,color = TypographyContrast.VERY_HIGH,children,...props}:TypographyProps & NativeProps) => {
+  const Tag = tag as keyof JSX.IntrinsicElements
   return (
-    <span className={["typography",color,size,className].join(" ")} {...props}>{children}</span>
+    <Tag className={["typography",color,size,className].join(" ")} {...props as any}>{children}</Tag>
   )
 }

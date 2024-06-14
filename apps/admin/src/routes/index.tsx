@@ -29,15 +29,17 @@ export const Router = (): JSX.Element => {
           <Route element={<TasksApp />} path="tasks/*" />
           <Route element={<RegisterApp />} path="register/*" />
           <Route element={<DesignSystemLayout />} path="design-system">
+            <Route path="" element={<Navigate to={'introduction'} />} />
             <Route path="*" element={<DesignApp />} />
           </Route>
         </Route>
         <Route path="login" element={<LoginLayout />}>
           <Route element={<LoginPage />} path="" />
         </Route>
-        <Route path="design-system" element={<DesignSystemLayout />}>
-          <Route path="*" element={<DesignApp />} />
-        </Route>
+          <Route path="design-system" element={<DesignSystemLayout />}>
+            <Route path="" element={<Navigate to={'introduction'} />} />
+            <Route path="*" element={<DesignApp />} />
+          </Route>
         <Route path="/*" element={<Navigate to="login" />} />
       </Routes>
     </BrowserRouter>

@@ -1,8 +1,18 @@
+[data-theme='light'] .notification{
+    background-color: var(--surface--50);
+    .notification__title{
+        color: var(--foreground--900);
+    }
+    .notification__text-content{
+        color: var(--foreground--900);
+
+    }
+}
 .notification {
     display: flex;
     flex-direction: column;
     gap: var(--space-3);
-    background-color: var(--neutral--950);
+    background-color: var(--surface--950);
     padding-block: 20px;
     border: 1px solid var(--primary--400);
     position: relative;

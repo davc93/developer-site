@@ -1,23 +1,16 @@
 import type { ColumnDef } from '@tanstack/react-table'
-import {
-  flexRender,
-  getCoreRowModel,
-  useReactTable
-} from '@tanstack/react-table'
-import { Button, ButtonSizes } from '../button'
-import { Typography, TypographySize } from '../typography'
-import { IconArrow } from '../../icons/icon-arrow'
-import { useEffect, useRef } from 'react'
+import { getCoreRowModel, useReactTable } from '@tanstack/react-table'
 import { TableRow } from './table-row'
-import { LoaderShape } from '../loader-shape'
 import type { Action } from './models'
+import { TableHeader } from './table-header'
+import { TablePagination } from './table-pagination'
 
-interface TableServerProps {
+export interface TableServerProps {
   data: unknown[]
   rowCount: number | undefined
   page: number
   order: any
-  columns: ColumnDef<any, any>[]
+  columns: ColumnDef<unknown, any>[]
   actions?: Action[]
   handleFirstPage: () => void
   handleNextClick: () => void
@@ -65,102 +58,15 @@ export const TableServer = ({
   })
   return (
     <>
-      <div className="table-filters">
-        {/* {columns.map((column)=>{
-            return (
-              <Input label={column.header?.toString() as string} />
-            )
-          })} */}
-      </div>
+      <div className="table-filters"></div>
       <div className="table-container">
         <table className="table">
-          <thead>
-            {table.getHeaderGroups().map((group, i) => {
-              return (
-                <tr className="table__header-row" key={i}>
-                  {group.headers.map((header, i) => {
-                    const ref = useRef<HTMLDivElement>(null)
-                    const sort = table.getState().sorting[0]
-                    const sortState = !sort
-                      ? false
-                      : sort.desc == true
-                      ? 'desc'
-                      : 'asc'
-                    const isHeader = sort?.id == header.id
+          <TableHeader
+            table={table}
+            handleFirstPage={handleFirstPage}
+            handleSortClick={handleSortClick}
+          />
 
-                    const setCursor = {
-                      orderAsc: () => {
-                        ref.current?.classList.add('table__order-icon--asc')
-                        ref.current?.classList.remove('table__order-icon--desc')
-                      },
-                      orderDesc: () => {
-                        ref.current?.classList.add('table__order-icon--desc')
-                        ref.current?.classList.remove('table__order-icon--asc')
-                      },
-                      noOrder: () => {
-                        ref.current?.classList.remove('table__order-icon--desc')
-                        ref.current?.classList.remove('table__order-icon--asc')
-                      }
-                    }
-                    useEffect(() => {
-                      if (isHeader) {
-                        if (!sortState) {
-                          setCursor.noOrder()
-                        } else if (sortState == 'asc') {
-                          setCursor.orderAsc()
-                        } else {
-                          setCursor.orderDesc()
-                        }
-                      } else {
-                        setCursor.noOrder()
-                      }
-                    }, [sort])
-
-                    const handleOrderClick = () => {
-                      const id = header.id
-                      if (!sortState) {
-                        handleSortClick({ orderBy: id, orderDirection: 'desc' })
-                      } else if (sortState == 'desc') {
-                        handleSortClick({ orderBy: id, orderDirection: 'asc' })
-                      } else {
-                        handleSortClick({ orderBy: id, orderDirection: 'desc' })
-                      }
-                      handleFirstPage()
-                    }
-
-                    return (
-                      <th
-                        className="table__header-cell-container"
-                        key={i}
-                        style={{
-                          cursor: header.column.getCanSort()
-                            ? 'pointer'
-                            : 'default'
-                        }}
-                      >
-                        <div
-                          className="table__header-cell"
-                          onClick={handleOrderClick}
-                        >
-                          <span>
-                            {flexRender(
-                              header.column.columnDef.header,
-                              header.getContext()
-                            )}
-                          </span>
-
-                          <div ref={ref} className="table__order-icon">
-                            <IconArrow fill="var(--primary--500)" />
-                          </div>
-                        </div>
-                      </th>
-                    )
-                  })}
-                  <th></th>
-                </tr>
-              )
-            })}
-          </thead>
           <tbody>
             {!isLoading &&
               table.getRowModel().rows.map((row, index) => {
@@ -170,35 +76,12 @@ export const TableServer = ({
           </tbody>
         </table>
       </div>
-
-      <div className="table-pagination">
-        <Button
-          disabled={!table.getCanPreviousPage()}
-          onClick={handlePreviousClick}
-          size={ButtonSizes.SMALL}
-        >
-          Prev
-        </Button>
-        <Typography
-          style={{ minWidth: 60, textAlign: 'center' }}
-          size={TypographySize.bodyLarge}
-        >
-          {isLoading ? (
-            <LoaderShape width={30} />
-          ) : (
-            `${
-              table.getState().pagination.pageIndex + 1
-            } of ${table.getPageCount()}`
-          )}
-        </Typography>
-        <Button
-          disabled={!table.getCanNextPage()}
-          onClick={handleNextClick}
-          size={ButtonSizes.SMALL}
-        >
-          Next
-        </Button>
-      </div>
+      <TablePagination
+        table={table}
+        handleNextClick={handleNextClick}
+        handlePreviousClick={handlePreviousClick}
+        isLoading={isLoading}
+      />
     </>
   )
 }

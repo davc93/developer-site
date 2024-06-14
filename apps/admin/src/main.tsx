@@ -2,6 +2,7 @@ import './globals.css'
 import 'ui-styles/src/variables.css'
 import 'ui-styles/src/base.css'
 import 'ui-styles/src/animations.css'
+import 'ui-styles/src/markdown.css'
 
 import React from 'react'
 
