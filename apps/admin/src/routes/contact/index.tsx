@@ -1,11 +1,11 @@
-import { createColumnHelper } from '@tanstack/react-table'
+import { type  ColumnDef, createColumnHelper } from '@tanstack/react-table'
 import type { MessageResponse } from '@/models/message.model'
 import { TableServer, Typography, TypographySize } from 'ui-react'
 import { useMessages } from '@/hooks/useMessages'
 
 const columnHelper = createColumnHelper<MessageResponse['results']>()
 
-const columns = [
+const columns: Array<ColumnDef<MessageResponse['results'],any>>  = [
   columnHelper.accessor('email', {
     header: 'Email'
   }),

@@ -10,7 +10,7 @@ export interface TableServerProps {
   rowCount: number | undefined
   page: number
   order: any
-  columns: ColumnDef<unknown, any>[]
+  columns: ColumnDef<any, any>[]
   actions?: Action[]
   handleFirstPage: () => void
   handleNextClick: () => void
