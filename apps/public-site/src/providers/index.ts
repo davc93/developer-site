@@ -1,3 +1,5 @@
+export { showNotification } from "./notification.provider";
+
 // Singleton pattern
 // Queremos asegurar el accesso a un recurso compartido en diferentes partes de la app
 // Asegurar que la modificacion al recurso compartido se lleve a cabo en un solo punto de acceso

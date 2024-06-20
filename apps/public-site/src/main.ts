@@ -6,12 +6,10 @@ import 'ui-styles/src/animations.css'
 import 'ui-styles/src/icon.css'
 import 'ui-styles/src/section-container.css'
 
-import { createNavbarDesktop } from '@/components/molecules/NavbarDesktop'
-import { createNavbarMobile } from '@/components/molecules/NavbarMobile'
+import { createNavbarDesktop } from '@/components/NavbarDesktop'
+import { createNavbarMobile } from '@/components/NavbarMobile'
 import { navigation } from '@/navigation'
 import { layout, pageLoader } from '@/nodes'
-import { createBuildPage } from '@/routes/build'
-import { createErrorPage } from '@/routes/error'
 import { createHomePage } from '@/routes/home/home'
 import { createPortfolioPage } from '@/routes/portfolio/portfolio'
 import { createProfilePage } from '@/routes/profile/profile'
@@ -33,8 +31,6 @@ export const updateAppSession = async (): Promise<void> => {
 createHomePage()
 createPortfolioPage()
 createProfilePage()
-createErrorPage()
-createBuildPage()
 navigation()
 pageLoader.classList.add('inactive')
 updateAppSession()

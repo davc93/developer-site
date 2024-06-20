@@ -3,11 +3,11 @@ import {
   ButtonSizes,
   ButtonStyles,
   createButton
-} from "@/components/atoms/Button"
-import { NotificationType } from "@/components/molecules/Notification"
+} from "@/components/ui/atoms/Button"
+import { NotificationType } from "@/components/ui/molecules/Notification"
 import { profileButton, profileInfo } from "@/nodes"
 import { authService } from "@/services/auth.service"
-import { showNotification } from "@/utils"
+import { showNotification } from "@/providers"
 
 export const createProfilePage = () => {
   const getInfo = createButton({

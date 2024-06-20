@@ -1,5 +1,5 @@
 import { pagesContainer, portfolioDetails } from "@/nodes"
-import { createPortfolioDetailPage } from "@/routes/portfolio/[slug]"
+import { createPortfolioDetailPage } from "@/routes/project-detail"
 
 export const goTo = (path: string) => {
   window.history.pushState({}, "", path)

@@ -1,24 +1,24 @@
-import "./style.css"
+import './style.css'
 
-import { JobsList } from "@/data/home"
+import { JobsList } from './data/home'
 import {
   contactButtonBottom,
   contactButtonHero,
   jobsList,
   projectList,
   stackList
-} from "@/nodes"
-import { createListOfProjects } from "@/components/organisms/ListOfProjects"
-import { createContactForm } from "@/components/molecules/ContactForm"
-import { createModal } from "@/components/molecules/Modal"
-import { createJobCard } from "@/components/molecules/JobCard"
-import { createTechStack } from "@/components/molecules/TechStack"
-import { projectService } from "@/services/project.service"
-import { shuffleArray } from "@/utils"
+} from '@/nodes'
+import { createListOfProjects } from './components'
+import { createContactForm } from '@/components/ContactForm'
+import { createModal } from '@/components/ui/molecules/Modal'
+import { createJobCard } from '@/routes/home/components/JobCard'
+import { createTechStack } from '@/routes/home/components/TechStack'
+import { projectService } from '@/services/project.service'
+import { shuffleArray } from '@/utils'
 
-function createJobs() {
-  const jobsContainer = document.createElement("div")
-  jobsContainer.className = "jobs-list l-flex l-flex-col l-gap-20"
+function createJobs():HTMLElement {
+  const jobsContainer = document.createElement('div')
+  jobsContainer.className = 'jobs-list l-flex l-flex-col l-gap-20'
   const jobsList = JobsList.map((job) => {
     return createJobCard({
       jobTitle: job.jobTitle,
@@ -47,14 +47,14 @@ export const createHomePage = async () => {
 
   jobsList?.append(createJobs())
   const contactModal = createModal({
-    label: "Send me a message",
+    label: 'Send me a message',
     element: formContainer,
-    width: "90vmin"
+    width: '90vmin'
   })
-  contactModal.id = "contact-button-modal"
+  contactModal.id = 'contact-button-modal'
   contactButtonHero?.append(contactModal)
 
-  contactButtonHero.classList.add("l-horizontal", "l-gap-3")
+  contactButtonHero.classList.add('l-horizontal', 'l-gap-3')
   contactButtonBottom?.append(formContainer2)
   projectList?.append(projectListEl)
   stackList?.append(createTechStack())
