@@ -1,4 +1,4 @@
-import "ui-styles/src/table.css"
+import 'ui-styles/src/table.css'
 import { IconArrow } from '../../icons/icon-arrow'
 import {
   useReactTable,
@@ -69,7 +69,6 @@ export const TableClient = ({ data, columns, actions }: TableClientProps) => {
                     }
                     return (
                       <th
-                        className="table__header-cell-container"
                         key={i}
                         style={{
                           cursor: header.column.getCanSort()
@@ -77,22 +76,22 @@ export const TableClient = ({ data, columns, actions }: TableClientProps) => {
                             : 'default'
                         }}
                       >
-                        <div
-                          className="table__header-cell"
-                          onClick={handleOrderClick}
-                        >
-                          <span>
-                            {flexRender(
-                              header.column.columnDef.header,
-                              header.getContext()
-                            )}
-                          </span>
+                        <div onClick={handleOrderClick} className="table__header-cell-container">
+                          
+                            <span 
+                            className="table__header-cell"
+                            >
+                              {flexRender(
+                                header.column.columnDef.header,
+                                header.getContext()
+                              )}
+                            </span>
 
-                          <div ref={ref} className="table__order-icon">
-                            {header.column.getCanSort() && (
-                              <IconArrow fill="var(--primary--500)" />
-                            )}
-                          </div>
+                            <div ref={ref} className="table__order-icon">
+                              {header.column.getCanSort() && (
+                                <IconArrow fill="var(--primary--500)" />
+                              )}
+                            </div>
                         </div>
                       </th>
                     )

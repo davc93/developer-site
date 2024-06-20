@@ -26,11 +26,31 @@ export const HomePage = (): JSX.Element => {
         <table className="table">
           <thead>
             <tr>
-              <th className="table__header-cell-container">Id</th>
-              <td className="table__header-cell-container">Title</td>
-              <td className="table__header-cell-container">Type</td>
-              <td className="table__header-cell-container">Image</td>
-              <td className="table__header-cell-container">Created at</td>
+              <th>
+                <div className="table__header-cell-container">
+                  <span className="table__header-cell">Id</span>
+                </div>
+              </th>
+              <th>
+                <div className="table__header-cell-container">
+                  <span className="table__header-cell">Title</span>
+                </div>
+              </th>
+              <th>
+                <div className="table__header-cell-container">
+                  <span className="table__header-cell">Type</span>
+                </div>
+              </th>
+              <th>
+                <div className="table__header-cell-container">
+                  <span className="table__header-cell">Image</span>
+                </div>
+              </th>
+              <th>
+                <div className="table__header-cell-container">
+                  <span className="table__header-cell">Created at</span>
+                </div>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -50,9 +70,7 @@ export const HomePage = (): JSX.Element => {
                 //   })
                 // }
                 const handleRowOver = () => {
-                  queryClient.setQueryData(
-                    ['label', row.id], row
-                  )
+                  queryClient.setQueryData(['label', row.id], row)
                 }
                 return (
                   <tr

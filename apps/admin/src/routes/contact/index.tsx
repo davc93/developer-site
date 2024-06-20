@@ -19,6 +19,10 @@ const columns: Array<ColumnDef<MessageResponse['results'],any>>  = [
     header: 'Fecha',
     cell: (props) =>
       new Date(props.getValue() as string).toLocaleString('es-CL')
+  }),
+  columnHelper.display({
+    id:'actions',
+    header:'Actions'
   })
 ]
 
