@@ -1,352 +1,497 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diego Vergara - Fullstack Developer</title>
+    <!-- Seo -->
+    <meta
+      name="description"
+      content="Diego Vergara, Fullstack developer specializing in JavaScript (React, NodeJS). Explore my portfolio, skills, and personal info."
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Diego Vergara - Fullstack Developer</title>
-  <!-- Seo -->
-  <meta name="description"
-    content="Diego Vergara, Fullstack developer specializing in JavaScript (React, NodeJS). Explore my portfolio, skills, and personal info." />
-
-  <meta name="keywords" content="" />
-  <meta name="robots" content="index, follow" />
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="author" content="Diego Vergara Casanova" />
-  <meta name="language" content="English" />
-  <style>
-    body {
-      margin: 0;
-    }
-
-    .page-loader {
-      padding: 0;
-      margin: 0;
-      top: 0;
-      position: fixed;
-      z-index: 15;
-      width: 100%;
-      height: 100svh;
-      background: black;
- 
-      opacity: 1;
-      transition: all 0.4s;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .page-loader.inactive {
-      animation-name: hide-page-loader;
-      animation-fill-mode: forwards;
-      animation-duration: .7s;
-    }
-
-    .loader {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      display: inline-block;
-      border-top: 4px solid #fff;
-      border-right: 4px solid transparent;
-      box-sizing: border-box;
-      animation: rotation 1s linear infinite;
-    }
-
-    .loader::after {
-      content: "";
-      box-sizing: border-box;
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      border-left: 4px solid #e52936;
-      border-bottom: 4px solid transparent;
-      animation: rotation 0.5s linear infinite reverse;
-    }
-
-    .loader-text {
-      opacity: 0;
-      animation: show-text 1s 3s forwards;
-    }
-
-    @keyframes rotation {
-      0% {
-        transform: rotate(0deg);
+    <meta name="keywords" content="" />
+    <meta name="robots" content="index, follow" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="author" content="Diego Vergara Casanova" />
+    <meta name="language" content="English" />
+    <style>
+      body {
+        margin: 0;
       }
 
-      100% {
-        transform: rotate(360deg);
-      }
-    }
+      .page-loader {
+        padding: 0;
+        margin: 0;
+        top: 0;
+        position: fixed;
+        z-index: 15;
+        width: 100%;
+        height: 100svh;
+        background: black;
 
-    @keyframes show-text {
-      100% {
         opacity: 1;
+        transition: all 0.4s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 16px;
       }
-    }
-    @keyframes hide-page-loader {
-      to{
-        display: none;
+
+      .page-loader.inactive {
+        animation-name: hide-page-loader;
+        animation-fill-mode: forwards;
+        animation-duration: 0.7s;
+      }
+
+      .loader {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        display: inline-block;
+        border-top: 4px solid #fff;
+        border-right: 4px solid transparent;
+        box-sizing: border-box;
+        animation: rotation 1s linear infinite;
+      }
+
+      .loader::after {
+        content: '';
+        box-sizing: border-box;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        border-left: 4px solid #e52936;
+        border-bottom: 4px solid transparent;
+        animation: rotation 0.5s linear infinite reverse;
+      }
+
+      .loader-text {
         opacity: 0;
+        animation: show-text 1s 3s forwards;
       }
-    }
-  </style>
-</head>
 
-<body class="scrollbar--vertical">
-  <div id="app">
-    <div id="page-loader" class="page-loader">
-      <span class="loader"></span>
-      <span class="loader-text" style="color: white">Wait a second...</span>
-    </div>
+      @keyframes rotation {
+        0% {
+          transform: rotate(0deg);
+        }
 
-    <div class="layout" id="layout">
-      <div class="home-background-image"></div>
-      <div id="pages-container" class="pages-container" style="position: relative">
-        <div id="/" class="home-page" style="padding-bottom: 100px">
-          <header class="">
-            <div style="min-height: 90svh;" class="section-container l-flex l-flex-col l-gap-3 l-justify-center">
-              <div>
-                <h2 class="typography typography--high-contrast typography--title-medium">
-                  Diego Vergara
-                </h2>
-                <h1 class="typography typography--medium typography--title-medium" style="
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes show-text {
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes hide-page-loader {
+        to {
+          display: none;
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="scrollbar--vertical">
+    <div id="app">
+      <div id="page-loader" class="page-loader">
+        <span class="loader"></span>
+        <span class="loader-text" style="color: white">Wait a second...</span>
+      </div>
+
+      <div class="layout" id="layout">
+        <div class="home-background-image"></div>
+        <div
+          id="pages-container"
+          class="pages-container"
+          style="position: relative"
+        >
+          <div id="/" class="home-page" style="padding-bottom: 100px">
+            <header class="hero-section">
+              <div style="min-height: 90svh" class="container">
+                <div>
+                  <h2
+                    class="typography typography--high-contrast typography--title-medium"
+                  >
+                    Diego Vergara
+                  </h2>
+                  <h1
+                    class="typography typography--medium typography--title-medium"
+                    style="
                       color: var(--primary--600);
                       text-shadow: var(--shadow-sm);
-                    ">
-                  Fullstack Developer
-                </h1>
-                <hr style="
+                    "
+                  >
+                    Fullstack Developer
+                  </h1>
+                  <hr
+                    style="
                       margin-block: var(--space-4);
                       color: var(--primary--600);
                       border: 1px solid;
                       box-shadow: var(--shadow-lg);
-                    " />
-                <p style="max-width: 700px;text-wrap: balance" class="typography typography--body-medium typography--medium-contrast">
-                  Specialist in JavaScript-based technologies, especially
-                  React and NodeJS. Here you could see my
-                  <span href="#" class="typography typography--body-medium typography--primary">Skills</span>, my
-                  <a href="/portfolio" class="typography typography--body-medium typography--link link">portfolio</a>
-                  with some of my projects and information
-                  <span href="#" class="typography typography--body-medium typography--primary">about me.</span>
-                </p>
-              </div>
-
-              <div class="l-justify-end l-flex l-gap-6 l-align-center">
-                <div id="contact-button-hero"></div>
-
-                <div class="social-media l-flex l-gap-2">
-                  <a href="https://www.linkedin.com/in/diego-vergara-casanova/">
-                    <div style="width: 40px">
-                      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-143 145 512 512" xml:space="preserve"
-                        stroke="" class="linkedin-icon icon">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0" />
-
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
-
-                        <g id="SVGRepo_iconCarrier">
-                          <g>
-                            <path d="M-143,145v512h512V145H-143z M339,627h-452V175h452V627z" />
-                            <rect x="-8.5" y="348.4" width="49.9" height="159.7" />
-                            <path
-                              d="M127.9,508.1v-86.3c0-4.9-0.2-9.7,1.2-13.1c3.8-9.6,12.1-19.6,27-19.6c19.5,0,28.3,14.8,28.3,36.4v82.6H241v-88.8 c0-49.4-27.8-72.4-63.3-72.4c-28.6,0-46.5,15.6-49.8,26.6v-25.1H71.8c0.7,13.3,0,159.7,0,159.7H127.9z" />
-                            <path
-                              d="M14.7,328.4h0.4c18.8,0,30.5-12.3,30.4-27.7C45.1,284.9,33.8,273,15.4,273c-18.4,0-30.5,11.9-30.5,27.7 C-15.1,316.2-3.4,328.4,14.7,328.4z" />
-                          </g>
-                        </g>
-                      </svg>
-                    </div>
-                  </a>
-                  <a href="https://github.com/davc93">
-                    <div style="width: 40px">
-                      <svg viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink" class="github-icon icon">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0" />
-
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
-
-                        <g id="SVGRepo_iconCarrier">
-                          <desc>Created with Sketch.</desc>
-                          <defs></defs>
-                          <g id="Page-1" stroke="none" stroke-width="1" fill="" fill-rule="evenodd">
-                            <g class="" id="Dribbble-Light-Preview" transform="translate(-140.000000, -7559.000000)"
-                              fill="">
-                              <g id="icons" transform="translate(56.000000, 160.000000)">
-                                <path
-                                  d="M94,7399 C99.523,7399 104,7403.59 104,7409.253 C104,7413.782 101.138,7417.624 97.167,7418.981 C96.66,7419.082 96.48,7418.762 96.48,7418.489 C96.48,7418.151 96.492,7417.047 96.492,7415.675 C96.492,7414.719 96.172,7414.095 95.813,7413.777 C98.04,7413.523 100.38,7412.656 100.38,7408.718 C100.38,7407.598 99.992,7406.684 99.35,7405.966 C99.454,7405.707 99.797,7404.664 99.252,7403.252 C99.252,7403.252 98.414,7402.977 96.505,7404.303 C95.706,7404.076 94.85,7403.962 94,7403.958 C93.15,7403.962 92.295,7404.076 91.497,7404.303 C89.586,7402.977 88.746,7403.252 88.746,7403.252 C88.203,7404.664 88.546,7405.707 88.649,7405.966 C88.01,7406.684 87.619,7407.598 87.619,7408.718 C87.619,7412.646 89.954,7413.526 92.175,7413.785 C91.889,7414.041 91.63,7414.493 91.54,7415.156 C90.97,7415.418 89.522,7415.871 88.63,7414.304 C88.63,7414.304 88.101,7413.319 87.097,7413.247 C87.097,7413.247 86.122,7413.234 87.029,7413.87 C87.029,7413.87 87.684,7414.185 88.139,7415.37 C88.139,7415.37 88.726,7417.2 91.508,7416.58 C91.513,7417.437 91.522,7418.245 91.522,7418.489 C91.522,7418.76 91.338,7419.077 90.839,7418.982 C86.865,7417.627 84,7413.783 84,7409.253 C84,7403.59 88.478,7399 94,7399"
-                                  id="github-[#ffffff142]"></path>
-                              </g>
-                            </g>
-                          </g>
-                        </g>
-                      </svg>
-                    </div>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </header>
-          <main>
-            <section class="">
-              <div class="section-container l-m-b-40" style="margin-bottom: 15vmax;">
-                <h2 class="typography typography--high-contrast typography--title-medium l-m-b-12 l-text-center">
-                  Experience
-                </h2>
-                <div id="jobs-list"></div>
-              </div>
-            </section>
-
-            <section class="">
-              <div class="section-container l-m-b-20 l-m-t-12" style="margin-bottom: 15vmax;">
-                <div class="l-m-b-8">
-                  <h3 class="typography typography--high-contrast typography--title-medium l-m-b-2">
-                    Technologies stack
-                  </h3>
-                  <p class="typography typography--body-medium typography--high-contrast">
-                    The techs that i usually use and my knowledge level.
+                    "
+                  />
+                  <p
+                    style="max-width: 700px; text-wrap: balance"
+                    class="typography typography--body-medium typography--medium-contrast"
+                  >
+                    Specialist in JavaScript-based technologies, especially
+                    React and NodeJS. Here you could see my
+                    <span
+                      href="#"
+                      class="typography typography--body-medium typography--primary"
+                      >Skills</span
+                    >, my
+                    <a
+                      href="/portfolio"
+                      class="typography typography--body-medium typography--link link"
+                      >portfolio</a
+                    >
+                    with some of my projects and information
+                    <span
+                      href="#"
+                      class="typography typography--body-medium typography--primary"
+                      >about me.</span
+                    >
                   </p>
                 </div>
-                <div id="skills__stack-list"></div>
-              </div>
-            </section>
-            <section class="">
-              <div class="section-container l-m-b-20" style="margin-bottom: 15vmax;">
-                <h3 class="typography typography--high-contrast typography--title-medium">
-                  Other skills
-                </h3>
-                <p class="typography typography--medium-contrast typography--body-medium">
-                  I work with agile methodologies like
-                  <span class="typography typography--body-medium typography--primary">Scrum</span>, I've collaborated
-                  in diverse teams, ranging from QA to
-                  sales and customer support. I believe that attentive Another
-                  vital aspect of my career has been my dedication to
-                  <span class="typography typography--body-medium typography--primary">continuous learning</span>,
-                  driving my ongoing professional growth.
-                </p>
-              </div>
-            </section>
 
-            <section class="">
-              <div class="section-container l-flex l-flex-col l-align-center l-gap-3" style="margin-bottom: 15vmax;">
-                <h2 class="typography typography--high-contrast typography--title-medium">
-                  My portfolio
-                </h2>
-                <p class="l-m-b-8 typography typography--medium-contrast typography--body-medium">
-                  Visit any of my projects, and you'll be able to see my
-                  skills in frontend, backend, design and IoT.
-                </p>
-                <div class="" id="projects-list"></div>
-              </div>
-            </section>
+                <div class="hero-cta">
+                  <div id="contact-button-hero"></div>
 
-            <section>
-              <div class="section-container">
-                <h3 class="typography typography--high-contrast typography--title-medium l-text-center l-m-b-20">
-                  Contact me
-                </h3>
-                <div id="contact-form-bottom" class="l-flex l-justify-center l-flex-wrap l-gap-20">
-                  <div class="l-flex l-flex-col l-gap-4">
-                    <h3 class="typography typography--title-small typography--high-contrast">
-                      Social Media
-                    </h3>
-                    <div class="l-flex l-gap-3">
-                      <a href="https://www.linkedin.com/in/diego-vergara-casanova/">
-                        <div style="width: 40px">
-                          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-143 145 512 512" xml:space="preserve"
-                            stroke="" class="linkedin-icon icon">
-                            <g id="SVGRepo_bgCarrier" stroke-width="0" />
+                  <div class="social-media l-flex l-gap-2">
+                    <a
+                      href="https://www.linkedin.com/in/diego-vergara-casanova/"
+                    >
+                      <div style="width: 40px">
+                        <svg
+                          version="1.1"
+                          id="Layer_1"
+                          viewBox="-143 145 512 512"
+                          xml:space="preserve"
+                          stroke=""
+                          class="linkedin-icon icon"
+                        >
+                          <g id="SVGRepo_bgCarrier" stroke-width="0" />
 
-                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+                          <g
+                            id="SVGRepo_tracerCarrier"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
 
-                            <g id="SVGRepo_iconCarrier">
-                              <g>
-                                <path d="M-143,145v512h512V145H-143z M339,627h-452V175h452V627z" />
-                                <rect x="-8.5" y="348.4" width="49.9" height="159.7" />
-                                <path
-                                  d="M127.9,508.1v-86.3c0-4.9-0.2-9.7,1.2-13.1c3.8-9.6,12.1-19.6,27-19.6c19.5,0,28.3,14.8,28.3,36.4v82.6H241v-88.8 c0-49.4-27.8-72.4-63.3-72.4c-28.6,0-46.5,15.6-49.8,26.6v-25.1H71.8c0.7,13.3,0,159.7,0,159.7H127.9z" />
-                                <path
-                                  d="M14.7,328.4h0.4c18.8,0,30.5-12.3,30.4-27.7C45.1,284.9,33.8,273,15.4,273c-18.4,0-30.5,11.9-30.5,27.7 C-15.1,316.2-3.4,328.4,14.7,328.4z" />
-                              </g>
+                          <g id="SVGRepo_iconCarrier">
+                            <g>
+                              <path
+                                d="M-143,145v512h512V145H-143z M339,627h-452V175h452V627z"
+                              />
+                              <rect
+                                x="-8.5"
+                                y="348.4"
+                                width="49.9"
+                                height="159.7"
+                              />
+                              <path
+                                d="M127.9,508.1v-86.3c0-4.9-0.2-9.7,1.2-13.1c3.8-9.6,12.1-19.6,27-19.6c19.5,0,28.3,14.8,28.3,36.4v82.6H241v-88.8 c0-49.4-27.8-72.4-63.3-72.4c-28.6,0-46.5,15.6-49.8,26.6v-25.1H71.8c0.7,13.3,0,159.7,0,159.7H127.9z"
+                              />
+                              <path
+                                d="M14.7,328.4h0.4c18.8,0,30.5-12.3,30.4-27.7C45.1,284.9,33.8,273,15.4,273c-18.4,0-30.5,11.9-30.5,27.7 C-15.1,316.2-3.4,328.4,14.7,328.4z"
+                              />
                             </g>
-                          </svg>
-                        </div>
-                      </a>
-                      <a href="https://github.com/davc93">
-                        <div style="width: 40px">
-                          <svg viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                            xmlns:xlink="http://www.w3.org/1999/xlink" class="github-icon icon">
-                            <g id="SVGRepo_bgCarrier" stroke-width="0" />
+                          </g>
+                        </svg>
+                      </div>
+                    </a>
+                    <a href="https://github.com/davc93">
+                      <div style="width: 40px">
+                        <svg
+                          viewBox="0 0 20 20"
+                          version="1.1"
+                          xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink"
+                          class="github-icon icon"
+                        >
+                          <g id="SVGRepo_bgCarrier" stroke-width="0" />
 
-                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+                          <g
+                            id="SVGRepo_tracerCarrier"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
 
-                            <g id="SVGRepo_iconCarrier">
-                              <defs></defs>
-                              <g id="Page-1" stroke="none" stroke-width="1" fill="" fill-rule="evenodd">
-                                <g id="Dribbble-Light-Preview" transform="translate(-140.000000, -7559.000000)" fill="">
-                                  <g id="icons" transform="translate(56.000000, 160.000000)">
-                                    <path
-                                      d="M94,7399 C99.523,7399 104,7403.59 104,7409.253 C104,7413.782 101.138,7417.624 97.167,7418.981 C96.66,7419.082 96.48,7418.762 96.48,7418.489 C96.48,7418.151 96.492,7417.047 96.492,7415.675 C96.492,7414.719 96.172,7414.095 95.813,7413.777 C98.04,7413.523 100.38,7412.656 100.38,7408.718 C100.38,7407.598 99.992,7406.684 99.35,7405.966 C99.454,7405.707 99.797,7404.664 99.252,7403.252 C99.252,7403.252 98.414,7402.977 96.505,7404.303 C95.706,7404.076 94.85,7403.962 94,7403.958 C93.15,7403.962 92.295,7404.076 91.497,7404.303 C89.586,7402.977 88.746,7403.252 88.746,7403.252 C88.203,7404.664 88.546,7405.707 88.649,7405.966 C88.01,7406.684 87.619,7407.598 87.619,7408.718 C87.619,7412.646 89.954,7413.526 92.175,7413.785 C91.889,7414.041 91.63,7414.493 91.54,7415.156 C90.97,7415.418 89.522,7415.871 88.63,7414.304 C88.63,7414.304 88.101,7413.319 87.097,7413.247 C87.097,7413.247 86.122,7413.234 87.029,7413.87 C87.029,7413.87 87.684,7414.185 88.139,7415.37 C88.139,7415.37 88.726,7417.2 91.508,7416.58 C91.513,7417.437 91.522,7418.245 91.522,7418.489 C91.522,7418.76 91.338,7419.077 90.839,7418.982 C86.865,7417.627 84,7413.783 84,7409.253 C84,7403.59 88.478,7399 94,7399"
-                                      id="github-[#ffffff142]"></path>
-                                  </g>
+                          <g id="SVGRepo_iconCarrier">
+                            <desc>Created with Sketch.</desc>
+                            <defs></defs>
+                            <g
+                              id="Page-1"
+                              stroke="none"
+                              stroke-width="1"
+                              fill=""
+                              fill-rule="evenodd"
+                            >
+                              <g
+                                class=""
+                                id="Dribbble-Light-Preview"
+                                transform="translate(-140.000000, -7559.000000)"
+                                fill=""
+                              >
+                                <g
+                                  id="icons"
+                                  transform="translate(56.000000, 160.000000)"
+                                >
+                                  <path
+                                    d="M94,7399 C99.523,7399 104,7403.59 104,7409.253 C104,7413.782 101.138,7417.624 97.167,7418.981 C96.66,7419.082 96.48,7418.762 96.48,7418.489 C96.48,7418.151 96.492,7417.047 96.492,7415.675 C96.492,7414.719 96.172,7414.095 95.813,7413.777 C98.04,7413.523 100.38,7412.656 100.38,7408.718 C100.38,7407.598 99.992,7406.684 99.35,7405.966 C99.454,7405.707 99.797,7404.664 99.252,7403.252 C99.252,7403.252 98.414,7402.977 96.505,7404.303 C95.706,7404.076 94.85,7403.962 94,7403.958 C93.15,7403.962 92.295,7404.076 91.497,7404.303 C89.586,7402.977 88.746,7403.252 88.746,7403.252 C88.203,7404.664 88.546,7405.707 88.649,7405.966 C88.01,7406.684 87.619,7407.598 87.619,7408.718 C87.619,7412.646 89.954,7413.526 92.175,7413.785 C91.889,7414.041 91.63,7414.493 91.54,7415.156 C90.97,7415.418 89.522,7415.871 88.63,7414.304 C88.63,7414.304 88.101,7413.319 87.097,7413.247 C87.097,7413.247 86.122,7413.234 87.029,7413.87 C87.029,7413.87 87.684,7414.185 88.139,7415.37 C88.139,7415.37 88.726,7417.2 91.508,7416.58 C91.513,7417.437 91.522,7418.245 91.522,7418.489 C91.522,7418.76 91.338,7419.077 90.839,7418.982 C86.865,7417.627 84,7413.783 84,7409.253 C84,7403.59 88.478,7399 94,7399"
+                                    id="github-[#ffffff142]"
+                                  ></path>
                                 </g>
                               </g>
                             </g>
-                          </svg>
-                        </div>
-                      </a>
-                    </div>
+                          </g>
+                        </svg>
+                      </div>
+                    </a>
                   </div>
-                  <div></div>
                 </div>
               </div>
-            </section>
-          </main>
-        </div>
-        <div id="/portfolio" class="portfolio-page">
-          <aside class="projects-filter">
-            <form id="projects-filter-form" class="projects-filter-form"></form>
-          </aside>
-          <main class="projects-list-container scrollbar--vertical" id="project-list--portfolio"></main>
-        </div>
+            </header>
+            <main>
+              <section class="experience-section">
+                <div
+                class="container"
+                >
+                  <h2
+                    class="typography typography--high-contrast typography--title-medium"
+                  >
+                    Experience
+                  </h2>
+                  <div id="jobs-list"></div>
+                </div>
+              </section>
 
-        <div id="/portfolio/:slug" class="section portfolio-detail-page">
-          <div id="project-description" class="project-description"></div>
-        </div>
-        <div id="/profile" class="profile-page">
-          <h1 class="typography typography--title-medium typography--high-contrast">
-            Profile page
-          </h1>
-          <div id="profile-info"></div>
-          <div id="profile-button"></div>
-        </div>
-        <div id="/servicios" class="build-page">
-          <h2 class="typography typography--title-medium l-m-b-12 l-text-center">
-            Proximamente
-          </h2>
-        </div>
-        <div id="/error" class="error-page">
-          <div class="error-page-container section-container">
-            <h1 class="typography typography--title-medium typography--high-contrast">
-              Bad Request
+              <section class="skills-section">
+                <div class="tech-skills">
+                  <div>
+                    <h3
+                      class="typography typography--high-contrast typography--title-medium"
+                    >
+                      Technologies stack
+                    </h3>
+                    <p
+                      class="typography typography--body-medium typography--high-contrast"
+                    >
+                      The techs that i usually use and my knowledge level.
+                    </p>
+                  </div>
+                  <div id="skills__stack-list"></div>
+                </div>
+                <div class="soft-skills">
+                  <h3
+                    class="typography typography--high-contrast typography--title-medium"
+                  >
+                    Soft skills
+                  </h3>
+                  <p
+                    class="typography typography--medium-contrast typography--body-medium"
+                  >
+                    I work with agile methodologies like
+                    <span
+                      class="typography typography--body-medium typography--primary"
+                      >Scrum</span
+                    >, I've collaborated in diverse teams, ranging from QA to
+                    sales and customer support. I believe that attentive Another
+                    vital aspect of my career has been my dedication to
+                    <span
+                      class="typography typography--body-medium typography--primary"
+                      >continuous learning</span
+                    >, driving my ongoing professional growth.
+                  </p>
+                </div>
+              </section>
+
+              <section class="portfolio-section">
+                <div class="container">
+                  <h2
+                    class="typography typography--high-contrast typography--title-medium"
+                  >
+                    My portfolio
+                  </h2>
+                  <p
+                    class="typography typography--medium-contrast typography--body-medium"
+                  >
+                    Visit any of my projects, and you'll be able to see my
+                    skills in frontend, backend, design and IoT.
+                  </p>
+                  <div class="" id="projects-list"></div>
+                </div>
+              </section>
+
+              <section class="contact-section">
+                <div class="container">
+                  <h3
+                    class="typography typography--high-contrast typography--title-medium"
+                  >
+                    Contact me
+                  </h3>
+                  <div>
+
+                    <div id="contact-form-bottom">
+                    
+                    </div>
+                    <div class="contact-section__social-media">
+                      <h3
+                        class="typography typography--title-small typography--high-contrast"
+                      >
+                        Social Media
+                      </h3>
+                      <div>
+                        <a
+                          href="https://www.linkedin.com/in/diego-vergara-casanova/"
+                        >
+                          <div style="width: 40px">
+                            <svg
+                              version="1.1"
+                              id="Layer_1"
+                              viewBox="-143 145 512 512"
+                              xml:space="preserve"
+                              stroke=""
+                              class="linkedin-icon icon"
+                            >
+                              <g id="SVGRepo_bgCarrier" stroke-width="0" />
+  
+                              <g
+                                id="SVGRepo_tracerCarrier"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+  
+                              <g id="SVGRepo_iconCarrier">
+                                <g>
+                                  <path
+                                    d="M-143,145v512h512V145H-143z M339,627h-452V175h452V627z"
+                                  />
+                                  <rect
+                                    x="-8.5"
+                                    y="348.4"
+                                    width="49.9"
+                                    height="159.7"
+                                  />
+                                  <path
+                                    d="M127.9,508.1v-86.3c0-4.9-0.2-9.7,1.2-13.1c3.8-9.6,12.1-19.6,27-19.6c19.5,0,28.3,14.8,28.3,36.4v82.6H241v-88.8 c0-49.4-27.8-72.4-63.3-72.4c-28.6,0-46.5,15.6-49.8,26.6v-25.1H71.8c0.7,13.3,0,159.7,0,159.7H127.9z"
+                                  />
+                                  <path
+                                    d="M14.7,328.4h0.4c18.8,0,30.5-12.3,30.4-27.7C45.1,284.9,33.8,273,15.4,273c-18.4,0-30.5,11.9-30.5,27.7 C-15.1,316.2-3.4,328.4,14.7,328.4z"
+                                  />
+                                </g>
+                              </g>
+                            </svg>
+                          </div>
+                        </a>
+                        <a href="https://github.com/davc93">
+                          <div style="width: 40px">
+                            <svg
+                              viewBox="0 0 20 20"
+                              version="1.1"
+                              class="github-icon icon"
+                            >
+                              <g id="SVGRepo_bgCarrier" stroke-width="0" />
+  
+                              <g
+                                id="SVGRepo_tracerCarrier"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+  
+                              <g id="SVGRepo_iconCarrier">
+                                <defs></defs>
+                                <g
+                                  id="Page-1"
+                                  stroke="none"
+                                  stroke-width="1"
+                                  fill=""
+                                  fill-rule="evenodd"
+                                >
+                                  <g
+                                    id="Dribbble-Light-Preview"
+                                    transform="translate(-140.000000, -7559.000000)"
+                                    fill=""
+                                  >
+                                    <g
+                                      id="icons"
+                                      transform="translate(56.000000, 160.000000)"
+                                    >
+                                      <path
+                                        d="M94,7399 C99.523,7399 104,7403.59 104,7409.253 C104,7413.782 101.138,7417.624 97.167,7418.981 C96.66,7419.082 96.48,7418.762 96.48,7418.489 C96.48,7418.151 96.492,7417.047 96.492,7415.675 C96.492,7414.719 96.172,7414.095 95.813,7413.777 C98.04,7413.523 100.38,7412.656 100.38,7408.718 C100.38,7407.598 99.992,7406.684 99.35,7405.966 C99.454,7405.707 99.797,7404.664 99.252,7403.252 C99.252,7403.252 98.414,7402.977 96.505,7404.303 C95.706,7404.076 94.85,7403.962 94,7403.958 C93.15,7403.962 92.295,7404.076 91.497,7404.303 C89.586,7402.977 88.746,7403.252 88.746,7403.252 C88.203,7404.664 88.546,7405.707 88.649,7405.966 C88.01,7406.684 87.619,7407.598 87.619,7408.718 C87.619,7412.646 89.954,7413.526 92.175,7413.785 C91.889,7414.041 91.63,7414.493 91.54,7415.156 C90.97,7415.418 89.522,7415.871 88.63,7414.304 C88.63,7414.304 88.101,7413.319 87.097,7413.247 C87.097,7413.247 86.122,7413.234 87.029,7413.87 C87.029,7413.87 87.684,7414.185 88.139,7415.37 C88.139,7415.37 88.726,7417.2 91.508,7416.58 C91.513,7417.437 91.522,7418.245 91.522,7418.489 C91.522,7418.76 91.338,7419.077 90.839,7418.982 C86.865,7417.627 84,7413.783 84,7409.253 C84,7403.59 88.478,7399 94,7399"
+                                        id="github-[#ffffff142]"
+                                      ></path>
+                                    </g>
+                                  </g>
+                                </g>
+                              </g>
+                            </svg>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </main>
+          </div>
+          <div id="/portfolio" class="portfolio-page">
+            <aside class="projects-filter">
+              <form
+                id="projects-filter-form"
+                class="projects-filter-form"
+              ></form>
+            </aside>
+            <main
+              class="projects-list-container scrollbar--vertical"
+              id="project-list--portfolio"
+            ></main>
+          </div>
+
+          <div id="/portfolio/:slug" class="section portfolio-detail-page">
+            <div id="project-description" class="project-description"></div>
+          </div>
+          <div id="/profile" class="profile-page">
+            <h1
+              class="typography typography--title-medium typography--high-contrast"
+            >
+              Profile page
             </h1>
+            <div id="profile-info"></div>
+            <div id="profile-button"></div>
+          </div>
+          <div id="/error" class="error-page">
+            <div class="error-page-container section-container">
+              <h1
+                class="typography typography--title-medium typography--high-contrast"
+              >
+                Bad Request
+              </h1>
+            </div>
           </div>
         </div>
+        <footer>
+          <a
+            style="opacity: 0"
+            href="https://console.diegojs.pro"
+            class="secret-button"
+            >Secret button</a
+          >
+        </footer>
       </div>
-      <footer>
-        <a style="opacity: 0" href="https://console.diegojs.pro" class="secret-button">Secret button</a>
-
-      </footer>
     </div>
-  </div>
-  <script type="module" src="/src/main.ts"></script>
-</body>
-
+    <script type="module" src="/src/main.ts"></script>
+  </body>
 </html>

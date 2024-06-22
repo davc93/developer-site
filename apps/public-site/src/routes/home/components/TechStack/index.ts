@@ -7,7 +7,7 @@ export const createTechStack = () => {
   const techsEls = technologies
     .sort((a, b) => b.knowledgeLevel - a.knowledgeLevel)
     .map((tech) => {
-      const width = 30
+      const width = 25
 
       const container = document.createElement("div")
       container.className = "tech-stack__container"

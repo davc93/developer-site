@@ -17,34 +17,12 @@ function createListOfProjects(projects: Project[]) {
 }
 
 export const createPortfolioPage = async () => {
-  const techs = await projectService.getLabels()
-  const options = [
-    { label: "All", value: "" },
-    ...techs.map((tech) => {
-      return {
-        label: tech.title,
-        value: `${tech.id}`
-      }
-    })
-  ]
-  const selectTechEl = createSelect({ options })
-
+  
+  
   const projects = await projectService.getProjects({
     published: true
   })
   const projectsEl = createListOfProjects(projects)
 
-  selectTechEl.addEventListener("change", async (event) => {
-    const target = event.target as any
-    const projects = await projectService.getProjects({
-      labelId: target?.value
-    })
-    const projectsEl = createListOfProjects(projects)
-    while (projectListPortfolio?.firstChild) {
-      projectListPortfolio.firstChild.remove()
-    }
-    projectListPortfolio?.append(projectsEl)
-  })
-  // projectsFilterForm?.append(selectTechEl);
   projectListPortfolio?.append(projectsEl)
 }

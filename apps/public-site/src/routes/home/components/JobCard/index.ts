@@ -21,13 +21,15 @@ export const createJobCard = ({
 }: JobCardProps) => {
   const container = document.createElement("div")
   container.className = "job-card"
+  const line = document.createElement('div')
+  line.className = 'job-card__line'
   const generalInfo = document.createElement("div")
   generalInfo.className = "job-card__general-info"
   const jobTitleEl = createTypography({
     label: jobTitle,
-    size: TypographySize.bodyMedium,
-    style: "color: var(--foreground--100);"
+    size: TypographySize.bodyMedium
   })
+  jobTitleEl.classList.add('job-card__title')
   const organizationEl = createTypography({
     label: organization,
     size: TypographySize.bodyMedium,
@@ -56,6 +58,6 @@ export const createJobCard = ({
   })
   generalInfoContainer.append(imageEl, generalInfo)
   descriptionEl.classList.add("job-card__description")
-  container.append(generalInfoContainer, descriptionEl)
+  container.append(line,generalInfoContainer, descriptionEl)
   return container
 }

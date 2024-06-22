@@ -18,7 +18,7 @@ import { shuffleArray } from '@/utils'
 
 function createJobs():HTMLElement {
   const jobsContainer = document.createElement('div')
-  jobsContainer.className = 'jobs-list l-flex l-flex-col l-gap-20'
+  jobsContainer.className = 'jobs-list'
   const jobsList = JobsList.map((job) => {
     return createJobCard({
       jobTitle: job.jobTitle,
@@ -53,8 +53,6 @@ export const createHomePage = async () => {
   })
   contactModal.id = 'contact-button-modal'
   contactButtonHero?.append(contactModal)
-
-  contactButtonHero.classList.add('l-horizontal', 'l-gap-3')
   contactButtonBottom?.append(formContainer2)
   projectList?.append(projectListEl)
   stackList?.append(createTechStack())
