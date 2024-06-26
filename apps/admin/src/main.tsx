@@ -1,26 +1,23 @@
-import "ui-styles/src/variables.css";
-import "ui-styles/src/animations.css";
-import "ui-styles/src/base.css";
-import "./style.css";
+import './globals.css'
+import 'ui-styles/src/variables.css'
+import 'ui-styles/src/base.css'
+import 'ui-styles/src/animations.css'
+import 'ui-styles/src/markdown.css'
 
-import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App";
-import { handleColorSchemeChange } from "@/utils";
-import { QueryClientProvider,QueryClient } from "@tanstack/react-query";
+import React from 'react'
 
-handleColorSchemeChange(window.matchMedia("(prefers-color-scheme: dark)"));
+import ReactDOM from 'react-dom/client'
+import App from './App'
+import { handleColorSchemeChange } from '@/utils'
+
+handleColorSchemeChange(window.matchMedia('(prefers-color-scheme: dark)'))
 
 window
-  .matchMedia("(prefers-color-scheme: dark)")
-  .addEventListener("change", handleColorSchemeChange);
+  .matchMedia('(prefers-color-scheme: dark)')
+  .addEventListener('change', handleColorSchemeChange)
 
-const client = new QueryClient()
-
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <QueryClientProvider client={client}>
       <App />
-    </QueryClientProvider>
   </React.StrictMode>
-);
+)

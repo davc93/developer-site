@@ -1,0 +1,116 @@
+import { Typography, TypographySize } from 'ui-react'
+
+# Cyber System
+
+## Introduction
+
+In this section you could see a design system made for my application ,
+this system is apply to react components and html component across my
+admin panel app and my portfolio page.
+
+## Colors
+
+### Primary
+
+This is the main color of the theme, was used in icons, buttons, links, some surface.
+
+<div className="flex flex-wrap gap-3 mb-6">
+  {Array.from({ length: 9 }, (v, k) => (k + 1) * 100).map((item) => {
+    return (
+      <div
+        key={item}
+        style={{
+          width: 50,
+          height: 50,
+          background: `var(--primary--${item})`,
+          textAlign: 'center',
+          alignContent: 'center'
+        }}
+      >
+        {item}
+      </div>
+    )
+  })}
+</div>
+
+### Surface
+
+This color is used to write content over there, was used in parts where the text need a contrast.
+
+<div className="flex flex-wrap gap-3 mb-6">
+  {Array.from({ length: 9 }, (v, k) => (k + 1) * 100).map((item) => {
+    return (
+      <div
+        key={item}
+        style={{
+          width: 50,
+          height: 50,
+          background: `var(--surface--${item})`,
+          textAlign: 'center',
+          alignContent: 'center'
+        }}
+      >
+        {item}
+      </div>
+    )
+  })}
+</div>
+### Foreground
+
+This color is used to content and text.
+
+<div className="flex flex-wrap gap-3 mb-6">
+  {Array.from({ length: 9 }, (v, k) => (k + 1) * 100).map((item) => {
+    return (
+      <div
+        key={item}
+        style={{
+          width: 50,
+          height: 50,
+          background: `var(--foreground--${item})`,
+          textAlign: 'center',
+          alignContent: 'center'
+        }}
+      >
+        {item}
+      </div>
+    )
+  })}
+</div>
+
+## Typography
+
+### Scale
+
+Typografies have 5 differents size , the size was created from a phibonacci scale on 16px base
+
+<div className='flex flex-col gap-3 py-8' style={{backgroundColor:'var(--primary--500)'}}>
+  <Typography size={TypographySize.bodySmall}>Body small 9.8px</Typography>
+  <Typography size={TypographySize.bodyLarge}>Body large 16px</Typography>
+  <Typography size={TypographySize.titleSmall}>Title small 25.8px</Typography>
+  <Typography size={TypographySize.titleMedium}>Title medium 41.8px</Typography>
+  <Typography size={TypographySize.titleLarge}>Title Large 68.2px</Typography>
+</div>
+
+### Font family
+
+All text, from titles to paragraphs have **Noto sans font**, this is a sans serif font.
+
+
+## Shadows and Neon lights
+
+this is the key part of the theme, because is used to create a cyberpunk sense and for this there are multiple lights
+from borders of card, buttons, forms, icons etc...
+
+
+<div className='flex gap-16 flex-wrap'>
+<div className='flex flex-col gap-3 w-24 h-24' style={{boxShadow:'var(--shadow-sm)'}}>
+</div>
+
+<div className='flex flex-col gap-3 w-24 h-24' style={{boxShadow:'var(--shadow-md)'}}>
+</div>
+
+<div className='flex flex-col gap-3 w-24 h-24' style={{boxShadow:'var(--shadow-lg)'}}>
+</div>
+
+</div>

@@ -7,7 +7,9 @@
   left: 0;
   height: 100%;
   z-index: 10;
-  background-color: #2008469a;
+
+  backdrop-filter: blur(7.3px);
+  -webkit-backdrop-filter: blur(7.3px);
 }
 
 .modal--active {
@@ -15,33 +17,28 @@
   animation-name: modal;
   animation-duration: 0.7s;
   animation-fill-mode: both;
+  width: 100%;
 
   .modal-wrap {
     display: block;
     margin: 0 auto;
     width: 90vmin;
     overflow: auto;
-    animation-name: modal-wrap;
-    animation-duration: .7s;
-    animation-delay: .7s;
-    animation-fill-mode: both;
   }
-  
 }
-.modal--closing{
-  animation-name: modal-closing;
+.modal--closing {
+  /* animation-name: modal-closing; */
   animation-duration: 1s;
-  animation-delay: .5s;
-  .modal-wrap{
-    animation-name: modal-wrap-closing;
-    animation-duration: .5s;
-    animation-delay: 0s ;
+  animation-delay: 0.5s;
+  .modal-wrap {
+    /* animation-name: modal-wrap-closing; */
+    animation-duration: 0.5s;
+    animation-delay: 0s;
   }
 }
-.modal-wrap{
+.modal-wrap {
   display: none;
 }
-
 
 .modal__close-icon {
   position: absolute;
@@ -54,17 +51,18 @@
 }
 @keyframes modal {
   from {
+    /* display: none; */
     opacity: 0;
-    width: 0;
-
   }
+
+
   to {
     opacity: 1;
-    width: 100%;
+    /* display: block; */
   }
 }
 
-@keyframes modal-closing {
+/* @keyframes modal-closing {
   from {
     opacity: 1;
     width: 100%;
@@ -73,20 +71,19 @@
     opacity: 0;
     width: 0;
   }
-}
-@keyframes modal-wrap {
+} */
+/* @keyframes modal-wrap {
   from {
     scale: 0.4;
     opacity: 0;
   }
-  to{
+  to {
     scale: 1;
     opacity: 1;
   }
 }
 @keyframes modal-wrap-closing {
-  
-  from{
+  from {
     scale: 1;
     opacity: 1;
   }
@@ -94,4 +91,4 @@
     scale: 0.4;
     opacity: 0;
   }
-}
+}  */

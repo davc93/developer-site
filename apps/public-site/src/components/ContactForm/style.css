@@ -1,0 +1,14 @@
+.contact-form {
+  display: flex !important;
+  flex-direction: column;
+  gap: var(--space-6);
+  /* From https://css.glass */
+  /* border: 1px solid white; */
+  width: 100%;
+}
+.contact-form .text-area-container {
+  margin-bottom: 32px;
+  textarea {
+    height: 120px;
+  }
+}

@@ -1,16 +1,19 @@
 export interface MessageResponse {
-    results: Result[];
-    info:    Info;
+  results: Result[]
+  info: Info
 }
 
 export interface Info {
-    page:    number;
-    results: number;
+  page: number
+  pageSize: number
+  pageCount: number
+  total: number
 }
 
 export interface Result {
-    id:           number;
-    email:        string;
-    organization: string;
-    message:      string;
+  id: number
+  email: string
+  organization: string
+  message: string
+  createdAt: string
 }

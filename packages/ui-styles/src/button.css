@@ -7,8 +7,8 @@
   border-width: 2px;
   border-style: solid;
   height: fit-content;
-  backdrop-filter: blur(4.3px);
-  -webkit-backdrop-filter: blur(4.3px);
+  backdrop-filter: blur(11.3px);
+  -webkit-backdrop-filter: blur(11.3px);
   &:disabled{
     cursor: not-allowed;
   }
@@ -20,11 +20,15 @@
 
 .button__icon {
   height: 100%;
+  transition-property: fill, stroke;
+  transition-duration: .7s;
+  transition-timing-function: linear;
 }
+
 
 .button__text {
   position: relative;
-  font-family: var(--typography-primary);
+  font-family: var(--font-titles);
   text-transform: uppercase;
   font-weight: 700;
 }
@@ -43,6 +47,7 @@
   width: max-content;
   .button__icon-container {
     height: var(--space-8);
+    /* overflow: hidden; */
     margin-right: var(--space-1);
   }
   .button__loader {
@@ -105,8 +110,7 @@
 }
 .button--primary {
   border-color: var(--primary--500);
-  box-shadow: var(--shadow-sm);
-  background: rgba(0, 0, 0, 0.7);
+  /* box-shadow: var(--shadow-sm); */
   transition-property: background, box-shadow, border-color;
   transition-duration: 0.3s;
   .button__text {

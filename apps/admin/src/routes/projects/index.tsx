@@ -1,83 +1,88 @@
 // import { ListOfProjects } from '../../components/organisms/ListOfProjects'
-import { projectService } from "@/services/project.service";
-import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { ButtonSizes, Typography, TypographySize } from "ui-react";
-import { Button } from "ui-react";
-import { Input } from "ui-react";
-import { Table } from "ui-react";
-import type { Project } from "@/models/project.model";
-import { createColumnHelper } from "@tanstack/react-table";
+import { projectService } from '@/services/project.service'
+import { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { Typography, TypographySize, TableClient, Button, ButtonSizes } from 'ui-react'
+import type { Project } from '@/models/project.model'
+import { createColumnHelper } from '@tanstack/react-table'
 
-const columnHelper = createColumnHelper<Project[]>();
+interface ProjectTable extends Omit<Project, 'published'> {
+  published: string
+}
+
+const columnHelper = createColumnHelper<ProjectTable[]>()
 
 const columns = [
-  columnHelper.accessor("id", {
-    header: "Id",
+  columnHelper.accessor('id', {
+    header: 'Id'
   }),
-  columnHelper.accessor("title", {
-    header: "Title",
+  columnHelper.accessor('title', {
+    header: 'Title',
+    enableSorting: false
   }),
-  columnHelper.accessor("shortDescription", {
-    header: "Short description",
+  columnHelper.accessor('shortDescription', {
+    header: 'Short description'
   }),
-  columnHelper.accessor("published", {
-    header: "Publicado",
+  columnHelper.accessor('published', {
+    header: 'Publicado'
   }),
-  columnHelper.accessor("slug", {
-    header: "Slug",
+  columnHelper.accessor('slug', {
+    header: 'Slug'
   }),
-  columnHelper.accessor("repository", {
-    header: "Repository Url",
+  columnHelper.accessor('repository', {
+    header: 'Repository Url'
   }),
-  columnHelper.accessor("link", {
-    header: "Environment Url",
-  }),
-];
+  columnHelper.accessor('link', {
+    header: 'Environment Url'
+  })
+]
 
-export const ProjectsPage = () => {
-  const [data, setData] = useState<Project[]>([]);
-  const navigate = useNavigate();
+export const ProjectsPage = (): JSX.Element => {
+  const [data, setData] = useState<ProjectTable[]>([])
+  const navigate = useNavigate()
   const actions = [
     {
-      name: "Edit",
+      name: 'Edit',
       fn: (project: Project) => {
-        navigate(`/project/edit/${project.id}`);
-      },
+        navigate(`edit/${project.id}`)
+      }
     },
     {
-      name: "Delete",
+      name: 'Delete',
       fn: (project: Project) => {
-        alert(`Eliminar ${project.id}`);
-      },
-    },
-  ];
-  const getProjects = async () => {
-    const projects = await projectService.getProjects();
+        alert(`Eliminar ${project.id}`)
+      }
+    }
+  ]
+  const getProjects = async (): Promise<void> => {
+    const projects = await projectService.getProjects()
 
-    setData(projects);
-  };
+    setData(
+      projects.map((project) => ({
+        ...project,
+        published: project.published ? 'Published' : 'Draft'
+      }))
+    )
+  }
 
   useEffect(() => {
-    getProjects();
-  }, []);
+    getProjects()
+  }, [])
 
   return (
     <section className="flex flex-col">
-      <Typography size={TypographySize.titleMedium} className="">
+      <div className='flex justify-between'>
+
+      <Typography size={TypographySize.titleSmall} className="">
         Projects Page
       </Typography>
-      <div className="space-y-4">
-        <div className="flex flex-col lg:flex-row lg:justify-between items-baseline w-full">
-          <div className="">
-            <Input label="Search" placeholder="Enter a keyword " />
-          </div>
-          <Link to={"/project/create"} className="self-end">
-            <Button size={ButtonSizes.LARGE}>Create project</Button>
-          </Link>
-        </div>
-        <Table columns={columns} data={data} actions={actions} />
+      <Link to="/project/create">
+        <Button tag='span' size={ButtonSizes.LARGE}>
+            Create Project
+        </Button>
+      </Link>
       </div>
+        <TableClient columns={columns} data={data} actions={actions} />
     </section>
-  );
-};
+  )
+}

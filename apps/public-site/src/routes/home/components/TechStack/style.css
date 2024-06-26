@@ -1,0 +1,29 @@
+/* 
+bloque
+tech-stack
+
+element
+
+label
+level
+
+*/
+
+.tech-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  /* box-shadow: var(--shadow-sm); */
+  /* border: 2px solid var(--primary--500); */
+}
+.tech-stack__level {
+  display: inline;
+  background: var(--primary--600);
+  border-radius: 0 20px 20px 0;
+}
+.tech-stack__container {
+  display: flex;
+}
+.tech-stack__label {
+  font-weight: 600;
+}

@@ -1,5 +1,5 @@
 export interface Message {
-    email:string,
-    organization:string,
-    message:string
+  email: string
+  organization: string
+  message: string
 }

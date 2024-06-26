@@ -1,7 +1,7 @@
 const Joi = require('joi')
 const id = Joi.number().integer()
 const image = Joi.string().uri()
-const title = Joi.string().min(4).max(40)
+const title = Joi.string().min(1).max(40)
 const createdAt = Joi.date()
 const type = Joi.string().min(1).max(30)
 

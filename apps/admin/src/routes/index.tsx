@@ -1,66 +1,47 @@
-import { Route, Routes, BrowserRouter, useNavigate } from "react-router-dom"
-import { Layout } from "@/Layout"
-import { LoginPage } from "@/routes/login"
-import { ProfilePage } from "@/routes/profile"
-import { useContext, useEffect } from "react"
-import { AuthContext } from "@/context/AuthContext"
-import { DashboardPage } from "@/routes/dashboard"
-import { ProjectsPage } from "@/routes/projects"
-
-import { CreateProjectPage } from "@/routes/project-create"
-import { EditProjectPage } from "@/routes/project-edit"
-import { LabelsPage } from "@/routes/labels"
-import { CreateLabelPage } from "@/routes/label-create"
-import { EditLabelPage } from "@/routes/label-edit"
-import { ContactPage } from "./contact"
-
-export const PublicRoutes = (): JSX.Element => {
-  const { token } = useContext(AuthContext)
-  const navigate = useNavigate()
-  useEffect(() => {
-    if (token) {
-      navigate("/dashboard")
-    }
-  }, [])
-  return (
-    <Routes>
-      <Route element={<LoginPage />} path="/login" />
-    </Routes>
-  )
-}
-
-export const PrivateRoutes = (): JSX.Element => {
-  const { token } = useContext(AuthContext)
-  const navigate = useNavigate()
-
-  useEffect(() => {
-    if (!token) {
-      navigate("/login")
-    }
-  }, [])
-
-  return (
-    <Routes>
-      <Route element={<DashboardPage />} path="/dashboard" />
-      <Route element={<ProfilePage />} path="/profile" />
-      <Route element={<ProjectsPage />} path="/projects" />
-      <Route element={<CreateProjectPage />} path="/project/create" />
-      <Route element={<EditProjectPage />} path="/project/edit/:id" />
-      <Route element={<LabelsPage />} path="/labels" />
-      <Route element={<CreateLabelPage />} path="/label/create" />
-      <Route element={<EditLabelPage />} path="/label/edit/:id" /> */
-      <Route element={<ContactPage />} path="/contact" /> */
-    </Routes>
-  )
-}
+import { Route, Routes, BrowserRouter, Navigate } from 'react-router-dom'
+import { LoginPage } from '@/routes/login'
+import { ProfilePage } from '@/routes/profile'
+import { DashboardPage } from '@/routes/dashboard'
+import { ProjectsPage } from '@/routes/projects'
+import { CreateProjectPage } from '@/routes/project-create'
+import { EditProjectPage } from '@/routes/project-edit'
+import { ContactPage } from './contact'
+import { LabelApp } from './labels'
+import { TasksApp } from './tasks'
+import { RegisterApp } from './register'
+import { DashboardLayout } from '@/layouts'
+import { LoginLayout } from '@/layouts/login-layout'
+import { DesignApp } from './design'
+import { DesignSystemLayout } from '@/layouts/design-system-layout'
 
 export const Router = (): JSX.Element => {
   return (
     <BrowserRouter>
-      <Layout>
-        <PrivateRoutes />
-        <PublicRoutes />
-      </Layout>
+      <Routes>
+        <Route path="dashboard" element={<DashboardLayout />}>
+          <Route element={<DashboardPage />} path="" />
+          <Route element={<ProfilePage />} path="profile" />
+          <Route element={<ProjectsPage />} path="projects" />
+          <Route element={<CreateProjectPage />} path="project/create" />
+          <Route element={<EditProjectPage />} path="project/edit/:id" />
+          <Route element={<ContactPage />} path="contact" /> */
+          <Route element={<LabelApp />} path="labels/*" />
+          <Route element={<TasksApp />} path="tasks/*" />
+          <Route element={<RegisterApp />} path="register/*" />
+          <Route element={<DesignSystemLayout />} path="design-system">
+            <Route path="" element={<Navigate to={'introduction'} />} />
+            <Route path="*" element={<DesignApp />} />
+          </Route>
+        </Route>
+        <Route path="login" element={<LoginLayout />}>
+          <Route element={<LoginPage />} path="" />
+        </Route>
+          <Route path="design-system" element={<DesignSystemLayout />}>
+            <Route path="" element={<Navigate to={'introduction'} />} />
+            <Route path="*" element={<DesignApp />} />
+          </Route>
+        <Route path="/*" element={<Navigate to="login" />} />
+      </Routes>
     </BrowserRouter>
   )
 }

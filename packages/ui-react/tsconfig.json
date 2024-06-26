@@ -1,6 +1,7 @@
 {
   "extends": "ts-config/react-library.json",
   "compilerOptions": {
+    "baseUrl": ".",
     "outDir": "dist",
     "paths": {
       "@/*":["./src/*"]
