@@ -1,19 +1,19 @@
 .markdown {
   h1 {
     font-size: var(--title-medium);
-    font-family: var(--typography-primary);
+    font-family: var(--font-titles);
     color: white;
     margin-bottom: 1.5rem;
   }
   h2 {
-    font-family: var(--typography-primary);
+    font-family: var(--font-titles);
     font-size: var(--title-small);
     color: white;
     margin-bottom: 1.25rem;
 
 }
   h3 {
-    font-family: var(--typography-primary);
+    font-family: var(--font-titles);
     font-size: var(--body-large);
     color: white;
     font-weight: bolder;
@@ -21,7 +21,7 @@
 
 }
   p{
-    font-family: var(--typography-primary);
+    font-family: var(--font-paragraph);
     font-size: var(--body-large);
     color: white;
     margin-bottom: 1.25rem;

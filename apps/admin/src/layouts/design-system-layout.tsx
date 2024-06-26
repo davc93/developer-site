@@ -63,6 +63,7 @@ export function DesignSystemLayout() {
                   <li key={link.href}>
                     <Link
                       to={link.href}
+                      style={{fontFamily:'var(--font-titles)'}}
                       className="text-base capitalize text-gray-200 hover:text-rose-600 transition-colors  font-normal rounded-lg flex items-center p-2 group"
                     >
                       <span className="ml-3">{link.name}</span>
