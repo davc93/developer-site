@@ -1,28 +1,32 @@
 .typography--title-large {
   font-size: var(--title-large);
-  font-family: var(--typography-primary);
+  font-family: var(--font-titles);
+  font-optical-sizing: auto;
+  
 }
 
 .typography--title-medium {
-  font-family: var(--typography-primary);
+  font-family: var(--font-titles);
   font-size: var(--title-medium);
+  font-optical-sizing: auto;
 }
 
 .typography--title-small {
   font-size: var(--title-small);
-  font-family: var(--typography-primary);
+  font-family: var(--font-titles);
+  font-optical-sizing: auto;
+
 }
 
 .typography--body-medium {
-  font-family: var(--typography-primary);
+  font-family: var(--font-paragraph);
   font-size: var(--body-medium);
 }
 .typography--body-small {
-  font-family: var(--typography-primary);
+  font-family: var(--font-paragraph);
+
   font-size: var(--body-small);
 }
-
-
 
 .typography--primary {
   color: var(--primary--600);
@@ -34,9 +38,8 @@
   text-shadow: var(--shadow-sm);
   color: var(--primary--600);
   transition: text-shadow, color 0.3s;
-  &:hover{
+  &:hover {
     text-shadow: var(--shadow-lg);
-  
   }
 }
 
@@ -44,7 +47,7 @@
   color: var(--foreground--400);
 }
 
-[data-theme="light"] .typography--very-high-contrast {
+[data-theme='light'] .typography--very-high-contrast {
   color: var(--foreground--600);
 }
 
@@ -52,14 +55,14 @@
   color: var(--foreground--300);
 }
 
-[data-theme="light"] .typography--low-contrast {
+[data-theme='light'] .typography--low-contrast {
   color: var(--foreground--700);
 }
 .typography--medium-contrast {
   color: var(--foreground--200);
 }
 
-[data-theme="light"] .typography--medium-contrast {
+[data-theme='light'] .typography--medium-contrast {
   color: var(--foreground--800);
 }
 
@@ -67,13 +70,13 @@
   color: var(--foreground--100);
 }
 
-[data-theme="light"] .typography--high-contrast {
+[data-theme='light'] .typography--high-contrast {
   color: var(--foreground--900);
 }
 
 .typography--very-high-contrast {
   color: var(--foreground--50);
 }
-[data-theme="light"] .typography--very-high-contrast {
+[data-theme='light'] .typography--very-high-contrast {
   color: var(--foreground--950);
 }

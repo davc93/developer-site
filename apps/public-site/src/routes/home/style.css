@@ -1,36 +1,5 @@
-.home-background-image {
-  position: fixed;
-  width: 100%;
-  min-height: 100svh;
-  z-index: 1;
-  background-image: url('https://res.cloudinary.com/dxryc5jgr/image/upload/w_1620,q_60/v1714496976/0_Person_looking_dark_city_from_rooftop_with_persona_esrgan-v1-x2plus_pntynh.webp');
-  background-position: top;
-  background-size: cover;
-  animation-name: hide;
-  background-repeat: no-repeat;
-  animation-timing-function: linear;
-  animation-fill-mode: both;
-  animation-timeline: scroll(root);
-
-  background-position: center top;
-  filter: saturate(200%) brightness(60%);
-  @media (1024px <= width) {
-  }
-}
-@keyframes hide {
-  0% {
-    background-position: center top;
-  }
-  30% {
-    filter: saturate(200%) brightness(30%);
-  }
-
-  100% {
-    filter: saturate(200%) brightness(0%);
-    background-position: center bottom;
-  }
-}
 .hero-section {
+  
   > div {
     display: flex;
     flex-direction: column;
@@ -59,7 +28,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   max-width: 90%;
-  gap: var(--space-10);
+  gap: var(--space-4);
   margin-inline: auto;
   margin-bottom: 100px;
 }
@@ -67,9 +36,11 @@
   width: 100%;
   max-width: 600px;
   min-width: 300px;
-  background-color: var(--primary--950);
   padding-inline: var(--space-12);
   padding-block: var(--space-12);
+  border: 1px solid var(--primary--500);
+  /* box-shadow: var(--shadow-lg); */
+  background: radial-gradient(farthest-corner at 19% 100%, #f708508f 0%, #f7085000 63%), repeating-linear-gradient(to top, #000000ff 0%, #000000ff 0%);
   h3 {
     margin-bottom: var(--space-2);
   }
@@ -78,11 +49,14 @@
   }
 }
 .soft-skills {
-  width: 100%;
 
-  max-width: 500px;
-  min-width: 300px;
-  background-color: var(--secondary--700);
+  background: radial-gradient(farthest-corner at 69% 0%, #0ed8ce8f 0%, #f7085000 63%), repeating-linear-gradient(to top, #000000ff 0%, #000000ff 0%);
+  width: 100%;
+  height: fit-content;
+  border: 3px solid var(--secondary--500);
+
+  /* max-width: 500px; */
+  /* min-width: 300px; */
   padding-inline: var(--space-12);
   padding-block: var(--space-12);
   h3 {
@@ -90,6 +64,9 @@
   }
   p {
     margin-bottom: var(--space-4);
+  }
+  @media (width > 1024px){
+    max-width: 600px;
   }
 }
 .portfolio-section {
@@ -103,6 +80,7 @@
   margin-bottom: 100px;
 }
 .contact-section {
+  background: radial-gradient(farthest-corner at 19% 100%, #2e84e78f 0%, #f7085000 63%), repeating-linear-gradient(to top, #000000ff 0%, #000000ff 0%);
   > div{
     >h3 {
       text-align: center;
@@ -110,32 +88,43 @@
     }
   
     > div {
-      padding-block: 56px;
-      padding-inline: 100px;
-      background-color: var(--primary--950);
+      padding-block: 36px;
+      padding-inline: 36px;
+      /* background-color: var(--primary--950); */
       display: flex;
       flex-direction: column;
       width: 100%;
-
+      gap: 24px; 
       @media ( 1024px < width){
-        justify-content: space-between;
+        justify-content: space-around;
         flex-direction: row-reverse;
       }
 
 
     }
   } 
-  .contact-form{
+  #contact-form-bottom{
+    width: 100%;
     max-width: 500px;
+    border: 1px solid var(--primary--500);
+    padding: 36px;
   }
 }
 .contact-section__social-media {
+  
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
 
+  width: 100%;
+  max-width: 250px;
   >div{
     display: flex;
     gap: var(--space-4);
   }
+}
+.modal .contact-form{
+  background: repeating-linear-gradient(to top right, #011d32ff 0%, rgb(66, 6, 23) 87%, rgb(65, 7, 30) 100%);
+  padding: 36px;
+  border: 1px solid var(--primary--500);
 }

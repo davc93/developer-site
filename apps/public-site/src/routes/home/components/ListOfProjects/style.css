@@ -1,12 +1,7 @@
 .project-list {
   display: flex;
+  flex-direction: column;
   gap: var(--space-3);
-  overflow-x: scroll;
   scrollbar-color: red black;
 
-  @media (1024px <= width) {
-    background: none;
-    flex-wrap: wrap;
-    overflow-x: auto;
-  }
 }

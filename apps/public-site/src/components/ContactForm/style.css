@@ -2,24 +2,13 @@
   display: flex !important;
   flex-direction: column;
   gap: var(--space-6);
-  padding-block: var(--space-6);
-  padding-inline: var(--space-8);
   /* From https://css.glass */
   /* border: 1px solid white; */
-  border-radius: 15px;
   width: 100%;
-  backdrop-filter: blur(20.3px);
-  -webkit-backdrop-filter: blur(20.3px);
 }
 .contact-form .text-area-container {
   margin-bottom: 32px;
   textarea {
     height: 120px;
-  }
-}
-.modal {
-  .contact-form {
-    /* background: rgba(0, 0, 0, .8); */
-    /* background-color: rgba(179, 22, 69, 0.4); */
   }
 }

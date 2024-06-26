@@ -40,12 +40,7 @@ export const createModal = ({
 
   closeModal.classList.add("modal__close-icon")
   closeModal.addEventListener("click", () => {
-    modalDiv.classList.add("modal--closing")
-  })
-  modalDiv.addEventListener("animationend", (event) => {
-    if (event.animationName == "modal-closing") {
-      modalDiv.classList.remove("modal--active", "modal--closing")
-    }
+    modalDiv.classList.remove("modal--active")
   })
 
   document.addEventListener("keydown", function (event) {
@@ -53,7 +48,7 @@ export const createModal = ({
       event.key === "Escape" &&
       modalDiv.classList.contains("modal--active")
     ) {
-      modalDiv.classList.add("modal--closing")
+      modalDiv.classList.remove("modal--active")
     }
   })
   element.classList.add("modal-wrap")

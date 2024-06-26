@@ -17,7 +17,7 @@
   padding: var(--space-1);
   color: var(--foreground--50);
   margin-top: var(--space-1);
-  font-family: var(--typography-primary);
+  font-family: var(--font-paragraph);
   margin-bottom: var(--space-2);
   transition-property: border-bottom-color;
   transition-duration: 0.3s;
@@ -37,7 +37,8 @@
 }
 .input__label {
   color: var(--foreground--100);
-  font-family: var(--typography-primary);
+  font-family: var(--font-paragraph);
+
 }
 .input--error {
   border-bottom-color: var(--error--300);

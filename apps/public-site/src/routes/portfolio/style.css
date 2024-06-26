@@ -7,12 +7,12 @@
 
 .portfolio-project-list {
   margin-inline: auto;
-  flex-wrap: wrap;
   justify-content: center;
   display: flex;
+  flex-direction: column;
   gap: var(--space-8);
   max-width: 90vw;
-  padding-top: 10rem;
+  padding-top: 50px;
 }
 .projects-list-container {
   /* background: linear-gradient(-225deg,var(--surface--950) 25%,var(--primary--900)); */

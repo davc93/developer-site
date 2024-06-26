@@ -4,14 +4,26 @@
 
   justify-content: center;
   min-height: 100svh;
+
+  padding-inline: 24px;
+  display: grid;
+  width: 100%;
+  justify-content: end;
+  grid-auto-columns: 100%;
+  @media(width>768px){
+    grid-auto-columns: 90%;
+
+  }
 }
 
 .project-description {
-  display: flex;
-  flex-direction: column;
-  max-width: 1024px;
+  width: 100%;
+  justify-self: end;
+  /* margin-left: auto; */
+  /* padding-left: 100px; */
+  /* max-width: 1536px; */
   color: var(--foreground--50);
-  grid-column: 1/-1;
+  /* grid-column: 1/-1; */
   font-family: "Ubuntu", sans-serif;
 }
 

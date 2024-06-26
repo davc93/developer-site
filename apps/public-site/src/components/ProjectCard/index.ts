@@ -45,7 +45,7 @@ export const createProjectCard = ({
   image.className = 'project-card__image'
   const projectTitle = createTypography({
     label: title,
-    size: TypographySize.bodyMedium
+    size: TypographySize.titleSmall
   })
   projectTitle.classList.add('project-card__title')
   const projectDescription = createTypography({
@@ -117,8 +117,8 @@ export const createProjectCard = ({
   cardButtons.append(code, preview, detail)
   const content = document.createElement('div')
   content.className = 'project-card__content'
-  content.append(projectTitle, projectDescription, techsContainer)
-  projectCard.append(imageContainer, content, cardButtons)
+  content.append(projectTitle, projectDescription, techsContainer,cardButtons)
+  projectCard.append(content,imageContainer)
 
   return projectCard
 }

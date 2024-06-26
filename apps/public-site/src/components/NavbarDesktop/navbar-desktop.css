@@ -40,7 +40,7 @@
 
 .navbar-desktop__item {
   text-transform: uppercase;
-  font-family: var(--typography-primary);
+  font-family: var(--font-paragraph) !important;
   font-weight: 700;
   transition-property: color, text-shadow;
   transition-duration: 0.3s;

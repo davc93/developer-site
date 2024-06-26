@@ -28,7 +28,7 @@
 
 .button__text {
   position: relative;
-  font-family: var(--typography-primary);
+  font-family: var(--font-titles);
   text-transform: uppercase;
   font-weight: 700;
 }

@@ -1,3 +1,8 @@
+
+@font-face {
+  font-family: "Titles";
+  src: url(/TeroxiaDemoPersonalUse-GOxoD.otf) format('truetype');
+}
 html{
   background: black;
 
@@ -62,3 +67,38 @@ html{
   max-width: 1280px;
   }
 }
+
+
+.home-background-image {
+  position: fixed;
+  width: 100%;
+  min-height: 100svh;
+  z-index: 1;
+  background-image: url('https://res.cloudinary.com/dxryc5jgr/image/upload/w_1620,q_60/v1714496976/0_Person_looking_dark_city_from_rooftop_with_persona_esrgan-v1-x2plus_pntynh.webp');
+  background-position: top;
+  background-size: cover;
+  animation-name: hide;
+  background-repeat: no-repeat;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+  animation-timeline: scroll(root);
+
+  background-position: center top;
+  filter:  brightness(60%);
+  @media (1024px <= width) {
+  }
+}
+@keyframes hide {
+  0% {
+    background-position: center top;
+  }
+  40%{
+    filter:  brightness(0%);
+
+  }
+  100% {
+    filter:  brightness(0%);
+    background-position: center bottom;
+  }
+
+} 
