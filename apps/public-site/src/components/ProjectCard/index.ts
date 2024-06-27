@@ -8,9 +8,9 @@ import {
 import { ImageFormat, createImage } from '@/components/ui/atoms/Image'
 import { createLink } from '@/components/ui/atoms/Link'
 import { TypographySize, createTypography } from '@/components/ui/atoms/Typography'
-import { LinkIcon } from '@/components/ui/icons/ExternalLink'
-import { GithubIcon } from '@/components/ui/icons/SocialIcons'
-import { BrowserIcon } from '@/components/ui/icons/BrowserIcon'
+import { IconExternalLink } from '@/components/ui/icons/icon-external-link'
+import { IconGithub } from '@/components/ui/icons/icon-github'
+import { IconBrowser } from '@/components/ui/icons/icon-browser'
 export enum ProjectCardType {
   LARGE = 'project-card--large',
   MEDIUM = 'project-card--medium'
@@ -79,7 +79,7 @@ export const createProjectCard = ({
   const cardButtons = document.createElement('div')
   cardButtons.className = 'project-card__actions'
 
-  const codeIcon = GithubIcon({})
+  const codeIcon = IconGithub({className:'icon-filled'})
   codeIcon.classList.add('project-card__code-icon')
 
   const codeButton = createButton({
@@ -91,7 +91,7 @@ export const createProjectCard = ({
   })
   const code = createLink({ href: repository, children: codeButton })
 
-  const previewIcon = BrowserIcon()
+  const previewIcon = IconBrowser({className:'icon-filled'})
   previewIcon.classList.add('project-card__preview-icon')
 
   const previewButton = createButton({
@@ -103,7 +103,7 @@ export const createProjectCard = ({
   })
   const preview = createLink({ href: link, children: previewButton })
 
-  const docIcon = LinkIcon()
+  const docIcon = IconExternalLink({className:'icon-stroke'})
   docIcon.classList.add('project-card__doc-icon')
   const docButton = createButton({
     style: ButtonStyles.PRIMARY,

@@ -41,7 +41,7 @@ export const technologies: Technology[] = [
   },
 
   {
-    name: 'Tailwind CSS',
+    name: 'Tailwind',
     icon: null,
     knowledgeLevel: 4
   },

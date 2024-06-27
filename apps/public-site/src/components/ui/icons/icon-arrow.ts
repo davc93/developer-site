@@ -1,6 +1,5 @@
-export interface SVGProps {}
 
-export const ArrowIcon = () => {
+export const IconArrow = () => {
   // Create an SVG element
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg")
   svg.setAttribute("viewBox", "0 0 24 24")

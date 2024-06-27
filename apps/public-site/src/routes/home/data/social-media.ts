@@ -1,7 +1,7 @@
 import {
-  GithubIcon,
+  IconGithub,
   LinkedinIcon
-} from '../../../components/ui/icons/SocialIcons'
+} from '../../../components/ui/icons/icon-github'
 import { type SocialMedia } from '../../../models/social-media.model'
 
 export const socialMedia: SocialMedia[] = [
@@ -13,6 +13,6 @@ export const socialMedia: SocialMedia[] = [
   {
     name: 'Github',
     url: 'https://github.com/davc93',
-    icon: GithubIcon({ width: '36px' })
+    icon: IconGithub({ width: '36px' })
   }
 ]

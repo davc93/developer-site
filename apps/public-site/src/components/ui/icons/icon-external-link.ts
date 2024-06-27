@@ -1,10 +1,16 @@
-export const BrowserIcon = (): SVGSVGElement => {
-  // Create the SVG element
+import type { Props } from "./model"
+export const IconExternalLink = ({
+  width = '36px',
+  className = '',
+  style = ''
+}: Props = {}): SVGSVGElement => {
   const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
-  svg.setAttribute('viewBox', '0 0 20 20')
-  svg.setAttribute('version', '1.1')
+  svg.setAttribute('viewBox', '0 0 24 24')
+  svg.setAttribute('width', width)
+  svg.setAttribute('style',style)
+  svg.setAttribute('class',className)
 
-  // Create the 'g' elements
+  // Create SVG groups
   const bgCarrier = document.createElementNS('http://www.w3.org/2000/svg', 'g')
   bgCarrier.setAttribute('id', 'SVGRepo_bgCarrier')
   bgCarrier.setAttribute('stroke-width', '0')
@@ -23,23 +29,22 @@ export const BrowserIcon = (): SVGSVGElement => {
   )
   iconCarrier.setAttribute('id', 'SVGRepo_iconCarrier')
 
-  // Create the 'path' element
+  // Create path element
   const path = document.createElementNS('http://www.w3.org/2000/svg', 'path')
+  path.setAttribute('stroke', '')
+  path.setAttribute('stroke-linecap', 'round')
+  path.setAttribute('stroke-linejoin', 'round')
+  path.setAttribute('stroke-width', '2')
   path.setAttribute(
     'd',
-    'M 0 3 L 0 17 L 16 17 L 16 16 L 1 16 L 1 7 L 16 7 L 16 3 L 0 3 z M 1 4 L 15 4 L 15 6 L 1 6 L 1 4 z M 15 8 L 18 11 L 7 11 L 7 12 L 18 12 L 15 15 L 16.5 15 L 20 11.5 L 16.5 8 L 15 8 z'
+    'M12 6H7a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-5m-6 0 7.5-7.5M15 3h6v6'
   )
-  path.setAttribute(
-    'style',
-    'fill-opacity:1; stroke:none; stroke-width:0px;'
-  )
+  path.setAttribute('fill','none')
 
-  // Append elements
+  // Append elements to the SVG
   iconCarrier.appendChild(path)
   svg.appendChild(bgCarrier)
   svg.appendChild(tracerCarrier)
   svg.appendChild(iconCarrier)
-
-  // Append the SVG to the document (e.g., into the body or another container)
   return svg
 }

@@ -1,4 +1,4 @@
-export const CloseIcon = () => {
+export const IconCross = () => {
   // Create the SVG element
   const svgElement = document.createElementNS(
     "http://www.w3.org/2000/svg",

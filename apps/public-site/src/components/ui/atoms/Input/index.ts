@@ -1,5 +1,5 @@
 import "ui-styles/src/input.css"
-import { ErrorIcon } from "@/components/ui/icons/ErrorIcon"
+import { IconError } from "@/components/ui/icons/icon-error"
 
 export interface InputProps {
   label: string
@@ -40,7 +40,7 @@ export const createInput = ({
     const errorMessageText = document.createElement("span")
     errorMessageText.textContent = error
     errorMessageText.classList.add("error-message__text")
-    const icon = ErrorIcon()
+    const icon = IconError()
     icon.classList.add("error-message__icon")
 
     errorMessage.append(icon, errorMessageText)

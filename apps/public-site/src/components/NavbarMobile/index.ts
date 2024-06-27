@@ -2,7 +2,7 @@ import "./navbar-mobile.css"
 import { updateAppSession } from "@/main"
 import { goTo } from "@/navigation"
 import { deleteCookie } from "@/utils"
-import { GithubIcon, LinkedinIcon } from "@/components/ui/icons/SocialIcons"
+import { IconGithub, IconLinkedin } from "@/components/ui/icons"
 import { createLink } from "@/components/ui/atoms/Link"
 import { TypographySize, createTypography } from "@/components/ui/atoms/Typography"
 
@@ -114,11 +114,11 @@ export const createNavbarMobile = () => {
 
   const github = createLink({
     href: "https://github.com/davc93",
-    children: GithubIcon({ width: "36px" })
+    children: IconGithub({ width: "36px" })
   })
   const linkedin = createLink({
     href: "https://www.linkedin.com/in/diego-vergara-casanova/",
-    children: LinkedinIcon({ width: "36px" })
+    children: IconLinkedin({ width: "36px" })
   })
   const socialContainer = document.createElement("div")
   socialContainer.className = ["navbar-mobile__social-container"].join(" ")
