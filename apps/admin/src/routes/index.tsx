@@ -22,8 +22,8 @@ export const Router = (): JSX.Element => {
           <Route element={<DashboardPage />} path="" />
           <Route element={<ProfilePage />} path="profile" />
           <Route element={<ProjectsPage />} path="projects" />
-          <Route element={<CreateProjectPage />} path="project/create" />
-          <Route element={<EditProjectPage />} path="project/edit/:id" />
+          <Route element={<CreateProjectPage />} path="projects/create" />
+          <Route element={<EditProjectPage />} path="projects/edit/:id" />
           <Route element={<ContactPage />} path="contact" /> */
           <Route element={<LabelApp />} path="labels/*" />
           <Route element={<TasksApp />} path="tasks/*" />
