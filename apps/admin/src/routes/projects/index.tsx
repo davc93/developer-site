@@ -76,7 +76,7 @@ export const ProjectsPage = (): JSX.Element => {
       <Typography size={TypographySize.titleSmall} className="">
         Projects Page
       </Typography>
-      <Link to="/project/create">
+      <Link to="/projects/create">
         <Button tag='span' size={ButtonSizes.LARGE}>
             Create Project
         </Button>
