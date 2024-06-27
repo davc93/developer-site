@@ -1,18 +1,18 @@
 import {
-  GithubIcon,
-  LinkedinIcon
-} from '../../../components/ui/icons/SocialIcons'
-import { type SocialMedia } from '../../../models/social-media.model'
+  IconGithub,
+  IconLinkedin
+} from '@/components/ui/icons'
+import { type SocialMedia } from '@/models/social-media.model'
 
 export const socialMedia: SocialMedia[] = [
   {
     name: 'Linkedin',
     url: 'https://www.linkedin.com/in/diego-vergara-casanova/',
-    icon: LinkedinIcon({ width: '36px' })
+    icon: IconLinkedin({ width: '36px' })
   },
   {
     name: 'Github',
     url: 'https://github.com/davc93',
-    icon: GithubIcon({ width: '36px' })
+    icon: IconGithub({ width: '36px' })
   }
 ]

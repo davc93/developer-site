@@ -4,7 +4,7 @@ import {
   ButtonStyles,
   ButtonSizes
 } from "@/components/ui/atoms/Button"
-import { CloseIcon } from "@/components/ui/icons/CloseIcon"
+import { IconCross } from "@/components/ui/icons/icon-cross"
 import type { ButtonProps } from "@/components/ui/atoms/Button"
 export interface ModalProps extends Partial<ButtonProps> {
   element: HTMLElement
@@ -36,7 +36,7 @@ export const createModal = ({
 
   const closeModal = document.createElement("button")
   closeModal.type = "button"
-  closeModal.append(CloseIcon())
+  closeModal.append(IconCross())
 
   closeModal.classList.add("modal__close-icon")
   closeModal.addEventListener("click", () => {

@@ -1,4 +1,4 @@
-export const ErrorIcon = () => {
+export const IconError = () => {
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg")
   svg.setAttribute("fill", "none")
   svg.setAttribute("shape-rendering", "geometricPrecision")

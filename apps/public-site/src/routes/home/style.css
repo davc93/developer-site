@@ -7,10 +7,12 @@
   }
 }
 .hero-cta {
+  margin-top: 8px;
   display: flex;
   justify-content: end;
   align-items: center;
-  gap: 48px;
+  flex-wrap: wrap;
+  gap: 12px;
   .social-media {
     display: flex;
     gap: 16px;
@@ -36,8 +38,8 @@
   width: 100%;
   max-width: 600px;
   min-width: 300px;
-  padding-inline: var(--space-12);
-  padding-block: var(--space-12);
+  padding-inline: var(--space-6);
+  padding-block: var(--space-6);
   border: 1px solid var(--primary--500);
   /* box-shadow: var(--shadow-lg); */
   background: radial-gradient(farthest-corner at 19% 100%, #f708508f 0%, #f7085000 63%), repeating-linear-gradient(to top, #000000ff 0%, #000000ff 0%);
@@ -57,8 +59,8 @@
 
   /* max-width: 500px; */
   /* min-width: 300px; */
-  padding-inline: var(--space-12);
-  padding-block: var(--space-12);
+  padding-inline: var(--space-6);
+  padding-block: var(--space-6);
   h3 {
     margin-bottom: var(--space-2);
   }
@@ -84,7 +86,7 @@
   > div{
     >h3 {
       text-align: center;
-    margin-bottom: var(--space-20);
+    margin-bottom: var(--space-8);
     }
   
     > div {

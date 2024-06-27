@@ -9,22 +9,37 @@
   height: fit-content;
   backdrop-filter: blur(11.3px);
   -webkit-backdrop-filter: blur(11.3px);
-  &:disabled{
+  .icon-filled {
+    fill: var(--primary--500);
+  }
+  .icon-stroke {
+    stroke: var(--primary--500);
+  }
+
+  &:disabled {
     cursor: not-allowed;
   }
-  input[type="file"]{
+  input[type='file'] {
     display: none;
   }
-  
+  &:hover {
+    .icon-filled {
+      fill: var(--foreground--950);
+    }
+
+    .icon-stroke {
+      stroke: var(--foreground--950);
+      fill: green;
+    }
+  }
 }
 
 .button__icon {
   height: 100%;
   transition-property: fill, stroke;
-  transition-duration: .7s;
+  transition-duration: 0.7s;
   transition-timing-function: linear;
 }
-
 
 .button__text {
   position: relative;
@@ -54,7 +69,6 @@
     width: var(--body-medium);
     height: var(--body-medium);
   }
-
 }
 .button--wide {
   padding-block: 16px;
@@ -87,7 +101,6 @@
   cursor: default;
   &.button--primary {
     &.button--large {
-      
       .button__loader {
         right: -20px;
         opacity: 1;
@@ -100,7 +113,6 @@
       }
     }
     &.button--wide {
-      
       .button__loader {
         right: -20px;
         opacity: 1;
@@ -120,7 +132,6 @@
   }
 
   &:disabled {
-
     border-color: var(--primary--900);
 
     .button__text {
@@ -163,11 +174,9 @@
   }
 }
 
-[data-theme="light"] .button--primary{
+[data-theme='light'] .button--primary {
   background: rgba(255, 255, 255, 0.7);
-
 }
-
 
 @keyframes spin {
   to {
