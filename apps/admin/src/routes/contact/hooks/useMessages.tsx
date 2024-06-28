@@ -3,7 +3,7 @@ import {  useQuery } from '@tanstack/react-query'
 import type { MessageResponse } from '@/models/message.model'
 import { config } from '@/config'
 import {  useEffect, useState } from 'react'
-import { useAuth } from './useAuth'
+import { useAuth } from '@/hooks/useAuth'
 
 type Filter = {
   field: string
