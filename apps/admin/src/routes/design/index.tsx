@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes } from 'react-router-dom'
+import {  Route, Routes } from 'react-router-dom'
 // import { Alert } from './routes/alert'
 import Introduction  from './routes/introduction'
 import Button from './routes/button'

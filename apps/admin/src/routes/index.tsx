@@ -2,9 +2,7 @@ import { Route, Routes, BrowserRouter, Navigate } from 'react-router-dom'
 import { LoginPage } from '@/routes/login'
 import { ProfilePage } from '@/routes/profile'
 import { DashboardPage } from '@/routes/dashboard'
-import { ProjectsPage } from '@/routes/projects'
-import { CreateProjectPage } from '@/routes/project-create'
-import { EditProjectPage } from '@/routes/project-edit'
+
 import { ContactPage } from './contact'
 import { LabelApp } from './labels'
 import { TasksApp } from './tasks'
@@ -13,6 +11,7 @@ import { DashboardLayout } from '@/layouts'
 import { LoginLayout } from '@/layouts/login-layout'
 import { DesignApp } from './design'
 import { DesignSystemLayout } from '@/layouts/design-system-layout'
+import { ProjectsApp } from './projects'
 
 export const Router = (): JSX.Element => {
   return (
@@ -21,10 +20,8 @@ export const Router = (): JSX.Element => {
         <Route path="dashboard" element={<DashboardLayout />}>
           <Route element={<DashboardPage />} path="" />
           <Route element={<ProfilePage />} path="profile" />
-          <Route element={<ProjectsPage />} path="projects" />
-          <Route element={<CreateProjectPage />} path="projects/create" />
-          <Route element={<EditProjectPage />} path="projects/edit/:id" />
           <Route element={<ContactPage />} path="contact" /> */
+          <Route element={<ProjectsApp />} path="projects/*" />
           <Route element={<LabelApp />} path="labels/*" />
           <Route element={<TasksApp />} path="tasks/*" />
           <Route element={<RegisterApp />} path="register/*" />

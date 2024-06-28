@@ -12,12 +12,13 @@ import { Images } from "./Images";
 import { ProjectFormContext } from "./Context";
 import type { CreateProjectDto, Project } from "@/models/project.model";
 import { NotificationContext } from "@/providers/notification-provider";
+import { useAuth } from "@/hooks/useAuth";
 type ProjectFormProps = {
   project: Project | null;
 };
 
 export const ProjectForm = (props: ProjectFormProps) => {
-  const { token } = useContext(AuthContext);
+  const { token } = useAuth()
   const { state, dispatch } = useContext(ProjectFormContext);
   const navigate = useNavigate();
   const [submitting, setSubmitting] = useState(false)
@@ -64,7 +65,7 @@ export const ProjectForm = (props: ProjectFormProps) => {
 
         addNotification({
           title:"Error saving",
-          message:`${error}`,
+          message:`${error as string}`,
           type:NotificationType.ERROR
           
         })
@@ -90,7 +91,7 @@ export const ProjectForm = (props: ProjectFormProps) => {
         });
         await Promise.all(imagePromises);
         await Promise.all(LabelProjectPromises);
-        navigate("../..");
+        navigate("..");
 
         addNotification({
           title:"Save succesfully",
@@ -120,7 +121,7 @@ export const ProjectForm = (props: ProjectFormProps) => {
   };
   const handleStepPrevious = () => {
     if (state.step == Step.GENERAL) {
-      navigate("/projects");
+      navigate("..");
     } else {
       dispatch({ type: ActionTypes.CHANGE_STEP, payload: state.step - 1 });
     }

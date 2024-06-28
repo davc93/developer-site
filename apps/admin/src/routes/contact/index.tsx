@@ -1,7 +1,7 @@
 import { type  ColumnDef, createColumnHelper } from '@tanstack/react-table'
 import type { MessageResponse } from '@/models/message.model'
 import { TableServer, Typography, TypographySize } from 'ui-react'
-import { useMessages } from '@/hooks/useMessages'
+import { useMessages } from './hooks'
 
 const columnHelper = createColumnHelper<MessageResponse['results']>()
 

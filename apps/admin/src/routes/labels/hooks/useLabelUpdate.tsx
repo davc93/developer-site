@@ -6,6 +6,7 @@ import { AuthContext } from '@/providers/auth-provider'
 import { NotificationContext } from '@/providers/notification-provider'
 import { useNavigate } from 'react-router-dom'
 import { NotificationType } from 'ui-react'
+import { useAuth } from '@/hooks/useAuth'
 
 const updateLabel = async (
   token: string,
@@ -31,7 +32,7 @@ const updateLabel = async (
   return jsonData
 }
 export const useLabelUpdate = () => {
-  const { token } = useContext(AuthContext)
+  const { token } = useAuth()
   const { addNotification } = useContext(NotificationContext)
   const navigate = useNavigate()
   const queryClient = useQueryClient()
