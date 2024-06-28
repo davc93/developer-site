@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { ProjectForm } from "../../components/ProjectForm";
-import { Project } from "../../models/project.model";
-import { projectService } from "../../services/project.service";
-import {  ProjectFormProvider } from "../../components/ProjectForm/Context";
+import { ProjectForm } from "@/routes/projects/components/ProjectForm";
+import type { Project } from "@/models/project.model";
+import { projectService } from "@/services/project.service";
+import {  ProjectFormProvider } from "../components/ProjectForm/Context";
 export const EditProjectPage = () => {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
@@ -16,7 +16,7 @@ export const EditProjectPage = () => {
       const data = await projectService.getProject(parseInt(id as string));
       setProject(data);
     } catch (error) {
-      setError(`${error}`);
+      setError(`${error as string}`);
     }
     setLoading(false);
   };

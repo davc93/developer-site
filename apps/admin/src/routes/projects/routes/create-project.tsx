@@ -1,5 +1,5 @@
-import { ProjectForm } from '../../components/ProjectForm'
-import { ProjectFormProvider } from '../../components/ProjectForm/Context'
+import { ProjectForm } from '../components/ProjectForm'
+import { ProjectFormProvider } from '../components/ProjectForm/Context'
 
 export const CreateProjectPage = () => {
   return (
