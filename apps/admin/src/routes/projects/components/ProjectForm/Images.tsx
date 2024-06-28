@@ -1,19 +1,19 @@
 import { type ChangeEvent, useContext, useEffect, useState } from 'react'
 import { IconCross, Button } from 'ui-react'
-import { AuthContext } from '@/providers/auth-provider'
 import { fileService } from '@/services/file.service'
 
 import type { Project } from '@/models/project.model'
 import type { ProjectDto } from './reducer'
 import { ActionTypes } from './reducer'
 import { ProjectFormContext } from './Context'
+import { useAuth } from '@/hooks/useAuth'
 type ImageProps = {
   project: Partial<Project> | null
   show: boolean
 }
 
 export const Images = ({ show, project }: ImageProps) => {
-  const { token } = useContext(AuthContext)
+  const { token } = useAuth()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [images, setImages] = useState<ProjectDto['images']>(() => {
