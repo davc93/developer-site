@@ -3,7 +3,7 @@ export const JobsList = [
     jobTitle: 'Fullstack Developer',
     organization: 'Flow S.A',
     logoUrl:
-      'https://media.licdn.com/dms/image/D4E0BAQFU3jYG-KbbPA/company-logo_200_200/0/1704822082038/flow_sa_logo?e=1719446400&v=beta&t=KdJgey9QeBzCkigHz8dmbcJdVNztDL2D2Vx5qxrf2_Y',
+      'https://www.flow.cl/img/android-icon-192x192.png',
     from: 'march. 2023',
     to: 'present',
     description:

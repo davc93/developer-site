@@ -2,7 +2,7 @@ import './globals.css'
 import 'ui-styles/src/variables.css'
 import 'ui-styles/src/base.css'
 import 'ui-styles/src/animations.css'
-
+import 'ui-styles/src/markdown.css'
 import 'ui-styles/src/icon.css'
 import 'ui-styles/src/section-container.css'
 

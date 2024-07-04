@@ -1,31 +1,38 @@
 .markdown {
+  font-family: var(--font-paragraph);
+
   h1 {
     font-size: var(--title-medium);
     font-family: var(--font-titles);
     color: white;
-    margin-bottom: 1.5rem;
+    margin-block: 1.75rem;
   }
   h2 {
     font-family: var(--font-titles);
     font-size: var(--title-small);
     color: white;
-    margin-bottom: 1.25rem;
-
-}
+    margin-block: 1.75rem;
+  }
   h3 {
     font-family: var(--font-titles);
     font-size: var(--body-large);
     color: white;
     font-weight: bolder;
-    margin-bottom: 1.25rem;
+    margin-block: 1.75rem;
+  }
+  li {
+    color: white;
+    list-style: inside;
+    margin-block: 1rem;
 
-}
-  p{
-    font-family: var(--font-paragraph);
+  }
+  p {
     font-size: var(--body-large);
     color: white;
-    margin-bottom: 1.25rem;
-    
+    margin-block: 1rem;
+  }
+  img{
+    max-height: 70svh;
   }
 }
 [data-theme='light'] .markdown {
@@ -38,7 +45,7 @@
   h3 {
     color: black;
   }
-  p{
+  p {
     color: black;
   }
 }
