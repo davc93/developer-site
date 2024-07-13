@@ -15,11 +15,9 @@
     "migrations:revert": "sequelize-cli db:migrate:undo",
     "migrations:delete": "sequelize-cli db:migrate:undo:all",
     "seed:generate": "sequelize-cli seed:generate --name",
-    "seed":"sequelize-cli db:seed --seed",
-    "seed:undo":"sequelize-cli db:seed:undo",
-    "seed:undo:all":"sequelize-cli db:seed:undo:all",
-
-
+    "seed": "sequelize-cli db:seed --seed",
+    "seed:undo": "sequelize-cli db:seed:undo",
+    "seed:undo:all": "sequelize-cli db:seed:undo:all",
     "backup:all": "node ./scripts/backup.js",
     "backup:schemas": "node ./scripts/backup-schemas.js",
     "restore": "node ./scripts/restore.js"

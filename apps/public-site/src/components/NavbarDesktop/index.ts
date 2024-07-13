@@ -117,14 +117,14 @@ export const createNavbarDesktop = () => {
   const githubLi = document.createElement("li")
   const githubLink = createLink({
     href: "https://github.com/davc93",
-    children: IconGithub({ width: "36px" })
+    children: IconGithub({ width: "36px",className:'navbar-desktop__icon' })
   })
   githubLi.append(githubLink)
 
   const linkedinLi = document.createElement("li")
   const linkedinLink = createLink({
     href: "https://www.linkedin.com/in/diego-vergara-casanova/",
-    children: IconLinkedin({ width: "36px" })
+    children: IconLinkedin({ width: "36px",className:'navbar-desktop__icon' })
   })
   linkedinLi.append(linkedinLink)
 

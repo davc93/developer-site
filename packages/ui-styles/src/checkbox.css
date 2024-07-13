@@ -1,13 +1,11 @@
-.checkbox{
-    display: flex;
-    gap: 10px;
-
-
+.checkbox {
+  display: flex;
+  gap: 10px;
 }
-.checkbox__label{
-    color: var(--foreground--100);
+.checkbox__label {
+  font-family: var(--font-paragraph);
+  color: var(--foreground--100);
 }
-[data-theme="light"] .checkbox__label{
-    color: var(--foreground--900);
-
+[data-theme='light'] .checkbox__label {
+  color: var(--foreground--900);
 }

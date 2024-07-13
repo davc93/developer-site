@@ -14,6 +14,16 @@
   transition-duration: 0.7s;
   transition-timing-function: ease-out;
 }
+.navbar-desktop__icon{
+  fill: var(--primary--500);
+  stroke: var(--primary--500);
+  transition-property: filter;
+  transition-duration: .7s;
+
+  &:hover{
+    filter: drop-shadow(var(--shadow-sm)) ;
+  }
+}
 
 @media (min-width: 768px) {
   .navbar-desktop {

@@ -11,7 +11,7 @@
     "lint:fix": "eslint --fix ./src/**/*.ts ",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "format":"npx prettier --write src"
+    "format": "npx prettier --write src"
   },
   "devDependencies": {
     "@vercel/node": "^3.0.11",
