@@ -91,15 +91,16 @@
   
     > div {
       padding-block: 36px;
-      padding-inline: 36px;
       /* background-color: var(--primary--950); */
       display: flex;
       flex-direction: column;
+      align-items: center;
       width: 100%;
       gap: 24px; 
       @media ( 1024px < width){
         justify-content: space-around;
         flex-direction: row-reverse;
+        align-items: stretch;
       }
 
 

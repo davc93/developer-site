@@ -1,7 +1,6 @@
 .portfolio-detail-page {
   display: flex;
-  /* background: linear-gradient(-225deg,var(--surface--950) 25%,var(--primary--900)); */
-
+  background: linear-gradient(to bottom right, #050505ff 0%, #00191aff 100%);background-blend-mode: difference;
   justify-content: center;
   min-height: 100svh;
 
