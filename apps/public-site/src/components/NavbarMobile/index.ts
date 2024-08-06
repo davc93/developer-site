@@ -114,7 +114,7 @@ export const createNavbarMobile = () => {
 
   const github = createLink({
     href: "https://github.com/davc93",
-    children: IconGithub({ width: "36px" })
+    children: IconGithub({ width: "36px",className:'navbar__mobile-icon' })
   })
   const linkedin = createLink({
     href: "https://www.linkedin.com/in/diego-vergara-casanova/",

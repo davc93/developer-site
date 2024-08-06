@@ -12,7 +12,16 @@
     display: none;
   }
 }
+.navbar__mobile-icon{
+  fill: var(--primary--500);
+  stroke: var(--primary--500);
+  transition-property: filter;
+  transition-duration: .7s;
 
+  &:hover{
+    filter: drop-shadow(var(--shadow-sm)) ;
+  }
+}
 .navbar-mobile__menu--open {
   display: flex !important;
   animation-name: navbar-mobile-menu;

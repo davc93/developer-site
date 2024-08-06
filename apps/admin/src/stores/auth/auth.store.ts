@@ -32,11 +32,6 @@ const storeApi: StateCreator<AuthState> = (set, get) => {
       try {
         const { token } = await authService.login(email, password)
         set({
-          user: {
-            id: '',
-            email: '',
-            role: ''
-          },
           token,
           status: AuthStatus.AUTHORIZED
         })
